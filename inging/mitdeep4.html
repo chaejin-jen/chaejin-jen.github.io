@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chaejin&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/inging/%EC%88%98%ED%95%99%EB%AA%A9%EC%B0%A8.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-05T04:51:06.821Z">
+<meta property="article:modified_time" content="2021-03-04T07:51:44.000Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(6)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->Bagic3">
+                                        
+                                        Bagic3
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBagic">
+                                                        
+                                                        Bagic
+                                                        
+                                                            <small>(2)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="6">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-05 14:29:56">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-05 14:29:39">2021/03/05</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/05/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-05 14:09:40">2021/03/05</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/05/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-05 13:58:20">2021/03/05</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/05/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-05 13:48:11">2021/03/05</span>
+        </a>
+        
+        <a  class="All DeepLearning Bagic3 "
+           href="/2021/03/05/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework"
+           data-author="" >
+            <span class="post-title" title="밑바닥 부터 시작하는 딥러닝 3 (1탄!)">밑바닥 부터 시작하는 딥러닝 3 (1탄!)</span>
+            <span class="post-date" title="2021-03-05 13:48:11">2021/03/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-03-05 14:56:08'>2021-03-05 17:37</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%A0%9C4%EA%B3%A0%EC%A7%80-%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-text">제4고지 신경망 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#37-Step-%ED%85%90%EC%84%9C%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8B%A4"><span class="toc-text">37 [Step ] 텐서를 다루다</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-Step-%ED%98%95%EC%83%81-%EB%B3%80%ED%99%98-%ED%95%A8%EC%88%98"><span class="toc-text">38 [Step ] 형상 변환 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-Step-%ED%95%A9%EA%B3%84-%ED%95%A8%EC%88%98"><span class="toc-text">39 [Step ] 합계 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-Step-%EB%B8%8C%EB%A1%9C%EB%93%9C%EC%BA%90%EC%8A%A4%ED%8A%B8-%ED%95%A8%EC%88%98"><span class="toc-text">40 [Step ] 브로드캐스트 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-Step-%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1"><span class="toc-text">41 [Step ] 행렬의 곱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-Step-%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80"><span class="toc-text">42 [Step ] 선형 회귀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#43-Step-%EC%8B%A0%EA%B2%BD%EB%A7%9D"><span class="toc-text">43 [Step ] 신경망</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-Step-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EB%A5%BC-%EB%AA%A8%EC%95%84%EB%91%90%EB%8A%94-%EA%B3%84%EC%B8%B5"><span class="toc-text">44 [Step ] 매개변수를 모아두는 계층</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-Step-%EA%B3%84%EC%B8%B5%EC%9D%84-%EB%AA%A8%EC%95%84%EB%91%90%EB%8A%94-%EA%B3%84%EC%B8%B5"><span class="toc-text">45 [Step ] 계층을 모아두는 계층</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#46-Step-Optimizer%EB%A1%9C-%EC%88%98%ED%96%89%ED%95%98%EB%8A%94-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98-%EA%B0%B1%EC%8B%A0"><span class="toc-text">46 [Step ] Optimizer로 수행하는 매개변수 갱신</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#47-Step-%EC%86%8C%ED%94%84%ED%8A%B8%EB%A7%A5%EC%8A%A4-%ED%95%A8%EC%88%98%EC%99%80-%EA%B5%90%EC%B0%A8-%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC-%EC%98%A4%EC%B0%A8"><span class="toc-text">47 [Step ] 소프트맥스 함수와 교차 엔트로피 오차</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B6%80%EB%A1%9D-B-get-item-%ED%95%A8%EC%88%98-%EA%B5%AC%ED%98%84-47-Step-%EB%B3%B4%EC%B6%A9"><span class="toc-text">부록 B get_item 함수 구현(47 [Step ] 보충)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#48-Step-%EB%8B%A4%EC%A4%91-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%B6%84%EB%A5%98"><span class="toc-text">48 [Step ] 다중 클래스 분류</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#49-Step-Dataset-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EC%A0%84%EC%B2%98%EB%A6%AC"><span class="toc-text">49 [Step ] Dataset 클래스와 전처리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#50-Step-%EB%AF%B8%EB%8B%88%EB%B0%B0%EC%B9%98%EB%A5%BC-%EB%BD%91%EC%95%84%EC%A3%BC%EB%8A%94-DataLoader"><span class="toc-text">50 [Step ] 미니배치를 뽑아주는 DataLoader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#51-Step-MNIST-%ED%95%99%EC%8A%B5"><span class="toc-text">51 [Step ] MNIST 학습</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="제4고지-신경망-만들기"><a href="#제4고지-신경망-만들기" class="headerlink" title="제4고지 신경망 만들기"></a>제4고지 신경망 만들기</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">```python</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```python</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">```python</span><br></pre></td></tr></table></figure>
+<h2 id="37-Step-텐서를-다루다"><a href="#37-Step-텐서를-다루다" class="headerlink" title="37 [Step ] 텐서를 다루다"></a>37 [Step ] 텐서를 다루다</h2><h2 id="38-Step-형상-변환-함수"><a href="#38-Step-형상-변환-함수" class="headerlink" title="38 [Step ] 형상 변환 함수"></a>38 [Step ] 형상 변환 함수</h2><h2 id="39-Step-합계-함수"><a href="#39-Step-합계-함수" class="headerlink" title="39 [Step ] 합계 함수"></a>39 [Step ] 합계 함수</h2><h2 id="40-Step-브로드캐스트-함수"><a href="#40-Step-브로드캐스트-함수" class="headerlink" title="40 [Step ] 브로드캐스트 함수"></a>40 [Step ] 브로드캐스트 함수</h2><h2 id="41-Step-행렬의-곱"><a href="#41-Step-행렬의-곱" class="headerlink" title="41 [Step ] 행렬의 곱"></a>41 [Step ] 행렬의 곱</h2><h2 id="42-Step-선형-회귀"><a href="#42-Step-선형-회귀" class="headerlink" title="42 [Step ] 선형 회귀"></a>42 [Step ] 선형 회귀</h2><h2 id="43-Step-신경망"><a href="#43-Step-신경망" class="headerlink" title="43 [Step ] 신경망"></a>43 [Step ] 신경망</h2><h2 id="44-Step-매개변수를-모아두는-계층"><a href="#44-Step-매개변수를-모아두는-계층" class="headerlink" title="44 [Step ] 매개변수를 모아두는 계층"></a>44 [Step ] 매개변수를 모아두는 계층</h2><h2 id="45-Step-계층을-모아두는-계층"><a href="#45-Step-계층을-모아두는-계층" class="headerlink" title="45 [Step ] 계층을 모아두는 계층"></a>45 [Step ] 계층을 모아두는 계층</h2><h2 id="46-Step-Optimizer로-수행하는-매개변수-갱신"><a href="#46-Step-Optimizer로-수행하는-매개변수-갱신" class="headerlink" title="46 [Step ] Optimizer로 수행하는 매개변수 갱신"></a>46 [Step ] Optimizer로 수행하는 매개변수 갱신</h2><h2 id="47-Step-소프트맥스-함수와-교차-엔트로피-오차"><a href="#47-Step-소프트맥스-함수와-교차-엔트로피-오차" class="headerlink" title="47 [Step ] 소프트맥스 함수와 교차 엔트로피 오차"></a>47 [Step ] 소프트맥스 함수와 교차 엔트로피 오차</h2><h3 id="부록-B-get-item-함수-구현-47-Step-보충"><a href="#부록-B-get-item-함수-구현-47-Step-보충" class="headerlink" title="부록 B get_item 함수 구현(47 [Step ] 보충)"></a>부록 B get_item 함수 구현(47 [Step ] 보충)</h3><h2 id="48-Step-다중-클래스-분류"><a href="#48-Step-다중-클래스-분류" class="headerlink" title="48 [Step ] 다중 클래스 분류"></a>48 [Step ] 다중 클래스 분류</h2><h2 id="49-Step-Dataset-클래스와-전처리"><a href="#49-Step-Dataset-클래스와-전처리" class="headerlink" title="49 [Step ] Dataset 클래스와 전처리"></a>49 [Step ] Dataset 클래스와 전처리</h2><h2 id="50-Step-미니배치를-뽑아주는-DataLoader"><a href="#50-Step-미니배치를-뽑아주는-DataLoader" class="headerlink" title="50 [Step ] 미니배치를 뽑아주는 DataLoader"></a>50 [Step ] 미니배치를 뽑아주는 DataLoader</h2><h2 id="51-Step-MNIST-학습"><a href="#51-Step-MNIST-학습" class="headerlink" title="51 [Step ] MNIST 학습"></a>51 [Step ] MNIST 학습</h2>
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
