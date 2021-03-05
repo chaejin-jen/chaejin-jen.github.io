@@ -437,7 +437,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-03-05 14:19:51'>2021-03-05 13:48</time>
+            Created At : <time class="date" title='Updated At: 2021-03-05 18:16:09'>2021-03-05 13:48</time>
         
     </div>
     <div class="article-meta">
@@ -644,9 +644,23 @@
 </li>
 <li>반복문 안에서, if swap == 0 이면, break 끝</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubblesort</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">for</span> turn <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data) - <span class="number">1</span>):</span><br><span class="line">        swap = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">for</span> index2 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data) - turn - <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> data[index2] &gt; data[index2 + <span class="number">1</span>]:</span><br><span class="line">                data[index2], data[index2 + <span class="number">1</span>] = data[index2 + <span class="number">1</span>], data[index2]</span><br><span class="line">                swap = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> swap == <span class="literal">False</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def bubblesort(data):
+    for turn in range(len(data) - 1):
+        swap = False
+        for index2 in range(len(data) - turn - 1):
+            if data[index2] &gt; data[index2 + 1]:
+                data[index2], data[index2 + 1] = data[index2 + 1], data[index2]
+                swap = True
+        
+        if swap == False:
+            break
+    return data
+</code></pre>
+<pre><code class="python">import random
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">50</span>)</span><br><span class="line"><span class="built_in">print</span> (bubblesort(data_list))</span><br></pre></td></tr></table></figure>
+data_list = random.sample(range(100), 50)
+print (bubblesort(data_list))
+</code></pre>
 <h2 id="5-알고리즘-분석"><a href="#5-알고리즘-분석" class="headerlink" title="5. 알고리즘 분석"></a>5. 알고리즘 분석</h2><ul>
 <li>반복문이 두 개 O($n^2$)<ul>
 <li>최악의 경우, <font size=5em>$\frac { n * (n - 1)}{ 2 }$</font></li>
@@ -748,11 +762,21 @@
 </li>
 <li>data_list[num], data_list[lowest] = data_list[lowest], data_list[num]   </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">for</span> stand <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data) - <span class="number">1</span>):</span><br><span class="line">        lowest = stand</span><br><span class="line">        <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(stand + <span class="number">1</span>, <span class="built_in">len</span>(data)):</span><br><span class="line">            <span class="keyword">if</span> data[lowest] &gt; data[index]:</span><br><span class="line">                lowest = index</span><br><span class="line">        data[lowest], data[stand] = data[stand], data[lowest]</span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def selection_sort(data):
+    for stand in range(len(data) - 1):
+        lowest = stand
+        for index in range(stand + 1, len(data)):
+            if data[lowest] &gt; data[index]:
+                lowest = index
+        data[lowest], data[stand] = data[stand], data[lowest]
+    return data
+</code></pre>
+<pre><code class="python">import random
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selection_sort(data_list)</span><br></pre></td></tr></table></figure>
+data_list = random.sample(range(100), 10)
+</code></pre>
+<pre><code class="python">selection_sort(data_list)
+</code></pre>
 <p>   [9, 12, 13, 24, 53, 55, 69, 80, 87, 98]</p>
 <h2 id="4-알고리즘-분석"><a href="#4-알고리즘-분석" class="headerlink" title="4. 알고리즘 분석"></a>4. 알고리즘 분석</h2><ul>
 <li>반복문이 두 개 O($n^2$)<ul>
@@ -771,7 +795,9 @@
 <blockquote>
 <p>출처: <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Insertion-sort-example.gif">https://commons.wikimedia.org/wiki/File:Insertion-sort-example.gif</a></p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>, <span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span> (index)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">for index in range(10, 1, -1):
+    print (index)
+</code></pre>
 <pre><code>10
 9
 8
@@ -856,9 +882,20 @@
 <p>5 4 3 2 1</p>
 </blockquote>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insertion_sort</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">for</span> turn <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> index2 <span class="keyword">in</span> <span class="built_in">range</span>(turn + <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> data[index2] &lt; data[index2 - <span class="number">1</span>]:</span><br><span class="line">                data[index2], data[index2 - <span class="number">1</span>] = data[index2 - <span class="number">1</span>], data[index2]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def insertion_sort(data):
+    for turn in range(len(data) - 1):
+        for index2 in range(turn + 1, 0, -1):
+            if data[index2] &lt; data[index2 - 1]:
+                data[index2], data[index2 - 1] = data[index2 - 1], data[index2]
+            else:
+                break
+    return data
+</code></pre>
+<pre><code class="python">import random
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">50</span>)</span><br><span class="line"><span class="built_in">print</span> (insertion_sort(data_list))</span><br></pre></td></tr></table></figure>
+data_list = random.sample(range(100), 50)
+print (insertion_sort(data_list))
+</code></pre>
 <pre><code>[1, 2, 3, 5, 8, 9, 10, 11, 14, 16, 17, 20, 22, 23, 32, 33, 34, 36, 40, 43, 46, 47, 49, 50, 51, 53, 56, 57, 60, 61, 62, 64, 65, 67, 68, 71, 72, 74, 75, 81, 82, 83, 85, 86, 89, 90, 91, 93, 96, 99]
 </code></pre>
 <h2 id="4-알고리즘-분석-1"><a href="#4-알고리즘-분석-1" class="headerlink" title="4. 알고리즘 분석"></a>4. 알고리즘 분석</h2><ul>
@@ -928,9 +965,15 @@
 </ul>
 </li>
 </ul>
-<h4 id="코드-레벨로-적어보기"><a href="#코드-레벨로-적어보기" class="headerlink" title="코드 레벨로 적어보기"></a>코드 레벨로 적어보기</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span>(<span class="params">num</span>):</span></span><br><span class="line">    <span class="keyword">if</span> num &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> num * factorial(num - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> num</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span> (factorial(num))</span><br></pre></td></tr></table></figure>
+<h4 id="코드-레벨로-적어보기"><a href="#코드-레벨로-적어보기" class="headerlink" title="코드 레벨로 적어보기"></a>코드 레벨로 적어보기</h4><pre><code class="python">def factorial(num):
+    if num &gt; 1:
+        return num * factorial(num - 1)
+    else:
+        return num
+</code></pre>
+<pre><code class="python">for num in range(10):
+    print (factorial(num))
+</code></pre>
 <pre><code>0
 1
 2
@@ -952,13 +995,29 @@
 <li><p>시간 복잡도/공간 복잡도는 O(n-1) 이므로 결국, 둘 다 O(n)</p>
 </li>
 </ul>
-<h2 id="3-재귀-호출의-일반적인-형태"><a href="#3-재귀-호출의-일반적인-형태" class="headerlink" title="3. 재귀 호출의 일반적인 형태"></a>3. 재귀 호출의 일반적인 형태</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 일반적인 형태1</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span>(<span class="params">입력</span>):</span></span><br><span class="line">    <span class="keyword">if</span> 입력 &gt; 일정값:                           <span class="comment"># 입력이 일정 값 이상이면</span></span><br><span class="line">        <span class="keyword">return</span> function(입력 - <span class="number">1</span>)               <span class="comment"># 입력보다 작은 값</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> 일정값, 입력값, 또는 특정값       <span class="comment"># 재귀 호출 종료</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 일반적인 형태2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">function</span>(<span class="params">입력</span>):</span></span><br><span class="line">    <span class="keyword">if</span> 입력 &lt;= 일정값:                          <span class="comment"># 입력이 일정 값보다 작으면</span></span><br><span class="line">        <span class="keyword">return</span> 일정값, 입력값, 또는 특정값       <span class="comment"># 재귀 호출 종료</span></span><br><span class="line">    function(입력보다 작은 값)</span><br><span class="line">    <span class="keyword">return</span> 결과값</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">factorial</span>(<span class="params">num</span>):</span></span><br><span class="line">    <span class="keyword">if</span> num &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> num * factorial(num - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span> (factorial(num))</span><br></pre></td></tr></table></figure>
+<h2 id="3-재귀-호출의-일반적인-형태"><a href="#3-재귀-호출의-일반적인-형태" class="headerlink" title="3. 재귀 호출의 일반적인 형태"></a>3. 재귀 호출의 일반적인 형태</h2><pre><code class="python"># 일반적인 형태1
+def function(입력):
+    if 입력 &gt; 일정값:                           # 입력이 일정 값 이상이면
+        return function(입력 - 1)               # 입력보다 작은 값
+    else:
+        return 일정값, 입력값, 또는 특정값       # 재귀 호출 종료
+</code></pre>
+<pre><code class="python"># 일반적인 형태2
+def function(입력):
+    if 입력 &lt;= 일정값:                          # 입력이 일정 값보다 작으면
+        return 일정값, 입력값, 또는 특정값       # 재귀 호출 종료
+    function(입력보다 작은 값)
+    return 결과값
+</code></pre>
+<pre><code class="python">def factorial(num):
+    if num &lt;= 1:
+        return num
+    
+    return num * factorial(num - 1)
+</code></pre>
+<pre><code class="python">for num in range(10):
+    print (factorial(num))
+</code></pre>
 <pre><code>0
 1
 2
@@ -996,11 +1055,19 @@ multiple(10)
 </div>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiple</span>(<span class="params">num</span>):</span></span><br><span class="line">    return_value = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, num + <span class="number">1</span>):</span><br><span class="line">        return_value = return_value * index</span><br><span class="line">    <span class="keyword">return</span> return_value</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">multiple</span>(<span class="params">num</span>):</span></span><br><span class="line">    <span class="keyword">if</span> num &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line">    <span class="keyword">return</span> num * multiple(num - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">multiple(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def multiple(num):
+    return_value = 1
+    for index in range(1, num + 1):
+        return_value = return_value * index
+    return return_value
+</code></pre>
+<pre><code class="python">def multiple(num):
+    if num &lt;= 1:
+        return num
+    return num * multiple(num - 1)
+</code></pre>
+<pre><code class="python">multiple(10)
+</code></pre>
 <p>3628800</p>
 <h3 id="리스트합"><a href="#리스트합" class="headerlink" title="리스트합"></a>리스트합</h3><div class="alert alert-block alert-warning">
 <strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
@@ -1013,7 +1080,10 @@ data = random.sample(range(100), 10)
 </pre>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random </span><br><span class="line">data = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">10</span>)</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import random 
+data = random.sample(range(100), 10)
+data
+</code></pre>
 <p>[72, 50, 8, 38, 77, 32, 90, 48, 74, 79]</p>
 <div class="alert alert-block alert-warning">
 <strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
@@ -1026,9 +1096,13 @@ def sum_list(data):
     
 
 <p>import random<br>data = random.sample(range(100), 10)<br>print (sum_list(data))<br></pre></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_list</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> data[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> data[<span class="number">0</span>] + sum_list(data[<span class="number">1</span>:])</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum_list(data)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def sum_list(data):
+    if len(data) &lt;= 1:
+        return data[0]
+    return data[0] + sum_list(data[1:])
+</code></pre>
+<pre><code class="python">sum_list(data)
+</code></pre>
 <p>568</p>
 <h3 id="회문판단문제"><a href="#회문판단문제" class="headerlink" title="회문판단문제"></a>회문판단문제</h3><div class="alert alert-block alert-warning">
 <strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
@@ -1052,7 +1126,15 @@ string[:-1] --> Dav
 </div>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">palindrome</span>(<span class="params">string</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(strung) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> string[<span class="number">0</span>] == string[-<span class="number">1</span>]:</span><br><span class="line">        <span class="keyword">return</span> palindrome(string[<span class="number">1</span>:-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python">def palindrome(string):
+    if len(strung) &lt;= 1:
+        return True
+    
+    if string[0] == string[-1]:
+        return palindrome(string[1:-1])
+    else:
+        return False
+</code></pre>
 <h3 id="재귀용법-문제"><a href="#재귀용법-문제" class="headerlink" title="재귀용법 문제"></a>재귀용법 문제</h3><div class="alert alert-block alert-warning">
 <strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
 1, 정수 n에 대해<br>
@@ -1074,8 +1156,20 @@ string[:-1] --> Dav
 이 됩니다.
 
 <p>이렇게 정수 n을 입력받아, 위 알고리즘에 의해 1이 되는 과정을 모두 출력하는 함수를 작성하세요.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_one</span>(<span class="params">n</span>):</span></span><br><span class="line">    print(n)</span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> n%<span class="number">2</span>!=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> make_one(<span class="number">3</span>*n+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> make_one(<span class="built_in">int</span>(n/<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">make_one(<span class="number">3</span>)        </span><br></pre></td></tr></table></figure>
+<pre><code class="python">
+def make_one(n):
+    print(n)
+    if n==1:
+        return
+    else:
+        if n%2!=0:
+            return make_one(3*n+1)
+        else:
+            return make_one(int(n/2))
 
+
+make_one(3)        
+</code></pre>
 <pre><code>3
 10
 5
@@ -1105,16 +1199,22 @@ string[:-1] --> Dav
 <h3 id="문제-분석을-연습장에-작성해-본-예"><a href="#문제-분석을-연습장에-작성해-본-예" class="headerlink" title="문제 분석을 연습장에 작성해 본 예"></a>문제 분석을 연습장에 작성해 본 예</h3><img src="https://www.fun-coding.org/00_Images/algopractice.jpg" />
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> data == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> data == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> data == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">4</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> func(data -<span class="number">1</span>) + func(data - <span class="number">2</span>) + func(data - <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">def func(data):
+    if data == 1:
+        return 1
+    elif data == 2:
+        return 2
+    elif data == 3:
+        return 4
+    
+    return func(data -1) + func(data - 2) + func(data - 3)
+</code></pre>
+<pre><code class="python">func(5)
+</code></pre>
 <pre><code>13
 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">
+</code></pre>
 <h1 id="동적-계획법과-분할-정복"><a href="#동적-계획법과-분할-정복" class="headerlink" title="동적 계획법과 분할 정복"></a>동적 계획법과 분할 정복</h1><p>Dynamic Programming &amp; Divide and Conquer</p>
 <h2 id="1-정의"><a href="#1-정의" class="headerlink" title="1. 정의"></a>1. 정의</h2><ul>
 <li>동적계획법 (Dynamic Programming, DP)<ul>
@@ -1187,14 +1287,26 @@ fibonacci(9):34
 
 <img src="https://www.fun-coding.org/00_Images/dp.png" />
 
-<h3 id="recursive-call-활용"><a href="#recursive-call-활용" class="headerlink" title="recursive call 활용"></a>recursive call 활용</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibo</span>(<span class="params">num</span>):</span></span><br><span class="line">    <span class="keyword">if</span> num &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> num</span><br><span class="line">    <span class="keyword">return</span> fibo(num - <span class="number">1</span>) + fibo(num - <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibo(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="recursive-call-활용"><a href="#recursive-call-활용" class="headerlink" title="recursive call 활용"></a>recursive call 활용</h3><pre><code class="python">def fibo(num):
+    if num &lt;= 1:
+        return num
+    return fibo(num - 1) + fibo(num - 2)
+</code></pre>
+<pre><code class="python">fibo(4)
+</code></pre>
 <p>3</p>
 <h3 id="동적-계획법-활용-Mamorization"><a href="#동적-계획법-활용-Mamorization" class="headerlink" title="동적 계획법 활용 (Mamorization)"></a>동적 계획법 활용 (Mamorization)</h3><p>숫자가 커질 수록 속도가 재귀함수보다 빠름  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fibo_dp</span>(<span class="params">num</span>):</span></span><br><span class="line">    cache = [ <span class="number">0</span> <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(num + <span class="number">1</span>)]</span><br><span class="line">    cache[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    cache[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, num + <span class="number">1</span>):</span><br><span class="line">        cache[index] = cache[index - <span class="number">1</span>] + cache[index - <span class="number">2</span>]</span><br><span class="line">    <span class="keyword">return</span> cache[num]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fibo(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def fibo_dp(num):
+    cache = [ 0 for index in range(num + 1)]
+    cache[0] = 0
+    cache[1] = 1
+    
+    for index in range(2, num + 1):
+        cache[index] = cache[index - 1] + cache[index - 2]
+    return cache[num]
+</code></pre>
+<pre><code class="python">fibo(10)
+</code></pre>
 <p>55</p>
 <h2 id="실행-코드를-보며-이해해보기-코드분석"><a href="#실행-코드를-보며-이해해보기-코드분석" class="headerlink" title="실행 코드를 보며 이해해보기: 코드분석"></a>실행 코드를 보며 이해해보기: <a target="_blank" rel="noopener" href="http://www.pythontutor.com/live.html#code=def%20fibo_dp%28num%29%3A%0A%20%20%20%20cache%20%3D%20%20%5B%200%20for%20index%20in%20range%28num%20%2B%201%29%20%5D%0A%20%20%20%20cache%5B0%5D%20%3D%200%0A%20%20%20%20cache%5B1%5D%20%3D%201%0A%20%20%20%20%0A%20%20%20%20for%20index%20in%20range%282,%20num%20%2B%201%29%3A%0A%20%20%20%20%20%20%20%20cache%5Bindex%5D%20%3D%20cache%5Bindex%20-%201%5D%20%2B%20cache%5Bindex%20-%202%5D%0A%20%20%20%20return%20cache%5Bnum%5D%0A%0Aprint%28fibo_dp%2810%29%29&cumulative=false&curInstr=41&heapPrimitives=nevernest&mode=display&origin=opt-live.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">코드분석</a></h2><blockquote>
 <p>분할 정복 알고리즘의 예는 별도 챕터에서 다루는 병합 정렬과 퀵 정렬을 통해 이해</p>
@@ -1280,9 +1392,27 @@ data_list = [4, 3, 2]
 </blockquote>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">qsort</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    </span><br><span class="line">    left, right = <span class="built_in">list</span>(), <span class="built_in">list</span>()</span><br><span class="line">    pivot = data[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(data)):</span><br><span class="line">        <span class="keyword">if</span> pivot &gt; data[index]:</span><br><span class="line">            left.append(data[index])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right.append(data[index])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> qsort(left) + [pivot] + qsort(right)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def qsort(data):
+    if len(data) &lt;= 1:
+        return data
+    
+    left, right = list(), list()
+    pivot = data[0]
+    
+    for index in range(1, len(data)):
+        if pivot &gt; data[index]:
+            left.append(data[index])
+        else:
+            right.append(data[index])
+    
+    return qsort(left) + [pivot] + qsort(right)
+</code></pre>
+<pre><code class="python">import random
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">qsort(data_list)</span><br></pre></td></tr></table></figure>
+data_list = random.sample(range(100), 10)
+
+qsort(data_list)
+</code></pre>
 <p>[2, 20, 35, 39, 49, 51, 57, 74, 82, 94]</p>
 <h3 id="list-comprehension으로-구현"><a href="#list-comprehension으로-구현" class="headerlink" title="list comprehension으로 구현"></a>list comprehension으로 구현</h3><div class="alert alert-block alert-warning">
 <strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
@@ -1290,9 +1420,23 @@ data_list = [4, 3, 2]
 </div>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">qsort</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    </span><br><span class="line">    pivot = data[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    left = [ item <span class="keyword">for</span> item <span class="keyword">in</span> data[<span class="number">1</span>:] <span class="keyword">if</span> pivot &gt; item ]</span><br><span class="line">    right = [ item <span class="keyword">for</span> item <span class="keyword">in</span> data[<span class="number">1</span>:] <span class="keyword">if</span> pivot &lt;= item ]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> qsort(left) + [pivot] + qsort(right)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def qsort(data):
+    if len(data) &lt;= 1:
+        return data
+    
+    pivot = data[0]
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">qsort(data_list)</span><br></pre></td></tr></table></figure>
+    left = [ item for item in data[1:] if pivot &gt; item ]
+    right = [ item for item in data[1:] if pivot &lt;= item ]
+    
+    return qsort(left) + [pivot] + qsort(right)
+</code></pre>
+<pre><code class="python">import random
+
+data_list = random.sample(range(100), 10)
+
+qsort(data_list)
+</code></pre>
 <p>[5, 10, 37, 43, 61, 71, 77, 78, 82, 84]</p>
 <h2 id="4-알고리즘-분석-2"><a href="#4-알고리즘-분석-2" class="headerlink" title="4. 알고리즘 분석"></a>4. 알고리즘 분석</h2><ul>
 <li><font color='#BF360C'>병합정렬과 유사, 시간복잡도는 O(n log n)</font><ul>
@@ -1381,9 +1525,15 @@ data_list = [4, 3, 2]
 </div>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">split_func</span>(<span class="params">data</span>):</span></span><br><span class="line">    medium = <span class="built_in">int</span>(<span class="built_in">len</span>(data) / <span class="number">2</span>)</span><br><span class="line">    <span class="built_in">print</span> (medium)</span><br><span class="line">    left = data[:medium]</span><br><span class="line">    right = data[medium:]</span><br><span class="line">    <span class="built_in">print</span> (left, right)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">split_func([<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="python">def split_func(data):
+    medium = int(len(data) / 2)
+    print (medium)
+    left = data[:medium]
+    right = data[medium:]
+    print (left, right)
+</code></pre>
+<pre><code class="python">split_func([3,4,1,5,2])
+</code></pre>
 <p>2<br>[3, 4] [1, 5, 2]</p>
 <h3 id="재귀용법-활용하기"><a href="#재귀용법-활용하기" class="headerlink" title="재귀용법 활용하기"></a>재귀용법 활용하기</h3><div class="alert alert-block alert-warning">
 <strong><font color="blue" size="4em">프로그래밍 연습</font></strong><br>
@@ -1399,12 +1549,23 @@ data_list = [4, 3, 2]
 </pre>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mergesplit</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    medium = <span class="built_in">int</span>(<span class="built_in">len</span>(data) / <span class="number">2</span>)</span><br><span class="line">    left = mergesplit(data[:medium])</span><br><span class="line">    right = mergesplit(data[medium:])</span><br><span class="line">    <span class="keyword">return</span> left, right <span class="comment">#merge(left, right)</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">left, right = mergesplit([<span class="number">3</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">0</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">52</span>,<span class="number">35</span>,<span class="number">64</span>,<span class="number">23</span>])</span><br><span class="line"><span class="built_in">len</span>(left), <span class="built_in">len</span>(right)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def mergesplit(data):
+    if len(data) &lt;= 1:
+        return data
+    medium = int(len(data) / 2)
+    left = mergesplit(data[:medium])
+    right = mergesplit(data[medium:])
+    return left, right #merge(left, right)
+</code></pre>
+<pre><code class="python">left, right = mergesplit([3,4,1,5,2,8,6,7,0,9,11,52,35,64,23])
+len(left), len(right)
+</code></pre>
 <p>(2, 2)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">left</span><br></pre></td></tr></table></figure>
+<pre><code class="python">left
+</code></pre>
 <p>(([3], ([4], [1])), (([5], [2]), ([8], [6])))<br>[24]</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">right</span><br></pre></td></tr></table></figure>
+<pre><code class="python">right
+</code></pre>
 <p>((([7], [0]), ([9], [11])), (([52], [35]), ([64], [23])))</p>
 <h3 id="merge-함수-만들기"><a href="#merge-함수-만들기" class="headerlink" title="merge 함수 만들기"></a>merge 함수 만들기</h3><ul>
 <li>목표: left 와 right 의 리스트 데이터를 정렬해서 sorted_list 라는 이름으로 return 하기</li>
@@ -1463,10 +1624,70 @@ left, right 리스트 변수의 데이터 수가 한 개에서 여러 개가 될
 </pre>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">left, right</span>):</span></span><br><span class="line">    merged = <span class="built_in">list</span>()</span><br><span class="line">    left_point, right_point = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># case1 - left/right 둘다 있을때</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(left) &gt; left_point <span class="keyword">and</span> <span class="built_in">len</span>(right) &gt; right_point:</span><br><span class="line">        <span class="keyword">if</span> left[left_point] &gt; right[right_point]:</span><br><span class="line">            merged.append(right[right_point])</span><br><span class="line">            right_point += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            merged.append(left[left_point])</span><br><span class="line">            left_point += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># case2 - left 데이터가 없을 때</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(left) &gt; left_point:</span><br><span class="line">        merged.append(left[left_point])</span><br><span class="line">        left_point += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># case3 - right 데이터가 없을 때</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(right) &gt; right_point:</span><br><span class="line">        merged.append(right[right_point])</span><br><span class="line">        right_point += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> merged</span><br></pre></td></tr></table></figure>
-<h3 id="최종-코드"><a href="#최종-코드" class="headerlink" title="최종 코드"></a>최종 코드</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span>(<span class="params">left, right</span>):</span></span><br><span class="line">    merged = <span class="built_in">list</span>()</span><br><span class="line">    left_point, right_point = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># case1 - left/right 둘다 있을때</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(left) &gt; left_point <span class="keyword">and</span> <span class="built_in">len</span>(right) &gt; right_point:</span><br><span class="line">        <span class="keyword">if</span> left[left_point] &gt; right[right_point]:</span><br><span class="line">            merged.append(right[right_point])</span><br><span class="line">            right_point += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            merged.append(left[left_point])</span><br><span class="line">            left_point += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># case2 - left 데이터가 없을 때</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(left) &gt; left_point:</span><br><span class="line">        merged.append(left[left_point])</span><br><span class="line">        left_point += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># case3 - right 데이터가 없을 때</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(right) &gt; right_point:</span><br><span class="line">        merged.append(right[right_point])</span><br><span class="line">        right_point += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> merged</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mergesplit</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    medium = <span class="built_in">int</span>(<span class="built_in">len</span>(data) / <span class="number">2</span>)</span><br><span class="line">    left = mergesplit(data[:medium])</span><br><span class="line">    right = mergesplit(data[medium:])</span><br><span class="line">    <span class="keyword">return</span> merge(left, right)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def merge(left, right):
+    merged = list()
+    left_point, right_point = 0, 0
+    
+    # case1 - left/right 둘다 있을때
+    while len(left) &gt; left_point and len(right) &gt; right_point:
+        if left[left_point] &gt; right[right_point]:
+            merged.append(right[right_point])
+            right_point += 1
+        else:
+            merged.append(left[left_point])
+            left_point += 1
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">10</span>)</span><br><span class="line">mergesplit(data_list)</span><br></pre></td></tr></table></figure>
+    # case2 - left 데이터가 없을 때
+    while len(left) &gt; left_point:
+        merged.append(left[left_point])
+        left_point += 1
+        
+    # case3 - right 데이터가 없을 때
+    while len(right) &gt; right_point:
+        merged.append(right[right_point])
+        right_point += 1
+    
+    return merged
+</code></pre>
+<h3 id="최종-코드"><a href="#최종-코드" class="headerlink" title="최종 코드"></a>최종 코드</h3><pre><code class="python">def merge(left, right):
+    merged = list()
+    left_point, right_point = 0, 0
+    
+    # case1 - left/right 둘다 있을때
+    while len(left) &gt; left_point and len(right) &gt; right_point:
+        if left[left_point] &gt; right[right_point]:
+            merged.append(right[right_point])
+            right_point += 1
+        else:
+            merged.append(left[left_point])
+            left_point += 1
+
+    # case2 - left 데이터가 없을 때
+    while len(left) &gt; left_point:
+        merged.append(left[left_point])
+        left_point += 1
+        
+    # case3 - right 데이터가 없을 때
+    while len(right) &gt; right_point:
+        merged.append(right[right_point])
+        right_point += 1
+    
+    return merged
+
+
+def mergesplit(data):
+    if len(data) &lt;= 1:
+        return data
+    medium = int(len(data) / 2)
+    left = mergesplit(data[:medium])
+    right = mergesplit(data[medium:])
+    return merge(left, right)
+</code></pre>
+<pre><code class="python">import random
+
+data_list = random.sample(range(100), 10)
+mergesplit(data_list)
+</code></pre>
 <p>[8, 12, 24, 40, 47, 70, 81, 87, 92, 96]</p>
 <h2 id="4-알고리즘-분석-3"><a href="#4-알고리즘-분석-3" class="headerlink" title="4. 알고리즘 분석"></a>4. 알고리즘 분석</h2><ul>
 <li>알고리즘 분석은 쉽지 않음, <font color='#BF360C'>이 부분은 참고로만 알아두자.</font><ul>
@@ -1515,13 +1736,23 @@ for num in range(10):
 </pre>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">rand_data_list = <span class="built_in">list</span>()</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    rand_data_list.append(randint(<span class="number">1</span>, <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from random import *
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rand_data_list</span><br></pre></td></tr></table></figure>
+rand_data_list = list()
+for num in range(10):
+    rand_data_list.append(randint(1, 100))
+</code></pre>
+<pre><code class="python">rand_data_list
+</code></pre>
 <p>[71, 63, 75, 33, 6, 37, 81, 79, 3, 29]</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sequencial</span>(<span class="params">data_list, search_data</span>):</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data_list)):</span><br><span class="line">        <span class="keyword">if</span> data_list[index] == search_data:</span><br><span class="line">            <span class="keyword">return</span> index</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequencial(rand_data_list, <span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def sequencial(data_list, search_data):
+    for index in range(len(data_list)):
+        if data_list[index] == search_data:
+            return index
+    return -1
+</code></pre>
+<pre><code class="python">sequencial(rand_data_list, 4)
+</code></pre>
 <p>-1</p>
 <h2 id="2-알고리즘-분석"><a href="#2-알고리즘-분석" class="headerlink" title="2. 알고리즘 분석"></a>2. 알고리즘 분석</h2><ul>
 <li>최악의 경우 리스트 길이가 n일 때, n번 비교해야 함<ul>
@@ -1578,23 +1809,38 @@ for num in range(10):
 </ul>
 </li>
 </ul>
-<h2 id="4-알고리즘-구현-1"><a href="#4-알고리즘-구현-1" class="headerlink" title="4. 알고리즘 구현"></a>4. 알고리즘 구현</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span>(<span class="params">data, search</span>):</span></span><br><span class="line">    <span class="built_in">print</span> (data)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">1</span> <span class="keyword">and</span> search == data[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">1</span> <span class="keyword">and</span> search != data[<span class="number">0</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    medium = <span class="built_in">len</span>(data) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> search == data[medium]:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> search &gt; data[medium]:</span><br><span class="line">            <span class="keyword">return</span> binary_search(data[medium+<span class="number">1</span>:], search)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> binary_search(data[:medium], search)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">10</span>)</span><br><span class="line">data_list</span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="4-알고리즘-구현-1"><a href="#4-알고리즘-구현-1" class="headerlink" title="4. 알고리즘 구현"></a>4. 알고리즘 구현</h2><pre><code class="python">def binary_search(data, search):
+    print (data)
+    if len(data) == 1 and search == data[0]:
+        return True
+    if len(data) == 1 and search != data[0]:
+        return False
+    if len(data) == 0:
+        return False
+    
+    medium = len(data) // 2
+    if search == data[medium]:
+        return True
+    else:
+        if search &gt; data[medium]:
+            return binary_search(data[medium+1:], search)
+        else:
+            return binary_search(data[:medium], search)
+</code></pre>
+<pre><code class="python">import random
+data_list = random.sample(range(100), 10)
+data_list
+</code></pre>
 <pre><code>[69, 65, 18, 71, 11, 10, 42, 68, 36, 89]
 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_list.sort()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_list</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">data_list.sort()
+</code></pre>
+<pre><code class="python">data_list
+</code></pre>
 <pre><code>[10, 11, 18, 36, 42, 65, 68, 69, 71, 89]
 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binary_search(data_list, <span class="number">66</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">binary_search(data_list, 66)
+</code></pre>
 <pre><code>[10, 11, 18, 36, 42, 65, 68, 69, 71, 89]
 [68, 69, 71, 89]
 [68, 69]
@@ -1624,9 +1870,14 @@ False
 다음 10000개의 데이터를 삽입 정렬, 퀵 정렬로 정렬하는 함수를 각각 만들어보고, 각각의 정렬 시간을 출력하기<br>
 </div>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 셋</span></span><br><span class="line"><span class="keyword">import</span> random </span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100000</span>), <span class="number">10000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 현재 시간 구하기</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="built_in">print</span> (datetime.datetime.now())</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># 데이터 셋
+import random 
+data_list = random.sample(range(100000), 10000)
 
-
+# 현재 시간 구하기
+import datetime
+print (datetime.datetime.now())
+</code></pre>
 <!-- ## <<<중간에 빠짐>>>
 [이진 트리 탐색 (Binary Tree Search)](https://www.fun-coding.org/Chapter10-bst.html)
 [중첩 함수 (Nested function)](https://www.fun-coding.org/PL&OOP4-1.html)
@@ -1786,12 +2037,21 @@ False
 <h3 id="그래프-예와-파이썬-표현"><a href="#그래프-예와-파이썬-표현" class="headerlink" title="그래프 예와 파이썬 표현"></a>그래프 예와 파이썬 표현</h3><img src="https://www.fun-coding.org/00_Images/bfsgraph.png" width=700>
 
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">graph[<span class="string">&#x27;A&#x27;</span>] = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;B&#x27;</span>] = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;C&#x27;</span>] = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;I&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;D&#x27;</span>] = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;E&#x27;</span>] = [<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;F&#x27;</span>] = [<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;G&#x27;</span>] = [<span class="string">&#x27;C&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;H&#x27;</span>] = [<span class="string">&#x27;C&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;I&#x27;</span>] = [<span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;J&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;J&#x27;</span>] = [<span class="string">&#x27;I&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="python">graph = dict()
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graph</span><br></pre></td></tr></table></figure>
-
-
-
+graph[&#39;A&#39;] = [&#39;B&#39;, &#39;C&#39;]
+graph[&#39;B&#39;] = [&#39;A&#39;, &#39;D&#39;]
+graph[&#39;C&#39;] = [&#39;A&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;]
+graph[&#39;D&#39;] = [&#39;B&#39;, &#39;E&#39;, &#39;F&#39;]
+graph[&#39;E&#39;] = [&#39;D&#39;]
+graph[&#39;F&#39;] = [&#39;D&#39;]
+graph[&#39;G&#39;] = [&#39;C&#39;]
+graph[&#39;H&#39;] = [&#39;C&#39;]
+graph[&#39;I&#39;] = [&#39;C&#39;, &#39;J&#39;]
+graph[&#39;J&#39;] = [&#39;I&#39;]
+</code></pre>
+<pre><code class="python">graph
+</code></pre>
 <pre><code>&#123;&#39;A&#39;: [&#39;B&#39;, &#39;C&#39;],
  &#39;B&#39;: [&#39;A&#39;, &#39;D&#39;],
  &#39;C&#39;: [&#39;A&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;],
@@ -1815,18 +2075,28 @@ False
 <ul>
 <li>큐의 구현은 간단히 파이썬 리스트를 활용</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">data.extend([<span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">data = [1, 2, 3]
+data.extend([4, 5])
+data
+</code></pre>
 <pre><code>[1, 2, 3, 4, 5]
 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">graph, start_node</span>):</span></span><br><span class="line">    visited = <span class="built_in">list</span>()</span><br><span class="line">    need_visit = <span class="built_in">list</span>()</span><br><span class="line">    </span><br><span class="line">    need_visit.append(start_node)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> need_visit:</span><br><span class="line">        node = need_visit.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">            visited.append(node)</span><br><span class="line">            need_visit.extend(graph[node])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> visited</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bfs(graph, <span class="string">&#x27;A&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">def bfs(graph, start_node):
+    visited = list()
+    need_visit = list()
+    
+    need_visit.append(start_node)
+    
+    while need_visit:
+        node = need_visit.pop(0)
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(graph[node])
+    
+    return visited
+</code></pre>
+<pre><code class="python">bfs(graph, &#39;A&#39;)
+</code></pre>
 <pre><code>[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;E&#39;, &#39;F&#39;, &#39;J&#39;]
 </code></pre>
 <p><img src="/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98_files/graph_dict.png" alt="graph_dict"></p>
@@ -1843,9 +2113,23 @@ False
 </ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bfs</span>(<span class="params">graph, start_node</span>):</span></span><br><span class="line">    visited = <span class="built_in">list</span>()</span><br><span class="line">    need_visit = <span class="built_in">list</span>()</span><br><span class="line">    </span><br><span class="line">    need_visit.append(start_node)</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> need_visit:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        node = need_visit.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">            visited.append(node)</span><br><span class="line">            need_visit.extend(graph[node])</span><br><span class="line">    <span class="built_in">print</span> (count)</span><br><span class="line">    <span class="keyword">return</span> visited</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bfs(graph, <span class="string">&#x27;A&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def bfs(graph, start_node):
+    visited = list()
+    need_visit = list()
+    
+    need_visit.append(start_node)
+    count = 0
+    while need_visit:
+        count += 1
+        node = need_visit.pop(0)
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(graph[node])
+    print (count)
+    return visited
+</code></pre>
+<pre><code class="python">bfs(graph, &#39;A&#39;)
+</code></pre>
 <pre><code>19
 
 
@@ -1854,10 +2138,8 @@ False
 
 [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;, &#39;E&#39;, &#39;F&#39;, &#39;J&#39;]
 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">
+</code></pre>
 <h1 id="깊이-우선-탐색-Depth-First-Search"><a href="#깊이-우선-탐색-Depth-First-Search" class="headerlink" title="깊이 우선 탐색 (Depth-First Search)"></a>깊이 우선 탐색 (Depth-First Search)</h1><h2 id="1-BFS-와-DFS-란-1"><a href="#1-BFS-와-DFS-란-1" class="headerlink" title="1. BFS 와 DFS 란?"></a>1. BFS 와 DFS 란?</h2><ul>
 <li>대표적인 그래프 <strong>탐색</strong> 알고리즘<ul>
 <li><strong>너비</strong> 우선 탐색 (<strong>Breadth</strong> First Search): 정점들과 같은 레벨에 있는 노드들 (형제 노드들)을 먼저 탐색하는 방식</li>
@@ -1880,12 +2162,21 @@ False
 <h2 id="2-파이썬으로-그래프를-표현하는-방법-1"><a href="#2-파이썬으로-그래프를-표현하는-방법-1" class="headerlink" title="2. 파이썬으로 그래프를 표현하는 방법"></a>2. 파이썬으로 그래프를 표현하는 방법</h2><ul>
 <li>파이썬에서 제공하는 딕셔너리와 리스트 자료 구조를 활용해서 그래프를 표현할 수 있음</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line">graph[<span class="string">&#x27;A&#x27;</span>] = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;B&#x27;</span>] = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;C&#x27;</span>] = [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;H&#x27;</span>, <span class="string">&#x27;I&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;D&#x27;</span>] = [<span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;E&#x27;</span>] = [<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;F&#x27;</span>] = [<span class="string">&#x27;D&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;G&#x27;</span>] = [<span class="string">&#x27;C&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;H&#x27;</span>] = [<span class="string">&#x27;C&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;I&#x27;</span>] = [<span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;J&#x27;</span>]</span><br><span class="line">graph[<span class="string">&#x27;J&#x27;</span>] = [<span class="string">&#x27;I&#x27;</span>]</span><br></pre></td></tr></table></figure>
+<pre><code class="python">graph = dict()
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graph</span><br></pre></td></tr></table></figure>
-
-
-
+graph[&#39;A&#39;] = [&#39;B&#39;, &#39;C&#39;]
+graph[&#39;B&#39;] = [&#39;A&#39;, &#39;D&#39;]
+graph[&#39;C&#39;] = [&#39;A&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;]
+graph[&#39;D&#39;] = [&#39;B&#39;, &#39;E&#39;, &#39;F&#39;]
+graph[&#39;E&#39;] = [&#39;D&#39;]
+graph[&#39;F&#39;] = [&#39;D&#39;]
+graph[&#39;G&#39;] = [&#39;C&#39;]
+graph[&#39;H&#39;] = [&#39;C&#39;]
+graph[&#39;I&#39;] = [&#39;C&#39;, &#39;J&#39;]
+graph[&#39;J&#39;] = [&#39;I&#39;]
+</code></pre>
+<pre><code class="python">graph
+</code></pre>
 <pre><code>&#123;&#39;A&#39;: [&#39;B&#39;, &#39;C&#39;],
  &#39;B&#39;: [&#39;A&#39;, &#39;D&#39;],
  &#39;C&#39;: [&#39;A&#39;, &#39;G&#39;, &#39;H&#39;, &#39;I&#39;],
@@ -1912,13 +2203,20 @@ False
 <ul>
 <li>큐와 스택 구현은 별도 라이브러리를 활용할 수도 있지만, 간단히 파이썬 리스트를 활용할 수도 있음</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">graph, start_node</span>):</span></span><br><span class="line">    visited, need_visit = <span class="built_in">list</span>(), <span class="built_in">list</span>()</span><br><span class="line">    need_visit.append(start_node)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> need_visit:</span><br><span class="line">        node = need_visit.pop()</span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">            visited.append(node)</span><br><span class="line">            need_visit.extend(graph[node])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> visited</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dfs(graph, <span class="string">&#x27;A&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">def dfs(graph, start_node):
+    visited, need_visit = list(), list()
+    need_visit.append(start_node)
+    
+    while need_visit:
+        node = need_visit.pop()
+        if node not in visited:
+            visited.append(node)
+            need_visit.extend(graph[node])
+    
+    return visited
+</code></pre>
+<pre><code class="python">dfs(graph, &#39;A&#39;)
+</code></pre>
 <pre><code>[&#39;A&#39;, &#39;C&#39;, &#39;I&#39;, &#39;J&#39;, &#39;H&#39;, &#39;G&#39;, &#39;B&#39;, &#39;D&#39;, &#39;F&#39;, &#39;E&#39;]
 </code></pre>
 <img src="00_Images/dfsgraph.png" width=700>
@@ -1934,9 +2232,8 @@ False
 </ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+<pre><code class="python">
+</code></pre>
 <h1 id="탐욕-알고리즘의-이해"><a href="#탐욕-알고리즘의-이해" class="headerlink" title="탐욕 알고리즘의 이해"></a>탐욕 알고리즘의 이해</h1><h2 id="1-탐욕-알고리즘-이란"><a href="#1-탐욕-알고리즘-이란" class="headerlink" title="1. 탐욕 알고리즘 이란?"></a>1. 탐욕 알고리즘 이란?</h2><ul>
 <li>Greedy algorithm 또는 탐욕 알고리즘 이라고 불리움</li>
 <li>최적의 해에 가까운 값을 구하기 위해 사용됨</li>
@@ -1949,16 +2246,29 @@ False
 </ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">coin_list = [<span class="number">1</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">500</span>]</span><br><span class="line"><span class="built_in">print</span> (coin_list)</span><br><span class="line">coin_list.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span> (coin_list)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">coin_list = [1, 100, 50, 500]
+print (coin_list)
+coin_list.sort(reverse=True)
+print (coin_list)
+</code></pre>
 <pre><code>[1, 100, 50, 500]
 [500, 100, 50, 1]
 </code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">coin_list = [<span class="number">500</span>, <span class="number">100</span>, <span class="number">50</span>, <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">min_coin_count</span>(<span class="params">value, coin_list</span>):</span></span><br><span class="line">    total_coin_count = <span class="number">0</span></span><br><span class="line">    details = <span class="built_in">list</span>()</span><br><span class="line">    coin_list.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">for</span> coin <span class="keyword">in</span> coin_list:</span><br><span class="line">        coin_num = value // coin</span><br><span class="line">        total_coin_count += coin_num</span><br><span class="line">        value -= coin_num * coin</span><br><span class="line">        details.append([coin, coin_num])</span><br><span class="line">    <span class="keyword">return</span> total_coin_count, details</span><br></pre></td></tr></table></figure>
+<pre><code class="python">coin_list = [500, 100, 50, 1]
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">min_coin_count(<span class="number">4720</span>, coin_list)</span><br></pre></td></tr></table></figure>
-
-
-
+def min_coin_count(value, coin_list):
+    total_coin_count = 0
+    details = list()
+    coin_list.sort(reverse=True)
+    for coin in coin_list:
+        coin_num = value // coin
+        total_coin_count += coin_num
+        value -= coin_num * coin
+        details.append([coin, coin_num])
+    return total_coin_count, details
+</code></pre>
+<pre><code class="python">min_coin_count(4720, coin_list)
+</code></pre>
 <pre><code>(31, [[500, 9], [100, 2], [50, 0], [1, 20]])
 </code></pre>
 <h3 id="문제2-부분-배낭-문제-Fractional-Knapsack-Problem"><a href="#문제2-부분-배낭-문제-Fractional-Knapsack-Problem" class="headerlink" title="문제2: 부분 배낭 문제 (Fractional Knapsack Problem)"></a>문제2: 부분 배낭 문제 (Fractional Knapsack Problem)</h3><ul>
@@ -1974,14 +2284,27 @@ False
 </ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data_list = [(<span class="number">10</span>, <span class="number">10</span>), (<span class="number">15</span>, <span class="number">12</span>), (<span class="number">20</span>, <span class="number">10</span>), (<span class="number">25</span>, <span class="number">8</span>), (<span class="number">30</span>, <span class="number">5</span>)]</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_max_value</span>(<span class="params">data_list, capacity</span>):</span></span><br><span class="line">    data_list = <span class="built_in">sorted</span>(data_list, key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>] / x[<span class="number">0</span>], reverse=<span class="literal">True</span>)</span><br><span class="line">    total_value = <span class="number">0</span></span><br><span class="line">    details = <span class="built_in">list</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> data_list:</span><br><span class="line">        <span class="keyword">if</span> capacity - data[<span class="number">0</span>] &gt;= <span class="number">0</span>:</span><br><span class="line">            capacity -= data[<span class="number">0</span>]</span><br><span class="line">            total_value += data[<span class="number">1</span>]</span><br><span class="line">            details.append([data[<span class="number">0</span>], data[<span class="number">1</span>], <span class="number">1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            fraction = capacity / data[<span class="number">0</span>]</span><br><span class="line">            total_value += data[<span class="number">1</span>] * fraction</span><br><span class="line">            details.append([data[<span class="number">0</span>], data[<span class="number">1</span>], fraction])</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> total_value, details</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get_max_value(data_list, <span class="number">30</span>)</span><br></pre></td></tr></table></figure>
-
-
-
+<pre><code class="python">data_list = [(10, 10), (15, 12), (20, 10), (25, 8), (30, 5)]
+</code></pre>
+<pre><code class="python">def get_max_value(data_list, capacity):
+    data_list = sorted(data_list, key=lambda x: x[1] / x[0], reverse=True)
+    total_value = 0
+    details = list()
+    
+    for data in data_list:
+        if capacity - data[0] &gt;= 0:
+            capacity -= data[0]
+            total_value += data[1]
+            details.append([data[0], data[1], 1])
+        else:
+            fraction = capacity / data[0]
+            total_value += data[1] * fraction
+            details.append([data[0], data[1], fraction])
+            break
+    return total_value, details
+</code></pre>
+<pre><code class="python">get_max_value(data_list, 30)
+</code></pre>
 <pre><code>(24.5, [[10, 10, 1], [15, 12, 1], [20, 10, 0.25]])
 </code></pre>
 <h2 id="3-탐욕-알고리즘의-한계"><a href="#3-탐욕-알고리즘의-한계" class="headerlink" title="3. 탐욕 알고리즘의 한계"></a>3. 탐욕 알고리즘의 한계</h2><blockquote>
@@ -2166,7 +2489,18 @@ False
 <h2 id="4-다익스트라-알고리즘-파이썬-구현-우선순위-큐-활용까지-포함"><a href="#4-다익스트라-알고리즘-파이썬-구현-우선순위-큐-활용까지-포함" class="headerlink" title="4. 다익스트라 알고리즘 파이썬 구현 (우선순위 큐 활용까지 포함)"></a>4. 다익스트라 알고리즘 파이썬 구현 (우선순위 큐 활용까지 포함)</h2><h3 id="참고-heapq-라이브러리-활용을-통해-우선순위-큐-사용하기"><a href="#참고-heapq-라이브러리-활용을-통해-우선순위-큐-사용하기" class="headerlink" title="참고: heapq 라이브러리 활용을 통해 우선순위 큐 사용하기"></a>참고: heapq 라이브러리 활용을 통해 우선순위 큐 사용하기</h3><ul>
 <li>데이터가 리스트 형태일 경우, 0번 인덱스를 우선순위로 인지, 우선순위가 낮은 순서대로 pop 할 수 있음</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">queue = []</span><br><span class="line"></span><br><span class="line">heapq.heappush(queue, [<span class="number">2</span>, <span class="string">&#x27;A&#x27;</span>])</span><br><span class="line">heapq.heappush(queue, [<span class="number">5</span>, <span class="string">&#x27;B&#x27;</span>])</span><br><span class="line">heapq.heappush(queue, [<span class="number">1</span>, <span class="string">&#x27;C&#x27;</span>])</span><br><span class="line">heapq.heappush(queue, [<span class="number">7</span>, <span class="string">&#x27;D&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span> (queue)</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">    <span class="built_in">print</span> (heapq.heappop(queue))</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import heapq
+
+queue = []
+
+heapq.heappush(queue, [2, &#39;A&#39;])
+heapq.heappush(queue, [5, &#39;B&#39;])
+heapq.heappush(queue, [1, &#39;C&#39;])
+heapq.heappush(queue, [7, &#39;D&#39;])
+print (queue)
+for index in range(len(queue)):
+    print (heapq.heappop(queue))
+</code></pre>
 <pre><code>[[1, &#39;C&#39;], [5, &#39;B&#39;], [2, &#39;A&#39;], [7, &#39;D&#39;]]
 [1, &#39;C&#39;]
 [2, &#39;A&#39;]
@@ -2177,23 +2511,110 @@ False
 <li>탐색할 그래프의 시작 정점과 다른 정점들간의 최단 거리 구하기</li>
 </ul>
 <ol>
-<li>그래프화<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mygraph = &#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;B&#x27;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&#x27;C&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;D&#x27;</span>: &#123;<span class="string">&#x27;E&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;F&#x27;</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;E&#x27;</span>: &#123;<span class="string">&#x27;F&#x27;</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;F&#x27;</span>: &#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>우선순위큐(최소 힙 기반)를 사용해 코드 작성<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">graph, start</span>):</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 초기화</span></span><br><span class="line">    distances = &#123;node: <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>) <span class="keyword">for</span> node <span class="keyword">in</span> graph&#125;</span><br><span class="line">    distances[start] = <span class="number">0</span></span><br><span class="line">    queue = []</span><br><span class="line">    heapq.heappush(queue, [distances[start], start])</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        current_distance, current_node = heapq.heappop(queue)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> distances[current_node] &lt; current_distance:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">for</span> adjacent, weight <span class="keyword">in</span> graph[current_node].items():</span><br><span class="line">            distance = current_distance + weight</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> distance &lt; distances[adjacent]:</span><br><span class="line">                distances[adjacent] = distance</span><br><span class="line">                heapq.heappush(queue, [distance, adjacent])</span><br><span class="line">                </span><br><span class="line">    <span class="keyword">return</span> distances</span><br></pre></td></tr></table></figure>
-<img src="https://www.fun-coding.org/00_Images/dijkstra.png" width=300>
-
-
+<li><p>그래프화</p>
+<pre><code class="python">mygraph = &#123;
+ &#39;A&#39;: &#123;&#39;B&#39;: 8, &#39;C&#39;: 1, &#39;D&#39;: 2&#125;,
+ &#39;B&#39;: &#123;&#125;,
+ &#39;C&#39;: &#123;&#39;B&#39;: 5, &#39;D&#39;: 2&#125;,
+ &#39;D&#39;: &#123;&#39;E&#39;: 3, &#39;F&#39;: 5&#125;,
+ &#39;E&#39;: &#123;&#39;F&#39;: 1&#125;,
+ &#39;F&#39;: &#123;&#39;A&#39;: 5&#125;
+&#125;
+</code></pre>
+</li>
+<li><p>우선순위큐(최소 힙 기반)를 사용해 코드 작성</p>
+<pre><code class="python">import heapq
+</code></pre>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dijkstra(mygraph, <span class="string">&#x27;A&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>def dijkstra(graph, start):</p>
+<pre><code># 초기화
+distances = &#123;node: float(&#39;inf&#39;) for node in graph&#125;
+distances[start] = 0
+queue = []
+heapq.heappush(queue, [distances[start], start])
+
+while queue:
+    current_distance, current_node = heapq.heappop(queue)
+    
+    if distances[current_node] &lt; current_distance:
+        continue
+        
+    for adjacent, weight in graph[current_node].items():
+        distance = current_distance + weight
+        
+        if distance &lt; distances[adjacent]:
+            distances[adjacent] = distance
+            heapq.heappush(queue, [distance, adjacent])
+            
+return distances
+</code></pre>
+<pre><code>
+&lt;img src=&quot;https://www.fun-coding.org/00_Images/dijkstra.png&quot; width=300&gt;
 
 
-
+``` python
+dijkstra(mygraph, &#39;A&#39;)
+</code></pre>
 <pre><code>&#123;&#39;A&#39;: 0, &#39;B&#39;: 6, &#39;C&#39;: 1, &#39;D&#39;: 2, &#39;E&#39;: 5, &#39;F&#39;: 6&#125;
 </code></pre>
 <h3 id="참고-최단-경로-출력"><a href="#참고-최단-경로-출력" class="headerlink" title="참고: 최단 경로 출력"></a>참고: 최단 경로 출력</h3><ul>
 <li>탐색할 그래프의 시작 정점과 다른 정점들간의 최단 거리 및 최단 경로 출력하기</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 탐색할 그래프와 시작 정점을 인수로 전달받습니다.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>(<span class="params">graph, start, end</span>):</span></span><br><span class="line">    <span class="comment"># 시작 정점에서 각 정점까지의 거리를 저장할 딕셔너리를 생성하고, 무한대(inf)로 초기화합니다.</span></span><br><span class="line">    distances = &#123;vertex: [<span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>), start] <span class="keyword">for</span> vertex <span class="keyword">in</span> graph&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프의 시작 정점의 거리는 0으로 초기화 해줌</span></span><br><span class="line">    distances[start] = [<span class="number">0</span>, start]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 모든 정점이 저장될 큐를 생성합니다.</span></span><br><span class="line">    queue = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 그래프의 시작 정점과 시작 정점의 거리(0)을 최소힙에 넣어줌</span></span><br><span class="line">    heapq.heappush(queue, [distances[start][<span class="number">0</span>], start])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> queue:</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 큐에서 정점을 하나씩 꺼내 인접한 정점들의 가중치를 모두 확인하여 업데이트합니다.</span></span><br><span class="line">        current_distance, current_vertex = heapq.heappop(queue)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 더 짧은 경로가 있다면 무시한다.</span></span><br><span class="line">        <span class="keyword">if</span> distances[current_vertex][<span class="number">0</span>] &lt; current_distance:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">for</span> adjacent, weight <span class="keyword">in</span> graph[current_vertex].items():</span><br><span class="line">            distance = current_distance + weight</span><br><span class="line">            <span class="comment"># 만약 시작 정점에서 인접 정점으로 바로 가는 것보다 현재 정점을 통해 가는 것이 더 가까울 경우에는</span></span><br><span class="line">            <span class="keyword">if</span> distance &lt; distances[adjacent][<span class="number">0</span>]:</span><br><span class="line">                <span class="comment"># 거리를 업데이트합니다.</span></span><br><span class="line">                distances[adjacent] = [distance, current_vertex]</span><br><span class="line">                heapq.heappush(queue, [distance, adjacent])</span><br><span class="line">    </span><br><span class="line">    path = end</span><br><span class="line">    path_output = end + <span class="string">&#x27;-&gt;&#x27;</span></span><br><span class="line">    <span class="keyword">while</span> distances[path][<span class="number">1</span>] != start:</span><br><span class="line">        path_output += distances[path][<span class="number">1</span>] + <span class="string">&#x27;-&gt;&#x27;</span></span><br><span class="line">        path = distances[path][<span class="number">1</span>]</span><br><span class="line">    path_output += start</span><br><span class="line">    <span class="built_in">print</span> (path_output)</span><br><span class="line">    <span class="keyword">return</span> distances</span><br><span class="line"></span><br><span class="line"><span class="comment"># 방향 그래프</span></span><br><span class="line">mygraph = &#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;B&#x27;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&#x27;C&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">2</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;D&#x27;</span>: &#123;<span class="string">&#x27;E&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;F&#x27;</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;E&#x27;</span>: &#123;<span class="string">&#x27;F&#x27;</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;F&#x27;</span>: &#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">5</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(dijkstra(mygraph, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;F&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import heapq
+
+# 탐색할 그래프와 시작 정점을 인수로 전달받습니다.
+def dijkstra(graph, start, end):
+    # 시작 정점에서 각 정점까지의 거리를 저장할 딕셔너리를 생성하고, 무한대(inf)로 초기화합니다.
+    distances = &#123;vertex: [float(&#39;inf&#39;), start] for vertex in graph&#125;
+
+    # 그래프의 시작 정점의 거리는 0으로 초기화 해줌
+    distances[start] = [0, start]
+
+    # 모든 정점이 저장될 큐를 생성합니다.
+    queue = []
+
+    # 그래프의 시작 정점과 시작 정점의 거리(0)을 최소힙에 넣어줌
+    heapq.heappush(queue, [distances[start][0], start])
+
+    while queue:
+        
+        # 큐에서 정점을 하나씩 꺼내 인접한 정점들의 가중치를 모두 확인하여 업데이트합니다.
+        current_distance, current_vertex = heapq.heappop(queue)
+        
+        # 더 짧은 경로가 있다면 무시한다.
+        if distances[current_vertex][0] &lt; current_distance:
+            continue
+            
+        for adjacent, weight in graph[current_vertex].items():
+            distance = current_distance + weight
+            # 만약 시작 정점에서 인접 정점으로 바로 가는 것보다 현재 정점을 통해 가는 것이 더 가까울 경우에는
+            if distance &lt; distances[adjacent][0]:
+                # 거리를 업데이트합니다.
+                distances[adjacent] = [distance, current_vertex]
+                heapq.heappush(queue, [distance, adjacent])
+    
+    path = end
+    path_output = end + &#39;-&gt;&#39;
+    while distances[path][1] != start:
+        path_output += distances[path][1] + &#39;-&gt;&#39;
+        path = distances[path][1]
+    path_output += start
+    print (path_output)
+    return distances
+
+# 방향 그래프
+mygraph = &#123;
+    &#39;A&#39;: &#123;&#39;B&#39;: 8, &#39;C&#39;: 1, &#39;D&#39;: 2&#125;,
+    &#39;B&#39;: &#123;&#125;,
+    &#39;C&#39;: &#123;&#39;B&#39;: 5, &#39;D&#39;: 2&#125;,
+    &#39;D&#39;: &#123;&#39;E&#39;: 3, &#39;F&#39;: 5&#125;,
+    &#39;E&#39;: &#123;&#39;F&#39;: 1&#125;,
+    &#39;F&#39;: &#123;&#39;A&#39;: 5&#125;
+&#125;
+
+print(dijkstra(mygraph, &#39;A&#39;, &#39;F&#39;))
+</code></pre>
 <pre><code>F-&gt;E-&gt;D-&gt;A
 &#123;&#39;A&#39;: [0, &#39;A&#39;], &#39;B&#39;: [6, &#39;C&#39;], &#39;C&#39;: [1, &#39;A&#39;], &#39;D&#39;: [2, &#39;A&#39;], &#39;E&#39;: [5, &#39;D&#39;], &#39;F&#39;: [6, &#39;E&#39;]&#125;
 </code></pre>
@@ -2384,14 +2805,84 @@ False
 </table>
 </div>
 
-<h2 id="4-크루스칼-알고리즘-Kruskal’s-algorithm-코드-작성"><a href="#4-크루스칼-알고리즘-Kruskal’s-algorithm-코드-작성" class="headerlink" title="4. 크루스칼 알고리즘 (Kruskal’s algorithm) 코드 작성"></a>4. 크루스칼 알고리즘 (Kruskal’s algorithm) 코드 작성</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">mygraph = &#123;</span><br><span class="line">    <span class="string">&#x27;vertices&#x27;</span>: [<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;edges&#x27;</span>: [</span><br><span class="line">        (<span class="number">7</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>),</span><br><span class="line">        (<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>),</span><br><span class="line">        (<span class="number">7</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;A&#x27;</span>),</span><br><span class="line">        (<span class="number">8</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>),</span><br><span class="line">        (<span class="number">9</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;D&#x27;</span>),</span><br><span class="line">        (<span class="number">7</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">        (<span class="number">8</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;B&#x27;</span>),</span><br><span class="line">        (<span class="number">5</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">        (<span class="number">5</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;A&#x27;</span>),</span><br><span class="line">        (<span class="number">9</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;B&#x27;</span>),</span><br><span class="line">        (<span class="number">7</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">        (<span class="number">6</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;F&#x27;</span>),</span><br><span class="line">        (<span class="number">7</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;B&#x27;</span>),</span><br><span class="line">        (<span class="number">5</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;C&#x27;</span>),</span><br><span class="line">        (<span class="number">7</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;D&#x27;</span>),</span><br><span class="line">        (<span class="number">8</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>),</span><br><span class="line">        (<span class="number">9</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;G&#x27;</span>),</span><br><span class="line">        (<span class="number">6</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;D&#x27;</span>),</span><br><span class="line">        (<span class="number">8</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">        (<span class="number">11</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>),</span><br><span class="line">        (<span class="number">9</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">        (<span class="number">11</span>, <span class="string">&#x27;G&#x27;</span>, <span class="string">&#x27;F&#x27;</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-크루스칼-알고리즘-Kruskal’s-algorithm-코드-작성"><a href="#4-크루스칼-알고리즘-Kruskal’s-algorithm-코드-작성" class="headerlink" title="4. 크루스칼 알고리즘 (Kruskal’s algorithm) 코드 작성"></a>4. 크루스칼 알고리즘 (Kruskal’s algorithm) 코드 작성</h2><pre><code class="python">mygraph = &#123;
+    &#39;vertices&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G&#39;],
+    &#39;edges&#39;: [
+        (7, &#39;A&#39;, &#39;B&#39;),
+        (5, &#39;A&#39;, &#39;D&#39;),
+        (7, &#39;B&#39;, &#39;A&#39;),
+        (8, &#39;B&#39;, &#39;C&#39;),
+        (9, &#39;B&#39;, &#39;D&#39;),
+        (7, &#39;B&#39;, &#39;E&#39;),
+        (8, &#39;C&#39;, &#39;B&#39;),
+        (5, &#39;C&#39;, &#39;E&#39;),
+        (5, &#39;D&#39;, &#39;A&#39;),
+        (9, &#39;D&#39;, &#39;B&#39;),
+        (7, &#39;D&#39;, &#39;E&#39;),
+        (6, &#39;D&#39;, &#39;F&#39;),
+        (7, &#39;E&#39;, &#39;B&#39;),
+        (5, &#39;E&#39;, &#39;C&#39;),
+        (7, &#39;E&#39;, &#39;D&#39;),
+        (8, &#39;E&#39;, &#39;F&#39;),
+        (9, &#39;E&#39;, &#39;G&#39;),
+        (6, &#39;F&#39;, &#39;D&#39;),
+        (8, &#39;F&#39;, &#39;E&#39;),
+        (11, &#39;F&#39;, &#39;G&#39;),
+        (9, &#39;G&#39;, &#39;E&#39;),
+        (11, &#39;G&#39;, &#39;F&#39;)
+    ]
+&#125;
+</code></pre>
+<pre><code class="python">parent = dict()
+rank = dict()
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">parent = <span class="built_in">dict</span>()</span><br><span class="line">rank = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">node</span>):</span></span><br><span class="line">    <span class="comment"># path compression 기법</span></span><br><span class="line">    <span class="keyword">if</span> parent[node] != node:  <span class="comment"># root node가 있다면</span></span><br><span class="line">        parent[node] = find(parent[node])</span><br><span class="line">    <span class="keyword">return</span> parent[node]       <span class="comment"># 자기노드가 루트로드인 시점</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">union</span>(<span class="params">node_v, node_u</span>):</span></span><br><span class="line">    root1 = find(node_v)</span><br><span class="line">    root2 = find(node_u)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># union-by-rank 기법</span></span><br><span class="line">    <span class="keyword">if</span> rank[root1] &gt; rank[root2]:</span><br><span class="line">        parent[root2] = root1 <span class="comment"># 높은 쪽을 낮은 쪽의 root 로드로</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        parent[root1] = root2</span><br><span class="line">        <span class="keyword">if</span> rank[root1] == rank[root2]:</span><br><span class="line">            rank[root2] += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_set</span>(<span class="params">node</span>):</span></span><br><span class="line">    parent[node] = node</span><br><span class="line">    rank[node] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kruskal</span>(<span class="params">graph</span>):</span></span><br><span class="line">    mst = <span class="built_in">list</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 1. 초기화</span></span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> graph[<span class="string">&#x27;vertices&#x27;</span>]:</span><br><span class="line">        make_set(node)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 2. 간선 weight 기반 sorting</span></span><br><span class="line">    edges = graph[<span class="string">&#x27;edges&#x27;</span>]</span><br><span class="line">    edges.sort() <span class="comment"># 나중에 심심하면 Quick sort 구현해보기</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 3. 간선 연결 (사이클 없는)</span></span><br><span class="line">    <span class="keyword">for</span> edge <span class="keyword">in</span> edges:</span><br><span class="line">        weight, node_v, node_u = edge</span><br><span class="line">        <span class="keyword">if</span> find(node_v) != find(node_u):</span><br><span class="line">            union(node_v, node_u)</span><br><span class="line">            mst.append(edge)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> mst</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kruskal(mygraph)</span><br></pre></td></tr></table></figure>
+def find(node):
+    # path compression 기법
+    if parent[node] != node:  # root node가 있다면
+        parent[node] = find(parent[node])
+    return parent[node]       # 자기노드가 루트로드인 시점
 
 
+def union(node_v, node_u):
+    root1 = find(node_v)
+    root2 = find(node_u)
+    
+    # union-by-rank 기법
+    if rank[root1] &gt; rank[root2]:
+        parent[root2] = root1 # 높은 쪽을 낮은 쪽의 root 로드로
+    else:
+        parent[root1] = root2
+        if rank[root1] == rank[root2]:
+            rank[root2] += 1
+    
+    
+def make_set(node):
+    parent[node] = node
+    rank[node] = 0
 
+def kruskal(graph):
+    mst = list()
+    
+    # 1. 초기화
+    for node in graph[&#39;vertices&#39;]:
+        make_set(node)
+    
+    # 2. 간선 weight 기반 sorting
+    edges = graph[&#39;edges&#39;]
+    edges.sort() # 나중에 심심하면 Quick sort 구현해보기
+    
+    # 3. 간선 연결 (사이클 없는)
+    for edge in edges:
+        weight, node_v, node_u = edge
+        if find(node_v) != find(node_u):
+            union(node_v, node_u)
+            mst.append(edge)
+    
+    return mst
+</code></pre>
+<pre><code class="python">kruskal(mygraph)
+</code></pre>
 <pre><code>[(5, &#39;A&#39;, &#39;D&#39;),
  (5, &#39;C&#39;, &#39;E&#39;),
  (6, &#39;D&#39;, &#39;F&#39;),
@@ -2471,7 +2962,19 @@ False
 </blockquote>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">queue = []</span><br><span class="line">graph_data = [[<span class="number">2</span>, <span class="string">&#x27;A&#x27;</span>], [<span class="number">5</span>, <span class="string">&#x27;B&#x27;</span>], [<span class="number">3</span>, <span class="string">&#x27;C&#x27;</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> edge <span class="keyword">in</span> graph_data:</span><br><span class="line">    heapq.heappush(queue, edge)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">    <span class="built_in">print</span> (heapq.heappop(queue))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (queue)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import heapq
+
+queue = []
+graph_data = [[2, &#39;A&#39;], [5, &#39;B&#39;], [3, &#39;C&#39;]]
+
+for edge in graph_data:
+    heapq.heappush(queue, edge)
+    
+for index in range(len(queue)):
+    print (heapq.heappop(queue))
+
+print (queue)
+</code></pre>
 <pre><code>[2, &#39;A&#39;]
 [3, &#39;C&#39;]
 [5, &#39;B&#39;]
@@ -2483,7 +2986,17 @@ False
 <li>heapq.heapify() 함수를 통해 리스트 데이터를 heap 형태로 한 번에 변환할 수 있음 (0번 인덱스를 우선순위로 인지함)</li>
 </ul>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"></span><br><span class="line">graph_data = [[<span class="number">2</span>, <span class="string">&#x27;A&#x27;</span>], [<span class="number">5</span>, <span class="string">&#x27;B&#x27;</span>], [<span class="number">3</span>, <span class="string">&#x27;C&#x27;</span>]]</span><br><span class="line"></span><br><span class="line">heapq.heapify(graph_data)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(graph_data)):</span><br><span class="line">    <span class="built_in">print</span> (heapq.heappop(graph_data))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (graph_data)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import heapq
+
+graph_data = [[2, &#39;A&#39;], [5, &#39;B&#39;], [3, &#39;C&#39;]]
+
+heapq.heapify(graph_data)
+    
+for index in range(len(graph_data)):
+    print (heapq.heappop(graph_data))
+
+print (graph_data)
+</code></pre>
 <pre><code>[2, &#39;A&#39;]
 [3, &#39;C&#39;]
 [5, &#39;B&#39;]
@@ -2497,7 +3010,11 @@ False
 </blockquote>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line">list_dict = defaultdict(<span class="built_in">list</span>)</span><br><span class="line"><span class="built_in">print</span> (list_dict[<span class="string">&#x27;key1&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from collections import defaultdict
+
+list_dict = defaultdict(list)
+print (list_dict[&#39;key1&#39;])
+</code></pre>
 <pre><code>[]
 </code></pre>
 <h3 id="3-프림-알고리즘-코드-작성-파이썬"><a href="#3-프림-알고리즘-코드-작성-파이썬" class="headerlink" title="3. 프림 알고리즘 코드 작성 (파이썬)"></a>3. 프림 알고리즘 코드 작성 (파이썬)</h3><ol start="0">
@@ -2519,14 +3036,43 @@ False
 <li>선택된 간선은 간선 리스트에서 제거</li>
 <li>간선 리스트에 더 이상의 간선이 없을 때까지 3-4번을 반복</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">myedges = [</span><br><span class="line">    (<span class="number">7</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>), (<span class="number">5</span>, <span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;D&#x27;</span>),</span><br><span class="line">    (<span class="number">8</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>), (<span class="number">9</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;D&#x27;</span>), (<span class="number">7</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">    (<span class="number">5</span>, <span class="string">&#x27;C&#x27;</span>, <span class="string">&#x27;E&#x27;</span>),</span><br><span class="line">    (<span class="number">7</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;E&#x27;</span>), (<span class="number">6</span>, <span class="string">&#x27;D&#x27;</span>, <span class="string">&#x27;F&#x27;</span>),</span><br><span class="line">    (<span class="number">8</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;F&#x27;</span>), (<span class="number">9</span>, <span class="string">&#x27;E&#x27;</span>, <span class="string">&#x27;G&#x27;</span>),</span><br><span class="line">    (<span class="number">11</span>, <span class="string">&#x27;F&#x27;</span>, <span class="string">&#x27;G&#x27;</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<pre><code class="python">myedges = [
+    (7, &#39;A&#39;, &#39;B&#39;), (5, &#39;A&#39;, &#39;D&#39;),
+    (8, &#39;B&#39;, &#39;C&#39;), (9, &#39;B&#39;, &#39;D&#39;), (7, &#39;B&#39;, &#39;E&#39;),
+    (5, &#39;C&#39;, &#39;E&#39;),
+    (7, &#39;D&#39;, &#39;E&#39;), (6, &#39;D&#39;, &#39;F&#39;),
+    (8, &#39;E&#39;, &#39;F&#39;), (9, &#39;E&#39;, &#39;G&#39;),
+    (11, &#39;F&#39;, &#39;G&#39;)
+]
+</code></pre>
+<pre><code class="python">from collections import defaultdict
+from heapq import *
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prim</span>(<span class="params">start_node, edges</span>):</span></span><br><span class="line">    mst = <span class="built_in">list</span>()</span><br><span class="line">    adjacent_edges = defaultdict(<span class="built_in">list</span>) <span class="comment"># 연결되어 있는 간선을 저장</span></span><br><span class="line">    <span class="keyword">for</span> weight, n1, n2 <span class="keyword">in</span> edges:</span><br><span class="line">        adjacent_edges[n1].append((weight, n1, n2))</span><br><span class="line">        adjacent_edges[n2].append((weight, n2, n1))</span><br><span class="line"></span><br><span class="line">    connected_nodes = <span class="built_in">set</span>(start_node)</span><br><span class="line">    candidate_edge_list = adjacent_edges[start_node]</span><br><span class="line">    heapify(candidate_edge_list)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> candidate_edge_list:</span><br><span class="line">        weight, n1, n2 = heappop(candidate_edge_list)</span><br><span class="line">        <span class="keyword">if</span> n2 <span class="keyword">not</span> <span class="keyword">in</span> connected_nodes:</span><br><span class="line">            connected_nodes.add(n2)</span><br><span class="line">            mst.append((weight, n1, n2))</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> edge <span class="keyword">in</span> adjacent_edges[n2]:</span><br><span class="line">                <span class="keyword">if</span> edge[<span class="number">2</span>] <span class="keyword">not</span> <span class="keyword">in</span> connected_nodes:</span><br><span class="line">                    heappush(candidate_edge_list, edge)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mst</span><br></pre></td></tr></table></figure>
+def prim(start_node, edges):
+    mst = list()
+    adjacent_edges = defaultdict(list) # 연결되어 있는 간선을 저장
+    for weight, n1, n2 in edges:
+        adjacent_edges[n1].append((weight, n1, n2))
+        adjacent_edges[n2].append((weight, n2, n1))
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prim (<span class="string">&#x27;A&#x27;</span>, myedges)</span><br></pre></td></tr></table></figure>
+    connected_nodes = set(start_node)
+    candidate_edge_list = adjacent_edges[start_node]
+    heapify(candidate_edge_list)
+    
+    while candidate_edge_list:
+        weight, n1, n2 = heappop(candidate_edge_list)
+        if n2 not in connected_nodes:
+            connected_nodes.add(n2)
+            mst.append((weight, n1, n2))
+            
+            for edge in adjacent_edges[n2]:
+                if edge[2] not in connected_nodes:
+                    heappush(candidate_edge_list, edge)
 
-
-
+    return mst
+</code></pre>
+<pre><code class="python">prim (&#39;A&#39;, myedges)
+</code></pre>
 <pre><code>[(5, &#39;A&#39;, &#39;D&#39;),
  (6, &#39;D&#39;, &#39;F&#39;),
  (7, &#39;A&#39;, &#39;B&#39;),
@@ -2534,7 +3080,20 @@ False
  (5, &#39;E&#39;, &#39;C&#39;),
  (9, &#39;E&#39;, &#39;G&#39;)]
 </code></pre>
-<h4 id="뜯어보기"><a href="#뜯어보기" class="headerlink" title="뜯어보기"></a>뜯어보기</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prim</span>(<span class="params">start_node, edges</span>):</span></span><br><span class="line">    mst = <span class="built_in">list</span>()</span><br><span class="line">    adjacent_edges = defaultdict(<span class="built_in">list</span>) <span class="comment"># 연결되어 있는 간선을 저장</span></span><br><span class="line">    <span class="keyword">for</span> weight, n1, n2 <span class="keyword">in</span> edges:</span><br><span class="line">        adjacent_edges[n1].append((weight, n1, n2))</span><br><span class="line">        adjacent_edges[n2].append((weight, n2, n1))</span><br><span class="line">    <span class="comment"># 확인</span></span><br><span class="line">    print(adjacent_edges)</span><br><span class="line"><span class="comment"># 확인</span></span><br><span class="line">prim(<span class="string">&#x27;A&#x27;</span>, myedges)</span><br></pre></td></tr></table></figure>
+<h4 id="뜯어보기"><a href="#뜯어보기" class="headerlink" title="뜯어보기"></a>뜯어보기</h4><pre><code class="python">from collections import defaultdict
+from heapq import *
+
+def prim(start_node, edges):
+    mst = list()
+    adjacent_edges = defaultdict(list) # 연결되어 있는 간선을 저장
+    for weight, n1, n2 in edges:
+        adjacent_edges[n1].append((weight, n1, n2))
+        adjacent_edges[n2].append((weight, n2, n1))
+    # 확인
+    print(adjacent_edges)
+# 확인
+prim(&#39;A&#39;, myedges)
+</code></pre>
 <pre><code>defaultdict(&lt;class &#39;list&#39;&gt;, &#123;&#39;A&#39;: [(7, &#39;A&#39;, &#39;B&#39;), (5, &#39;A&#39;, &#39;D&#39;)], &#39;B&#39;: [(7, &#39;B&#39;, &#39;A&#39;), (8, &#39;B&#39;, &#39;C&#39;), (9, &#39;B&#39;, &#39;D&#39;), (7, &#39;B&#39;, &#39;E&#39;)], &#39;D&#39;: [(5, &#39;D&#39;, &#39;A&#39;), (9, &#39;D&#39;, &#39;B&#39;), (7, &#39;D&#39;, &#39;E&#39;), (6, &#39;D&#39;, &#39;F&#39;)], &#39;C&#39;: [(8, &#39;C&#39;, &#39;B&#39;), (5, &#39;C&#39;, &#39;E&#39;)], &#39;E&#39;: [(7, &#39;E&#39;, &#39;B&#39;), (5, &#39;E&#39;, &#39;C&#39;), (7, &#39;E&#39;, &#39;D&#39;), (8, &#39;E&#39;, &#39;F&#39;), (9, &#39;E&#39;, &#39;G&#39;)], &#39;F&#39;: [(6, &#39;F&#39;, &#39;D&#39;), (8, &#39;F&#39;, &#39;E&#39;), (11, &#39;F&#39;, &#39;G&#39;)], &#39;G&#39;: [(9, &#39;G&#39;, &#39;E&#39;), (11, &#39;G&#39;, &#39;F&#39;)]&#125;)
 </code></pre>
 <h3 id="4-시간-복잡도-2"><a href="#4-시간-복잡도-2" class="headerlink" title="4. 시간 복잡도"></a>4. 시간 복잡도</h3><ul>
@@ -2564,9 +3123,38 @@ False
 </ul>
 </li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapdict <span class="keyword">import</span> heapdict</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prim</span>(<span class="params">graph, start</span>):</span></span><br><span class="line">    mst, keys, pi, total_weight = <span class="built_in">list</span>(), heapdict(), <span class="built_in">dict</span>(), <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> graph.keys():</span><br><span class="line">        keys[node] = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">        pi[node] = <span class="literal">None</span></span><br><span class="line">    keys[start], pi[start] = <span class="number">0</span>, start</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> keys:</span><br><span class="line">        current_node, current_key = keys.popitem()</span><br><span class="line">        mst.append([pi[current_node], current_node, current_key])</span><br><span class="line">        total_weight += current_key</span><br><span class="line">        <span class="keyword">for</span> adjacent, weight <span class="keyword">in</span> mygraph[current_node].items():</span><br><span class="line">            <span class="keyword">if</span> adjacent <span class="keyword">in</span> keys <span class="keyword">and</span> weight &lt; keys[adjacent]:</span><br><span class="line">                keys[adjacent] = weight</span><br><span class="line">                pi[adjacent] = current_node</span><br><span class="line">    <span class="keyword">return</span> mst, total_weight</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from heapdict import heapdict
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mygraph = &#123;</span><br><span class="line">    <span class="string">&#x27;A&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;B&#x27;</span>: &#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;E&#x27;</span>: <span class="number">7</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;C&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;E&#x27;</span>: <span class="number">5</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;D&#x27;</span>: &#123;<span class="string">&#x27;A&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;B&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;E&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;F&#x27;</span>: <span class="number">6</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;E&#x27;</span>: &#123;<span class="string">&#x27;B&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;F&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;G&#x27;</span>: <span class="number">9</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;F&#x27;</span>: &#123;<span class="string">&#x27;D&#x27;</span>: <span class="number">6</span>, <span class="string">&#x27;E&#x27;</span>: <span class="number">8</span>, <span class="string">&#x27;G&#x27;</span>: <span class="number">11</span>&#125;,</span><br><span class="line">    <span class="string">&#x27;G&#x27;</span>: &#123;<span class="string">&#x27;E&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;F&#x27;</span>: <span class="number">11</span>&#125;    </span><br><span class="line">&#125;</span><br><span class="line">mst, total_weight = prim(mygraph, <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&#x27;MST:&#x27;</span>, mst)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&#x27;Total Weight:&#x27;</span>, total_weight)</span><br></pre></td></tr></table></figure>
+def prim(graph, start):
+    mst, keys, pi, total_weight = list(), heapdict(), dict(), 0
+    for node in graph.keys():
+        keys[node] = float(&#39;inf&#39;)
+        pi[node] = None
+    keys[start], pi[start] = 0, start
+
+    while keys:
+        current_node, current_key = keys.popitem()
+        mst.append([pi[current_node], current_node, current_key])
+        total_weight += current_key
+        for adjacent, weight in mygraph[current_node].items():
+            if adjacent in keys and weight &lt; keys[adjacent]:
+                keys[adjacent] = weight
+                pi[adjacent] = current_node
+    return mst, total_weight
+</code></pre>
+<pre><code class="python">mygraph = &#123;
+    &#39;A&#39;: &#123;&#39;B&#39;: 7, &#39;D&#39;: 5&#125;,
+    &#39;B&#39;: &#123;&#39;A&#39;: 7, &#39;D&#39;: 9, &#39;C&#39;: 8, &#39;E&#39;: 7&#125;,
+    &#39;C&#39;: &#123;&#39;B&#39;: 8, &#39;E&#39;: 5&#125;,
+    &#39;D&#39;: &#123;&#39;A&#39;: 5, &#39;B&#39;: 9, &#39;E&#39;: 7, &#39;F&#39;: 6&#125;,
+    &#39;E&#39;: &#123;&#39;B&#39;: 7, &#39;C&#39;: 5, &#39;D&#39;: 7, &#39;F&#39;: 8, &#39;G&#39;: 9&#125;,
+    &#39;F&#39;: &#123;&#39;D&#39;: 6, &#39;E&#39;: 8, &#39;G&#39;: 11&#125;,
+    &#39;G&#39;: &#123;&#39;E&#39;: 9, &#39;F&#39;: 11&#125;    
+&#125;
+mst, total_weight = prim(mygraph, &#39;A&#39;)
+print (&#39;MST:&#39;, mst)
+print (&#39;Total Weight:&#39;, total_weight)
+</code></pre>
 <pre><code>MST: [[&#39;A&#39;, &#39;A&#39;, 0], [&#39;A&#39;, &#39;D&#39;, 5], [&#39;D&#39;, &#39;F&#39;, 6], [&#39;A&#39;, &#39;B&#39;, 7], [&#39;D&#39;, &#39;E&#39;, 7], [&#39;E&#39;, &#39;C&#39;, 5], [&#39;E&#39;, &#39;G&#39;, 9]]
 Total Weight: 39
 </code></pre>
@@ -2649,12 +3237,33 @@ Total Weight: 39
 </ul>
 </li>
 </ul>
-<h2 id="3-N-Queen-문제-파이썬-코드-작성"><a href="#3-N-Queen-문제-파이썬-코드-작성" class="headerlink" title="3. N Queen 문제 파이썬 코드 작성"></a>3. N Queen 문제 파이썬 코드 작성</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_available</span>(<span class="params">candidate, current_col</span>):</span></span><br><span class="line">    current_row = <span class="built_in">len</span>(candidate)</span><br><span class="line">    <span class="keyword">for</span> queen_row <span class="keyword">in</span> <span class="built_in">range</span>(current_row):    </span><br><span class="line">        <span class="keyword">if</span> candidate[queen_row] == current_col <span class="keyword">or</span> <span class="built_in">abs</span>(candidate[queen_row] - current_col) == current_row - queen_row:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DFS</span>(<span class="params">N, current_row, current_candidate, final_result</span>):</span></span><br><span class="line">    <span class="keyword">if</span> current_row == N:</span><br><span class="line">        final_result.append(current_candidate[:])</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> candidate_col <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">        <span class="keyword">if</span> is_available(current_candidate, candidate_col):</span><br><span class="line">            current_candidate.append(candidate_col)</span><br><span class="line">            DFS(N, current_row + <span class="number">1</span>, current_candidate, final_result)</span><br><span class="line">            current_candidate.pop()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve_n_queens</span>(<span class="params">N</span>):</span></span><br><span class="line">    final_result = []</span><br><span class="line">    DFS(N, <span class="number">0</span>, [], final_result)</span><br><span class="line">    <span class="keyword">return</span> final_result</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-N-Queen-문제-파이썬-코드-작성"><a href="#3-N-Queen-문제-파이썬-코드-작성" class="headerlink" title="3. N Queen 문제 파이썬 코드 작성"></a>3. N Queen 문제 파이썬 코드 작성</h2><pre><code class="python">def is_available(candidate, current_col):
+    current_row = len(candidate)
+    for queen_row in range(current_row):    
+        if candidate[queen_row] == current_col or abs(candidate[queen_row] - current_col) == current_row - queen_row:
+            return False
+    return True
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">solve_n_queens(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+def DFS(N, current_row, current_candidate, final_result):
+    if current_row == N:
+        final_result.append(current_candidate[:])
+        return
+    
+    for candidate_col in range(N):
+        if is_available(current_candidate, candidate_col):
+            current_candidate.append(candidate_col)
+            DFS(N, current_row + 1, current_candidate, final_result)
+            current_candidate.pop()
 
 
-
+def solve_n_queens(N):
+    final_result = []
+    DFS(N, 0, [], final_result)
+    return final_result
+</code></pre>
+<pre><code class="python">solve_n_queens(4)
+</code></pre>
 <pre><code>[[1, 3, 0, 2], [2, 0, 3, 1]]
 </code></pre>
 <h1 id="알고리즘-챕터-수강-후기"><a href="#알고리즘-챕터-수강-후기" class="headerlink" title="알고리즘 챕터 수강 후기"></a>알고리즘 챕터 수강 후기</h1><p>듣기 괴로운 내용도 있었지만 재밌게 들었습니다. 개인적으로 Dave Lee 선생님의 강의 스타일이 정말 잘 맞았다고 생각합니다. 알고리즘 한 챕터를 끝낸 김에, 수업의 장점과 단점을 써보았습니다.</p>
@@ -2718,7 +3327,7 @@ Total Weight: 39
     
     <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
     <p><span class="copy-title">Created At:</span>2021-03-05, 13:48:11</p>
-    <p><span class="copy-title">Updated At:</span>2021-03-05, 14:19:51</p>
+    <p><span class="copy-title">Updated At:</span>2021-03-05, 18:16:09</p>
     <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/05/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/" title="기본 핵심 알고리즘 (정렬, 탐색)">https://chaejin-jen.github.io/2021/03/05/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
