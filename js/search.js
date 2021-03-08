@@ -25,7 +25,7 @@ var searchFunc = function (path, search_id, content_id) {
     dataType: 'xml',
     complete: function (xmlResponse) {
       // get the contents from search data
-        /* 由于 xml 不支持特殊字符，所有手动转 */
+        /* xml 은 특수 문자를 지원하지 않으므로 모든 수동 변환 */
         function createXml(str){
             if(document.all){
                 var xmlDom=new ActiveXObject("Microsoft.XMLDOM");
@@ -125,12 +125,12 @@ var searchFunc = function (path, search_id, content_id) {
         });
         str += "</ul>";
         if (str.indexOf('<li>') === -1) {
-          return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，更换下搜索词试试吧~<span></ul>";
+          return $resultContent.innerHTML = "<ul><span class='local-search-empty'>콘텐츠를 찾을 수 없습니다. 검색어를 변경해보세요.<span></ul>";
         }
         $resultContent.innerHTML = str;
 
           $(document).pjax('#local-search-result a', '.pjax', {fragment: '.pjax', timeout: 8000});
-          /*鼠标移出文章列表后，去掉文章标题hover样式*/
+          /*기사 목록에서 마우스를 이동 한 후 기사 제목의 hover 스타일을 제거합니다.*/
           $("#local-search-result a").mouseenter(function (e) {
               $("#local-search-result a.hover").removeClass("hover");
               $(this).addClass("hover");
@@ -141,7 +141,7 @@ var searchFunc = function (path, search_id, content_id) {
       }
     },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
-          console.log('文章中出现特殊字符，导致解析xml出现问题，系统自动采用第二方案：进行主动解析！！！ 请检查全文搜索是否有问题，如出现问题，请及时在 https://github.com/yelog/hexo-theme-3-hexo/issues 中提出来，作者会尽快处理！')
+          console.log('기사에 특수 문자가 나타나 xml 구문 분석에 문제가 발생하면 시스템이 자동으로 두 번째 솔루션인 능동 구문 분석을 채택합니다! ! ! 请检查全文搜索是否有问题，如出现问题，请及时在 https://github.com/yelog/hexo-theme-3-hexo/issues 中提出来，作者会尽快处理！')
       }
   });
 }

@@ -473,7 +473,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-03-08 21:46:40'>2021-03-08 21:46</time>
+            Created At : <time class="date" title='Updated At: 2021-03-08 22:34:47'>2021-03-08 22:38</time>
         
     </div>
     <div class="article-meta">
@@ -484,7 +484,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%91%9C%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-text">표만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#html-%ED%98%95%EC%8B%9D"><span class="toc-text">html 형식</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdown-%ED%98%95%EC%8B%9D"><span class="toc-text">markdown 형식</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%82%AC%EC%A7%84-%EC%9E%90%EB%A5%B4%EA%B8%B0"><span class="toc-text">사진 자르기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#html"><span class="toc-text">html</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B8%B0%EB%8A%A5"><span class="toc-text">블로그 기능</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%91%9C%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-text">표만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#html-%ED%98%95%EC%8B%9D"><span class="toc-text">html 형식</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdown-%ED%98%95%EC%8B%9D"><span class="toc-text">markdown 형식</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%82%AC%EC%A7%84-%EC%9E%90%EB%A5%B4%EA%B8%B0"><span class="toc-text">사진 자르기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#html"><span class="toc-text">html</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%A0%91%EA%B8%B0-%ED%8E%B4%EA%B8%B0"><span class="toc-text">접기&#x2F;펴기</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%B8%94%EB%A1%9C%EA%B7%B8-%EA%B8%B0%EB%8A%A5"><span class="toc-text">블로그 기능</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -536,10 +536,32 @@
 <h1 id="사진-자르기"><a href="#사진-자르기" class="headerlink" title="사진 자르기"></a>사진 자르기</h1><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><ul>
 <li>위치고정</li>
 </ul>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>$$<br>x =<br>\begin{bmatrix}<br>x_1 \<br>x_2 \<br>\vdots \<br>x_N<br>\end{bmatrix}<br>;; \rightarrow ;;<br>x - m =<br>\begin{bmatrix}<br>x_1 - m\<br>x_2 - m \<br>\vdots \<br>x_N - m<br>\end{bmatrix}<br>$$</p>
+<h1 id="접기-펴기"><a href="#접기-펴기" class="headerlink" title="접기/펴기"></a>접기/펴기</h1><details>
+  <summary style="font-Weight : bold; font-size : 20px; color : #CCCCCC;" > 자세한 설명 </summary>
+  <div>  
+  
+    1. 이번에는 직선 $w^Tx - \|w\|^2 = 0$ 과 이 직선 위에 있지 않은 점 $x'$ 사이의 거리를 구해보자.
+    
+    벡터 $w$에 대한 벡터 $x'$의 투영성분 $x'^{\Vert w}$의 길이는 다음과 같다.
+    
+    $$
+    \|x'^{\Vert w}\| = \dfrac{w^Tx'}{\|w\|} 
+    $$
+    
+    직선과 점 $x'$ 사이의 거리는 이 길이에서 원점에서 직선까지의 거리 $\|w\|$를 뺀 값의 절댓값이다. 
+    
+        
+    <img src=" "/>
+
+  </div>
+</details>
+
+
+<p>$$<br>x =<br>\begin{bmatrix}<br>x_1 \<br>x_2 \<br>\vdots \<br>x_N<br>\end{bmatrix}<br>;; \rightarrow ;;<br>x - m =<br>\begin{bmatrix}<br>x_1 - m\<br>x_2 - m \<br>\vdots \<br>x_N - m<br>\end{bmatrix}<br>$$</p>
 <h1 id="블로그-기능"><a href="#블로그-기능" class="headerlink" title="블로그 기능"></a>블로그 기능</h1><p>3-hexo 단축키 : <a target="_blank" rel="noopener" href="https://yelog.org/2017/03/24/3-hexo-shortcuts/">https://yelog.org/2017/03/24/3-hexo-shortcuts/</a></p>
 <p>3-hexo 구성 홈 페이지 : <a target="_blank" rel="noopener" href="https://yelog.org/2017/03/13/3-hexo-homepage/">https://yelog.org/2017/03/13/3-hexo-homepage/</a></p>
 <p>3-hexo는 jsfiddle 렌더링을 지원 : <a target="_blank" rel="noopener" href="https://yelog.org/2019/09/24/3-hexo-jsfiddle/">https://yelog.org/2019/09/24/3-hexo-jsfiddle/</a></p>
+<p><a target="_blank" rel="noopener" href="https://futurecreator.github.io/2018/07/18/hexo-blog-backup/">hexo theme 서브 모듈적용</a></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
@@ -566,7 +588,7 @@
 
     </div>
     <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
     </div>
