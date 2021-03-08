@@ -1,0 +1,3873 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chaejin&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/inging/%EC%88%98%ED%95%99%EB%AA%A9%EC%B0%A8.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-05T04:51:06.821Z">
+<meta property="article:modified_time" content="2021-03-04T07:51:44.000Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(8)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->Bagic3">
+                                        
+                                        Bagic3
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBagic">
+                                                        
+                                                        Bagic
+                                                        
+                                                            <small>(3)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science OS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/08/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-08 20:33:17">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science OS"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 16:26:55">2021/03/07</span>
+        </a>
+        
+        <a  class="All DeepLearning Bagic3 "
+           href="/2021/03/06/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework"
+           data-author="" >
+            <span class="post-title" title="밑바닥 부터 시작하는 딥러닝 3 (1탄!)">밑바닥 부터 시작하는 딥러닝 3 (1탄!)</span>
+            <span class="post-date" title="2021-03-06 07:26:32">2021/03/06</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/06/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-06 07:26:31">2021/03/06</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/06/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-06 07:25:54">2021/03/06</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/06/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-06 07:25:54">2021/03/06</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/06/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-06 07:25:53">2021/03/06</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-05 14:29:56">2021/03/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-03-07 19:22:51'>2021-03-08 22:12</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-%EC%86%94%EB%A3%A8%EC%85%98-%EC%86%8D%EC%84%B1-Setting"><span class="toc-text">0. 솔루션 속성 Setting</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9"><span class="toc-text">1. 기본사용</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EA%B8%B0%EB%B3%B8%ED%95%A8%EC%88%98"><span class="toc-text">1 기본함수</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%EC%9D%B4%EB%AF%B8%EC%A7%80-RGB-%EB%B6%84%ED%95%A0"><span class="toc-text">2. 이미지 RGB 분할</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%EC%9D%B4%EB%AF%B8%EC%A7%80-RGB-%EB%B6%84%ED%95%A0-1"><span class="toc-text">2-1. 이미지 RGB 분할 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%EC%9D%B4%EB%AF%B8%EC%A7%80-RGB-%EB%B6%84%ED%95%A0"><span class="toc-text">2_1 이미지 RGB 분할</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%EC%9D%B4%EB%AF%B8%EC%A7%80-RGB-%EB%B6%84%ED%95%A0-2"><span class="toc-text">2-2. 이미지 RGB 분할 2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%92%A4%EC%A7%91%EA%B8%B0"><span class="toc-text">3. 이미지 뒤집기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%92%A4%EC%A7%91%EA%B8%B0-1"><span class="toc-text">3 이미지 뒤집기</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84"><span class="toc-text">4. 이미지 회전</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-1"><span class="toc-text">4 이미지 회전</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B6%99%EC%9D%B4%EA%B8%B0"><span class="toc-text">5. 이미지 붙이기</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%82%A4%EC%9A%B0%EA%B8%B0"><span class="toc-text">6. 이미지 키우기</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%EC%9D%B4%EB%AF%B8%EC%A7%80-resizing"><span class="toc-text">7. 이미지 resizing</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%9E%90%EB%A5%B4%EA%B8%B0"><span class="toc-text">8. 이미지 자르기</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B6%80%EB%B6%84-%ED%9D%91%EB%B0%B1-%EC%B2%98%EB%A6%AC"><span class="toc-text">9. 이미지 부분 흑백 처리</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B6%80%EB%B6%84-%ED%9D%91%EB%B0%B1-%EC%B2%98%EB%A6%AC"><span class="toc-text">이미지 부분 흑백 처리</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%82%98%EB%A8%B8%EC%A7%80%EB%A5%BC-%ED%9D%91%EB%B0%B1-%EC%B2%98%EB%A6%AC"><span class="toc-text">10. 이미지 나머지를 흑백 처리</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%89%EC%83%81%EB%B0%98%EC%A0%84"><span class="toc-text">11. 이미지 색상반전</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%9D%B4%EC%A7%84%ED%99%94"><span class="toc-text">12. 이미지 이진화</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%9D%B4%EC%A7%84%ED%99%94-%EC%9D%BC%EB%B0%98%EC%A0%81%EC%9C%BC%EB%A1%9C-%EA%B7%B8%EB%A0%88%EC%9D%B4%EB%A1%9C-%EB%B0%94%EA%BE%BC-%ED%9B%84-%EC%9D%B4%EC%A7%84%ED%99%94"><span class="toc-text">12 이미지 이진화 (일반적으로 그레이로 바꾼 후 이진화)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B8%94%EB%9F%AC"><span class="toc-text">13. 이미지 블러</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%97%A3%EC%A7%80"><span class="toc-text">14. 이미지 엣지</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%97%A3%EC%A7%80-%EC%BD%9C%EB%9D%BC%EC%A3%BC"><span class="toc-text">15. 이미지 엣지 + 콜라주</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%9D%BC%ED%94%8C%EB%9D%BC%EC%8B%9C%EC%95%88"><span class="toc-text">16. 이미지 라플라시안</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#17-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%89-%EC%B6%94%EC%B6%9C"><span class="toc-text">17 이미지 색 추출</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-2-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%89-%EC%B6%94%EC%B6%9C2"><span class="toc-text">17-2. 이미지 색 추출2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-3-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%83%89-%EC%B6%94%EC%B6%9C-3-%EB%85%B8%EB%9E%91%EC%83%89"><span class="toc-text">17-3. 이미지 색 추출 3 (노랑색)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-%EA%B7%B8%EB%A6%BC-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%EC%9B%90-%EC%82%AC%EA%B0%81%ED%98%95-%EC%84%A0-%ED%83%80%EC%9B%90"><span class="toc-text">18. 그림 그리기 (원, 사각형, 선, 타원)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-%EA%B7%B8%EB%A6%BC-%EA%B7%B8%EB%A6%AC%EA%B8%B0-%ED%8F%B4%EB%A6%AC%EB%9D%BC%EC%9D%B8"><span class="toc-text">19. 그림 그리기 (폴리라인)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-%EA%B8%80%EC%94%A8-%EC%93%B0%EA%B8%B01-putText"><span class="toc-text">20. 글씨 쓰기1 (putText)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%99%B8%EA%B3%BD%EC%84%A0-%EC%B0%BE%EC%95%84%EC%84%9C-%EA%B7%B8%EB%A6%AC%EA%B8%B0-findContours-drawContours"><span class="toc-text">21. 이미지 외곽선 찾아서 그리기 (findContours, drawContours)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-contours-%EB%B2%A1%ED%84%B0"><span class="toc-text">21+. contours 벡터</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-%EA%B8%80%EC%94%A8-%EC%93%B0%EA%B8%B02-vector-%EC%9A%94%EC%86%8C"><span class="toc-text">22. 글씨 쓰기2 (vector 요소)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23-%EC%B5%9C%EC%86%8C-%EB%A9%B4%EC%A0%81"><span class="toc-text">23. 최소 면적</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#24-%EB%AC%B4%EA%B2%8C%EC%A4%91%EC%8B%AC-moment"><span class="toc-text">24. 무게중심(moment)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#25-Morphology-%EC%97%B0%EC%82%B0"><span class="toc-text">25. Morphology 연산</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%A7%88%EC%A7%80%EB%A7%89-%EC%8B%A4%EC%8A%B5"><span class="toc-text">마지막, 실습</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%EA%B8%B0%EB%B3%B8%EC%82%AC%EC%9A%A9-1"><span class="toc-text">1. 기본사용</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%EC%9D%B4%EB%AF%B8%EC%A7%80-RGB-%EB%B6%84%ED%95%A0-2-1"><span class="toc-text">2-2. 이미지 RGB 분할 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0831-2-2-%EC%9D%B4%EB%AF%B8%EC%A7%80-RGB-%EB%B6%84%ED%95%A0-0-%EB%B2%A1%ED%84%B0"><span class="toc-text">0831_2_2 이미지 RGB 분할, 0 벡터</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%92%A4%EC%A7%91%EA%B8%B0-2"><span class="toc-text">3. 이미지 뒤집기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%92%A4%EC%A7%91%EA%B8%B0-3"><span class="toc-text">3 이미지 뒤집기</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-2"><span class="toc-text">4. 이미지 회전</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%9A%8C%EC%A0%84-3"><span class="toc-text">4 이미지 회전</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0-솔루션-속성-Setting"><a href="#0-솔루션-속성-Setting" class="headerlink" title="0. 솔루션 속성 Setting"></a>0. 솔루션 속성 Setting</h1><p> </p>
+<p><img src="cppOpenCV/media/image1.png"></p>
+<p>솔루션탐색기-솔루션이름-속성</p>
+<p> </p>
+<p>모든구성</p>
+<p><img src="cppOpenCV/media/image2.png"></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image3.png"></p>
+<p> </p>
+<p>C/C++ - 일반</p>
+<p>추가활성디렉터리</p>
+<p>C:\opencv\build\include</p>
+<p> </p>
+<p>링커</p>
+<p>C:\opencv\build\x64\vc15\bin</p>
+<p><img src="cppOpenCV/media/image4.png"></p>
+<p> </p>
+<p>디버깅-환경</p>
+<p>PATH=C:\opencv\build\x64\vc15\bin;%PATH%# 0. 솔루션 속성 Setting</p>
+<p> </p>
+<p><img src="cppOpenCV/media/image1.png"></p>
+<p>솔루션탐색기-솔루션이름-속성</p>
+<p> </p>
+<p>모든구성</p>
+<p><img src="cppOpenCV/media/image2.png"></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image3.png"></p>
+<p> </p>
+<p>C/C++ - 일반</p>
+<p>추가활성디렉터리</p>
+<p>C:\opencv\build\include</p>
+<p> </p>
+<blockquote>
+<p> </p>
+</blockquote>
+<p>링커</p>
+<p>C:\opencv\build\x64\vc15\bin</p>
+<p><img src="cppOpenCV/media/image4.png"></p>
+<p> </p>
+<p>디버깅-환경</p>
+<p>PATH=C:\opencv\build\x64\vc15\bin;%PATH%</p>
+<p><img src="cppOpenCV/media/image5.png"></p>
+<p> </p>
+<p>구성: 활성</p>
+<p><img src="cppOpenCV/media/image6.png"></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image7.png"></p>
+<p>링커-입력-추가 종속성</p>
+<p>opencv_world430d.lib (활성debug)</p>
+<p><img src="cppOpenCV/media/image8.png"></p>
+<p>Release</p>
+<p>링커-입력-추가 종속성</p>
+<p><img src="cppOpenCV/media/image9.png"></p>
+<h1 id="1-기본사용"><a href="#1-기본사용" class="headerlink" title="1. 기본사용"></a>1. 기본사용</h1><p>헤더 파일 opencv2/opencv.hpp</p>
+<table>
+<thead>
+<tr>
+<th>자주쓰이는 애들</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv::Mat 변수이름</td>
+<td>매트릭스 생성</td>
+</tr>
+<tr>
+<td>cv::imread(파일, cv::IMREAD_COLOR)</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::IMREAD_COLOR</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::pyrDown(원본, 수정본)</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::pyrUp(원본, 수정본)</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::cvtColor(원본, 수정본, cv::COLOR_BGR2GRAY)</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::COLOR_BGR2GRAY</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::namedWindow(“창 이름”)</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::waitKey(0)</td>
+<td></td>
+</tr>
+<tr>
+<td>cv::destroyAllWindows()</td>
+<td></td>
+</tr>
+</tbody></table>
+<p> </p>
+<h2 id="1-기본함수"><a href="#1-기본함수" class="headerlink" title="1 기본함수"></a>1 기본함수</h2><p>                                                 </p>
+<pre><code class="cpp">                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+//using namespace cv;                            
+                                                 
+//using namespace std;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_color, img_gray;             
+                                                 
+        //std::string fileName =                 
+&quot;C:                                             
+//Users//w//Documents//CK//image//book.jpg&quot;;        //절대경로 |
+                                                 
+        //std::string fileName =                 
+&quot;Images/Choco.j                                 
+pg&quot;;                                                //상대경로 |
+                                                 
+        //img_color = cv::imread(fileName, IMREAD_COLOR);   
+                                                 
+                                                 
+                                                 
+        //img_color = cv::imread(&quot;image/dessert1.jpg&quot;, cv::IMREAD_COLOR;                               
+                                                 
+        img_color = cv::imread(&quot;image/shyab.jpg&quot;,         
+cv::IMREAD_COLOR);                               
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        if (img_color.empty())                   
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        std::cout &lt;&lt; &quot;이미지의 가로는 : &quot; &lt;&lt;          
+img_color.cols &lt;&lt; std::endl;                   
+                                                 
+        std::cout &lt;&lt; &quot;이미지의 세로는 : &quot; &lt;&lt;          
+img_color.rows &lt;&lt; std::endl;                   
+                                                 
+        std::cout &lt;&lt; &quot;이미지의 채널은 : &quot; &lt;&lt;          
+img_color.channels() &lt;&lt; std::endl;        //흑백 1, 칼라 3
+(B,G,R)                                          
+                                                 
+                                                 
+                                                 
+        cv::pyrDown(img_color, img_color);        //이미지를
+절반으로 줄임                                    
+                                                 
+        //cv::pyrUp(img_color, img_color);        //이미지를
+두배로 늘림                                      
+                                                 
+        cv::cvtColor(img_color, img_gray,        
+cv::COLOR_BGR2GRAY);        //칼라변경 (채널 변경)          
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_color);        //&quot; &quot;창에 &quot; 
+&quot;를 띄움                                        
+                                                 
+        cv::namedWindow(&quot;Gray&quot;);               
+                                                 
+        imshow(&quot;Gray&quot;, img_gray);              
+                                                 
+        cv::waitKey(0);        //어떤 키를 누를때까지 대기  
+                                                 
+        cv::destroyAllWindows();        //윈도우창을 닫아라 
+                                                 
+        return 0;                                
+                                                 
+&#125;                
+</code></pre>
+<h1 id="2-이미지-RGB-분할"><a href="#2-이미지-RGB-분할" class="headerlink" title="2. 이미지 RGB 분할"></a>2. 이미지 RGB 분할</h1><p><strong>cv::split</strong></p>
+<h2 id="2-1-이미지-RGB-분할-1"><a href="#2-1-이미지-RGB-분할-1" class="headerlink" title="2-1. 이미지 RGB 분할 1"></a>2-1. 이미지 RGB 분할 1</h2><h3 id="2-1-이미지-RGB-분할"><a href="#2-1-이미지-RGB-분할" class="headerlink" title="2_1 이미지 RGB 분할"></a>2_1 이미지 RGB 분할</h3><p> </p>
+<pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+ 
+
+ 
+
+int main()
+
+&#123;
+
+ 
+
+        cv::Mat img_color = cv::imread(&quot;image/colorball.png&quot;, cv::IMREAD_COLOR);
+
+        cv::Mat bgr[3];
+
+ 
+
+ 
+
+        if (img_color.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+ 
+
+        cv::pyrDown(img_color, img_color);
+
+        cv::split(img_color, bgr);
+
+ 
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_color);
+
+        imshow(&quot;blue&quot;, bgr[0]);
+
+        imshow(&quot;green&quot;, bgr[1]);
+
+        imshow(&quot;red&quot;, bgr[2]);
+
+        cv::waitKey(0);
+
+        cv::destroyAllWindows();
+
+ 
+
+        return 0;
+
+&#125;
+</code></pre>
+<h2 id="2-2-이미지-RGB-분할-2"><a href="#2-2-이미지-RGB-분할-2" class="headerlink" title="2-2. 이미지 RGB 분할 2"></a>2-2. 이미지 RGB 분할 2</h2><p>이미지 RGB 분할, 0 벡터</p>
+<p> </p>
+<pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+ 
+
+ 
+
+int main()
+
+&#123;
+
+        cv::Mat img_color = cv::imread(&quot;image/colorball.png&quot;, cv::IMREAD_COLOR);
+
+        cv::Mat bgr[3];
+
+ 
+
+        if (img_color.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+ 
+
+        cv::pyrDown(img_color, img_color);        //크기조정이 아래 Mat 생성보다 먼저 와야 함
+
+        cv::Mat zeroMat = cv::Mat::zeros(img_color.size(), CV_8UC1);        //0-255까지 그 값이 0으로 채워지는 매트릭스 생성
+
+        cv::split(img_color, bgr);
+
+        
+
+        cv::Mat R[] = &#123; zeroMat, zeroMat, bgr[2] &#125;;
+
+        cv::Mat G[] = &#123; zeroMat, bgr[1], zeroMat &#125;;
+
+        cv::Mat B[] = &#123; bgr[0], zeroMat, zeroMat &#125;;
+
+ 
+
+        cv::merge(R, 3, bgr[2]);
+
+        cv::merge(G, 3, bgr[1]);
+
+        cv::merge(B, 3, bgr[0]);
+
+ 
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_color);
+
+        imshow(&quot;blue&quot;, bgr[0]);
+
+        imshow(&quot;green&quot;, bgr[1]);
+
+        imshow(&quot;red&quot;, bgr[2]);
+
+        cv::waitKey(0);
+
+        cv::destroyAllWindows();
+
+ 
+
+        return 0;
+
+&#125;
+</code></pre>
+<h1 id="3-이미지-뒤집기"><a href="#3-이미지-뒤집기" class="headerlink" title="3. 이미지 뒤집기"></a>3. 이미지 뒤집기</h1><h3 id="3-이미지-뒤집기-1"><a href="#3-이미지-뒤집기-1" class="headerlink" title="3 이미지 뒤집기"></a>3 이미지 뒤집기</h3><pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+ 
+
+ 
+
+int main()
+
+&#123;        
+
+        cv::Mat img_src, img_dst, img_dst0, img_dst1;
+
+        std::string fileName = &quot;image/colorball.png&quot;;
+
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);
+
+ 
+
+        if (img_src.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+ 
+
+        cv::pyrDown(img_src, img_src);
+
+        cv::pyrDown(img_src, img_src);
+
+ 
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_src);
+
+ 
+
+        int option = -1;
+
+        cv::flip(img_src, img_dst, option); //0 : 상하 대칭, 1 : 좌우대칭, -1 : 상하좌우대칭
+
+        imshow(&quot;Flip-1&quot;, img_dst);
+
+        option = 0;
+
+        cv::flip(img_src, img_dst0, option);
+
+        imshow(&quot;Flip0&quot;, img_dst0);
+
+        option = -1;
+
+        cv::flip(img_src, img_dst1, option);
+
+        imshow(&quot;Flip1&quot;, img_dst1);
+
+ 
+
+        cv::waitKey(0);
+
+        cv::destroyAllWindows();
+
+ 
+
+        return 0;
+
+&#125;
+</code></pre>
+<h1 id="4-이미지-회전"><a href="#4-이미지-회전" class="headerlink" title="4. 이미지 회전"></a>4. 이미지 회전</h1><h2 id="4-이미지-회전-1"><a href="#4-이미지-회전-1" class="headerlink" title="4 이미지 회전"></a>4 이미지 회전</h2><pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+int main()
+
+&#123;        
+
+        cv::Mat img_src, img_dst;
+
+        std::string fileName = &quot;image/colorball.png&quot;;
+
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);
+
+        if (img_src.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+        cv::pyrDown(img_src, img_src);        
+
+        cv::pyrDown(img_src, img_src);
+
+        int width = img_src.cols;
+
+        int height = img_src.rows;
+
+        //회전매트릭스 (회전시 중심점, 회전각도, 이미지 배율 (1 : 원래크기))
+
+        cv::Mat M = getRotationMatrix2D(cv::Point(width / 2.0, height / 2.0), 90, 1);
+
+        
+
+        //원본, 수정본, 속성(회전매트릭스), 사이즈
+
+        warpAffine(img_src, img_dst, M, cv::Size(width, height));
+
+        
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_src);
+
+        imshow(&quot;Rotated&quot;, img_dst);
+
+        cv::waitKey(0);        
+
+        cv::destroyAllWindows();
+
+        return 0;
+</code></pre>
+<h1 id="5-이미지-붙이기"><a href="#5-이미지-붙이기" class="headerlink" title="5. 이미지 붙이기"></a>5. 이미지 붙이기</h1><p> </p>
+<pre><code class="cpp">//0831_5 이미지 붙이기                           
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src, img_dst;                
+                                                 
+        std::string fileName = &quot;image/Choco.jpg&quot;;         
+                                                 
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);   
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        //cv::pyrDown(img_src, img_src);         
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::Mat M = getRotationMatrix2D(cv::Point(width / 2.0,  |
+height / 2.0), 90, 1);                           
+                                                 
+                                                 
+                                                 
+        warpAffine(img_src, img_dst, M, cv::Size(width,     
+height));                                        
+                                                 
+                                                 
+                                                 
+        //사진1, 사진2, 붙일사진                 
+                                                 
+        vconcat(img_src, img_dst, img_src); //아래          
+                                                 
+        //hconcat(img_src, img_dst, img_src); //위에        
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;Rotated&quot;, img_dst);            
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="6-이미지-키우기"><a href="#6-이미지-키우기" class="headerlink" title="6. 이미지 키우기"></a>6. 이미지 키우기</h1><p>2배로 이미지를 키울 경우 1pix 이 4pix으로 바뀜</p>
+<p>이때 처리하는 법을 보간법(interpolation)</p>
+<p>inter linear, inter cubic 등이 있음 그러나 근본적으로 큰 차이는 없음</p>
+<p> </p>
+<pre><code class="cpp">//0831_6 이미지 키우기                           
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src, img_dst;                
+                                                 
+        std::string fileName = &quot;image/shyab.jpg&quot;;         
+                                                 
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);   
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for(int i=0; i&lt;2; i++)                  
+                                                 
+                cv::pyrDown(img_src, img_src); //이미지 1/2로   |
+줄이기                                           
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        //cv::pyrUp(img_src, img_dst, cv::Size(width * 0.5,
+height * 0.5), cv::BORDER_DEFAULT); //왜 안될까?
+                                                 
+        cv::pyrUp(img_src, img_dst, cv::Size(width * 2, height |
+* 2), cv::BORDER_DEFAULT);                      
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;pyrUp&quot;, img_dst);              
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="7-이미지-resizing"><a href="#7-이미지-resizing" class="headerlink" title="7. 이미지 resizing"></a>7. 이미지 resizing</h1><p> </p>
+<pre><code class="cpp">//0831_7 이미지 Resizeing                        
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src, img_dst;                
+                                                 
+        std::string fileName = &quot;image/Choco.jpg&quot;;         
+                                                 
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);   
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 2; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        /*void cv::resize(InputArray src, OutputArray dst, 
+Size dsize double fx = 0, double fy=0, int interpoloation = 
+INTER_LINEAR)                                    
+                                                 
+        src: 원본 이미지, dst : 결과 이미지, dsize : 결과   
+이미지의 크기, fx, fy : 수평 수직 방향 크기 조정 비율,      
+interpolation : 보간법                           
+                                                 
+        */                                      
+                                                 
+                                                 
+                                                 
+        //2배 키우기                             
+                                                 
+        cv::resize(img_src, img_dst, cv::Size(), 2, 2,      
+cv::INTER_CUBIC);                                
+                                                 
+                                                 
+                                                 
+        //3배 키우기                             
+                                                 
+        cv::resize(img_src, img_dst, cv::Size(), 3, 3,      
+cv::INTER_CUBIC);                                
+                                                 
+                                                 
+                                                 
+        //0.5배 키우기                           
+                                                 
+        cv::resize(img_src, img_dst, cv::Size(), 0.5, 0.5,  
+cv::INTER_CUBIC);                                
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;dst&quot;, img_dst);                
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="8-이미지-자르기"><a href="#8-이미지-자르기" class="headerlink" title="8. 이미지 자르기"></a>8. 이미지 자르기</h1><p>150, 80, 20, 200</p>
+<p> </p>
+<pre><code class="cpp">//0831_7 이미지 자르기                           
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/pawns.jpg&quot;,   
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_dst;                         
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 2; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        /*관심영역 ROI(Region of Interest)      
+                                                 
+        set ROI)X, Y, W, H)*/                   
+                                                 
+        cv::Rect rect(100, 30, 150, 300);        
+                                                 
+        img_dst = img_src(rect);                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;dst&quot;, img_dst);                
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<h1 id="9-이미지-부분-흑백-처리"><a href="#9-이미지-부분-흑백-처리" class="headerlink" title="9. 이미지 부분 흑백 처리"></a>9. 이미지 부분 흑백 처리</h1><p>자르고 흑백 다시 붙이기</p>
+<p>채널이 다를 경우 불가하기 때문</p>
+<p>3번 겹쳐서 같은 채널(차원)으로 만들면 가능</p>
+<p> </p>
+<p>문제 : 파란색 체스말 잘라서, 흑백해서, 다시 원본에 붙이기</p>
+<p> </p>
+<p> </p>
+<h2 id="이미지-부분-흑백-처리"><a href="#이미지-부분-흑백-처리" class="headerlink" title="이미지 부분 흑백 처리"></a>이미지 부분 흑백 처리</h2><p> </p>
+<pre><code>#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+using namespace cv;                              
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        Mat img_src = imread(&quot;image/pawns.jpg&quot;,
+IMREAD_COLOR);                                   
+                                                 
+        Mat img_rect, img_dst;                   
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                pyrDown(img_src, img_src);       
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+        int px = 35, py = 180, lx = 200, ly = 440;          
+                                                 
+                                                 
+                                                 
+        //cv::Rect rect(px, py, lx, ly);         
+                                                 
+        //cv::Mat zeroMat = cv::Mat::zeros(img_dst.size(),  
+CV_8UC1);                                        
+                                                 
+        //cv::Mat onesMat = cv::Mat::ones(img_dst.size(),   
+CV_8UC1);                                        
+                                                 
+        //onesMat = onesMat * 255;              
+                                                 
+        Mat img_gray(img_src, Rect(px, py, lx, ly));        
+                                                 
+        cvtColor(img_gray, img_dst, COLOR_BGR2GRAY);        
+                                                 
+                                                 
+                                                 
+        //Mat tmp[] = &#123; img_dst, img_dst, img_dst &#125;;      
+                                                 
+        //cv::Mat tmp[] = &#123; onesMat, onesMat, onesMat &#125;;  
+                                                 
+        Mat tmp[] = &#123; img_dst, img_dst, img_dst &#125;; //1채널의  |
+img_dst를 3번 조합해서 3채널으로                 
+                                                 
+        cv::merge(tmp, 3, img_dst);              
+                                                 
+        img_dst.copyTo(img_src(Rect(px, py, lx, ly)));      
+//img_dst를 img_src의 Rect영역에 붙여넣기        
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        //imshow(&quot;dst&quot;, img_dst);              
+                                                 
+                                                 
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="10-이미지-나머지를-흑백-처리"><a href="#10-이미지-나머지를-흑백-처리" class="headerlink" title="10. 이미지 나머지를 흑백 처리"></a>10. 이미지 나머지를 흑백 처리</h1><p> </p>
+<pre><code class="cpp">//0831_10 연습문제1 (선생님-2) 나머지를 흑백     
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/pawns.jpg&quot;,   
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_dst;                         
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        //35,180,200,440;                        
+                                                 
+        //int px = 170, py = 125, lx = 60, ly = 185;        
+                                                 
+        int px = 35, py = 180, lx = 200, ly = 440;          
+                                                 
+        cv::Rect rect(px, py, lx, ly);           
+                                                 
+                                                 
+                                                 
+        img_dst = img_src(rect);                 
+                                                 
+        cvtColor(img_src, img_src, cv::COLOR_BGR2GRAY);     
+                                                 
+                                                 
+                                                 
+        cv::Mat tmp[] = &#123; img_src, img_src, img_src&#125;;     
+                                                 
+        cv::merge(tmp, 3, img_src);              
+                                                 
+        img_dst.copyTo(img_src(cv::Rect(px, py, lx, ly)));  
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+                                                 
+                                                 
+        //cv::namedWindow(&quot;dst&quot;);              
+                                                 
+        imshow(&quot;dst&quot;, img_dst);                
+                                                 
+                                                 
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="11-이미지-색상반전"><a href="#11-이미지-색상반전" class="headerlink" title="11. 이미지 색상반전"></a>11. 이미지 색상반전</h1><p> </p>
+<pre><code class="cpp">//0831_11 이미지 색상반전 (각각 RGB를 255에서 뺌)
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src =                        
+cv::imread(&quot;image/whitebutterfly.jpg&quot;, cv::IMREAD_COLOR); 
+                                                 
+        cv::Mat img_dst;                         
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        bitwise_not(img_src, img_dst);        //색상반전    
+                                                 
+                                                 
+                                                 
+        ////and, or, xor 은 두개씩 있어야 함     
+                                                 
+        //bitwise_and(img_src, img_src, img_dst);
+                                                 
+        //bitwise_or(img_src, img_src, img_dst); 
+                                                 
+        //bitwise_xor(img_src, img_src, img_dst); //값이    
+다르면1, 같으면 0                                
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;dst&quot;, img_dst);                
+                                                 
+                                                 
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="12-이미지-이진화"><a href="#12-이미지-이진화" class="headerlink" title="12. 이미지 이진화"></a>12. 이미지 이진화</h1><p>이진화를 어떻게 하는냐에 따라 프로그램 성능이 나타남</p>
+<p> <br>|이진화 옵션|내용|<br>|-|-|<br>|THRESH_BINARY | 임계값이상 = 최대값, 임계값이하 = 0|<br>|THRESH_BINARY_INV | 임계값이상 = 0, 임계값이하 = 최대값|<br>|THRESH_TRUNC | 임계값이상 = 최대값, 임계값이하 = 원본값|<br>|THRESH_TOZERO | 임계값이상 = 원본값, 임계값이하 = 0|<br>|THRESH_TOZERO_INV | 임계값이상 = 0, 임계값이하 = 원본값|<br>|THRESH_OTSU | Otsu 알고리즘 적용|<br>|THRESH_TRIANGLE | Traiangle 알고리즘 적용|</p>
+<p> </p>
+<h2 id="12-이미지-이진화-일반적으로-그레이로-바꾼-후-이진화"><a href="#12-이미지-이진화-일반적으로-그레이로-바꾼-후-이진화" class="headerlink" title="12 이미지 이진화 (일반적으로 그레이로 바꾼 후 이진화)"></a>12 이미지 이진화 (일반적으로 그레이로 바꾼 후 이진화)</h2><pre><code class="c">
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/goose.jpg&quot;,   
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_gray, img_dst;               
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::cvtColor(img_src, img_gray, cv::COLOR_BGR2GRAY);
+                                                 
+                                                 
+                                                 
+        //cv::threshold(img_gray, img_dst, 170, 255,        
+cv::THRESH_BINARY);                              
+                                                 
+        //cv::threshold(img_gray, img_dst, 170, 255,        
+cv::THRESH_BINARY_INV);                          
+                                                 
+        cv::threshold(img_gray, img_dst, 140, 255,          
+cv::THRESH_OTSU);                                
+                                                 
+        //cv::threshold(img_gray, img_dst, 170, 255,        
+cv::THRESH_TRUNC);                               
+                                                 
+        //cv::threshold(img_gray, img_dst, 170, 255,        
+cv::THRESH_OTSU);                                
+                                                 
+                                                 
+                                                 
+        //THRESH_BINARY : 임계값이상 = 최대값, 임계값이하 = 0   |
+                                                 
+        //THRESH_BINARY_INV : 임계값이상 = 0, 임계값이하 =  
+최대값                                           
+                                                 
+        //THRESH_TRUNC : 임계값이상 = 최대값, 임계값이하 =  
+원본값                                           
+                                                 
+        //THRESH_TOZERO : 임계값이상 = 원본값, 임계값이하 = 0   |
+                                                 
+        //THRESH_TOZERO_INV : 임계값이상 = 0, 임계값이하 =  
+원본값                                           
+                                                 
+        //THRESH_OTSU : Otsu 알고리즘 적용       
+                                                 
+        //THRESH_TRIANGLE : Traiangle 알고리즘 적용         
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;dst&quot;, img_dst);                
+                                                 
+                                                 
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p>그레이는 0-255까지 나눠 놓은거</p>
+<p>바이너리는 0, 1 두가지</p>
+<p> </p>
+<p> </p>
+<h1 id="13-이미지-블러"><a href="#13-이미지-블러" class="headerlink" title="13. 이미지 블러"></a>13. 이미지 블러</h1><pre><code class="cpp">#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/goose.jpg&quot;,   
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_gray, img_dst;               
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        //사이즈는 좌우상하 대칭을 위해 홀수로   
+                                                 
+        cv::blur(img_src, img_dst, cv::Size(9, 9),          
+cv::Point(-1, -1), cv::BORDER_DEFAULT);          
+                                                 
+                                                 
+                                                 
+        //BORDER_DEFAULT : gfedcb\|abcdefg\|fedcba          
+                                                 
+        //BORDER_DEFAULT                         
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;dst&quot;, img_dst);                
+                                                 
+                                                 
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p>mask</p>
+<p> </p>
+<hr>
+<p>  cv::Point(-1, -1)   매번 중심점을 다시 계산하지 않도록 고정점이 중앙에 위치 (커널의 중심부를 고정점으로 간주)</p>
+<hr>
+<p> </p>
+<p>Computer Vision for Beginners: Part 2</p>
+<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/computer-vision-for-beginners-part-2-29b3f9151874">https://towardsdatascience.com/computer-vision-for-beginners-part-2-29b3f9151874</a></p>
+<p>blur</p>
+<p>mask가 커지면 커질 수록 하나의 점이 나타내는 의미는 적어진다.</p>
+<p><img src="cppOpenCV/media/image10.png" alt="156 124 112 150 130 142
+1
+150
+130 150
+150 135 200 "></p>
+<p>외곽의 있는 값을 임의로 채우는 방법</p>
+<blockquote>
+<p>픽셀외사법 ex) cv::BORDER_DEFAULT</p>
+<p>cv::blur(img_src, img_dst, cv::Size(9, 9), cv::Point(-1, -1), cv::BORDER_DEFAULT);</p>
+</blockquote>
+<p> </p>
+<p> </p>
+<h1 id="14-이미지-엣지"><a href="#14-이미지-엣지" class="headerlink" title="14. 이미지 엣지"></a>14. 이미지 엣지</h1><pre><code class="cpp">//0831_14 이미지 엣지 검출
+                
+                
+                
+#include       
+&lt;opencv2/opencv.hpp&gt;     
+                
+#include &lt;iostream&gt;     
+                
+                
+                
+int main()      
+                
+&#123;               
+                
+        cv::Mat img_src =   
+        cv::imread(&quot;image/up.jpg&quot;, cv::IMREAD_COLOR);         
+                
+        cv::Mat img_gray, img_dst;        
+                
+                
+                
+        if (img_src.empty())          
+                
+        &#123;       
+                
+                std::cout&lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;                
+                return -1;  
+                
+        &#125;       
+                
+                
+                
+        /*for (int i = 0;i &lt; 1; i++)
+                
+                
+       cv::pyrDown(img_src, img_src);*/    
+                
+                
+                
+        int width = img_src.cols;   
+                
+        int height = img_src.rows;   
+                
+                
+                
+        cv::Canny(img_src, img_dst, 100, 255); //Threshold를 잡음. 선.    
+                
+                
+                
+                
+                
+                
+      cv::cvtColor(img_src, img_gray, cv::COLOR_BGR2GRAY);       
+                
+        cv::Mat            
+img_sobel_x, img_sobel_y;   
+                
+        cv::Sobel(img_gray, 
+img_sobel_x, CV_64F, 1, 0,  
+3);             
+                
+        cv::c   
+onvertScaleAbs(img_sobel_x, 
+img_sobel_x);   
+                
+                
+                
+        cv::Sobel(img_gray, 
+img_sobel_y, CV_64F, 1, 0,  
+3);             
+                
+        cv::c   
+onvertScaleAbs(img_sobel_y, 
+img_sobel_y);   
+                
+                
+                
+        cv::Mat img_sobel;  
+                
+        c       
+v::addWeighted(img_sobel_x, 
+1, img_sobel_y, 1, 0,      
+img_sobel);     
+                
+                
+                
+                
+cv::namedWindow(&quot;Color&quot;);  
+                
+        imshow(&quot;Color&quot;,    
+img_src);       
+                
+        imshow(&quot;Canny&quot;,    
+img_dst);       
+                
+        imshow(&quot;Sobel x&quot;,  
+img_sobel_x);   
+                
+        imshow(&quot;Sobel y&quot;,  
+img_sobel_y);   
+                
+        imshow(&quot;Sobel&quot;,   
+img_sobel);     
+                
+        cv::waitKey(0);    
+                
+                
+   cv::destroyAllWindows(); 
+                
+                
+                
+        return 0;          
+                
+&#125;               
+</code></pre>
+<p>src          </p>
+<p>Canny<br><img src="cppOpenCV/media/image11.jpeg"></p>
+<p>Sobel<br><img src="cppOpenCV/media/image12.png"></p>
+<p> </p>
+<p>Sobel</p>
+<p> </p>
+<p> </p>
+<h1 id="15-이미지-엣지-콜라주"><a href="#15-이미지-엣지-콜라주" class="headerlink" title="15. 이미지 엣지 + 콜라주"></a>15. 이미지 엣지 + 콜라주</h1><p> </p>
+<pre><code class="cpp">//0831_15 이미지 엣지 검출 + 콜라주              
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/up.jpg&quot;,      
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_gray, img_dst;               
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::Canny(img_src, img_dst, 100, 255); //Threshold를
+잡음. 선.                                        
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        cv::cvtColor(img_src, img_gray, cv::COLOR_BGR2GRAY);
+                                                 
+        cv::Mat img_sobel_x, img_sobel_y;        
+                                                 
+        cv::Sobel(img_gray, img_sobel_x, CV_64F, 1, 0, 3);  
+                                                 
+        cv::convertScaleAbs(img_sobel_x, img_sobel_x);      
+                                                 
+                                                 
+                                                 
+        cv::Sobel(img_gray, img_sobel_y, CV_64F, 1, 0, 3);  
+                                                 
+        cv::convertScaleAbs(img_sobel_y, img_sobel_y);      
+                                                 
+                                                 
+                                                 
+        cv::Mat img_sobel;                       
+                                                 
+        cv::addWeighted(img_sobel_x, 1, img_sobel_y, 1, 0,  
+img_sobel);                                      
+                                                 
+                                                 
+                                                 
+        //hconcat(img_src, img_dst, img_dst); //칼라면 채널이   |
+안맞아서 오류                                    
+                                                 
+        hconcat(img_gray, img_sobel, img_sobel); 
+                                                 
+        hconcat(img_sobel_x, img_sobel_y, img_sobel_x);     
+                                                 
+        vconcat(img_sobel, img_sobel_x, img_sobel);         
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Collage&quot;);            
+                                                 
+        imshow(&quot;Collage&quot;, img_sobel);          
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="16-이미지-라플라시안"><a href="#16-이미지-라플라시안" class="headerlink" title="16. 이미지 라플라시안"></a>16. 이미지 라플라시안</h1><pre><code class="cpp">//0831_16 이미지 라플라시안                      
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/up.jpg&quot;,      
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_gray, img_dst;               
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        /*for (int i = 0; i &lt; 1; i++)          
+                                                 
+                cv::pyrDown(img_src, img_src);*/
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::cvtColor(img_src, img_gray, cv::COLOR_BGR2GRAY);
+                                                 
+        cv::Laplacian(img_gray, img_dst, CV_8U, 3);         
+                                                 
+        //커널사이즈는 1,3,5,7,9\... 중에 해주면 됨         
+                                                 
+                                                 
+                                                 
+        hconcat(img_gray, img_dst, img_gray);    
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;Laplacian&quot;);          
+                                                 
+        imshow(&quot;Laplacian&quot;, img_gray);         
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p><img src="cppOpenCV/media/image13.jpeg" alt="Laplacian
+k/\&#39;J9 "></p>
+<p> </p>
+<p> </p>
+<h2 id="17-이미지-색-추출"><a href="#17-이미지-색-추출" class="headerlink" title="17 이미지 색 추출"></a>17 이미지 색 추출</h2><p> </p>
+<p>특정한 색을 뽑아내고 싶을 때 HSV 사용</p>
+<blockquote>
+<p>Hue, Saturation, Value</p>
+<p>OpenCV에서는 360도가아닌 180도</p>
+</blockquote>
+<p>HSV color model <a target="_blank" rel="noopener" href="https://medium.com/neurosapiens/segmentation-and-classification-with-hsv-8f2406c62b39">https://medium.com/neurosapiens/segmentation-and-classification-with-hsv-8f2406c62b39</a></p>
+<p><img src="cppOpenCV/media/image14.jpg" alt="Image for post"></p>
+<p><img src="cppOpenCV/media/image15.jpg" alt="CHARTREUSE
+GREEN
+GREEN
+SPRING
+GREEN
+CYAN
+AZURE
+60
+150
+180
+210
+90
+120
+DEGREES
+YELLOW
+30
+o
+330
+ORANGE
+RED
+ROSE
+240
+BLUE
+300
+270
+VIOLET
+MAGENTA "></p>
+<p> ## 17-1. 이미지 색 추출 1</p>
+<p> </p>
+<pre><code class="cpp">//0831_17-1 이미지 색 추출                       
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/tomato.jpg&quot;,  
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_hsv, img_dst;                
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::cvtColor(img_src, img_hsv, cv::COLOR_BGR2HSV);  
+                                                 
+        cv::Mat img_mask;                        
+                                                 
+        cv::Vec3b lower_blue = cv::Vec3b(120 - 20, 70, 0);  
+                                                 
+        cv::Vec3b upper_blue = cv::Vec3b(120 + 20, 255, 255);   |
+                                                 
+        cv::inRange(img_hsv, lower_blue, upper_blue, img_mask); |
+                                                 
+        cv::bitwise_and(img_src, img_src, img_dst, img_mask);   |
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;HSV&quot;);                
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;HSV&quot;, img_dst);                
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h2 id="17-2-이미지-색-추출2"><a href="#17-2-이미지-색-추출2" class="headerlink" title="17-2. 이미지 색 추출2"></a>17-2. 이미지 색 추출2</h2><p> </p>
+<pre><code class="cpp">//0831_17-2 이미지 색 추출 2                     
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/tomato.jpg&quot;,  
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_hsv, img_dst;                
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::cvtColor(img_src, img_hsv, cv::COLOR_BGR2HSV);  
+                                                 
+        cv::Mat img_mask1, img_mask2;            
+                                                 
+        cv::Vec3b lower_red1 = cv::Vec3b(0, 100, 100); //Hue,   |
+Saturation, Value                                
+                                                 
+        cv::Vec3b upper_red1 = cv::Vec3b(5, 255, 255);      
+                                                 
+        cv::inRange(img_hsv, lower_red1, upper_red1,        
+img_mask1);                                      
+                                                 
+        cv::Vec3b lower_red2 = cv::Vec3b(170, 100, 100);    
+                                                 
+        cv::Vec3b upper_red2 = cv::Vec3b(180, 255, 255);    
+                                                 
+        cv::inRange(img_hsv, lower_red2, upper_red2,        
+img_mask2);                                      
+                                                 
+                                                 
+                                                 
+        cv::Mat img_mask;                        
+                                                 
+        cv::addWeighted(img_mask1, 1.0, img_mask2, 1.0, 0.0,
+img_mask);                                       
+                                                 
+        cv::bitwise_and(img_src, img_src, img_dst, img_mask);   |
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;HSV&quot;);                
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;HSV&quot;, img_dst);                
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h2 id="17-3-이미지-색-추출-3-노랑색"><a href="#17-3-이미지-색-추출-3-노랑색" class="headerlink" title="17-3. 이미지 색 추출 3 (노랑색)"></a>17-3. 이미지 색 추출 3 (노랑색)</h2><p> </p>
+<pre><code class="cpp">//0831_18-2 이미지 색 추출 3 노란색              
+                                                 
+                                                 
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_src = cv::imread(&quot;image/tomato.jpg&quot;,  
+cv::IMREAD_COLOR);                               
+                                                 
+        cv::Mat img_hsv, img_dst;                
+                                                 
+                                                 
+                                                 
+        if (img_src.empty())                     
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        for (int i = 0; i &lt; 1; i++)             
+                                                 
+                cv::pyrDown(img_src, img_src);   
+                                                 
+                                                 
+                                                 
+        int width = img_src.cols;                
+                                                 
+        int height = img_src.rows;               
+                                                 
+                                                 
+                                                 
+        cv::cvtColor(img_src, img_hsv, cv::COLOR_BGR2HSV);  
+                                                 
+        cv::Mat img_mask1, img_mask2;            
+                                                 
+        cv::Vec3b lower_yel1 = cv::Vec3b(20, 120, 120); //Hue,  |
+Saturation, Value                                
+                                                 
+        cv::Vec3b upper_yel1 = cv::Vec3b(40, 255, 255);     
+                                                 
+        cv::inRange(img_hsv, lower_yel1, upper_yel1,        
+img_mask1);                                      
+                                                 
+                                                 
+                                                 
+        //작은 건 날리고, 빈 건 채우면 좋음      
+                                                 
+                                                 
+                                                 
+        cv::bitwise_and(img_src, img_src, img_dst, img_mask1);  |
+                                                 
+                                                 
+                                                 
+        cv::namedWindow(&quot;HSV&quot;);                
+                                                 
+        imshow(&quot;Color&quot;, img_src);              
+                                                 
+        imshow(&quot;HSV&quot;, img_dst);                
+                                                 
+        cv::waitKey(0);                          
+                                                 
+        cv::destroyAllWindows();                 
+                                                 
+                                                 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<p> </p>
+<p> </p>
+<h1 id="18-그림-그리기-원-사각형-선-타원"><a href="#18-그림-그리기-원-사각형-선-타원" class="headerlink" title="18. 그림 그리기 (원, 사각형, 선, 타원)"></a>18. 그림 그리기 (원, 사각형, 선, 타원)</h1><p> </p>
+<p>CV_8UC3 : 8bit unsigned charather (0-255), Channal 3</p>
+<p><img src="cppOpenCV/media/image16.png" alt="void ellipse(cv::lnputOutputArray img, const cv::RotatedRect &amp;box, const &amp;color, int thickness = 1, int lineType = 8)
+img: \&#39;mage. "></p>
+<p> </p>
+<p>//0901_1 그림 그리기 (원, 사각형, 선, 타원)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>int width = 640;</p>
+<p>int height = 480;</p>
+<p>Mat img1(height, width, CV_8UC3, Scalar(0,0,0));</p>
+<p>//CV_8UC3 : 8bit unsigned charather (0-255), Channal 3</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>/*int img_h = img.rows;</p>
+<p>int img_w = img.cols;</p>
+<p>int img_bpp = img.channels();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>cout &lt;&lt; img_h &lt;&lt; “ “ &lt;&lt; img_w &lt;&lt; “ “ &lt;&lt; img_bpp &lt;&lt; endl;*/</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>int radius = 10;</p>
+<p>circle(img1, Point(100, 300), radius, Scalar(192, 255, 255), -1);</p>
+<p>/* img : 원을 그릴 이미지, center : 원의 중심좌표, radius : 원이 반지름, color : 원의 색깔, thickness : 선의 굵기, -1 : 내부를 채움 */</p>
+<p>imshow(“circle”, img1);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img2(height, width, CV_8UC3, Scalar(0, 0, 0));</p>
+<p>rectangle(img2, Point(50,100), Point(400,350), Scalar(0,0,255), 3);</p>
+<p>/* 사각형의 왼쪽위좌표 (50, 100), 오른쪽아래좌표 (400, 350), 선굵기 3, 빨간색*/</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>rectangle(img2, Point(150, 200), Point(250, 300), Scalar(0, 255, 0), -1);</p>
+<p>/* 사각형의 왼쪽위좌표 (150, 200), 오른쪽아래좌표 (250, 300), 선굵기 -1, 초록색*/</p>
+<p> </p>
+<p>//rectangle(img2, Point(300, 150), Point(300+50, 150+100), Scalar(255, 0, 255), -1);</p>
+<p>/* 사각형의 왼쪽위좌표 (300, 150), 오른쪽아래좌표 (300+50, 150+100), 선굵기 -1, 마젠타*/</p>
+<p>rectangle(img2, Rect(300, 150, 50, 100), Scalar(255, 0, 255), -1); //위를 Rect로 표현</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>imshow(“rectangle”, img2);</p>
+<p> </p>
+<p>Mat img3(height, width, CV_8UC3, Scalar(0, 0, 0));</p>
+<p>line(img3, Point(0, 0), Point(width - 1, height - 1), Scalar(0, 0, 255), 3);</p>
+<p>line(img3, Point(0, height - 1), Point(width - 1, 0), Scalar(0, 255, 0), 3);</p>
+<p>/* 선을 그릴 이미지, 시작점, 끝점, 색깔, 선두께*/</p>
+<p>imshow(“line”, img3);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img4(height, width, CV_8UC3, Scalar(0, 0, 0));</p>
+<p>Point center(int(width / 2), int(height / 2));</p>
+<p>ellipse(img4, center, Size(200, 30), 135, 0, 180, Scalar(0, 255, 255), 3);</p>
+<p>ellipse(img4, center, Size(200, 30), 0, 270, 0, Scalar(255, 0, 255), 3);</p>
+<p>ellipse(img4, center, Size(200, 30), 0, 270, 0, Scalar(0, 0, 255), 2);</p>
+<p>//ellipse()</p>
+<p>imshow(“eclips”, img4);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="19-그림-그리기-폴리라인"><a href="#19-그림-그리기-폴리라인" class="headerlink" title="19. 그림 그리기 (폴리라인)"></a>19. 그림 그리기 (폴리라인)</h1><p> </p>
+<p><img src="cppOpenCV/media/image17.png" alt="waitKey(CI
+0;
+void polylines(cv::InputOutputArray img, pts, bool isClosed, const &amp;color, int thickness = 1, int lineType = 8, int shift
+Draws several polygonal curves.
+img: \&#39;mage. "></p>
+<p> </p>
+<p> </p>
+<p>//0901_2 그림 그리기 (Polyline, fillPoly)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>int width = 640;</p>
+<p>int height = 640;</p>
+<p>Mat img(height, width, CV_8UC3, Scalar(0, 0, 0));</p>
+<p> </p>
+<p>Scalar red(0, 0, 255);</p>
+<p>Scalar green(0, 255, 0);</p>
+<p>Scalar blue(255, 0, 0);</p>
+<p>int thickness = 2;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector<Point> contour;</p>
+<p>contour.push_back(Point(315, 40));</p>
+<p>contour.push_back(Point(570, 240));</p>
+<p>contour.push_back(Point(475, 550));</p>
+<p>contour.push_back(Point(150, 550));</p>
+<p>contour.push_back(Point(50, 240));</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>const Point* pts1 = (const Point*) Mat(contour).data;</p>
+<p>int npts1 = Mat(contour).rows;</p>
+<p>polylines(img, &amp;pts1, &amp;npts1, 1, true, red, thickness);</p>
+<p>//true / false 차이는 시작과 끝점을 연결 / 연결안함</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>contour.clear();</p>
+<p>contour.push_back(Point(315, 160));</p>
+<p>contour.push_back(Point(150, 280));</p>
+<p>contour.push_back(Point(210, 480));</p>
+<p>contour.push_back(Point(420, 480));</p>
+<p>contour.push_back(Point(480, 280));</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>const Point* pts2 = (const Point*)Mat(contour).data;</p>
+<p>int npts2 = Mat(contour).rows;</p>
+<p>polylines(img, &amp;pts2, &amp;npts2, 1, true, green, thickness);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>contour.clear();</p>
+<p>contour.push_back(Point(320, 240));</p>
+<p>contour.push_back(Point(410, 315));</p>
+<p>contour.push_back(Point(380, 415));</p>
+<p>contour.push_back(Point(265, 415));</p>
+<p>contour.push_back(Point(240, 315));</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>const Point* pts3 = (const Point*)Mat(contour).data;</p>
+<p>int npts3 = Mat(contour).rows;</p>
+<p>//fillPoly(img, &amp;pts3, &amp;npts3, 1, yellow); //왜 옐로우가 안되는지 모르겠음</p>
+<p>fillPoly(img, &amp;pts3, &amp;npts3, 1, blue);</p>
+<p>imshow(“poliline”, img);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="20-글씨-쓰기1-putText"><a href="#20-글씨-쓰기1-putText" class="headerlink" title="20. 글씨 쓰기1 (putText)"></a>20. 글씨 쓰기1 (putText)</h1><p>![G)</p>
+<ul>
+<li>putText<br>putText<br>put_time<br>time_put<br>time_put_byname<br>CRT INLINE PURE SECURITYCRITICAL ATTRIBUTE<br>_mm256_cvttpd_epu32<br>o (OXO)).<br>o (OXO)).<br>A void cv::putText(cv::lnputOutputArray img, const cv::String &amp;text, org, int fontFace, double fontSGle, cv::<br>Scalar color, int thickness = 1, int lineType = 8, Baal bcttcmLeftCrigin = false)<br>Draws a text string. The function renders the specified text string in the image. Symbols that cannot be<br>rendered using the specified font are replaced by question marks. See #getTextSize for a text rendering code example.<br>img Image.<br>text Text string to be drawm<br>org Bottom-left corner of the text string in the image.<br>fontFace Font type, see *HersheyFonts.<br>fontScale Font scale factor that is multiplied by the font-specific base size.<br>color Text color.<br>thickness Thickness of the lines used to draw a text.<br>lineType Line type. See #LineTypes<br>bottomLeftOrigin When true, the image data origin is at the bottom-left corner. Othen,vise, it is at the top-left corner.<br>imgprochpp, cv<br>01 Intellicode ](cppOpenCV/media/image18.png)</li>
+</ul>
+<p> </p>
+<p>글꼴 종류</p>
+<p>  속성                               의미                        비고</p>
+<hr>
+<p>  cv2.FONT_HERSHEY_SIMPLEX           보통 크기의 산세리프 글꼴   -<br>  cv2.FONT_HERSHEY_PLAIN             작은 크기의 산세리프 글꼴   -<br>  cv2.FONT_HERSHEY_DUPLEX            보통 크기의 산세리프 글꼴   정교함<br>  cv2.FONT_HERSHEY_COMPLEX           보통 크기의 세리프 글꼴     -<br>  cv2.FONT_HERSHEY_TRIPLEX           보통 크기의 세리프 글꼴     정교함<br>  cv2.FONT_HERSHEY_COMPLEX_SMALL     작은 크기의 손글씨 글꼴     -<br>  cv2.FONT_HERSHEY_SCRIPT_SIMPLEX    보통 크기의 손글씨 글꼴     -<br>  cv2.FONT_HERSHEY_SCRIPT_COMPLEX    보통 크기의 손글씨 글꼴     정교함<br>  cv2.FONT_ITALIC                    기울임 꼴                   -</p>
+<p> </p>
+<p> </p>
+<p>//0901_3 글씨쓰기 (putText)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p>//#include <vector></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>int width = 640;</p>
+<p>int height = 640;</p>
+<p>Mat img(height, width, CV_8UC3, Scalar(0, 0, 0));</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Scalar red(0, 0, 255);</p>
+<p>Scalar green(0, 255, 0);</p>
+<p>Scalar blue(255, 0, 0);</p>
+<p>int thickness = 2;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector<Point> contour;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p> </p>
+<p>int center_x = width / 2;</p>
+<p>int center_y = width / 2;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Point location(center_x - 200, center_y - 100);</p>
+<p>//int font = FONT_HERSHEY_PLAIN;</p>
+<p>int font = FONT_ITALIC;</p>
+<p>double fontScale = 2;</p>
+<p>putText(img, “OpenCv”, location, font, fontScale, green, thickness);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>//글자의 시작점 (가이드선으로 나타내기)</p>
+<p>line(img, Point(0, center_y-100), Point(width - 1, center_y-100), Scalar(255, 255, 255), 1);</p>
+<p>line(img, Point(center_x - 200, 0), Point(center_x - 200, height - 1), Scalar(255, 255, 255), 1);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>imshow(“poliline”, img);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="21-이미지-외곽선-찾아서-그리기-findContours-drawContours"><a href="#21-이미지-외곽선-찾아서-그리기-findContours-drawContours" class="headerlink" title="21. 이미지 외곽선 찾아서 그리기 (findContours, drawContours)"></a>21. 이미지 외곽선 찾아서 그리기 (findContours, drawContours)</h1><p>cv::findContours()</p>
+<p><img src="cppOpenCV/media/image19.png" alt="void cv::findContours(cv::lnputArray image, cv:OutputArrayOfArrays contours, int mode, int method, offset
+imgproc.hpp, "></p>
+<p> </p>
+<blockquote>
+<p>검색방법</p>
+</blockquote>
+<p>  검색 방법       윤곽선   계층구조</p>
+<hr>
+<p>  RETR_EXTERNAL   외곽     X<br>  RETR_LIST       ALL      X<br>  RETR_CCOMP      ALL      2단계<br>  RETR_TREE       ALL      ALL(Tree구조)</p>
+<blockquote>
+<p> </p>
+<p>근사화 방법</p>
+<p>CHAIN_APPROX_NONE : 윤곽선점들의 모든 점을 반환</p>
+<p>CHAIN_APPROX_SIMPLE : 윤곽선점들의 단순화 (수평, 수직 대각선 요소를 압축하고 끝점만 남김)</p>
+<p>CHAIN_APPROX_TC89_L1 : 프리먼 체인코드에서의 윤곽선 적용</p>
+<p>CHAIN_APPROX_TC89_KC05 : 프리먼 체인코드에서의 윤곽선 적용</p>
+</blockquote>
+<p>cv::drawContours()</p>
+<p><img src="cppOpenCV/media/image20.png" alt="void cv::drawContours(cv::lnputOutputArray image, contours, int ccntcurldx, const &amp;
+color, int thickness = 1, int lineType = 8, hierarchy = noArray0, int maxLevel = 2147483647, cv
+offset =
+Draws contours outlines or filled contours. The function draws contour outlines in the image if "></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image21.png" alt="void cv::drawContours(cv::lnputOutputArray image, contours, int ccntcurldx, const &amp;
+color, int thickness = 1, int lineType = 8, hierarchy = noArray0, int maxLevel = 2147483647, cv
+offset =
+Draws contours outlines or filled contours. The function draws contour outlines in the image if
+image Destination image.
+contours All the input contours. Each contour is stored as a point vector.
+contourldx Parameter indicating a contour to draw. If it is negative, all the contours are drawm
+color Color of the contours.
+thickness Thickness of lines the contours are drawn with. If it is negative (for example, thickness=#FlLLED the contour interiors are drawn.
+lineType Line connectivity See #LineTypes
+hierarchy Optional information about hierarchy. It is only needed if you want to draw only some of the contours (see maxLevel
+maxLevel Maximal level for drawn contours. If it is O, only the specified contour is drawm If it is 1, the function draws the contour(s) and all the nested contours. If it is 2, the function draws the contours, all the nested contours, all the nested-to-nested contours,
+and so om This parameter is only taken into account when there is hierarchy available
+offset Optional contour shift parameter. Shift all the drawn contours by the specified
+imgprochpp, cv "></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image22.png" alt="ntours(l
+void drawContours(cv::lnputOutputArray image, contours, int contourldx, const &amp;color, int thickness = 1, int lineType = 8, hierarchy = noArray0, int maxLevel
+Draws contours outlines or filled contours. The function draws contour outlines in the image if
+image: Destination l,mage.
+= 2147483647, offset "></p>
+<p>drawContours(img_src, contours, 0, Scalar(0, 255, 0), 2); //세번째에 -1하면 모든게 그려짐</p>
+<p> </p>
+<p>이미지의 외곽선을 색을 기준으로 찾아서 그린다.</p>
+<p> </p>
+<p>//0901_4 이미지 외곽선(색 기준으로) 찾아서 그리기 (findContours, drawContours)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{        </p>
+<blockquote>
+<p>Mat img_src = imread(“image/contour.png”, IMREAD_COLOR);</p>
+<p>Mat img_dst;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (img_src.empty())</p>
+<p>{</p>
+<p>cout &lt;&lt; “이미지 파일을 읽을 수 없습니다.” &lt;&lt; endl;</p>
+<p>return -1;</p>
+<p>}</p>
+<p>int width = img_src.cols;</p>
+<p>int height = img_src.rows;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_gray;        //threshole(임계값)사용을 위함</p>
+<p>cvtColor(img_src, img_gray, COLOR_BGR2GRAY);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_binary;</p>
+<p>threshold(img_gray, img_binary, 128, 255, THRESH_BINARY_INV); //INV로 배경 하얗게 반전</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector&lt;vector<Point> &gt; contours; //contour는 점들의 집합. 원을 그리기 위한 점의 수를 모르기 때문에 벡터를 쓰는데, 이런 원 같은 도형이 여러개이기 때문에 vetor를 한번 더 씀.</p>
+<p>findContours(img_binary, contours, RETR_LIST, CHAIN_APPROX_SIMPLE); /* 검색방법, 근사화 방법*/</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>for (size_t i = 0; i &lt; contours.size(); i++) {</p>
+<p>double area = contourArea(contours[i]); //면적구하기</p>
+<p>cout &lt;&lt; i &lt;&lt; “ : “ &lt;&lt; area &lt;&lt; endl;</p>
+<p>if (area &lt; 10000)</p>
+<p>drawContours(img_src, contours, i, Scalar(255, 0, 0), 2);</p>
+<p>}</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>namedWindow(“Source”);</p>
+<p>imshow(“Source”, img_src);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+<p>destroyAllWindows();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="21-contours-벡터"><a href="#21-contours-벡터" class="headerlink" title="21+. contours 벡터"></a>21+. contours 벡터</h1><p> </p>
+<p>vector&lt;vector<Point> &gt; contours;</p>
+<blockquote>
+<p>contours[i]는 포인트 벡터. contours[i][j]에서 i는 한 도형을 이루는 집합, j는 그 집합의 각 요소들. j=0이면 첫 시작 포인트.</p>
+</blockquote>
+<p>포인트 타입의 벡터의 벡터 (한 도형을 이루는 집합들의 요소)</p>
+<p> </p>
+<p>//0901_4_2 [contours 벡터 자세히] 이미지 외곽선(색 기준으로) 찾아서 그리기 (findContours, drawContours)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>Mat img_src = imread(“image/contour.png”, IMREAD_COLOR);</p>
+<p>Mat img_dst;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (img_src.empty())</p>
+<p>{</p>
+<p>cout &lt;&lt; “이미지 파일을 읽을 수 없습니다.” &lt;&lt; endl;</p>
+<p>return -1;</p>
+<p>}</p>
+<p>int width = img_src.cols;</p>
+<p>int height = img_src.rows;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_gray;</p>
+<p>cvtColor(img_src, img_gray, COLOR_BGR2GRAY);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_binary;</p>
+<p>threshold(img_gray, img_binary, 128, 255, THRESH_BINARY_INV);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector&lt;vector<Point> &gt; contours;</p>
+<p>findContours(img_binary, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>for (size_t i = 0; i &lt; contours.size(); i++) {</p>
+<p>double area = contourArea(contours[i]); //contours[i]는 포인트 벡터. contours[i][j]에서 i는 한 도형을 이루는 집합, j는 그 집합의 각 요소들. j=0이면 첫 시작 포인트.</p>
+<p>cout &lt;&lt; i &lt;&lt; “ : “ &lt;&lt; area &lt;&lt; endl;</p>
+<p>if (area &lt; 10000) {</p>
+<p>drawContours(img_src, contours, i, Scalar(255, 0, 0), 2);</p>
+<p>Point aaa = contours[i][0];</p>
+<p>cout &lt;&lt; “point(“ &lt;&lt; aaa.x &lt;&lt; “, “ &lt;&lt; aaa.y &lt;&lt; “)\n”;</p>
+<p>}</p>
+<p>}</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>namedWindow(“Source”);</p>
+<p>imshow(“Source”, img_src);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+<p>destroyAllWindows();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="22-글씨-쓰기2-vector-요소"><a href="#22-글씨-쓰기2-vector-요소" class="headerlink" title="22. 글씨 쓰기2 (vector 요소)"></a>22. 글씨 쓰기2 (vector 요소)</h1><p> </p>
+<p>//0901_4_3 [contours 벡터 자세히 + 글씨넣기] 이미지 외곽선(원하는 색기준으로) 찾아서 그리기 (findContours, drawContours)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>Mat img_src = imread(“image/contour.png”, IMREAD_COLOR);</p>
+<p>Mat img_dst;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Scalar green(0, 255, 0);</p>
+<p>Scalar yellow(0, 255, 255);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (img_src.empty())</p>
+<p>{</p>
+<p>cout &lt;&lt; “이미지 파일을 읽을 수 없습니다.” &lt;&lt; endl;</p>
+<p>return -1;</p>
+<p>}</p>
+<p>int width = img_src.cols;</p>
+<p>int height = img_src.rows;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_gray;</p>
+<p>cvtColor(img_src, img_gray, COLOR_BGR2GRAY);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_binary;</p>
+<p>threshold(img_gray, img_binary, 128, 255, THRESH_BINARY_INV);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector&lt;vector<Point> &gt; contours;</p>
+<p>findContours(img_binary, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>for (size_t i = 0; i &lt; contours.size(); i++) {</p>
+<p>Scalar myColor(0, 255, 0);</p>
+<p>double area = contourArea(contours[i]); //contours[i]는 포인트 벡터. contours[i][j]에서 i는 한 도형을 이루는 집합, j는 그 집합의 각 요소들. j=0이면 첫 시작 포인트.</p>
+<p>cout &lt;&lt; i &lt;&lt; “ : “ &lt;&lt; area &lt;&lt; endl;</p>
+<p> </p>
+<p>if (area &lt; 10000)</p>
+<p>myColor = Scalar(0, 0, 255);</p>
+<p> </p>
+<p>drawContours(img_src, contours, i, myColor, 2);</p>
+<p>Point aaa = contours[i][0];</p>
+<p>//cout &lt;&lt; “point(“ &lt;&lt; aaa.x &lt;&lt; “, “ &lt;&lt; aaa.y &lt;&lt; “)\n”;</p>
+<p>putText(img_src, to_string(int(area)) , aaa, FONT_HERSHEY_COMPLEX_SMALL, 2, myColor, 2);</p>
+<p> </p>
+<p>}</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>namedWindow(“Source”);</p>
+<p>imshow(“Source”, img_src);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+<p>destroyAllWindows();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="23-최소-면적"><a href="#23-최소-면적" class="headerlink" title="23. 최소 면적"></a>23. 최소 면적</h1><p> </p>
+<p>//0901_5 이미지 외곽선의 최소 면적 (boundingRect, RotatedRect)</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>Mat img_src = imread(“image/figure1.jpg”, IMREAD_COLOR);</p>
+<p>Mat img_dst;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (img_src.empty())</p>
+<p>{</p>
+<p>cout &lt;&lt; “이미지 파일을 읽을 수 없습니다.” &lt;&lt; endl;</p>
+<p>return -1;</p>
+<p>}</p>
+<p>int width = img_src.cols;</p>
+<p>int height = img_src.rows;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_gray;</p>
+<p>cvtColor(img_src, img_gray, COLOR_BGR2GRAY);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_binary;</p>
+<p>threshold(img_gray, img_binary, 128, 255, THRESH_BINARY_INV);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector&lt;vector<Point> &gt; contours;</p>
+<p>findContours(img_binary, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);</p>
+</blockquote>
+<p> </p>
+<p> </p>
+<blockquote>
+<p>for (size_t i = 0; i &lt; contours.size(); i++) {</p>
+<p>Scalar myColor(0, 255, 0);</p>
+<p>double area = contourArea(contours[i]); //contours[i]는 포인트 벡터. contours[i][j]에서 i는 한 도형을 이루는 집합, j는 그 집합의 각 요소들. j=0이면 첫 시작 포인트.</p>
+<p> </p>
+<p>cout &lt;&lt; i &lt;&lt; “ : “ &lt;&lt; area &lt;&lt; endl;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (area &lt; 10000)</p>
+<p>myColor = Scalar(0, 0, 255);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>drawContours(img_src, contours, i, myColor, 2);</p>
+<p>putText(img_src, to_string(int(area)), contours[i][0], FONT_HERSHEY_COMPLEX_SMALL, 2, myColor, 2);</p>
+<p> </p>
+<p>Rect rect = boundingRect(contours[i]);        //boundingRect는 형태가 비선형일 때 외곽선을 따기 좋음</p>
+<p>rectangle(img_src, rect, Scalar(255, 0, 0), 1);</p>
+<p>Point2f points[4]; //최소면적을 얻기위해 불필요한 영역 빼기 위함</p>
+<p>RotatedRect box = minAreaRect(contours[i]);</p>
+<p>box.points(points);</p>
+<p>for (int n = 0; n &lt; 4; n++)</p>
+<p>line(img_src, points[n], points[(n + 1) % 4], Scalar(225, 0, 255));</p>
+<p>}</p>
+</blockquote>
+<p> </p>
+<p> </p>
+<blockquote>
+<p>namedWindow(“Source”);</p>
+<p>imshow(“Source”, img_src);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+<p>destroyAllWindows();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="24-무게중심-moment"><a href="#24-무게중심-moment" class="headerlink" title="24. 무게중심(moment)"></a>24. 무게중심(moment)</h1><p> </p>
+<p>moment()</p>
+<p><img src="cppOpenCV/media/image23.png"></p>
+<p>_ _<br>x=m10/m00, y=m01/m00</p>
+<p>중심점을 구하는 공식</p>
+<p><img src="cppOpenCV/media/image24.png" alt="m10
+mol
+moo "></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image25.png" alt="QElE(spatiaI moments)
+mij =
+QElE(centraI moments)
+mtLij =
+arr
+E (array(x, y) x (c
+central moments)
+m uij "></p>
+<p> </p>
+<p><strong>모멘트 구조</strong></p>
+<p><img src="cppOpenCV/media/image26.png" alt="차 모멘트
+0
+1차 모멘트
+2차 모멘트
+3차 모멘트
+2차 중심 모멘트
+3차 중심 모멘트
+2차 정규화된 중심 모멘트
+3차 정규화된 중심 모멘트
+&quot;110, mol
+mtL11 , m않20, m않02
+mtL11 , m않20, m않02
+m않21, mtL12, mtL30,
+ntL11, n않20, n않02
+n않21, ntL12, ntL30, n않03 "></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image27.png" alt="반환되지 않는 값
+m걦00
+n걦00 = 1
+= 0
+mum
+mtL10
+• Tip : 위 값들은 항상 같은 값을 가짐으로써 반환하지 않습니다.
+n걦01
+71M10 "></p>
+<p> </p>
+<p><em>출처: &lt;<a target="_blank" rel="noopener" href="https://076923.github.io/posts/Python-opencv-25/">https://076923.github.io/posts/Python-opencv-25/</a>&gt;</em></p>
+<p> </p>
+<p> </p>
+<p>//0901_6 무게중심 (moments())</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>Mat img_src = imread(“image/figure1.jpg”, IMREAD_COLOR);</p>
+<p>Mat img_dst;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (img_src.empty())</p>
+<p>{</p>
+<p>cout &lt;&lt; “이미지 파일을 읽을 수 없습니다.” &lt;&lt; endl;</p>
+<p>return -1;</p>
+<p>}</p>
+<p>int width = img_src.cols;</p>
+<p>int height = img_src.rows;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_gray;</p>
+<p>cvtColor(img_src, img_gray, COLOR_BGR2GRAY);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_binary;</p>
+<p>threshold(img_gray, img_binary, 128, 255, THRESH_BINARY_INV);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>vector&lt;vector<Point> &gt; contours;</p>
+<p>findContours(img_binary, contours, RETR_LIST, CHAIN_APPROX_SIMPLE);</p>
+<p> </p>
+<p>Scalar green(0, 255, 0);</p>
+<p>drawContours(img_src, contours, -1, green, 2);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>for (size_t i = 0; i &lt; contours.size(); i++) {</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>double area = contourArea(contours[i]);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Moments mu;</p>
+<p>mu = moments(contours[i]);</p>
+<p>int cx = static_cast<float> (mu.m10 / (mu.m00 + 1e-5)); //mu.00이 0이 될 때를 방지하기 위해 작은 수 인 1e-5를 더함</p>
+<p>int cy = static_cast<float> (mu.m01 / (mu.m00 + 1e-5));</p>
+<p>circle(img_src, Point(cx, cy), 5, Scalar(0, 255, 255), -1);</p>
+<p>putText(img_src, to_string(int(area)), Point(cx - 22, cy + 20), FONT_HERSHEY_SCRIPT_SIMPLEX, 0.5, green, 1);</p>
+<p>}</p>
+</blockquote>
+<p> </p>
+<p> </p>
+<blockquote>
+<p>namedWindow(“Source”);</p>
+<p>imshow(“Source”, img_src);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>waitKey(0);</p>
+<p>destroyAllWindows();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="25-Morphology-연산"><a href="#25-Morphology-연산" class="headerlink" title="25. Morphology 연산"></a>25. Morphology 연산</h1><p> </p>
+<p>불필요한 건 전처리(이미지프로세싱)하여 최대한 제거 하여 contour의 개수를 제거</p>
+<p> </p>
+<p>하나의 픽셀</p>
+<p>형태소(structure element) 픽셀 주변의 묶음</p>
+<blockquote>
+<p>3*3 이면 1pixel 씩 늘어나거나 줄어 듦</p>
+<p>5*5 이면 2pixel</p>
+<p>7*7 이면 3pixel</p>
+</blockquote>
+<p> </p>
+<p>Morphology 연산</p>
+<p>중심 픽셀의 형태소단위로 확장</p>
+<blockquote>
+<p>노이즈라 생각되는 퀀텀?을 지우기 위함</p>
+<p>Dilation하면 안에 채워짐</p>
+<p>Erosion하면 작은 게 날라 감</p>
+</blockquote>
+<p>Dilation 1로 확장</p>
+<p><img src="cppOpenCV/media/image28.png" alt="Dilation of the binary image in Fig. 6.4 using S"></p>
+<p><img src="cppOpenCV/media/image29.png" alt="Closing of the binary image in Fig. 6.4 using S1"></p>
+<p> </p>
+<p> </p>
+<p>Erosion 0으로 확장</p>
+<p><img src="cppOpenCV/media/image30.png" alt="Erosion of the binary image in Fig. 6.4 using S1"></p>
+<p><img src="cppOpenCV/media/image31.png" alt="Opening of the binary image in Fig. 6.4 using S1"></p>
+<p>Morphology (Introduction to Video and Image Processing) Part 2</p>
+<p><a target="_blank" rel="noopener" href="http://what-when-how.com/introduction-to-video-and-image-processing/morphology-introduction-to-video-and-image-processing-part-2/">http://what-when-how.com/introduction-to-video-and-image-processing/morphology-introduction-to-video-and-image-processing-part-2/</a></p>
+<p> </p>
+<p> </p>
+<p>cv::morphologyEX()</p>
+<p><img src="cppOpenCV/media/image32.png" alt="void cv::morphologyEx(cv::lnputArray src, cv::OutputArray dst, int cp, kernel, anchor = cv::
+Point(-l, -1), int iterations = 1, int borderType = O, const &amp;\&#39;bcrderVelue = morphologyDefault30rderValue(
+Performs advanced morphological transformations. The function can perform advanced morphological
+transformations using an erosion and dilation as basic operations. Any of the operations can be done in-place. In case
+of multi-channel images, each channel is processed independently.
+src Source image. The number of channels can be arbitrary. The depth should be one of CV_81J, CV_161J, CV_16S, CV_32F or CV_64F.
+dst Destination image of the same size and type as source image.
+op Type of a morphological operation, see #MorphTypes
+kernel Structuring element. It can be created using #getStructuringElement\_
+anchor Anchor position with the kernel Negative values mean that the anchor is at the kernel center.
+iterations Number of times erosion and dilation are applied
+borderType Pixel extrapolation method, see #30rderTypes. #30RDER_WRAP is not supported.
+borderValue Border value in case of a constant border. The default value has a special meaning.
+imgprochpp, cv "></p>
+<p> </p>
+<p>//0902_1</p>
+<p> </p>
+<p>#include &lt;opencv2/opencv.hpp&gt;</p>
+<p>#include <iostream></p>
+<p> </p>
+<p>using namespace cv;</p>
+<p>using namespace std;</p>
+<p> </p>
+<p>int main()</p>
+<p>{</p>
+<blockquote>
+<p>Mat img_src = imread(“image/zebra.jpg”, IMREAD_COLOR);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>if (img_src.empty())</p>
+<p>{</p>
+<p>cout &lt;&lt; “이미지 파일을 읽을 수 없습니다.” &lt;&lt; endl;</p>
+<p>return -1;</p>
+<p>}</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>pyrDown(img_src, img_src);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>int width = img_src.cols;</p>
+<p>int height = img_src.rows;</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_gray;</p>
+<p>cvtColor(img_src, img_gray, COLOR_BGR2GRAY);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat kernel = getStructuringElement(MORPH_RECT, Size(7, 7)); //형태소 사이즈 3*3으로</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>Mat img_dst;</p>
+<p>int iteration = 3;</p>
+<p> </p>
+<p>//erode(img_gray, img_dst, kernel, Point(-1, -1), iteration); //Point(-1, -1) 은 픽셀에 3*3 적용??</p>
+<p>//morphologyEx(img_gray, img_dst, MORPH_ERODE, kernel, Point(-1, -1), iteration);</p>
+<p>//dilate(img_gray, img_dst, kernel, Point(-1, -1), iteration);</p>
+<p>//morphologyEx(img_gray, img_dst, MORPH_DILATE, kernel, Point(-1, -1), iteration);</p>
+<p> </p>
+<p>//MORPH_OPEN : eorde -&gt; dilate</p>
+<p>morphologyEx(img_gray, img_dst, MORPH_OPEN, kernel, Point(-1, -1), iteration);</p>
+<p> </p>
+<p>//MORPH_CLOSE : dilate -&gt; eorde</p>
+<p>//morphologyEx(img_gray, img_dst, MORPH_CLOSE, kernel, Point(-1, -1), iteration);</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>namedWindow(“Source”);</p>
+<p>imshow(“Source”, img_src);</p>
+<p>imshow(“Result”, img_dst);</p>
+<p> </p>
+<p>waitKey(0);</p>
+<p>destroyAllWindows();</p>
+</blockquote>
+<p> </p>
+<blockquote>
+<p>return 0;</p>
+</blockquote>
+<p>}</p>
+<p> </p>
+<p> </p>
+<h1 id="마지막-실습"><a href="#마지막-실습" class="headerlink" title="마지막, 실습"></a>마지막, 실습</h1><p> </p>
+<p>contours_right.push_back(Point(cx, cy));</p>
+<p>vector<Point> contours_right 여야 함</p>
+<p><img src="cppOpenCV/media/image33.png" alt="R 2230
+R 2272
+R 2274.5
+R 2248 "></p>
+<p><img src="cppOpenCV/media/image34.png" alt=": 66 y : 219
+× : 9 6 4
+y : 2 2
+63 y : 27
+× : 9 6 4
+y : 2 7
+62 y : 33
+× : 9 6 5
+y : 3 3
+y : 347
+× : 2 0 0 y : 3 6 0 × : 3 0 3 y : 3 6 1
+× : 40 6 y : 3 6 1
+× : 6 2 5 y : 347
+× : 2 0 0 y : 3 6 0 × : 3 0 3 y : 3 6 1
+× : 40 6 y : 3 6 1 "></p>
+<p><img src="cppOpenCV/media/image5.png"></p>
+<p> </p>
+<p>구성: 활성</p>
+<p><img src="cppOpenCV/media/image6.png"></p>
+<p> </p>
+<p><img src="cppOpenCV/media/image7.png"></p>
+<p>링커-입력-추가 종속성</p>
+<p>opencv_world430d.lib (활성debug)</p>
+<p><img src="cppOpenCV/media/image8.png"></p>
+<p>Release</p>
+<p>링커-입력-추가 종속성</p>
+<p><img src="cppOpenCV/media/image9.png"></p>
+<h1 id="1-기본사용-1"><a href="#1-기본사용-1" class="headerlink" title="1. 기본사용"></a>1. 기본사용</h1><p>헤더 파일 opencv2/opencv.hpp</p>
+<p>  cv::Mat 변수이름                                 매트릭스 생성</p>
+<hr>
+<p>  cv::imread(파일, cv::IMREAD_COLOR)                <br>  cv::IMREAD_COLOR                                  <br>  cv::pyrDown(원본, 수정본)                         <br>  cv::pyrUp(원본, 수정본)                           <br>  cv::cvtColor(원본, 수정본, cv::COLOR_BGR2GRAY)    <br>  cv::COLOR_BGR2GRAY                                <br>  cv::namedWindow(“창 이름”)                      <br>  cv::waitKey(0);                                   <br>  cv::destroyAllWindows()                           </p>
+<p> </p>
+<pre><code>## 1 기본함수                                  
+                                                 
+                                                 
+                                                 
+```cpp                                          
+                                                 
+#include &lt;opencv2/opencv.hpp&gt;                 
+                                                 
+#include &lt;iostream&gt;                           
+                                                 
+                                                 
+                                                 
+//using namespace cv;                            
+                                                 
+//using namespace std;                           
+                                                 
+                                                 
+                                                 
+int main()                                       
+                                                 
+&#123;                                                
+                                                 
+        cv::Mat img_color, img_gray;             
+                                                 
+        //std::string fileName =                 
+&quot;C:                                             
+//Users//w//Documents//CK//image//book.jpg&quot;;        //절대경로 |
+                                                 
+        //std::string fileName =                 
+&quot;Images/Choco.j                                 
+pg&quot;;                                                //상대경로 |
+                                                 
+        //img_color = cv::imread(fileName, IMREAD_COLOR);   
+                                                 
+                                                 
+                                                 
+        //img_color = cv::imread(&quot;image/dessert1.jpg&quot;,    
+cv::IMREAD_COLOR);                               
+                                                 
+        img_color = cv::imread(&quot;image/shyab.jpg&quot;,         
+cv::IMREAD_COLOR);                               
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+        if (img_color.empty())                   
+                                                 
+        &#123;                                        
+                                                 
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수       
+없습니다.&quot; &lt;&lt; std::endl;                      
+                                                 
+                return -1;                       
+                                                 
+        &#125;                                        
+                                                 
+                                                 
+                                                 
+        std::cout &lt;&lt; &quot;이미지의 가로는 : &quot; &lt;&lt;          
+img_color.cols &lt;&lt; std::endl;                   
+                                                 
+        std::cout &lt;&lt; &quot;이미지의 세로는 : &quot; &lt;&lt;          
+img_color.rows &lt;&lt; std::endl;                   
+                                                 
+        std::cout &lt;&lt; &quot;이미지의 채널은 : &quot; &lt;&lt;          
+img_color.channels() &lt;&lt; std::endl;        //흑백 1, 칼라 3
+(B,G,R)                                          
+                                                 
+                                                 
+                                                 
+        cv::pyrDown(img_color, img_color);        //이미지를
+절반으로 줄임                                    
+                                                 
+        //cv::pyrUp(img_color, img_color);        //이미지를
+두배로 늘림                                      
+                                                 
+        cv::cvtColor(img_color, img_gray,        
+cv::COLOR_BGR2GRAY);        //칼라변경 (채널 변경)          
+                                                 
+        cv::namedWindow(&quot;Color&quot;);              
+                                                 
+        imshow(&quot;Color&quot;, img_color);        //&quot; &quot;창에 &quot; 
+&quot;를 띄움                                        
+                                                 
+        cv::namedWindow(&quot;Gray&quot;);               
+                                                 
+        imshow(&quot;Gray&quot;, img_gray);              
+                                                 
+        cv::waitKey(0);        //어떤 키를 누를때까지 대기  
+                                                 
+        cv::destroyAllWindows();        //윈도우창을 닫아라 
+                                                 
+        return 0;                                
+                                                 
+&#125;                                                
+</code></pre>
+<pre><code>
+# 2. 이미지 RGB 분할
+
+**cv::split**
+
+## 2-1. 이미지 RGB 분할 1
+
+### 2_1 이미지 RGB 분할
+
+ 
+
+```cpp
+
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+ 
+
+ 
+
+int main()
+
+&#123;
+
+ 
+
+        cv::Mat img_color = cv::imread(&quot;image/colorball.png&quot;, cv::IMREAD_COLOR);
+
+        cv::Mat bgr[3];
+
+ 
+
+ 
+
+        if (img_color.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+ 
+
+        cv::pyrDown(img_color, img_color);
+
+        cv::split(img_color, bgr);
+
+ 
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_color);
+
+        imshow(&quot;blue&quot;, bgr[0]);
+
+        imshow(&quot;green&quot;, bgr[1]);
+
+        imshow(&quot;red&quot;, bgr[2]);
+
+        cv::waitKey(0);
+
+        cv::destroyAllWindows();
+
+ 
+
+        return 0;
+
+&#125;
+</code></pre>
+<h2 id="2-2-이미지-RGB-분할-2-1"><a href="#2-2-이미지-RGB-분할-2-1" class="headerlink" title="2-2. 이미지 RGB 분할 2"></a>2-2. 이미지 RGB 분할 2</h2><h3 id="0831-2-2-이미지-RGB-분할-0-벡터"><a href="#0831-2-2-이미지-RGB-분할-0-벡터" class="headerlink" title="0831_2_2 이미지 RGB 분할, 0 벡터"></a>0831_2_2 이미지 RGB 분할, 0 벡터</h3><p> </p>
+<pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+ 
+
+ 
+
+int main()
+
+&#123;
+
+        cv::Mat img_color = cv::imread(&quot;image/colorball.png&quot;, cv::IMREAD_COLOR);
+
+        cv::Mat bgr[3];
+
+ 
+
+        if (img_color.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+ 
+
+        cv::pyrDown(img_color, img_color);        //크기조정이 아래 Mat 생성보다 먼저 와야 함
+
+        cv::Mat zeroMat = cv::Mat::zeros(img_color.size(), CV_8UC1);        //0-255까지 그 값이 0으로 채워지는 매트릭스 생성
+
+        cv::split(img_color, bgr);
+
+        
+
+        cv::Mat R[] = &#123; zeroMat, zeroMat, bgr[2] &#125;;
+
+        cv::Mat G[] = &#123; zeroMat, bgr[1], zeroMat &#125;;
+
+        cv::Mat B[] = &#123; bgr[0], zeroMat, zeroMat &#125;;
+
+ 
+
+        cv::merge(R, 3, bgr[2]);
+
+        cv::merge(G, 3, bgr[1]);
+
+        cv::merge(B, 3, bgr[0]);
+
+ 
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_color);
+
+        imshow(&quot;blue&quot;, bgr[0]);
+
+        imshow(&quot;green&quot;, bgr[1]);
+
+        imshow(&quot;red&quot;, bgr[2]);
+
+        cv::waitKey(0);
+
+        cv::destroyAllWindows();
+
+ 
+
+        return 0;
+
+&#125;
+</code></pre>
+<h1 id="3-이미지-뒤집기-2"><a href="#3-이미지-뒤집기-2" class="headerlink" title="3. 이미지 뒤집기"></a>3. 이미지 뒤집기</h1><h3 id="3-이미지-뒤집기-3"><a href="#3-이미지-뒤집기-3" class="headerlink" title="3 이미지 뒤집기"></a>3 이미지 뒤집기</h3><pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+ 
+
+ 
+
+int main()
+
+&#123;        
+
+        cv::Mat img_src, img_dst, img_dst0, img_dst1;
+
+        std::string fileName = &quot;image/colorball.png&quot;;
+
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);
+
+ 
+
+        if (img_src.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+ 
+
+        cv::pyrDown(img_src, img_src);
+
+        cv::pyrDown(img_src, img_src);
+
+ 
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_src);
+
+ 
+
+        int option = -1;
+
+        cv::flip(img_src, img_dst, option); //0 : 상하 대칭, 1 : 좌우대칭, -1 : 상하좌우대칭
+
+        imshow(&quot;Flip-1&quot;, img_dst);
+
+        option = 0;
+
+        cv::flip(img_src, img_dst0, option);
+
+        imshow(&quot;Flip0&quot;, img_dst0);
+
+        option = -1;
+
+        cv::flip(img_src, img_dst1, option);
+
+        imshow(&quot;Flip1&quot;, img_dst1);
+
+ 
+
+        cv::waitKey(0);
+
+        cv::destroyAllWindows();
+
+ 
+
+        return 0;
+
+&#125;
+</code></pre>
+<h1 id="4-이미지-회전-2"><a href="#4-이미지-회전-2" class="headerlink" title="4. 이미지 회전"></a>4. 이미지 회전</h1><h2 id="4-이미지-회전-3"><a href="#4-이미지-회전-3" class="headerlink" title="4 이미지 회전"></a>4 이미지 회전</h2><pre><code class="cpp">
+#include &lt;opencv2/opencv.hpp&gt;
+
+#include &lt;iostream&gt;
+
+int main()
+
+&#123;        
+
+        cv::Mat img_src, img_dst;
+
+        std::string fileName = &quot;image/colorball.png&quot;;
+
+        img_src = cv::imread(fileName, cv::IMREAD_COLOR);
+
+        if (img_src.empty())
+
+        &#123;
+
+                std::cout &lt;&lt; &quot;이미지파일을 읽을 수 없습니다.&quot; &lt;&lt; std::endl;
+
+                return -1;
+
+        &#125;
+
+        cv::pyrDown(img_src, img_src);        
+
+        cv::pyrDown(img_src, img_src);
+
+        int width = img_src.cols;
+
+        int height = img_src.rows;
+
+        //회전매트릭스 (회전시 중심점, 회전각도, 이미지 배율 (1 : 원래크기))
+
+        cv::Mat M = getRotationMatrix2D(cv::Point(width / 2.0, height / 2.0), 90, 1);
+
+        
+
+        //원본, 수정본, 속성(회전매트릭스), 사이즈
+
+        warpAffine(img_src, img_dst, M, cv::Size(width, height));
+
+        
+
+        cv::namedWindow(&quot;Color&quot;);
+
+        imshow(&quot;Color&quot;, img_src);
+
+        imshow(&quot;Rotated&quot;, img_dst);
+
+        cv::waitKey(0);        
+
+        cv::destroyAllWindows();
+
+        return 0;
+
+&#125;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

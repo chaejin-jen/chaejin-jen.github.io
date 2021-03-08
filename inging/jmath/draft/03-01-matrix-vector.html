@@ -1,0 +1,5460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Chaejin&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/inging/%EC%88%98%ED%95%99%EB%AA%A9%EC%B0%A8.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-03-05T04:51:06.821Z">
+<meta property="article:modified_time" content="2021-03-04T07:51:44.000Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(8)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->Bagic3">
+                                        
+                                        Bagic3
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBagic">
+                                                        
+                                                        Bagic
+                                                        
+                                                            <small>(3)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="8">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science OS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/08/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-08 20:33:17">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science OS"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 16:26:55">2021/03/07</span>
+        </a>
+        
+        <a  class="All DeepLearning Bagic3 "
+           href="/2021/03/06/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework"
+           data-author="" >
+            <span class="post-title" title="밑바닥 부터 시작하는 딥러닝 3 (1탄!)">밑바닥 부터 시작하는 딥러닝 3 (1탄!)</span>
+            <span class="post-date" title="2021-03-06 07:26:32">2021/03/06</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/06/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-06 07:26:31">2021/03/06</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/06/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-06 07:25:54">2021/03/06</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/06/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-06 07:25:54">2021/03/06</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/06/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm Basic"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-06 07:25:53">2021/03/06</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-05 14:29:56">2021/03/05</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-03-06 17:18:47'>2021-03-07 16:29</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text">  &#x3D;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-text">  &#x3D;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-text">&#x3D;</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>머신러닝⋅딥러닝에필요한</p>
+<p>수학기초 with 파이썬</p>
+<p>Matrix and Vector Calculation,</p>
+<p>Numpy</p>
+<p>행렬과벡터의연산, Numpy</p>
+<blockquote>
+<p>조준우</p>
+<p>metamath@gmail.com</p>
+</blockquote>
+<p>학습개요</p>
+<p>• 선형대수가가장중요?</p>
+<blockquote>
+<p>– 딥러닝: 한벡터공간을다른벡터공간으로매핑하기위한단순하고연속된기하학적변환을연결 한것(Chollet, François, Deep learning with python)</p>
+</blockquote>
+<ul>
+<li>  행렬과벡터</li>
+</ul>
+<blockquote>
+<p>– 기본정의</p>
+<p>– 연산</p>
+<p>– 행렬곱, 행렬-벡터곱의해석</p>
+</blockquote>
+<ul>
+<li>  행렬을이용한데이터의표현</li>
+</ul>
+<blockquote>
+<p>– 테이블형데이터</p>
+<p>– 이미지</p>
+<p>– 문서</p>
+</blockquote>
+<p>• 벡터화코딩실습</p>
+<blockquote>
+<p>행렬Matrix</p>
+</blockquote>
+<p>• 사각괄호로둘러쌓인숫자들의배열(Rectangular array of numbers written between square brackets)</p>
+<p>+—————————+————-+—-+——+——+——+————+—+<br>| 0.3                       | 1           | −5 | 11   | 12   | 13   | &gt; <del>행</del>rows |   |<br>+—————————+————-+—-+——+——+——+————+—+<br>|                           |             |    | 21   | 22   | 23   |            |   |<br>+—————————+————-+—-+——+——+——+————+—+<br>| 0                         | −0.2        | 16 | <del>31</del> | <del>32</del> | <del>33</del> |            |   |<br>+—————————+————-+—-+——+——+——+————+—+<br>|                           |             |    |      |      |      |            |   |<br>+—————————+————-+—-+——+——+——+————+—+<br>| &gt; <del>요소</del>entries, elements | <del>열</del>columns |    |      |      |      |            |   |<br>+—————————+————-+—-+——+——+——+————+—+</p>
+<p><img src="../../jmath/3_1/media/image1.png"></p>
+<blockquote>
+<p>행렬Matrix</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td>•</td>
+<td><blockquote>
+<p>볼드대문자표시</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>• 행렬의차원(크기) : 행개수 × 열개수</td>
+<td>12</td>
+<td>⋯</td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>==</p>
+</blockquote></td>
+<td>11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>21</td>
+<td></td>
+<td>22</td>
+<td>⋯</td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>⋮</td>
+<td></td>
+<td><blockquote>
+<p>⋮</p>
+</blockquote></td>
+<td>⋱</td>
+<td><blockquote>
+<p>⋮</p>
+</blockquote></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>×</p>
+</blockquote></td>
+<td><blockquote>
+<p>행렬</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>•</td>
+<td><blockquote>
+<p>요소의첫</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>•</td>
+<td><blockquote>
+<p>보기의경우</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image2.png"></p>
+<p>번째인덱스가행번호, 두번째인덱스가열번호</p>
+<p>행렬Matrix</p>
+<p>+—–+—————-+———-+——-+—–+——+—-+—+<br>| &gt; • |                |          | 2 × 3 |     |      |    |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+<br>| &gt; • | &gt; 아래행렬에서 |          |       |     |      |    |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+<br>| &gt; • | &gt; 12           | = 1      |       |     |      |    |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+<br>| &gt; • | &gt; 행렬의크기   |          |       |     |      |    |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+<br>| &gt; • | &gt; 22           | &gt; = −0.2 |       |     |      |    |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+<br>|     | &gt; 23           | &gt; = 16   | =     | 0.3 | 1    | −5 |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+<br>|     |                |          |       | 0   | −0.2 | 16 |   |<br>+—–+—————-+———-+——-+—–+——+—-+—+</p>
+<p><img src="../../jmath/3_1/media/image3.png"></p>
+<blockquote>
+<p>행렬의덧셈과스칼라곱셈</p>
+</blockquote>
+<p>• 두행렬 , 의크기가같을때같은위치의요소의덧셈</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>=</td>
+<td>3</td>
+<td>1</td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td>5</td>
+<td>1</td>
+<td><blockquote>
+<p>+ =</p>
+</blockquote></td>
+<td>8</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>10</td>
+<td>12</td>
+<td></td>
+<td>3</td>
+<td>−2</td>
+<td></td>
+<td>13</td>
+<td>10</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image4.png"></p>
+<p>• 크기가다르면덧셈불가능</p>
+<p>• 행렬에대한스칼라곱은각요소에스칼라를곱하는것</p>
+<p>행렬덧셈, 스칼라곱예</p>
+<hr>
+<p>  8       2   [1]{.ul}            1   1       4   1        3   3       7       4<br>  16 10   ×   2          + 3 ×   3   4   =   8   5   +   9   2   =   17 17       </p>
+<hr>
+<p><img src="../../jmath/3_1/media/image7.png"></p>
+<blockquote>
+<p>A = np.asarray([8,2,16,10]).reshape(2,2)</p>
+<p>B = np.asarray([1,1,3,4]).reshape(2,2)</p>
+<p>print(A*(1/2) + 3*B)</p>
+<p>[[ 7. 4.]</p>
+<p>[17. 17.]]</p>
+<p>행렬-행렬의곱셈</p>
+</blockquote>
+<p>• 행과열의요소를곱해서더함.</p>
+<blockquote>
+<p>× = <img src="../../jmath/3_1/media/image9.png"></p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image10.png"></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>×</td>
+<td></td>
+<td>matrix</td>
+<td></td>
+<td>×</td>
+<td></td>
+<td>matrix</td>
+<td></td>
+<td>×</td>
+<td></td>
+<td>matrix</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>= 11</p>
+</blockquote></td>
+<td>11</td>
+<td>+ 12 21 +⋯+ 1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image11.png"></p>
+<blockquote>
+<p>행렬-행렬의곱셈</p>
+</blockquote>
+<p>• 모든행과모든열에대해서반복계산</p>
+<p>+—+——+——+—-+—+<br>|   |      | &gt; =  | 11 |   |<br>+—+——+——+—-+—+<br>|   | &gt; 11 |      | 21 |   |<br>+—+——+——+—-+—+<br>|   |      | &gt; 12 | 11 |   |<br>+—+——+——+—-+—+<br>| = | &gt; 21 | &gt; 22 | 21 |   |<br>+—+——+——+—-+—+<br>|   | &gt; 31 | &gt; 32 | 31 |   |<br>+—+——+——+—-+—+<br>|   | &gt; 41 | &gt; 42 | 41 |   |<br>+—+——+——+—-+—+</p>
+<p><img src="../../jmath/3_1/media/image12.png"></p>
+<p>1222</p>
+<p><img src="../../jmath/3_1/media/image13.png"></p>
+<blockquote>
+<p>1222</p>
+<p>4232</p>
+<p>1323</p>
+</blockquote>
+<p>1323</p>
+<p>4333</p>
+<p>A.  = np.asarray([1, 2, 23, 43, 56,</p>
+<blockquote>
+<p>32, 41, 55]).reshape(4,2)</p>
+</blockquote>
+<p>B.  = np.asarray([11, 12, 13, 21, 22,</p>
+<blockquote>
+<p>23]).reshape(2,3)</p>
+</blockquote>
+<p>C.  = np.dot(A,B)</p>
+<blockquote>
+<p>print(C)</p>
+</blockquote>
+<p>[[ 53 56 59]</p>
+<p>[1156 1222 1288]</p>
+<p>[1288 1376 1464]</p>
+<blockquote>
+<p>[1606 1702 1798]]</p>
+<p><em>#반대로 곱할 수 있을까?</em></p>
+<p>행렬의전치Transpose</p>
+</blockquote>
+<p>+—+—————————————-+—–+——-+—-+—+——-+—+—+<br>| • | &gt; <del>T</del>                                  |     | &gt; T T |    |   |       | 5 |   |<br>+—+—————————————-+—–+——-+—-+—+——-+—+—+<br>| • | &gt; 주어진행렬의행을열로, 열을행으로이동 |     |       |    |   |       |   |   |<br>+—+—————————————-+—–+——-+—-+—+——-+—+—+<br>| • |                                        | &gt; = | = 5   | −8 | 1 | T= −8 |   |   |<br>+—+—————————————-+—–+——-+—-+—+——-+—+—+<br>|   | &gt; T로표시                              |     | 4     | 0  | 3 | 1     |   |   |<br>+—+—————————————-+—–+——-+—-+—+——-+—+—+<br>|   |                                        |     |       |    |   |       |   |   |<br>+—+—————————————-+—–+——-+—-+—+——-+—+—+</p>
+<p><img src="../../jmath/3_1/media/image14.png"></p>
+<blockquote>
+<p>A = np.asarray([5, -8, 1, 4, 0, 3]).reshape(2,3)</p>
+<p>print(A.T)</p>
+<p>B = np.asarray([3, 1, 0, 1, 2, 8]).reshape(3,2)</p>
+<p>print(np.dot(A,B).T)</p>
+<p>print(np.dot(B.T, A.T))</p>
+</blockquote>
+<p>4</p>
+<p>0</p>
+<p>3</p>
+<blockquote>
+<p>[[54]</p>
+<p>[-8 0]</p>
+<p>[13]]</p>
+<p>[[17 18] [ 5 28]]</p>
+<p>특별한행렬</p>
+</blockquote>
+<p>+—+—————-+—————-+—–+—————+—+—+<br>| • | &gt; –           |                | &gt; × |               | n |   |<br>+—+—————-+—————-+—–+—————+—+—+<br>|   | &gt; ~            |                |     |               |   |   |<br>|   | 단위행렬<del>unit, |                |     |               |   |   |<br>|   | &gt; identity     |                |     |               |   |   |<br>|   | &gt; matrix       |                |     |               |   |   |<br>+—+—————-+—————-+—–+—————+—+—+<br>|   | &gt; –           | &gt; = =          |     | &gt; 정사각행렬, | , |   |<br>+—+—————-+—————-+—–+—————+—+—+<br>|   |                | &gt;              |     |               |   |   |<br>|   |                | 대각성분이모두 |     |               |   |   |<br>|   |                | &gt; 1인          |     |               |   |   |<br>+—+—————-+—————-+—–+—————+—+—+<br>| • | &gt; –           |                |     |               |   |   |<br>|   | &gt; 대각성분만   |                |     |               |   |   |<br>|   | &gt; 0이          |                |     |               |   |   |<br>|   | 아닌성분을가진 |                |     |               |   |   |<br>|   | &gt; × 정사각행렬 |                |     |               |   |   |<br>+—+—————-+—————-+—–+—————+—+—+<br>|   | &gt; ~대각        |                |     |               |   |   |<br>|   | 행렬</del>diagonal  |                |     |               |   |   |<br>|   | &gt; matrix       |                |     |               |   |   |<br>+—+—————-+—————-+—–+—————+—+—+</p>
+<p>+—+——————————————–+—+<br>| • | &gt; – 정사각행렬에대해서 T= ,따라서= 인행렬 |   |<br>+—+——————————————–+—+<br>|   | &gt; <del>대칭행렬</del>symmetric matrix               |   |<br>+—+——————————————–+—+</p>
+<p>= = =</p>
+<p>+——+—–+——+—+—+<br>| 1    | 0   | &gt; 0  |   |   |<br>+——+—–+——+—+—+<br>| 0    | 1   | &gt; 0  |   |   |<br>+——+—–+——+—+—+<br>| 0    | 0   | &gt; 1  | 0 |   |<br>+——+—–+——+—+—+<br>| 2    |     | 0    |   |   |<br>+——+—–+——+—+—+<br>| 0    | −3  | 0    |   |   |<br>+——+—–+——+—+—+<br>| 0    |     | 0    | 1 |   |<br>+——+—–+——+—+—+<br>| &gt; 10 |     | &gt; 20 |   |   |<br>+——+—–+——+—+—+<br>| &gt; 20 |     | &gt; 10 |   |   |<br>+——+—–+——+—+—+<br>| 100  | 120 |      |   |   |<br>+——+—–+——+—+—+</p>
+<p><img src="../../jmath/3_1/media/image17.png"></p>
+<p>100</p>
+<p>120</p>
+<blockquote>
+<p>20</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>역행렬Inverse</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p>×</p>
+</blockquote></td>
+<td>행렬</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><sub>−1</sub></td>
+<td></td>
+<td><blockquote>
+<p>−1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>의역행렬은 −1로표시하며다음을만족</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p>역행렬을가지면</p>
+</blockquote></td>
+<td></td>
+<td>는</td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>singular matrix</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p><sub>정칙행렬</sub>nonsingular matrix<sub>,</sub> <sub>역행렬이없으면특이행렬</sub></p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>2</td>
+<td>= 3</td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>+ 1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>1차연립방정식의해</td>
+<td><blockquote>
+<p>−6</p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td></td>
+<td>−27</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>= −27</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>−6 +3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>2</td>
+<td></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td>2</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>−6</p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td>−1</td>
+<td></td>
+<td>−6</td>
+<td>3</td>
+<td>2</td>
+<td><sup>=</sup> −6</td>
+<td>3</td>
+<td><blockquote>
+<p>−1</p>
+</blockquote></td>
+<td>−27</td>
+<td></td>
+<td></td>
+<td>0</td>
+<td>1 2</td>
+<td><sup>=</sup> −6</td>
+<td>3</td>
+<td><blockquote>
+<p>−1</p>
+</blockquote></td>
+<td>−27</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image20.png"></p>
+<p>+—–+—————-+————————–+————–+<br>|     |                |                          | &gt; 벡터Vector |<br>+—–+—————-+————————–+————–+<br>|     |                |                          |              |<br>+—–+—————-+————————–+————–+<br>| &gt; • | &gt; 숫자여러개의 | × 1                      |              |<br>+—–+—————-+————————–+————–+<br>| &gt; • | &gt; 행렬관점에서 | 행이나열을하나만가진행렬 |              |<br>+—–+—————-+————————–+————–+<br>| &gt; • | &gt; 행렬의크기가 |                          | 인행렬       |<br>+—–+—————-+————————–+————–+</p>
+<blockquote>
+<p>모임</p>
+<p>• 행벡터또는열벡터라하며대부분<strong>별도의언급이없으면벡터는열벡터</strong></p>
+<p>• 볼드소문자표시</p>
+<p>• 벡터의차원 : 요소개수, 보기의경우 <em>n</em>1차원벡터</p>
+</blockquote>
+<p>= ⋮^2^</p>
+<p><img src="../../jmath/3_1/media/image21.png"></p>
+<p>+—–+————————–+———+————–+—+—–+—+<br>|     |                          |         | &gt; 벡터Vector |   |     |   |<br>+—–+————————–+———+————–+—+—–+—+<br>|     |                          |         |              |   |     |   |<br>+—–+————————–+———+————–+—+—–+—+<br>| &gt; • | &gt; 1                      | &gt; = 23  |              | 4 |     |   |<br>+—–+————————–+———+————–+—+—–+—+<br>| &gt; • |                          |         |              |   |     |   |<br>+—–+————————–+———+————–+—+—–+—+<br>| &gt; • | &gt; 아래벡터에서벡터의차원 |         |              |   |     |   |<br>+—–+————————–+———+————–+—+—–+—+<br>| &gt; • | &gt; 2                      | &gt; = 13  |              |   | 23  |   |<br>+—–+————————–+———+————–+—+—–+—+<br>|     | &gt; 4                      | &gt; = 100 |              |   |     |   |<br>+—–+————————–+———+————–+—+—–+—+<br>|     |                          |         |              | = | 13  |   |<br>+—–+————————–+———+————–+—+—–+—+<br>|     |                          |         |              |   | 8   |   |<br>+—–+————————–+———+————–+—+—–+—+<br>|     |                          |         |              |   | 100 |   |<br>+—–+————————–+———+————–+—+—–+—+</p>
+<p><img src="../../jmath/3_1/media/image22.png"></p>
+<p>벡터Vector: 숫자여러개모임?</p>
+<ul>
+<li><p>  3차원공간의화살표는방향과크기를가짐</p>
+</li>
+<li><p>  3차원공간의화살표: 숫자세개로표현가능</p>
+</li>
+</ul>
+<p><img src="../../jmath/3_1/media/image23.jpeg"></p>
+<blockquote>
+<p>벡터의덧셈, 뺄셈</p>
+</blockquote>
+<p>• 벡터의덧셈, 뺄셈은요소끼리덧셈, 뺄셈</p>
+<p>• 덧셈 : 두벡터가이루는평행사변형으로계산</p>
+<p>• 뺄셈 : a-b = a+(-b)로두고덧셈과동일하게계산</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>+(− )</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>−</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image24.png"></p>
+<p><img src="../../jmath/3_1/media/image25.png"><br> −</p>
+<p><img src="../../jmath/3_1/media/image26.png"></p>
+<p>+———–+—-+——+———+———-+—+———–+—+—+<br>| &gt; 벡터의  |    |      |         |          |   |           |   |   |<br>| 크기(놈,  |    |      |         |          |   |           |   |   |<br>| &gt;         |    |      |         |          |   |           |   |   |<br>| 노름)Norm |    |      |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>|           |    |      |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>| &gt; •       | 12 | + 2 | &gt; 12+ 2 |          |   |           |   |   |<br>| &gt; 2차원   |    |      |         |          |   |           |   |   |<br>| 벡터의길  |    |      |         |          |   |           |   |   |<br>| 이(크기)= |    |      |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>| &gt; • 노름  |    | 2    |         |          |   |           |   |   |<br>| &gt; 길이에  |    |      |         |          |   |           |   |   |<br>| 대한일반  |    |      |         |          |   |           |   |   |<br>| 적인정의  |    |      |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>|           |    |      |         | [1]{.ul} |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>|           |    |      |         |          |   | &gt; 피      |   |   |<br>|           |    |      |         |          |   | 타고라스  |   |   |<br>|           |    |      |         |          |   | &gt; ^1^정리 |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>|           |    | = �  |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>|           |    | =1   |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+<br>|           |    |      |         |          |   |           |   |   |<br>+———–+—-+——+———+———-+—+———–+—+—+</p>
+<p><img src="../../jmath/3_1/media/image27.png"></p>
+<blockquote>
+<p>벡터의크기(놈, 노름)Norm</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image30.png"></p>
+<p>• L1노름 1 =</p>
+<p><img src="../../jmath/3_1/media/image31.png"></p>
+<p>�</p>
+<p><img src="../../jmath/3_1/media/image32.png"></p>
+<blockquote>
+<p>=1</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td>•</td>
+<td>L2 노름</td>
+<td></td>
+<td><u>1</u></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>= �</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td>= 1</td>
+<td>+ 2</td>
+<td>+ ⋯ +</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td>=1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image33.png"></p>
+<p>단위벡터Unit vector</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p>벡터를벡터의크기로나눔</p>
+</blockquote></td>
+<td>1 1 T</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td>0.707</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p>크기가 1인벡터</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td>=</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td>0.707</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>� =</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><u>1</u></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>−1</p>
+</blockquote></td>
+<td><blockquote>
+<p>− 2 2</p>
+</blockquote></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td><blockquote>
+<p>−</p>
+</blockquote></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><u>2</u></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>= −</p>
+</blockquote></td>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><u>2</u></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image34.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unit_vector">https://en.wikipedia.org/wiki/Unit_vector</a></p>
+</blockquote>
+<p>벡터-벡터의곱셈</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>• 행과열에대해서한번계산</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>• 이런연산을벡터의 내적<sup>inner product</sup> 이라고도함</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td></td>
+<td>= 2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>=</td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>� &gt; 0</td>
+<td></td>
+<td><blockquote>
+<p>� = 0</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>� &lt; 0</p>
+</blockquote></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>T = � =cos</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>Orthogonality</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image36.png"></p>
+<blockquote>
+<p>cos: 가로함수, sin: 세로함수</p>
+</blockquote>
+<p>• 대관람차의위치를가로, 세로로나타낼때</p>
+<p>• 각도에따른가로위치는 cos 함수, 세로높이는 sin 함수</p>
+<p><img src="../../jmath/3_1/media/image37.jpeg"></p>
+<blockquote>
+<p>행렬을이용한데이터표현: 테이블형데이터</p>
+</blockquote>
+<p>+—+—————————————————+—-+——–+—+——–+——-+—+—+<br>| • | &gt; 개별데이터를행벡터로저장 ^=^                    | ,  |        | , | &gt; 혈압 | , … |   |   |<br>+—+—————————————————+—-+——–+—+——–+——-+—+—+<br>| • | &gt; 한명데이터를벡터로표시:                         | 키 | 몸무게 |   |        |       |   |   |<br>+—+—————————————————+—-+——–+—+——–+——-+—+—+<br>| • | &gt; 신체특징데이터: 키, 몸무게, 혈압, …           |    |        |   |        |       |   |   |<br>+—+—————————————————+—-+——–+—+——–+——-+—+—+<br>| • | &gt; 데이터행렬 :(N,D), N: 데이터개수, D: 데이터차원 |    |        |   |        |       |   |   |<br>+—+—————————————————+—-+——–+—+——–+——-+—+—+</p>
+<p><img src="../../jmath/3_1/media/image38.png"></p>
+<blockquote>
+<p><img src="../../jmath/3_1/media/image40.png"><br>개별데이터</p>
+<p>키벡터</p>
+</blockquote>
+<p>행렬을이용한데이터표현: 이미지</p>
+<ul>
+<li>  Channel first: (C, H, W), Channel last: (H, W, C)</li>
+</ul>
+<p><img src="../../jmath/3_1/media/image41.png"></p>
+<blockquote>
+<p>행렬을이용한데이터표현: 문서</p>
+<p>docs = [</p>
+<p>&#39;This is the first document’, &#39;This is the second document&#39;, &#39;And the third one&#39;,</p>
+<p>&#39;Is this the first document&#39;]</p>
+</blockquote>
+<p>V = [&#39;&lt;NULL&gt;&#39;, &#39;and&#39;, &#39;document&#39;, &#39;first&#39;, &#39;is&#39;, &#39;one&#39;, &#39;second&#39;, &#39;the&#39;, &#39;third&#39;, &#39;this&#39;]</p>
+<p><img src="../../jmath/3_1/media/image42.png"><br> [[9, 4, 7, 3, 2],</p>
+<p><img src="../../jmath/3_1/media/image43.png"></p>
+<blockquote>
+<p>[9, 4, 7, 6, 2],</p>
+<p>[1, 7, 8, 5],</p>
+<p>[4, 9, 7, 3, 2]]</p>
+<p>[</p>
+<p>[9] → [0,0,0,0,0,0,0,0,0,1]</p>
+<p>[4] → [0,0,0,0,1,0,0,0,0,0]</p>
+<p>[7] → [0,0,0,0,0,0,0,1,0,0]</p>
+<p>[3] → [0,0,0,1,0,0,0,0,0,0]</p>
+<p>[2] → [0,0,1,0,0,0,0,0,0,0]</p>
+<p>]</p>
+<p>인덱스Index</p>
+</blockquote>
+<p>• 행렬, 벡터의요소를지정하기위해아래첨자로사용하는숫자</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>• 0부터시작하는방식과 1부터시작하는방식이있음</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>•</td>
+<td><blockquote>
+<p>프로그램언어</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td>23</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>•</td>
+<td><blockquote>
+<p><strong>수학</strong> : 1부터시작</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>1부터 시작</p>
+</blockquote></td>
+<td><blockquote>
+<p>0부터시작</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>• <strong>컴퓨터공학</strong> : 0부터시작</td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td>13</td>
+<td>=</td>
+<td>2</td>
+<td>=</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>100</td>
+<td></td>
+<td>4</td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>FORTRAN</p>
+</blockquote></td>
+<td><blockquote>
+<p>Python</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>Julia</p>
+</blockquote></td>
+<td><blockquote>
+<p>C/C++</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>MATLAB<sup>©</sup></p>
+</blockquote></td>
+<td><blockquote>
+<p>Java,</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>Octave</p>
+</blockquote></td>
+<td><blockquote>
+<p>Javascript</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image44.png"></p>
+<p>Numpy</p>
+<ul>
+<li>  Numpy is the core library for scientific computing in Python. It provides a high-performance [multidimensional array]{.ul} object, and tools for working with these arrays. If you are already familiar with MATLAB®, you might find this tutorial useful to get started with Numpy. – cs231n</li>
+</ul>
+<p>ndarray</p>
+<ul>
+<li><p>  numpy에서제공하는메인객체인배열</p>
+</li>
+<li><p>  다차원배열multidimensional array로써 1차원배열(벡터), 2차원배열(행렬), 3차원배열(큐</p>
+</li>
+</ul>
+<blockquote>
+<p>브), 4차원배열(큐브가여러개모인것) 등등계속차원을늘릴수있음</p>
+</blockquote>
+<p>• 생성 : 행우선방식으로 [ ]로적어주면됨</p>
+<blockquote>
+<p><strong>import</strong> numpy <strong>as</strong> np</p>
+<p><em># 값을 지정하여 생성</em></p>
+</blockquote>
+<p>A.  = np.array([[1,2],[3,4]])</p>
+<ul>
+<li><p>랜덤으로 생성</p>
+<p>  E.  = np.random.rand(10)</p>
+<p>  F.  = np.random.rand(25).reshape(5,-1)</p>
+<p>  G.  = np.random.randint(1, 11, 9).reshape(3,3)</p>
+</li>
+</ul>
+<p><em># 모든 요소가 0인 어레이</em> B = np.zeros(3,3)</p>
+<p><em># 모든 요소가 1인 어레이</em> C = np.ones(2,3)</p>
+<p><em># 대각 요소만 1인 어레이</em> D = np.eye(2)</p>
+<blockquote>
+<p>Numpy 행렬-행렬의곱셈</p>
+</blockquote>
+<ul>
+<li>  Numpy array multiplication is not matrix multiplication</li>
+</ul>
+<blockquote>
+<p>c = np.ones((3, 3))</p>
+<p>C = np.matrix(c)</p>
+<p>print(&quot;numpy array multiplication&quot;)</p>
+<p>print(c*c)</p>
+<p>print(&quot;numpy dot function&quot;)</p>
+<p>print(c.dot(c))</p>
+<p>print(&quot;numpy matrix multiplication&quot;)</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image45.png"></p>
+<blockquote>
+<p>print(C*C)</p>
+</blockquote>
+<p>[[1. 1. 1.]</p>
+<blockquote>
+<p>[1. 1. 1.]</p>
+<p>[1. 1. 1.]]</p>
+</blockquote>
+<p>[[3. 3. 3.]</p>
+<blockquote>
+<p>[3. 3. 3.]</p>
+<p>[3. 3. 3.]]</p>
+</blockquote>
+<p>axis</p>
+<p>• 배열의요소가늘어선방향</p>
+<p>• 축에번호를붙여서관리하는데 0부터번호가증가, 새롭게생긴 axis가 0번</p>
+<p><img src="../../jmath/3_1/media/image46.png"></p>
+<blockquote>
+<p>numpy.ipynb</p>
+</blockquote>
+<p>기본연산</p>
+<p>• 기본 +, -, *, / 연산자를그냥쓰면되고요소별로연산됨</p>
+<p>A.  = np.array([[1,3,4], [5,3,4], [4,5,2]])</p>
+<p>B.  = np.array([[5,7,3], [2,1,1], [5,6,3]])</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>print(A+B)</td>
+<td><blockquote>
+<p>print(A-B)</p>
+</blockquote></td>
+<td>print(A*B)</td>
+<td><blockquote>
+<p>print(A/B)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>[[ 6</td>
+<td>10</td>
+<td><blockquote>
+<p>7]</p>
+</blockquote></td>
+<td>[[-4</td>
+<td>-4</td>
+<td>1]</td>
+<td>[[ 5</td>
+<td>21</td>
+<td>12]</td>
+<td>[[0.2</td>
+<td><blockquote>
+<p>0.4286</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.3333]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>[</td>
+<td>7</td>
+<td>4</td>
+<td><blockquote>
+<p>5]</p>
+</blockquote></td>
+<td>[ 3</td>
+<td>2</td>
+<td>3]</td>
+<td>[10</td>
+<td>3</td>
+<td>4]</td>
+<td>[2.5</td>
+<td><blockquote>
+<p>3.</p>
+</blockquote></td>
+<td><blockquote>
+<p>4.</p>
+</blockquote></td>
+<td>]</td>
+</tr>
+<tr class="even">
+<td>[</td>
+<td>9</td>
+<td>11</td>
+<td><blockquote>
+<p>5]]</p>
+</blockquote></td>
+<td>[-1</td>
+<td>-1</td>
+<td>-1]]</td>
+<td>[20</td>
+<td>30</td>
+<td>6]]</td>
+<td>[0.8</td>
+<td><blockquote>
+<p>0.8333</p>
+</blockquote></td>
+<td><blockquote>
+<p>0.6667]]</p>
+</blockquote></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image47.png"></p>
+<blockquote>
+<p>numpy.ipynb</p>
+</blockquote>
+<p>인덱싱indexing</p>
+<p>+——————————————–+——+——+—-+—-+——+——+—+<br>| • 배열의요소에접근하기위해서는인덱스를사용 | = 10 | 11   | 12 | 13 | &gt; 14 |      |   |<br>+——————————————–+——+——+—-+—-+——+——+—+<br>| • 인덱스는 0부터시작                       |      |      |    |    |      |      |   |<br>+——————————————–+——+——+—-+—-+——+——+—+<br>|                                            |      | &gt; 0  | 1  | 2  | 3    | &gt; 4  |   |<br>+——————————————–+——+——+—-+—-+——+——+—+<br>| • 2축이상에대한인덱싱                      |      | &gt; 45 | 46 | 47 | 48   | &gt; 49 |   |<br>+——————————————–+——+——+—-+—-+——+——+—+<br>|                                            |      | &gt; 5  | 6  | 7  | 8    | &gt; 9  |   |<br>+——————————————–+——+——+—-+—-+——+——+—+<br>| • 3행 3열요소 C[2,2]                     |      | &gt; ⋮  | ⋮  | ⋮  | ⋮    | &gt; ⋮  |   |<br>+——————————————–+——+——+—-+—-+——+——+—+</p>
+<p><img src="../../jmath/3_1/media/image48.png"></p>
+<blockquote>
+<p>• 1행에서 3행까지~4열에서 5열까지 : 각인덱스자리에서 &quot;시작인덱스:끝인 덱스&quot; 문법적용 C[0:3, 3:5]</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image49.png"></p>
+<blockquote>
+<p>numpy.ipynb</p>
+<p>어레이인덱싱array indexing</p>
+</blockquote>
+<p>• 인덱싱할숫자를임의의어레이로전달하는방법</p>
+<blockquote>
+<p>• 숫자를지정할자리에숫자대신숫자여러개를포함한어레이를전달하면해당되는요소 여러개가한번에추출</p>
+</blockquote>
+<p>+——————–+——————–+——————–+—+<br>| A =                | &gt; <em># 그냥         |                    |   |<br>| np.array([[1,    | &gt; 하나하나         |                    |   |<br>| 2,3],[4,5,6]]) | &gt; 지정해서 다      |                    |   |<br>|                    | &gt; 모음</em>            |                    |   |<br>+——————–+——————–+——————–+—+<br>|                    |                    | &gt; np               |   |<br>|                    |                    | .array([A[1,2], |   |<br>|                    |                    | &gt; A[0,1]])      |   |<br>+——————–+——————–+——————–+—+<br>| [[1 2            | &gt; 3]              | &gt; <em># 첫번째       |   |<br>|                    |                    | &gt; 리스트에 행번호</em> |   |<br>+——————–+——————–+——————–+—+<br>| [4 5              | &gt; 6]]            |                    |   |<br>+——————–+——————–+——————–+—+<br>|                    |                    | &gt; <em># 두번째       |   |<br>|                    |                    | &gt; 리스트에 열번호</em> |   |<br>+——————–+——————–+——————–+—+<br>| <em># [6,</em>          | &gt; <em>2]를           | &gt; A\               |   |<br>|                    | &gt; 만들려면?</em>       | [[1,0],[2,1]] |   |<br>+——————–+——————–+——————–+—+</p>
+<p>• 이성질을잘이용하면지정한특정요소에대해서만연산을수행</p>
+<p><img src="../../jmath/3_1/media/image50.png"></p>
+<blockquote>
+<p>numpy.ipynb</p>
+<p>어레이인덱싱array indexing</p>
+</blockquote>
+<ul>
+<li>  Boolean 형어레이를전달</li>
+</ul>
+<p>+———-+————+————+————+——+—+—+<br>| A        | =          | &gt; np.      | &gt;          |      |   |   |<br>|          |            | array([[ | print(A[A |      |   |   |<br>|          |            | 1,2,3],[ | &gt; &gt; 2])  |      |   |   |<br>|          |            | 4,5,6],[ |            |      |   |   |<br>|          |            | 7,8,9]]) |            |      |   |   |<br>+———-+————+————+————+——+—+—+<br>| A        | &gt;         | &gt; 2        | &gt; <em>#결과</em> |      |   |   |<br>+———-+————+————+————+——+—+—+<br>| <em>#결과</em> | &gt;          | 1,         | 2,         | 3], |   |   |<br>|          | array([[ |            |            |      |   |   |<br>+———-+————+————+————+——+—+—+</p>
+<p>+——-+——-+——-+——-+——-+——-+——-+——-+<br>| a     | &gt; Tr  | &gt; [  | 4,    |       | 5,    | &gt;     |       |<br>| rray( | ue], |       |       |       |       |  6], |       |<br>| [[F |       |       |       |       |       |       |       |<br>| alse, |       |       |       |       |       |       |       |<br>| F     |       |       |       |       |       |       |       |<br>| alse, |       |       |       |       |       |       |       |<br>+——-+——-+——-+——-+——-+——-+——-+——-+<br>| &gt; [  | True, | &gt; Tr  | &gt; [  | 7,    |       | 8,    | &gt; 9   |<br>| &gt;     |       | ue], |       |       |       |       | ]]) |<br>| True, |       |       |       |       |       |       |       |<br>+——-+——-+——-+——-+——-+——-+——-+——-+<br>| &gt; [  | True, | &gt;     |       |       |       |       |       |<br>| &gt;     |       |  True |       |       |       |       |       |<br>| True, |       | ]]) |       |       |       |       |       |<br>+——-+——-+——-+——-+——-+——-+——-+——-+<br>|       |       |       | a     | &gt; Tr  |       |       |       |<br>|       |       |       | rray( | ue], |       |       |       |<br>|       |       |       | [[F |       |       |       |       |<br>|       |       |       | alse, |       |       |       |       |<br>|       |       |       | F     |       |       |       |       |<br>|       |       |       | alse, |       |       |       |       |<br>+——-+——-+——-+——-+——-+——-+——-+——-+<br>|       |       |       | &gt; [  | True, | &gt; Tr  |       |       |<br>|       |       |       | &gt;     |       | ue], |       |       |<br>|       |       |       | True, |       |       |       |       |<br>+——-+——-+——-+——-+——-+——-+——-+——-+<br>|       |       |       | &gt; [  | True, | &gt;     |       |       |<br>|       |       |       | &gt;     |       |  True |       |       |<br>|       |       |       | True, |       | ]]) |       |       |<br>+——-+——-+——-+——-+——-+——-+——-+——-+<br>|       |       |       | &gt;     | 4, 5, | 6,    | 7,    | &gt; 8,  |<br>|       |       |       | array |       |       |       | &gt;     |<br>|       |       |       | ([3, |       |       |       |  9]) |<br>+——-+——-+——-+——-+——-+——-+——-+——-+</p>
+<blockquote>
+<p>전치transpose</p>
+</blockquote>
+<ul>
+<li>  transpose(axis) : 행렬의전치와같은역할, 3개축이상에서도같은논리로동작</li>
+</ul>
+<p><img src="../../jmath/3_1/media/image51.jpeg"></p>
+<blockquote>
+<p>B = A[0,:]</p>
+<p>print(B) [[1 2 3]</p>
+<p>[456]</p>
+<p>[7 8 9]]</p>
+</blockquote>
+<p>+————+——-+—+———+<br>| print(B.T) | [[1 | 4 | &gt; 7]   |<br>+————+——-+—+———+<br>|            | [2   | 5 | &gt; 8]   |<br>+————+——-+—+———+<br>|            | [3   | 6 | &gt; 9]] |<br>+————+——-+—+———+</p>
+<blockquote>
+<p>전치transpose</p>
+</blockquote>
+<ul>
+<li>  transpose(axis) : 행렬의전치와같은역할, 3개축이상에서도같은논리로동작</li>
+</ul>
+<blockquote>
+<p>print(A.transpose(2, 0, 1))</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image52.jpeg"></p>
+<p>[[[1 4 7]</p>
+<p>[10 13 16]]</p>
+<blockquote>
+<p>[[2 5 8]</p>
+<p>[11 14 17]]</p>
+<p>[[3 6 9]</p>
+<p>[12 15 18]]]</p>
+<p>브로드캐스팅broadcasting</p>
+</blockquote>
+<ul>
+<li>  Numpy에서 shape가다른배열간에도산술연산이가능하게하는매커니즘</li>
+</ul>
+<p><img src="../../jmath/3_1/media/image53.jpeg"></p>
+<blockquote>
+<p>(3,)</p>
+<p>(3,) (1,)</p>
+<p>(3,) (3,) <del>(3,)</del></p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image54.png"></p>
+<blockquote>
+<p>numpy.ipynb</p>
+<p>브로드캐스팅broadcasting</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image55.png"></p>
+<blockquote>
+<p>→</p>
+<p>(4,3) (3,)</p>
+<p>(4,3) (1,3)</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image56.png"></p>
+<blockquote>
+<p>(4,3) (4,3) (4,3)</p>
+</blockquote>
+<p>numpy.ipynb</p>
+<blockquote>
+<p>브로드캐스팅broadcasting</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image57.png"></p>
+<blockquote>
+<p>→</p>
+<p>(4,1) (3,)</p>
+<p>(4,1) (1,3)</p>
+<p>(4,3) (4,3) (4,3)</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image58.png"></p>
+<blockquote>
+<p>numpy.ipynb</p>
+<p>행렬-벡터의곱셈</p>
+</blockquote>
+<p>• 모든행과열에대해서반복계산</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>11</td>
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>=</td>
+<td></td>
+<td>21</td>
+<td><blockquote>
+<p>22</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td><sub>2</sub></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>31</td>
+<td><blockquote>
+<p>32</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><sub>41</sub></td>
+<td><blockquote>
+<p><sub>42</sub></p>
+</blockquote></td>
+<td></td>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image59.png"></p>
+<p>A.  = np.asarray([2, 2, 3, 8, 1, 1, 0, 1]).reshape(4,2)</p>
+<blockquote>
+<p>b = np.asarray([3,5]).reshape(2,1) C = np.dot(A,b)</p>
+<p>print(C)</p>
+<p>[[16]</p>
+<p>[49]</p>
+<p>[ 8]</p>
+<p>[ 5]]</p>
+<p><em>#반대로 곱할 수 있을까?</em></p>
+</blockquote>
+<p>행렬-벡터의곱셈</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>•</td>
+<td><blockquote>
+<p><sub>모든열의선형결합</sub>linear combination</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>matrix.ipynb</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>•</td>
+<td><blockquote>
+<p>행렬과행렬의곱도같은작용의반복</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>1]).reshape(4,2)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>b = np.asarray([3,5]).reshape(2,1)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>11</td>
+<td></td>
+<td>12</td>
+<td></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>A = np.asarray([2, 2, 3, 8, 1, 1, 0,</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(A*b.reshape(-1)).sum(axis=1)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>21</td>
+<td></td>
+<td>22</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>array([16, 49, 8, 5])</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>31</td>
+<td></td>
+<td>32</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><sub>41</sub></td>
+<td></td>
+<td><sub>42</sub></td>
+<td></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>A[:,0]*b[0] + A[:,1]*b[1]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>×</td>
+<td></td>
+<td>×</td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image60.png"></p>
+<blockquote>
+<p>행렬-행렬의곱셈: 열조합</p>
+</blockquote>
+<p>• 앞행렬의열을조합하여결과의열을계산</p>
+<ul>
+<li><p>1열</p>
+<hr>
+<p>[ 2, 19,       5]   [ 8, 16]<br>[12,           2,    0]                          </p>
+<pre><code>                               \[17, 15\]      
+</code></pre>
+<p>[ 9,           1,    9]                          </p>
+<pre><code>                               ^×^\[ 4, 11\]   
+</code></pre>
+<p>[ 4, 1, 16]                                      </p>
+<hr>
+</li>
+</ul>
+<p><img src="../../jmath/3_1/media/image62.png"></p>
+<hr>
+<pre><code>  \[ 2\]   \+        \[19\]   \+       \[ 5\]   
+</code></pre>
+<p>  8   [12]        17   [ 2]        4   [ 0]<br>      [ 9]             [ 1]            [ 9]<br>      [ 4]             [ 1]            [16]   </p>
+<hr>
+<hr>
+<h2 id=""><a href="#" class="headerlink" title="  ="></a>  =</h2><blockquote>
+<p>[16]</p>
+<p>[96]</p>
+<p>[72]</p>
+<p>[32]</p>
+</blockquote>
+<hr>
+<h2 id="-1"><a href="#-1" class="headerlink" title="  ="></a>  =</h2><ul>
+<li><p>[323] [ 34] [ 17] [ 17]</p>
+<hr>
+<h2 id="-2"><a href="#-2" class="headerlink" title="="></a>=</h2></li>
+<li><p>  [20] = [359]</p>
+</li>
+</ul>
+<blockquote>
+<p>[ 0][130]</p>
+<p>[36][125]</p>
+</blockquote>
+<p>[64] [113]</p>
+<blockquote>
+<p>행렬-행렬의곱셈: 열조합</p>
+</blockquote>
+<ul>
+<li><p>2열</p>
+<hr>
+<p>[ 2, 19,       5]   [ 8, 16]<br>[12,           2,    0]                                </p>
+<pre><code>                               \[17, 15\]            
+</code></pre>
+<p>[ 9,           1,    9]                                </p>
+<pre><code>                               ^×^\[ 4, 11\]         
+</code></pre>
+<p>[ 4, 1, 16]                                            </p>
+<hr>
+</li>
+</ul>
+<p><img src="../../jmath/3_1/media/image63.png"></p>
+<blockquote>
+<p>[359]</p>
+<p>[130]</p>
+<p>[125]</p>
+<p>[113]</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>[ 2]</p>
+</blockquote></td>
+<td>+</td>
+<td></td>
+<td><blockquote>
+<p>[19]</p>
+</blockquote></td>
+<td>+</td>
+<td></td>
+<td><blockquote>
+<p>[ 5]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td><blockquote>
+<p>[12]</p>
+</blockquote></td>
+<td></td>
+<td>15</td>
+<td><blockquote>
+<p>[ 2]</p>
+</blockquote></td>
+<td></td>
+<td>11</td>
+<td><blockquote>
+<p>[ 0]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>[ 9]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 1]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 9]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>[ 4]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 1]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[16]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>===</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>[ 32]</p>
+</blockquote></td>
+<td>+</td>
+<td></td>
+<td><blockquote>
+<p>[285]</p>
+</blockquote></td>
+<td>+</td>
+<td></td>
+<td><blockquote>
+<p>[ 55]</p>
+</blockquote></td>
+<td>=</td>
+<td>[372]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>[192]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 30]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 0]</p>
+</blockquote></td>
+<td></td>
+<td>[222]</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>[144]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 15]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 99]</p>
+</blockquote></td>
+<td></td>
+<td>[258]</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>[ 64]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[ 15]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>[176]</p>
+</blockquote></td>
+<td></td>
+<td>[255]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>행렬-행렬의곱셈: 행조합</p>
+<p>• 뒤형렬의행을조합하여결과의행을계산</p>
+<hr>
+<p>  [ 2, 19,       5]   ×                                           ×<br>                                     [ 8, 16]            [ 2]   ×            [ 8, 16]<br>  [12, 2,        0]<br>                                     [17, 15]            [19]                [17, 15]<br>  [9, 1, 9]<br>  [ 4, 1, 16]         [ 4, 11]                [ 5]   ×        [ 4, 11]                </p>
+<pre><code>                                              \[12\]   ×        \[ 8, 16\]                
+                                              \[ 2\]            \[17, 15\]                
+                                              \[ 0\]   ×        \[ 4, 11\]                
+                                                                ×                         
+</code></pre>
+<hr>
+<p><img src="../../jmath/3_1/media/image65.png"></p>
+<hr>
+<p>  =   [ 16,         32]           </p>
+<p>  =   [323, 285]          +<br>  =   [ 20,         55]           </p>
+<hr>
+<p><img src="../../jmath/3_1/media/image67.png"></p>
+<blockquote>
+<p>[ 359, 372]; 1행</p>
+</blockquote>
+<p>= [ 96, 192] + == [ 34, 30]</p>
+<p><img src="../../jmath/3_1/media/image68.png"></p>
+<blockquote>
+<p>[ 0, 0]</p>
+<p>[ 130, 222]; 2행</p>
+<p>행렬연산의일반성질</p>
+</blockquote>
+<p>• 곱셈의교환법칙이성립하지않는다.</p>
+<blockquote>
+<p>+ = +</p>
+<p>+ + = +( + )</p>
+<p>+ =</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image69.png"></p>
+<blockquote>
+<p>+ (− ) =</p>
+<p>( + )= +</p>
+<p>(+) = +</p>
+</blockquote>
+<p>( ) =</p>
+<blockquote>
+<p>=</p>
+<p>+</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image70.png"></p>
+<p>+</p>
+<p><img src="../../jmath/3_1/media/image71.png"></p>
+<p>( )</p>
+<blockquote>
+<p>( )</p>
+<p>= + = +</p>
+</blockquote>
+<p>신경망에서행렬-열우선</p>
+<p>• 신경망의각레이어는벡터</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>• 피드포워드과정은벡터에서벡터로의선형변환 : 행렬곱한번으로</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td>= 11</td>
+<td>1</td>
+<td><blockquote>
+<p>+ 12</p>
+</blockquote></td>
+<td>2</td>
+<td><blockquote>
+<p>+ 13</p>
+</blockquote></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td></td>
+<td>21</td>
+<td>1</td>
+<td><blockquote>
+<p>22 2</p>
+</blockquote></td>
+<td><blockquote>
+<p>23 3</p>
+</blockquote></td>
+<td>1</td>
+<td></td>
+<td>11</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td></td>
+<td>=</td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td>2</td>
+<td>=</td>
+<td>21</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td>= 311</td>
+<td>+ 322</td>
+<td>+ 333</td>
+<td>3</td>
+<td></td>
+<td>31</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><sub>4</sub></td>
+<td></td>
+<td><sub>41</sub></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td>41</td>
+<td>1</td>
+<td><blockquote>
+<p>42</p>
+</blockquote></td>
+<td>2</td>
+<td><blockquote>
+<p>43</p>
+</blockquote></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>(4,1)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td>:ℝ3 → ℝ4</td>
+<td>=</td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>+</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image73.png"></p>
+<blockquote>
+<p>12 13 2223^1^ 3233^2^ 42433</p>
+</blockquote>
+<p><img src="../../jmath/3_1/media/image75.png"></p>
+<p><strong>(4,3)</strong> <strong>(3,1)</strong></p>
+<p>신경망에서행렬-행우선</p>
+<p>1 2 3</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>• 신경망의각레이어는벡터</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>• 피드포워드과정은벡터에서벡터로의선형변환 : 행렬곱한번으로</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td>= 11</td>
+<td>1</td>
+<td>+ 21</td>
+<td>2</td>
+<td>+ 31</td>
+<td>3</td>
+<td>12</td>
+<td></td>
+<td>3</td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td>11</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p><sub>2</sub></p>
+</blockquote></td>
+<td>= 12</td>
+<td>1</td>
+<td>+ 22</td>
+<td>2</td>
+<td>+ 32</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>= 1</td>
+<td>2</td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td>13</td>
+<td>1</td>
+<td>23</td>
+<td>2</td>
+<td>33</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>21</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>31</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>=</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td>14</td>
+<td>1</td>
+<td>24</td>
+<td>2</td>
+<td>34</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>(1,4)</strong></td>
+<td></td>
+<td><strong>(1,3)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1:ℝ3 → ℝ4</p>
+</blockquote></td>
+<td>=</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td>+</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image76.png"></p>
+<p>12 13 14 22 23 24 32 33 34</p>
+<p><img src="../../jmath/3_1/media/image78.png"></p>
+<blockquote>
+<p><strong>(3,4)</strong></p>
+<p>행렬-벡터연산</p>
+</blockquote>
+<ul>
+<li>  <strong>Python 구현두가지방식</strong></li>
+</ul>
+<blockquote>
+<p>– For loop 방식 : 직관적이면서구현이쉬움</p>
+<p>– 벡터화vectorization 연산 : 덜직관적이지만효율적</p>
+</blockquote>
+<ul>
+<li>  ipynb 파일로몇가지예제를실습</li>
+</ul>
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p>행렬벡터곱셈표기</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>• 행렬과벡터곱셈</p>
+</blockquote></td>
+<td>=</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>= �</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td>×</td>
+<td></td>
+<td>=</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p><sub>아인슈타인서메이션컨벤션</sub>Einstein summation</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>인덱스표기</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>convention</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image79.png"></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>행렬벡터곱셈표기</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>인덱스표기</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td>행렬과벡터곱셈 =</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>= �</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>×</td>
+<td></td>
+<td>=</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>아인슈타인</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p><sub>서메이션컨벤션</sub>Einstein summation convention</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image80.png"></p>
+<p>+—–+———————-+—–+——+———————+—–+—+<br>|     | &gt; 행렬-벡터연산예(1) |     |      |                     |     |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>| &gt; • | &gt; <strong>주어진식</strong>       |     |      |                     |     |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>|     |                      | &gt; = |      |                     |     |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>|     |                      |     | &gt; �  |                     |     |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>| &gt; • | &gt; <strong>For loop 방식</strong>  |     | &gt; =1 | &gt; <strong>vectorization</strong> |     |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>|     |                      |     |      |                     |     |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>|     | &gt; y = []           |     |      |                     | &gt; = |   |<br>+—–+———————-+—–+——+———————+—–+—+<br>|     |                      |     |      |                     |     |   |<br>+—–+———————-+—–+——+———————+—–+—+</p>
+<p>+———+———+———+——+———+—+———+—+—+<br>| temp =  |         |         |      |         |   | y =     |   |   |<br>| 0       |         |         |      |         |   | A       |   |   |<br>|         |         |         |      |         |   | .dot(x) |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>| <strong>for</strong> | range   |         |      |         |   |         |   |   |<br>| i       | (A.shap |         |      |         |   |         |   |   |<br>| <strong>in</strong>  | e[0]) |         |      |         |   |         |   |   |<br>|         | :       |         |      |         |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>|         |         |         | :    |         |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>|         | <strong>for</strong> | &gt; range |      |         |   |         |   |   |<br>|         | j       | (A.shap |      |         |   |         |   |   |<br>|         | <strong>in</strong>  | e[1]) |      |         |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>|         |         |         |      |         |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>|         |         | temp    | &gt; += | &gt; A\    |   |         |   |   |<br>|         |         |         |      | [i,j]\ |   |         |   |   |<br>|         |         |         |      | *x[j] |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>|         | y.appen |         |      |         |   |         |   |   |<br>|         | d(temp) |         |      |         |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+<br>|         | temp    | = 0     |      |         |   |         |   |   |<br>+———+———+———+——+———+—+———+—+—+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>행렬-벡터연산예(1)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>주어진식</strong></p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>�</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>•</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>For loop 방식</strong></p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>=1</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p><strong>vectorization</strong></p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>temp = 0</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>=</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>y = []</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><blockquote>
+<p>temp = 0</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>y = A.T.dot(x)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p><strong>for</strong> i <strong>in</strong> range(A.shape[0]) :</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td>:</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td><blockquote>
+<p><strong>for</strong> j <strong>in</strong> range(A.shape[1])</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>temp +=</p>
+</blockquote></td>
+<td><blockquote>
+<p>A[j,i]*x[j]</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td><blockquote>
+<p>y.append(temp)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image81.png"></p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>행렬-벡터연산예(2)</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>• <strong>주어진식</strong></p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>T</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>= �</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td>(2)</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td>(3)</td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(1)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td>=1</td>
+<td>(1)</td>
+<td>1</td>
+<td>3</td>
+<td>T</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td>T</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>=</td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td>=</td>
+<td>1</td>
+<td>2</td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>16</td>
+<td>20</td>
+<td>24</td>
+<td>+</td>
+<td>49</td>
+<td><blockquote>
+<p>56</p>
+</blockquote></td>
+<td>63</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>(2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>4</td>
+<td></td>
+<td>6</td>
+<td></td>
+<td>20</td>
+<td>25</td>
+<td>30</td>
+<td></td>
+<td>56</td>
+<td><blockquote>
+<p>64</p>
+</blockquote></td>
+<td>72</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><sup>(</sup>(<sup>3</sup>4<sup>)</sup>)</td>
+<td>=</td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td>6</td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td>3</td>
+<td>6</td>
+<td></td>
+<td>9</td>
+<td></td>
+<td>24</td>
+<td>30</td>
+<td>36</td>
+<td></td>
+<td>63</td>
+<td><blockquote>
+<p>72</p>
+</blockquote></td>
+<td>81</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>=</td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+<td>+</td>
+<td>100</td>
+<td></td>
+<td>110</td>
+<td>120</td>
+<td>+</td>
+<td>169</td>
+<td></td>
+<td>182</td>
+<td>195</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>=</td>
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td></td>
+<td>11</td>
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td>110</td>
+<td></td>
+<td>121</td>
+<td>132</td>
+<td></td>
+<td>182</td>
+<td></td>
+<td>196</td>
+<td>210</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>(5)</p>
+</blockquote></td>
+<td>=</td>
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td></td>
+<td>14</td>
+<td><blockquote>
+<p>15 T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td>120</td>
+<td></td>
+<td>132</td>
+<td>144</td>
+<td></td>
+<td>195</td>
+<td></td>
+<td>210</td>
+<td>225</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(4) 4</p>
+</blockquote></td>
+<td>T</td>
+<td></td>
+<td>(5) 5</td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image82.png"></p>
+<p>+————————+—–+—-+—+—+—+<br>| 행렬-벡터연산 for loop |     |    |   |   |   |<br>+————————+—–+—-+—+—+—+<br>| &gt; • <strong>주어진식</strong>       |     |    |   |   |   |<br>+————————+—–+—-+—+—+—+<br>|                        | &gt; = |    | T |   |   |<br>+————————+—–+—-+—+—+—+<br>|                        |     | �  |   |   |   |<br>+————————+—–+—-+—+—+—+<br>|                        |     | =1 |   |   |   |<br>+————————+—–+—-+—+—+—+<br>|                        |     |    |   |   |   |<br>+————————+—–+—-+—+—+—+</p>
+<p><img src="../../jmath/3_1/media/image84.png"></p>
+<blockquote>
+<p>X = [x1, x2, x3, x4, x5]</p>
+<p>m = len(X)</p>
+<p>S = np.zeros((x1.shape[0], x1.shape[0]), dtype=int)</p>
+</blockquote>
+<p><strong>for</strong> i <strong>in</strong> range(m):</p>
+<blockquote>
+<p>x_i = X[i]</p>
+<p>S += np.dot(x_i, x_i.T)</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td><blockquote>
+<p>행렬-벡터연산 vectorization</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>• <strong>주어진식</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>T</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>= �</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(1) (2)</p>
+</blockquote></td>
+<td>(3)</td>
+<td><blockquote>
+<p>(4)</p>
+</blockquote></td>
+<td>=1</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(1)= 1</p>
+</blockquote></td>
+<td>2</td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>T</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>(5)</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(2)= 4</p>
+</blockquote></td>
+<td>5</td>
+<td>6</td>
+<td></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td>=</td>
+<td>1</td>
+<td>4</td>
+<td></td>
+<td>7</td>
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td>13</td>
+<td><blockquote>
+<p>×</p>
+</blockquote></td>
+<td></td>
+<td><blockquote>
+<p>(3)= 7</p>
+</blockquote></td>
+<td>8</td>
+<td>9</td>
+<td>12</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td>5</td>
+<td></td>
+<td>8</td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td>14</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(4) = 10</p>
+</blockquote></td>
+<td></td>
+<td>11</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>6</td>
+<td></td>
+<td>9</td>
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td>15</td>
+<td></td>
+<td></td>
+<td><blockquote>
+<p>(5) = 13</p>
+</blockquote></td>
+<td></td>
+<td>14</td>
+<td>15</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>X =</td>
+<td></td>
+<td></td>
+<td>(3×5)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>(5×3)</td>
+<td><blockquote>
+<p><em># row major</em></p>
+</blockquote></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>np.array([x1, x2, x3, x4, x5]).reshape(5,3)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="../../jmath/3_1/media/image85.png"></p>
+<blockquote>
+<p>S = np.dot(X.T, X)</p>
+</blockquote>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
