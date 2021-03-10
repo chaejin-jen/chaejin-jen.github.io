@@ -134,7 +134,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(9)</small>
+                <small>(10)</small>
             
         </div>
     </li>
@@ -255,7 +255,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         DataScience
-                        <small>(4)</small>
+                        <small>(5)</small>
                         
                     </div>
                     
@@ -267,7 +267,7 @@
                                         
                                         Math
                                         
-                                            <small>(4
+                                            <small>(5
                                                 )</small>
                                         
                                     </div>
@@ -279,7 +279,7 @@
                                                         
                                                         Bagic
                                                         
-                                                            <small>(4)</small>
+                                                            <small>(5)</small>
                                                         
                                                     </div>
                                                 </li>
@@ -315,7 +315,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="9">
+<input type="hidden" id="yelog_site_posts_number" value="10">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -389,11 +389,19 @@
     <nav id="title-list-nav">
         
         <a  class="All DataScience Math Bagic "
-           href="/2021/03/08/DataScience/Math/%ED%96%89%EB%A0%AC/"
+           href="/2021/03/08/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/"
            data-tag="Math Basic"
            data-author="" >
             <span class="post-title" title="행렬">행렬</span>
             <span class="post-date" title="2021-03-08 20:38:35">2021/03/08</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/08/DataScience/Math/Bagic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD,%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D,%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-08 20:35:48">2021/03/08</span>
         </a>
         
         <a  class="All DataScience Math Bagic "
@@ -471,7 +479,7 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-DataScience/Math/행렬" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-DataScience/Math/Bagic/행렬" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">행렬</h1>
     
@@ -502,7 +510,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-03-09 23:06:07'>2021-03-08 20:38</time>
+            Created At : <time class="date" title='Updated At: 2021-03-09 23:59:19'>2021-03-08 20:38</time>
         
     </div>
     <div class="article-meta">
@@ -635,124 +643,109 @@
 <li><strong>특이행렬(singular matrix)</strong>, 퇴화행렬(degenerate matrix)이라고 함</li>
 </ul>
 <h4 id="왜배울까"><a href="#왜배울까" class="headerlink" title="왜배울까?"></a>왜배울까?</h4><ol>
-<li><p>선형연립방정식</p>
-<p> 역행렬으로 선형 연립방정식의 해를 구할 수 있다.</p>
+<li><p>선형연립방정식<br>역행렬으로 선형 연립방정식의 해를 구할 수 있다.</p>
 <ul>
 <li><p>사실 최소자승문제 답 (numpy <code>lstsq()</code> 사용)으로 푸는게 더 좋음</p>
-<p>행렬과 벡터의 곱으로 표현한 선형연립방정식<br>$$<br>Ax = b<br>$$<br>(A : 계수행렬(coefficient matrix), x : 미지수벡터(unknown vector), b : 상수벡터(constant vector))에서</p>
-<p>역행렬으로 미지수 벡터 x를 구할 수 있다.</p>
-<p>미지수의 수와 방정식의 수가 같다면 계수행렬 $A$는 정방행렬이 된다. 만약 행렬 $A$의 역행렬 $A^{-1}$ 이 존재한다면 역행렬의 정의로부터 선형 연립방정식의 해는 다음처럼 구할 수 있다. (행렬과 벡터의 순서에 주의)</p>
+</li>
+<li><p>행렬과 벡터의 곱으로 표현한 선형연립방정식<br>$$<br>Ax = b<br>$$<br>(A : 계수행렬(coefficient matrix), x : 미지수벡터(unknown vector), b : 상수벡터(constant vector))에서</p>
+</li>
+<li><p>역행렬으로 미지수 벡터 x를 구할 수 있다.</p>
+</li>
+<li><p>미지수의 수와 방정식의 수가 같다면 계수행렬 $A$는 정방행렬이 된다. 만약 행렬 $A$의 역행렬 $A^{-1}$ 이 존재한다면 역행렬의 정의로부터 선형 연립방정식의 해는 다음처럼 구할 수 있다. (행렬과 벡터의 순서에 주의)</p>
 <p>$$<br>Ax = b<br>$$</p>
 <p>$$<br>A^{-1}Ax = A^{-1}b<br>$$</p>
 <p>$$<br>Ix = A^{-1}b<br>$$</p>
 <p>$$<br>x = A^{-1}b<br>$$</p>
-<p>넘파이를 이용하여 앞에서 예로 든 선형 연립방정식의 해 $x$를 구하는 방법은 다음과 같다.</p>
+</li>
+<li><p>넘파이를 이용하여 앞에서 예로 든 선형 연립방정식의 해 $x$를 구하는 방법은 다음과 같다.</p>
+<pre><code class="python">b = np.array([[2], [2], [3]])
+b
+</code></pre>
+<p>실행 결과</p>
+<pre><code>array([[2],
+    [2],
+    [3]])
+</code></pre>
+<pre><code class="python">x = Ainv @ b
+x
+</code></pre>
+<p>실행 결과</p>
+<pre><code>array([[1.],
+    [1.],
+    [1.]])
+</code></pre>
+</li>
+<li><p>이 벡터를 원래의 연립방정식에 대입하여 상수벡터 $b$와 값이 일치하는지 확인해보자.</p>
+<pre><code class="python">A @ x - b
+</code></pre>
+<p>실행 결과</p>
+<pre><code>array([[0.],
+    [0.],
+    [0.]])
+</code></pre>
+</li>
+<li><p>미지수와 방정식의 개수가 같고 행렬 $A$의 역행렬이 존재하면 최소자승문제의 답과 선형 연립방정식의 답이 같음</p>
+</li>
+<li><p><code>lstsq()</code> 명령으로 선형 연립방정식을 풀 수도 있다. 답이 <code>inv()</code> 명령으로 구한 답과 같은지 확인해보자</p>
+<pre><code class="python">x, resid, rank, s = np.linalg.lstsq(A, b)
+x
+</code></pre>
+<pre><code>  array([[1.],
+      [1.],
+      [1.]])
+</code></pre>
+</li>
+<li><p><code>lstsq()</code> 명령을 사용하는 것이 <code>inv()</code> 명령을 사용하는 것보다 수치오차가 적고 코드도 간단하므로 선형 연립방정식의 해를 구할 때도 <code>lstsq()</code> 명령을 사용하는 것을 권장한다.</p>
+</li>
+<li><p><code>lstsq()</code> 명령은 행렬 $A$와 $b$를 모두 인수로 받고 뒤에서 설명할 최소자승문제(least square problem)의 답 <code>x</code>, 잔차제곱합(residual sum of squares) <code>resid</code>, 랭크(rank) <code>rank</code>, 특잇값(singular value) <code>s</code>를 반환</p>
 </li>
 </ul>
 </li>
 </ol>
-<pre><code>```python
-b = np.array([[2], [2], [3]])
-b
-```
-
-
-
-
-    array([[2],
-        [2],
-        [3]])
-
-
-
-
-```python
-x = Ainv @ b
-x
-```
-
-
-
-
-    array([[1.],
-        [1.],
-        [1.]])
-
-
-
-이 벡터를 원래의 연립방정식에 대입하여 상수벡터 $b$와 값이 일치하는지 확인해보자.
-
-
-```python
-A @ x - b
-```
-
-
-
-
-    array([[0.],
-        [0.],
-        [0.]])
-
-
-   
-미지수와 방정식의 개수가 같고 행렬 $A$의 역행렬이 존재하면 최소자승문제의 답과 선형 연립방정식의 답이 같음
-
- `lstsq()` 명령으로 선형 연립방정식을 풀 수도 있다. 답이 `inv()` 명령으로 구한 답과 같은지 확인해보자
-
-
-```python
-x, resid, rank, s = np.linalg.lstsq(A, b)
-x
-```
-
-
-
-
-    array([[1.],
-        [1.],
-        [1.]])
-
-
-
-`lstsq()` 명령을 사용하는 것이 `inv()` 명령을 사용하는 것보다 수치오차가 적고 코드도 간단하므로 선형 연립방정식의 해를 구할 때도 `lstsq()` 명령을 사용하는 것을 권장한다.
-
-- `lstsq()` 명령은 행렬 $A$와 $b$를 모두 인수로 받고 뒤에서 설명할 최소자승문제(least square problem)의 답 `x`, 잔차제곱합(residual sum of squares) `resid`, 랭크(rank) `rank`, 특잇값(singular value) `s`를 반환
-</code></pre>
 <ol start="2">
-<li><p>최소자승문제<br>단, 미지수와 방정식의 개수가 같고 행렬 $A$의 역행렬이 존재할 때, 최소자승문제의 답과 선형 연립방정식의 답이 같음<br>그러나 역행렬이 존재하지 않을 때, 근사한 값을 구할 수 있음. 이게 최소자승문제.<br> $$<br> Ax \approx b<br> $$</p>
-<p> 이 식의 양변에 $A^T$를 곱하면 각각 $A^TAx$와 $A^Tb$ 가 된다. 이 두 개의 벡터의 값이 같다고 일단 가정하자.</p>
-<p> $$<br> A^TAx = A^Tb<br> $$</p>
-<p> 만약 정방 행렬 $A^TA$의 역행렬 $(A^TA)^{-1}$이 존재한다면</p>
-<p> $$<br> (A^TA)^{-1}(A^TA)x = (A^TA)^{-1}A^Tb<br> $$</p>
-<p> 이 식을 정리하면 다음과 같다. </p>
-<p> $$<br> x = ((A^TA)^{-1}A^T) b<br> $$</p>
-<p> <strong>의사역행렬(pseudo inverse)</strong> $A^{+}$: 행렬 $A$의 의사역행렬 $(A^TA)^{-1}A^T$ </p>
-<p> $$<br> A^{+} = (A^TA)^{-1}A^T<br> $$</p>
-<p> $$<br> x = A^+ b<br> $$</p>
-<p> 넘파이로 직접 풀어보면 다음과 같다.</p>
+<li><p>최소자승문제<br> 단, 미지수와 방정식의 개수가 같고 행렬 $A$의 역행렬이 존재할 때, 최소자승문제의 답과 선형 연립방정식의 답이 같음    </p>
+<ul>
+<li><p>그러나 역행렬이 존재하지 않을 때, 근사한 값을 구할 수 있음. 이게 최소자승문제.</p>
+<p>  $$<br>  Ax \approx b<br>  $$</p>
+</li>
+<li><p>이 식의 양변에 $A^T$를 곱하면 각각 $A^TAx$와 $A^Tb$ 가 된다. 이 두 개의 벡터의 값이 같다고 일단 가정하자.</p>
+<p>  $$<br>  A^TAx = A^Tb<br>  $$</p>
+</li>
+<li><p>만약 정방 행렬 $A^TA$의 역행렬 $(A^TA)^{-1}$이 존재한다면</p>
+<p>  $$<br>  (A^TA)^{-1}(A^TA)x = (A^TA)^{-1}A^Tb<br>  $$</p>
+</li>
+<li><p>이 식을 정리하면 다음과 같다. </p>
+<p>  $$<br>  x = ((A^TA)^{-1}A^T) b<br>  $$</p>
+</li>
+<li><p><strong>의사역행렬(pseudo inverse)</strong> $A^{+}$: 행렬 $A$의 의사역행렬 $(A^TA)^{-1}A^T$ </p>
+<p>  $$<br>  A^{+} = (A^TA)^{-1}A^T<br>  $$</p>
+<p>  $$<br>  x = A^+ b<br>  $$</p>
+</li>
+<li><p>넘파이로 직접 풀어보면 다음과 같다.</p>
 <pre><code class="python">A = np.array([[1, 1, 0], [0, 1, 1], [1, 1, 1], [1, 1, 2]])
 Apinv = np.linalg.inv(A.T @ A) @ A.T
 Apinv
 </code></pre>
-<pre><code> array([[ 0.33333333, -1.        ,  0.33333333,  0.33333333],
-     [ 0.5       ,  1.        ,  0.        , -0.5       ],
-     [-0.5       ,  0.        ,  0.        ,  0.5       ]])
+<pre><code>  array([[ 0.33333333, -1.        ,  0.33333333,  0.33333333],
+      [ 0.5       ,  1.        ,  0.        , -0.5       ],
+      [-0.5       ,  0.        ,  0.        ,  0.5       ]])
 </code></pre>
 <pre><code class="python">x = Apinv @ b
 x
 </code></pre>
-<pre><code> array([[1.03333333],
-     [0.95      ],
-     [1.05      ]])
+<pre><code>  array([[1.03333333],
+      [0.95      ],
+      [1.05      ]])
 </code></pre>
 <pre><code class="python">A @ x
 </code></pre>
-<pre><code> array([[1.98333333],
-     [2.        ],
-     [3.03333333],
-     [4.08333333]])
+<pre><code>  array([[1.98333333],
+      [2.        ],
+      [3.03333333],
+      [4.08333333]])
 </code></pre>
+</li>
+</ul>
 </li>
 </ol>
 <hr>
@@ -797,7 +790,7 @@ x
 <p>두 좌표벡터들을 합쳐서 행렬로 표시하면 다음과 같다.</p>
 <p>$$<br>\begin{bmatrix} g_1 &amp; g_2 \end{bmatrix}<br>= \begin{bmatrix} e_1 &amp; e_2 \end{bmatrix} \begin{bmatrix} g_{1e} &amp; g_{2e} \end{bmatrix}<br>= \begin{bmatrix} e_1 &amp; e_2 \end{bmatrix} A<br>$$</p>
 <p>$$<br>A =<br>\begin{bmatrix}<br>\dfrac{1}{\sqrt{2}} &amp; -\dfrac{1}{\sqrt{2}} \<br>\dfrac{1}{\sqrt{2}} &amp; \dfrac{1}{\sqrt{2}}<br>\end{bmatrix}<br>$$</p>
-<p><img src="03.02%20%EC%A2%8C%ED%91%9C%EC%99%80%20%EB%B3%80%ED%99%98_files/03.02%20%EC%A2%8C%ED%91%9C%EC%99%80%20%EB%B3%80%ED%99%98_55_0.png" alt="png"></p>
+<p><img src="/ds_files/03.02$20%EC%A2%8C%ED%91%9C%EC%99%80$20%EB%B3%80%ED%99%98_55_0.png" alt="좌표와 변환"></p>
 <h4 id="좌표변환"><a href="#좌표변환" class="headerlink" title="좌표변환"></a>좌표변환</h4><p>새로운 기저벡터에 대해 좌표를 계산하는 것을 **좌표변환(coordinate transform)**이라고 한다.</p>
 <p>2차원의 경우를 예로 들어보자. 벡터 $x$의 기저벡터 ${e_1, e_2}$에 대한 좌표 $x_e$를 새로운 기저벡터 ${g_1, g_2}$에 대한 좌표 $x_g$로 변환하고자 한다.</p>
 <p>새로운 기저벡터에 대한 좌푯값이 가리키는 실제 위치는 원래의 벡터가 가리키는 실제 위치와 같아야 되므로</p>
@@ -817,7 +810,7 @@ x
 <p>$$<br>g_{1e} = \begin{bmatrix} \dfrac{1}{\sqrt{2}} \ \dfrac{1}{\sqrt{2}} \end{bmatrix} ,;;<br>g_{2e} = \begin{bmatrix} -\dfrac{1}{\sqrt{2}} \ \dfrac{1}{\sqrt{2}} \end{bmatrix}<br>$$</p>
 <p>새로운 기저벡터에 대한 벡터 $a$의 좌표는 위의 공식을 이용하여 다음처럼 계산할 수 있다.</p>
 <p>$$<br>x_g = A^{-1}x_e =<br>\begin{bmatrix}<br>\dfrac{1}{\sqrt{2}} &amp; -\dfrac{1}{\sqrt{2}} \<br>\dfrac{1}{\sqrt{2}} &amp;  \dfrac{1}{\sqrt{2}}<br>\end{bmatrix}^{-1}<br>\begin{bmatrix}2 \ 2\end{bmatrix}<br>=<br>\begin{bmatrix}<br>\dfrac{1}{\sqrt{2}} &amp; \dfrac{1}{\sqrt{2}} \<br>-\dfrac{1}{\sqrt{2}} &amp; \dfrac{1}{\sqrt{2}}<br>\end{bmatrix}<br>\begin{bmatrix}2 \ 2\end{bmatrix}<br>= \begin{bmatrix}2\sqrt{2}\0\end{bmatrix}<br>$$</p>
-<p><img src="03.02%20%EC%A2%8C%ED%91%9C%EC%99%80%20%EB%B3%80%ED%99%98_files/03.02%20%EC%A2%8C%ED%91%9C%EC%99%80%20%EB%B3%80%ED%99%98_58_0.png" alt="png"></p>
+<p><img src="/ds_files/03.02$20%EC%A2%8C%ED%91%9C%EC%99%80$20%EB%B3%80%ED%99%98_58_0.png" alt="좌표와 변환"></p>
 <h4 id="이미지-변환"><a href="#이미지-변환" class="headerlink" title="이미지 변환"></a>이미지 변환</h4><p>새로운 기저벡터에 대한 좌표변환을 응용하면 이미지를 자유롭게 변환할 수도 있다. 파이썬에서는 scipy.ndimage 패키지의 <code>affine_transform()</code> 명령을 사용한다.  이 명령은 이미지를 이루는 픽셀을 새로운 좌표로 이동시킨다. 인수로는 이미지 데이터와 <strong>변환행렬의 역행렬(위에서 $A$로 표시한 행렬)**을 받는다. 단 파이썬 이미지에서는 다음과 같은 표준기저벡터를 사용하고 ($x_1$이 아래를 향하는 세로축, $x_2$가 오른쪽을 향하는 가로축) **원점이 왼쪽 상단의 점</strong>이라는 점에 유의한다.</p>
 <p>$$<br>e_1 = \begin{bmatrix} 0 \ -1 \end{bmatrix} ,;;<br>e_2 = \begin{bmatrix} 1 \ 0 \end{bmatrix}<br>$$</p>
 <p>다음은 위에서 예로 든 기저벡터 ${g_1, g_2}$로 이미지 변환한 예다(그림에서 기저벡터의 크기는 설명을 위해 과장하여 크게 표시하였다).</p>
@@ -865,7 +858,7 @@ plt.ylim(800, -500)
 plt.title(&quot;좌표변환후&quot;)
 plt.show()
 </code></pre>
-<p><img src="03.02%20%EC%A2%8C%ED%91%9C%EC%99%80%20%EB%B3%80%ED%99%98_files/03.02%20%EC%A2%8C%ED%91%9C%EC%99%80%20%EB%B3%80%ED%99%98_67_0.png" alt="png"></p>
+<p><img src="/ds_files/03-02%EC%A2%8C%ED%91%9C%EC%99%80%EB%B3%80%ED%99%98_67_0.png" alt="좌표와 변환"></p>
 <hr>
 <h3 id="분산행렬-scatter-matrix"><a href="#분산행렬-scatter-matrix" class="headerlink" title="분산행렬(scatter matrix)"></a>분산행렬(scatter matrix)</h3><blockquote>
 <p>임의의 실수 행렬 $X$에 대해 $X^TX$인 정방행렬</p>
@@ -1170,8 +1163,8 @@ np.linalg.det(A)
     
     <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
     <p><span class="copy-title">Created At:</span>2021-03-08, 20:38:35</p>
-    <p><span class="copy-title">Updated At:</span>2021-03-09, 23:06:07</p>
-    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/08/DataScience/Math/%ED%96%89%EB%A0%AC/" title="행렬">https://chaejin-jen.github.io/2021/03/08/DataScience/Math/%ED%96%89%EB%A0%AC/</a>
+    <p><span class="copy-title">Updated At:</span>2021-03-09, 23:59:19</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/08/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/" title="행렬">https://chaejin-jen.github.io/2021/03/08/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
     </p>
