@@ -1,3 +1,2 @@
 User-agent: *
 Disallow: /
-Sitemap: https://chaejin-jen.github.io/sitemap.xml
