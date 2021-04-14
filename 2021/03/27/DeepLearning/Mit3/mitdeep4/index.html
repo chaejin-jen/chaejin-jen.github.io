@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>밑바닥 딥러닝 3 (4고지) | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content=" DeepLearning Framework , 밑바닥 부터 시작하는 딥러닝 3 ">
+  <meta name="description" content="밑바닥 딥러닝 3 (4고지) | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="FAST CAMPUS ONLINE 컴퓨터 구조강사 : 이승주     목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기s&#x2F;S : 디렉토리 숨기기 또는 열기 01. 왜 배울까? 현대의 컴퓨터란?  상태 머신(State Machine)과 소프트웨어  State Machine : 자료 입력받고, 프로세스 처리하고 저장하고 결과내고 등 기본적인 상태  (인강 그대로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="컴퓨터 구조">
+<meta property="og:url" content="https://chaejin-jen.github.io/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/index.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="FAST CAMPUS ONLINE 컴퓨터 구조강사 : 이승주     목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기s&#x2F;S : 디렉토리 숨기기 또는 열기 01. 왜 배울까? 현대의 컴퓨터란?  상태 머신(State Machine)과 소프트웨어  State Machine : 자료 입력받고, 프로세스 처리하고 저장하고 결과내고 등 기본적인 상태  (인강 그대로">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BD%94%EB%93%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%EA%B5%AC%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4_%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B3%84%EC%82%B0%EA%B8%B0%EC%97%90%EC%84%9C%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B9%8C%EC%A7%80.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%86%B5%EC%8B%A0%EA%B8%B0%EA%B8%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9C%A0%EB%B9%84%EC%BF%BC%ED%84%B0%EC%8A%A4.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Mobile%EA%B3%BCWireless.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IoT.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/AI.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/mother_board.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/memory_unit.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Memory_unit_and_Auxiliary_memory_device.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Memory_unit_and_Auxiliary_memory_device2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/NOS%EC%9D%98%EC%97%AD%ED%95%A0%ED%99%95%EB%8C%80.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/5G%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%96%91%EC%9E%90%EB%B3%91%EB%A0%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9B%B9%EC%9D%98%EB%AF%B8%EB%9E%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9E%90%EB%A3%8C%EC%9D%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%840.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%842.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/number_system.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/10%EC%A7%84%EC%88%982%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2%EC%A7%84%EC%88%9810%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/8_16%EC%A7%84%EC%88%982%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2sComplement1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2sComplement2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%B4%EC%88%98%EC%9D%98%EC%A4%91%EC%9A%94%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/addition_with_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%EC%9D%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%EC%88%AB%EC%A0%90%EC%95%84%EB%9E%98%EA%B0%92%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%EC%88%98%EC%A0%90%ED%91%9C%ED%98%84_%EC%88%9C%ED%99%98%EB%B0%98%EB%B3%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A0%95%EC%88%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/binary.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ones_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/twos_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zone_digit.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zonetype_ex2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/unpacked_decimal.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zonetype_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned2packed.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/packed_decimal.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned2packed_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/decimal_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B3%A0%EC%A0%95%EC%86%8C%EC%88%98%EC%A0%90_%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%ED%91%9C%ED%98%842.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/BCD%EC%BD%94%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/excess-3%EC%BD%94%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%A8%EB%A6%AC%ED%8B%B0%EB%B9%84%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%95%B4%EB%B0%8D%EB%B9%84%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A7%81%EB%A0%AC%EC%97%B0%EA%B2%B0%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%97%B0%EA%B2%B0%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EA%B3%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%ED%95%A9.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EB%B6%80%EC%A0%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B0%B0%ED%83%80%EC%A0%81%EB%85%BC%EB%A6%AC%ED%95%A9.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/harf_adder_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Commutative_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Distributive_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%93%9C%EB%AA%A8%EB%A5%B4%EA%B0%84%EB%B2%95%EC%B9%99.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/De_Morgam">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EC%9A%B8%EB%8C%80%EC%88%98%EB%A1%9C%EA%B0%84%EB%9E%B5%ED%99%94.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B4%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%BC%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%AC%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B9%B4%EB%85%B8%EB%A7%B5step1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B9%B4%EB%85%B8%EB%A7%B5step2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8%EB%A1%9C%ED%9A%8C%EB%A1%9C%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/full_adder_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/fulladder.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/multiplexer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/demultiplexer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%84%A4%EA%B0%80%EC%A7%80%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SR%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/R-S_Latch.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SR%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/JK%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/JK%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/DFlipFlop.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/D%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/T%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%83%81%ED%83%9C%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%83%81%ED%83%9C%EB%8F%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Major_components_of_CPU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EB%82%B4%EB%B6%80%EA%B5%AC%EC%A1%B0_re.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CU%EB%82%B4%EB%B6%80%EA%B5%AC%EC%A1%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ADD%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98%EC%8B%A4%ED%96%89%EC%98%88.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/RegisterR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/가장일반적비트표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/16비트레지스터의번호표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/상위비트와하위비트의표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0%EC%A0%84%EC%86%A1_%EA%B8%B0%EB%B3%B8%EA%B8%B0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_%EC%A7%81%EC%A0%91%EC%97%B0%EA%B2%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_%EB%B2%84%EC%8A%A4%EC%97%B0%EA%B2%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C_%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0_%EC%83%81%ED%98%B8_%EC%97%B0%EA%B2%B0_%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/three-state_buffer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0_%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_3-%EC%83%81%ED%83%9C%EB%B2%84%EC%8A%A4%EB%B2%84%ED%8D%BC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/stack2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/queue.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/deque.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ALU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%97%B0%EC%82%B0_%EC%82%B0%EC%88%A0%EC%97%B0%EC%82%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%97%B0%EC%82%B0_%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EA%B3%BC_%EC%82%B0%EC%88%A0%EC%8B%9C%ED%94%84%ED%8A%B8%EC%97%B0%EC%82%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0_%EC%98%88%EC%8B%9C1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0_%EC%98%88%EC%8B%9C2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%ED%94%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EC%A2%85%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EA%B5%AC%EC%84%B12.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A7%81%EC%A0%91%EB%AA%A8%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B0%84%EC%A0%91%EB%AA%A8%EB%93%9C%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B0%84%EC%A0%91%EB%AA%A8%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EC%86%8C%EC%A7%80%EC%A0%95%EB%AA%A8%EB%93%9C%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B4%88%EB%8B%A8%EC%9C%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/interrupt_cycle_flow_chart.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/interrupt_cycle_flow_chart_%EC%84%A4%EB%AA%85.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EC%A2%85%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EC%9D%B4%EC%A7%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_16%EC%A7%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EA%B8%B0%ED%98%B8%EC%97%B0%EC%82%B0%EC%BD%94%EB%93%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B8%EC%96%B4%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%952.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B0%9C%EB%B0%9C%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/capturing_from_Wi-Fi.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EC%A4%91%EA%B8%B0%EB%8A%A5%EC%9E%A5%EC%B9%98%EC%98%88.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EC%8B%9C%EA%B0%84%EA%B3%B5%EA%B0%84%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EC%B2%98%EB%A6%AC%EC%98%88%EC%A0%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C1_1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C1_2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%84%A4_%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8_%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%A0%81%EC%9D%B8%EB%8B%A4%EC%A4%91%EA%B8%B0%EB%8A%A5%EC%9E%A5%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%B4%EC%A7%84%EC%88%98%EC%9E%85%EB%A0%A5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%B0%EC%88%A0%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_flowchart.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98_%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98%EC%98%88_%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98_%EC%8B%9C%EA%B0%84%EA%B4%80%EA%B3%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98%EC%98%88_%EC%88%9C%EC%84%9C%EB%8F%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RISC%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%84%EC%B8%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAM%EC%9D%98_%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98_DDR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98_DDR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%B4%EC%A1%B0%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SSD.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAID_level0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAID_level1_6.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/USB%ED%91%9C%EC%A4%80%EC%A0%84%EC%95%95%EA%B3%BC%EC%A0%84%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_memory%EC%9D%98_%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4_%EA%B5%AC%EC%84%B1%EA%B3%BC_%EB%A9%94%EB%AA%A8%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_memory_Key_register%EC%9D%98%EC%97%AD%ED%95%A0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Locality_of_Reference.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/the_mapping_process_diagram.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%84%EC%86%A1%EA%B8%B0%EB%B3%B8%EB%AA%A8%ED%98%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_mapping.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Set-asociative_mapping_cache_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_line.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_lines.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_line_and_IO_bus_line.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IEEE%ED%91%9C%EC%A4%80_796%EB%8B%A4%EC%A4%91%EB%B2%84%EC%8A%A4%EC%8B%A0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%B2%84%EC%8A%A4%EC%A0%9C%EC%96%B4%EA%B8%B0_%EC%A7%81%EB%A0%AC%EC%A4%91%EC%9E%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%B2%84%EC%8A%A4%EC%A0%9C%EC%96%B4%EA%B8%B0_%EB%B3%91%EB%A0%AC%EC%A4%91%EC%9E%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IEEE%ED%91%9C%EC%A4%80_796%EB%8B%A4%EC%A4%91%EB%B2%84%EC%8A%A4%EC%8B%A0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A4%91%EC%95%99%EC%A0%9C%EC%96%B4%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%84%EC%82%B0%EC%A0%9C%EC%96%B4%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8F%99%EA%B8%B0%EB%B2%84%EC%8A%A4%EC%97%90_%EC%9D%98%ED%95%9C_%EC%88%98%ED%96%89.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B9%84%EB%8F%99%EA%B8%B0%EB%B2%84%EC%8A%A4%EC%97%90%EC%9D%98%ED%95%9C%EC%88%98%ED%96%89.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%97%90%EC%9D%98%ED%95%9CIO.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%97%90%EC%9D%98%ED%95%9CIO.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%EC%BD%94%EB%8D%94%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%82%AC%EC%9D%B4%ED%81%B4_%E2%80%AAIEN%EC%83%81%ED%83%9C%EA%B0%92.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A8%EC%9D%BC%EA%B3%B5%ED%86%B5%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B4%EC%A4%91%EB%B2%84%EC%8A%A4%EA%B5%AC%EC%A1%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EC%A4%91%ED%8F%AC%ED%8A%B8%EB%A9%94%EB%AA%A8%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%81%AC%EB%A1%9C%EC%8A%A4%EB%B0%94%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EB%8B%A8%EA%B5%90%ED%99%98%EB%A7%9D.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Hypercube.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4-%ED%81%90%EB%B8%8C.gif">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%B0%A8%EC%9B%90%EC%9D%B4%EC%A7%84%ED%81%90%EB%B8%8C2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Cashe%EC%9D%98%EC%9D%BC%EA%B4%80%EC%84%B1_Ex2.png">
+<meta property="article:published_time" content="2021-04-12T01:12:00.000Z">
+<meta property="article:modified_time" content="2021-04-14T05:25:18.716Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Computer Architecture">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BD%94%EB%93%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%EA%B5%AC%ED%98%84.png">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(18)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
+                                        
+                                        밑바닥 3
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBagic">
+                                                        
+                                                        Bagic
+                                                        
+                                                            <small>(5)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="18">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-12 10:12:00">2021/04/12</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/05/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-04-05 23:12:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_bagic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/09/DataScience/Math/Bagic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/08/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="행렬">행렬</span>
+            <span class="post-date" title="2021-03-08 20:38:35">2021/03/08</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Data structure,Algorithm"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/03/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/02/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-DeepLearning/Mit3/mitdeep4" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">밑바닥 딥러닝 3 (4고지)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="DeepLearning">DeepLearning</a> > 
+            
+            <a  data-rel="DeepLearning&lt;---&gt;밑바닥 3">밑바닥 3</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">DeepLearning Framework</a>
+            
+            <a class="color3">밑바닥 부터 시작하는 딥러닝 3</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-04-14 14:19:40'>2021-03-27 19:23</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AA%A9%EC%B0%A8"><span class="toc-text">목차</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%A0%9C4%EA%B3%A0%EC%A7%80-%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0"><span class="toc-text">제4고지 신경망 만들기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#37-Step-%ED%85%90%EC%84%9C%EB%A5%BC-%EB%8B%A4%EB%A3%A8%EB%8B%A4"><span class="toc-text">37 [Step ] 텐서를 다루다</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%95%BC%EC%BD%94%EB%B9%84-%ED%96%89%EB%A0%AC-%EB%B2%A1%ED%84%B0%EC%97%90-%EB%8C%80%ED%95%9C-%EB%B2%A1%ED%84%B0%EC%9D%98-%EB%AF%B8%EB%B6%84"><span class="toc-text">야코비 행렬 : 벡터에 대한 벡터의 미분</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#y-F-boldsymbol-x-%EC%9D%98-%EB%AF%B8%EB%B6%84-%EC%B6%9C%EB%A0%A5-y%EA%B0%80-%EC%8A%A4%EC%B9%BC%EB%9D%BC"><span class="toc-text">$y &#x3D; F(\boldsymbol{x}$) 의 미분 (출력 y가 스칼라)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#boldsymbol-y-F-boldsymbol-x-%EC%9D%98-%EB%AF%B8%EB%B6%84-%EB%8B%A4%EB%B3%80%EC%88%98-%EB%B2%A1%ED%84%B0%ED%95%A8%EC%88%98%EC%9D%98-%EB%AF%B8%EB%B6%84"><span class="toc-text">$\boldsymbol{y} &#x3D; F(\boldsymbol{x}$) 의 미분 (다변수 벡터함수의 미분)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%A9%EC%84%B1%ED%95%A8%EC%88%98%EC%9D%98-%EB%AF%B8%EB%B6%84"><span class="toc-text">합성함수의 미분</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1%EC%9D%84-%EA%B3%84%EC%82%B0%ED%95%98%EB%8A%94-%EC%88%9C%EC%84%9C"><span class="toc-text">행렬의 곱을 계산하는 순서</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#38-Step-%ED%98%95%EC%83%81-%EB%B3%80%ED%99%98-%ED%95%A8%EC%88%98"><span class="toc-text">38 [Step ] 형상 변환 함수</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#38-1-reshape-%ED%95%A8%EC%88%98-%EA%B5%AC%ED%98%84"><span class="toc-text">38.1 reshape 함수 구현</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#39-Step-%ED%95%A9%EA%B3%84-%ED%95%A8%EC%88%98"><span class="toc-text">39 [Step ] 합계 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#40-Step-%EB%B8%8C%EB%A1%9C%EB%93%9C%EC%BA%90%EC%8A%A4%ED%8A%B8-%ED%95%A8%EC%88%98"><span class="toc-text">40 [Step ] 브로드캐스트 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#41-Step-%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1"><span class="toc-text">41 [Step ] 행렬의 곱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#42-Step-%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80"><span class="toc-text">42 [Step ] 선형 회귀</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#43-Step-%EC%8B%A0%EA%B2%BD%EB%A7%9D"><span class="toc-text">43 [Step ] 신경망</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-44-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EB%A5%BC-%EB%AA%A8%EC%95%84%EB%91%90%EB%8A%94-%EA%B3%84%EC%B8%B5"><span class="toc-text">[Step 44] 매개변수를 모아두는 계층</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#44-1-Prameter-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B5%AC%ED%98%84"><span class="toc-text">44.1 Prameter 클래스 구현</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-2-Layer-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B5%AC%ED%98%84"><span class="toc-text">44.2 Layer 클래스 구현</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#class-Layer-%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0"><span class="toc-text">class Layer 뜯어보기</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-3-Linear-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B5%AC%ED%98%84"><span class="toc-text">44.3 Linear 클래스 구현</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#44-4-Layer%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%8B%A0%EA%B2%BD%EB%A7%9D-%EA%B5%AC%ED%98%84"><span class="toc-text">44.4 Layer를 이용한 신경망 구현</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-45-%EA%B3%84%EC%B8%B5%EC%9D%84-%EB%AA%A8%EC%95%84%EB%91%90%EB%8A%94-%EA%B3%84%EC%B8%B5"><span class="toc-text">[Step 45] 계층을 모아두는 계층</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#45-1-Layer-%ED%81%B4%EB%9E%98%EC%8A%A4-%ED%99%95%EC%9E%A5"><span class="toc-text">45.1 Layer 클래스 확장</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B0%A9%EB%B2%951-%EB%B0%94%EA%B9%A5-Layer%EC%97%90%EC%84%9C-%EA%B7%B8-%EC%95%88%EC%97%90-%EC%A1%B4%EC%9E%AC%ED%95%98%EB%8A%94-%EB%AA%A8%EB%93%A0-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98%EB%A5%BC-%EA%BA%BC%EB%82%BC-%EC%88%98-%EC%9E%88%EB%8F%84%EB%A1%9D-%ED%95%A8"><span class="toc-text">방법1 : 바깥 Layer에서 그 안에 존재하는 모든 매개변수를 꺼낼 수 있도록 함</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B0%A9%EB%B2%952-Layer-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EC%83%81%EC%86%8D%ED%95%98%EC%97%AC-%EB%AA%A8%EB%8D%B8-%EC%A0%84%EC%B2%B4%EB%A5%BC-%ED%95%98%EB%82%98%EC%9D%98-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A1%9C-%EC%A0%95%EC%9D%98"><span class="toc-text">방법2 : Layer 클래스를 상속하여 모델 전체를 하나의 클래스로 정의</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-2-Model-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="toc-text">45.2 Model 클래스</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-3-Model%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0"><span class="toc-text">45.3 Model을 사용한 문제 해결</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#45-4-MLP-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="toc-text">45.4 MLP 클래스</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-46-Optimizer%EB%A1%9C-%EC%88%98%ED%96%89%ED%95%98%EB%8A%94-%EB%A7%A4%EA%B0%9C%EB%B3%80%EC%88%98-%EA%B0%B1%EC%8B%A0"><span class="toc-text">[Step 46] Optimizer로 수행하는 매개변수 갱신</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#46-1-Optimizer-%ED%81%B4%EB%9E%98%EC%8A%A4"><span class="toc-text">46.1 Optimizer 클래스</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0"><span class="toc-text">뜯어보기</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#46-2-SGD-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B5%AC%ED%98%84"><span class="toc-text">46.2 SGD 클래스 구현</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#46-4-SGD-%ED%81%B4%EB%9E%98%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0"><span class="toc-text">46.4 SGD 클래스를 사용한 문제 해결</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SGD-%EC%9D%B4%EC%99%B8%EC%9D%98-%EC%B5%9C%EC%A0%81%ED%99%94-%EA%B8%B0%EB%B2%95"><span class="toc-text">SGD 이외의 최적화 기법</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Step-47-%EC%86%8C%ED%94%84%ED%8A%B8%EB%A7%A5%EC%8A%A4-%ED%95%A8%EC%88%98%EC%99%80-%EA%B5%90%EC%B0%A8-%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC-%EC%98%A4%EC%B0%A8"><span class="toc-text">[Step 47] 소프트맥스 함수와 교차 엔트로피 오차</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#47-1-%EC%8A%AC%EB%9D%BC%EC%9D%B4%EC%8A%A4-%EC%A1%B0%EC%9E%91-%ED%95%A8%EC%88%98"><span class="toc-text">47.1 슬라이스 조작 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#47-2-%EC%86%8C%ED%94%84%ED%8A%B8%EB%A7%A5%EC%8A%A4-%ED%95%A8%EC%88%98"><span class="toc-text">47.2 소프트맥스 함수</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기<br><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
+<hr>
+<h1 id="제4고지-신경망-만들기"><a href="#제4고지-신경망-만들기" class="headerlink" title="제4고지 신경망 만들기"></a>제4고지 신경망 만들기</h1><h2 id="37-Step-텐서를-다루다"><a href="#37-Step-텐서를-다루다" class="headerlink" title="37 [Step ] 텐서를 다루다"></a>37 [Step ] 텐서를 다루다</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC37-1.png"></p>
+<p>텐서를 사용한 게산에서의 역전파는 어떻게 이루어질까?</p>
+<p>p303 37.3[보충] 텐서 사용 시의 역전파</p>
+<p>데이터가 벡터인 경우를 먼저 생각해보자. (텐서일 경우 전처리로 <code>&#39;벡터화 처리&#39;</code> 를 추가하면 되기 때문)</p>
+<ul>
+<li>벡터화 처리 : 원소를 1열로 정렬하는 형상 변환 처리</li>
+</ul>
+<h2 id="야코비-행렬-벡터에-대한-벡터의-미분"><a href="#야코비-행렬-벡터에-대한-벡터의-미분" class="headerlink" title="야코비 행렬 : 벡터에 대한 벡터의 미분"></a>야코비 행렬 : 벡터에 대한 벡터의 미분</h2><h3 id="y-F-boldsymbol-x-의-미분-출력-y가-스칼라"><a href="#y-F-boldsymbol-x-의-미분-출력-y가-스칼라" class="headerlink" title="$y = F(\boldsymbol{x}$) 의 미분 (출력 y가 스칼라)"></a>$y = F(\boldsymbol{x}$) 의 미분 (출력 y가 스칼라)</h3><ul>
+<li>$y$ 에 대한 $\boldsymbol{x}$ 의 미분 <br/> <br/><ul>
+<li>$1\times n$의 야코비 행렬, 행벡터<br/> <br/><br>$<br>\frac{\partial{y}}{\partial\boldsymbol{x}} =<br>\begin{bmatrix}<br>\frac{\partial{y}}{\partial{x_1}} &amp; \frac{\partial{y}}{\partial{x_2}} &amp; \cdots &amp; \frac{\partial{y}}{\partial{x_n}} \<br>\end{bmatrix}<br>$</li>
+</ul>
+</li>
+</ul>
+<h3 id="boldsymbol-y-F-boldsymbol-x-의-미분-다변수-벡터함수의-미분"><a href="#boldsymbol-y-F-boldsymbol-x-의-미분-다변수-벡터함수의-미분" class="headerlink" title="$\boldsymbol{y} = F(\boldsymbol{x}$) 의 미분 (다변수 벡터함수의 미분)"></a>$\boldsymbol{y} = F(\boldsymbol{x}$) 의 미분 (다변수 벡터함수의 미분)</h3><ul>
+<li>$\boldsymbol{y}$ 에 대한 $\boldsymbol{x}$ 의 미분 <br/> <br/><br>$<br>\frac{\partial\boldsymbol{y}}{\partial\boldsymbol{x}} =<br>\begin{bmatrix}<br>\frac{\partial\boldsymbol{y_1}}{\partial\boldsymbol{x_1}} &amp; \frac{\partial\boldsymbol{y_1}}{\partial\boldsymbol{x_2}} &amp; \cdots &amp; \frac{\partial\boldsymbol{y_1}}{\partial\boldsymbol{x_n}} \\<br>\frac{\partial\boldsymbol{y_2}}{\partial\boldsymbol{x_1}} &amp; \frac{\partial\boldsymbol{y_1}}{\partial\boldsymbol{x_2}} &amp; \cdots &amp; \frac{\partial\boldsymbol{y_2}}{\partial\boldsymbol{x_n}} \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>\frac{\partial\boldsymbol{y_n}}{\partial\boldsymbol{x_1}} &amp; \frac{\partial\boldsymbol{y_n}}{\partial\boldsymbol{x_2}} &amp; \cdots &amp; \frac{\partial\boldsymbol{y_n}}{\partial\boldsymbol{x_n}} \\<br>\end{bmatrix}<br>$</li>
+</ul>
+<h3 id="합성함수의-미분"><a href="#합성함수의-미분" class="headerlink" title="합성함수의 미분"></a>합성함수의 미분</h3><ul>
+<li><p>$\boldsymbol{y} = F(\boldsymbol{x}$) 가 아래 3개의 함수로 구성되어 있는 경우</p>
+<ul>
+<li> $\boldsymbol{a} = A(\boldsymbol{x}$), </li>
+<li> $\boldsymbol{b} = B(\boldsymbol{a}$), </li>
+<li> $\boldsymbol{y} = C(\boldsymbol{b}$)</li>
+<li> (이 때 변수 $\boldsymbol{x}, \boldsymbol{a}, \boldsymbol{b}$ 는 벡터, 원소의 수는 각각 n개로 동일하다 가정)</li>
+</ul>
+</li>
+<li><p>$\boldsymbol{y} = F(\boldsymbol{x}$) 의 미분은 연쇄 법칙에 따라 다음고 같음<br/> <br/><br>$<br>\frac{\partial{y}}{\partial\boldsymbol{x}} =<br>\frac{\partial{y}}{\partial\boldsymbol{b}}<br>\frac{\partial\boldsymbol{b}}{\partial\boldsymbol{a}}<br>\frac{\partial\boldsymbol{a}}{\partial\boldsymbol{x}}<br>$</p>
+</li>
+<li><p>이 때, $\frac{\partial{y}}{\partial\boldsymbol{b}}$와 $\frac{\partial\boldsymbol{b}}{\partial\boldsymbol{a}}$가 야코비 행렬을 나타낸다.</p>
+</li>
+<li><p>이 값들을 <code>행렬의 곱</code>으로 계산한다. (Step 41에서 설명할 예정)</p>
+</li>
+</ul>
+<h2 id="행렬의-곱을-계산하는-순서"><a href="#행렬의-곱을-계산하는-순서" class="headerlink" title="행렬의 곱을 계산하는 순서"></a>행렬의 곱을 계산하는 순서</h2><p>방법 (2가지)</p>
+<ol>
+<li><p>입력에서 출력 쪽으로 계산</p>
+<ul>
+<li>자동 미분의 <strong>forward 모드</strong></li>
+<li>행렬 곱의 결과가 다시 행렬이 됨</li>
+<li>결과 : $n\times n$ 행렬</li>
+<li><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC37-2.png"> </li>
+</ul>
+</li>
+<li><p>출력 쪽에서 입력 쪽으로 계산 (역전파)</p>
+<ul>
+<li><p>자동 미분의 <strong>reverse 모드</strong></p>
+</li>
+<li><p>y가 스칼라이므로 중간의 행렬 곱의 결과는 모두 벡터(행 벡터)</p>
+<ul>
+<li>$\frac{\partial{y}}{\partial\boldsymbol{b}}\frac{\partial\boldsymbol{b}}{\partial\boldsymbol{a}}$ 의 결과 : $n$개의 원소로 구성된 벡터</li>
+</ul>
+</li>
+<li><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC37-3.png"> </p>
+<ol>
+<li>벡터 $\frac{\partial{y}}{\partial\boldsymbol{b}}$ 와 야코비 행렬 $\frac{\partial\boldsymbol{b}}{\partial\boldsymbol{a}}$ 의 곱을 구함<br/></li>
+<li>벡터 $\frac{\partial{y}}{\partial\boldsymbol{a}}$ 와 야코비 행렬 $\frac{\partial\boldsymbol{a}}{\partial\boldsymbol{x}}$ 의 곱을 구함<br/></li>
+</ol>
+<ul>
+<li>즉, 역전파에서는 각 함수에 대해 벡터와 야코비 행렬의 곱을 계산한다.</li>
+</ul>
+</li>
+<li><p>[생각해볼점1] 야코비 행렬을 구하여 행렬의 곱을 계산할 필요가 없다!</p>
+<ul>
+<li><p>결과만 필요한 상황이라면 역전파 수행에 아무런 문제가 없음</p>
+</li>
+<li><p>ex) $\boldsymbol{a}=sin(\boldsymbol{x})$ 가 원소별 연산을 수행한 경우</p>
+<ul>
+<li><p>야코비 행렬 : 대각행렬이 됨<br/><br/><br>$<br>\frac{\partial\boldsymbol{y}}{\partial\boldsymbol{x}} =<br>\begin{bmatrix}<br>\frac{\partial\boldsymbol{y_1}}{\partial\boldsymbol{x_1}} &amp; 0 &amp; \cdots &amp; 0 \\<br>0 &amp; \frac{\partial\boldsymbol{y_2}}{\partial\boldsymbol{x_2}} &amp; \cdots &amp; 0 \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>0 &amp; 0 &amp; \cdots &amp; \frac{\partial\boldsymbol{y_n}}{\partial\boldsymbol{x_n}} \\<br>\end{bmatrix}<br>$<br/><br/><br>($x_i$는 $a_i$에만 영향을 주기 때문)</p>
+<ul>
+<li>벡터와 대각 행렬 곱은 원소별 미분을 계산한 다음, 그 결과값을 원소별로 곱하면 얻을 수 있음<br/><br/><br>$<br>\frac{\partial{y}}{\partial\boldsymbol{a}}\frac{\partial\boldsymbol{a}}{\partial\boldsymbol{x}}  =<br>\begin{bmatrix}<br>\frac{\partial{y}}{\partial{a_1}} &amp; \frac{\partial{y}}{\partial{a_2}} &amp; \cdots &amp; \frac{\partial{y}}{\partial{a_n}} \<br>\end{bmatrix}<br>\begin{bmatrix}<br>\frac{\partial{a_1}}{\partial{x_1}} &amp; 0 &amp; \cdots &amp; 0 \\<br>0 &amp; \frac{\partial{a_2}}{\partial{x_2}} &amp; \cdots &amp; 0 \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>0 &amp; 0 &amp; \cdots &amp; \frac{\partial{a_n}}{\partial{x_n}} \\<br>\end{bmatrix}<br>\\<br>\\<br>\qquad \quad =\begin{bmatrix}<br>\frac{\partial{y}}{\partial{a_1}}\frac{\partial{a_1}}{\partial{x_1}} &amp; \frac{\partial{y}}{\partial{a_2}}\frac{\partial{a_2}}{\partial{x_2}} &amp; \cdots &amp; \frac{\partial{y}}{\partial{a_n}}\frac{\partial{a_n}}{\partial{x_1}} \<br>\end{bmatrix}<br>$<br/><br/><ul>
+<li>즉, 원소별 연산에서는 역전파도 미분을 원소별로 곱하여 구함</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<!-- $\frac{\partial\boldsymbol{y_1}}{\partial\boldsymbol{x_1}}$
+
+$$
+D = 
+\begin{bmatrix}
+d_{1} & 0 & \cdots & 0 \\
+0 & d_{2} & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & d_{M} \\
+0 & 0 & \cdots & 0 \\
+0 & 0 & \cdots & 0 \\
+0 & 0 & \cdots & 0 \\
+\end{bmatrix}
+$$ -->
+
+
+
+
+<h2 id="38-Step-형상-변환-함수"><a href="#38-Step-형상-변환-함수" class="headerlink" title="38 [Step ] 형상 변환 함수"></a>38 [Step ] 형상 변환 함수</h2><ul>
+<li><p>[Step 37] : 텐서를 사용한 게산에서의 역전파</p>
+</li>
+<li><p>[Step 38] : 원소별로 계산하지 않는 함수의 구현!</p>
+<ul>
+<li>텐서의 형상을 변환하는 reshape 함수</li>
+<li>행렬을 전치하는 transpose 함수</li>
+</ul>
+</li>
+</ul>
+<h3 id="38-1-reshape-함수-구현"><a href="#38-1-reshape-함수-구현" class="headerlink" title="38.1 reshape 함수 구현"></a>38.1 reshape 함수 구현</h3><ul>
+<li><p>텐서의 형상을 바꾸는 함수를 구현해보자!</p>
+</li>
+<li><p>numpy.reshape(x, shape)</p>
+</li>
+</ul>
+<p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC38-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC38-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC38-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC38-4.png"></p>
+<h2 id="39-Step-합계-함수"><a href="#39-Step-합계-함수" class="headerlink" title="39 [Step ] 합계 함수"></a>39 [Step ] 합계 함수</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC39-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC39-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC39-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC39-4.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC39-5.png"></p>
+<h2 id="40-Step-브로드캐스트-함수"><a href="#40-Step-브로드캐스트-함수" class="headerlink" title="40 [Step ] 브로드캐스트 함수"></a>40 [Step ] 브로드캐스트 함수</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC40-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC40-2.png"></p>
+<h2 id="41-Step-행렬의-곱"><a href="#41-Step-행렬의-곱" class="headerlink" title="41 [Step ] 행렬의 곱"></a>41 [Step ] 행렬의 곱</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC41-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC41-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC41-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC41-4.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC41-5.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC41-6.png"></p>
+<p> ㅂ</p>
+<h2 id="42-Step-선형-회귀"><a href="#42-Step-선형-회귀" class="headerlink" title="42 [Step ] 선형 회귀"></a>42 [Step ] 선형 회귀</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-4.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-5.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-6.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC42-7.png"></p>
+<h2 id="43-Step-신경망"><a href="#43-Step-신경망" class="headerlink" title="43 [Step ] 신경망"></a>43 [Step ] 신경망</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC43-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC43-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC43-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC43-4.png"></p>
+<h1 id="Step-44-매개변수를-모아두는-계층"><a href="#Step-44-매개변수를-모아두는-계층" class="headerlink" title="[Step 44] 매개변수를 모아두는 계층"></a>[Step 44] 매개변수를 모아두는 계층</h1><p>목표 : </p>
+<ul>
+<li>[Step 43] : DeZero를 사용하여 단순한 신경망 구현 (선형+활성화 함수로 비선형 관계 학습까지)<ul>
+<li>층이 깊어질수록 매개변수 관리가 복잡해짐<ul>
+<li>여기서 매개변수란? : 가중치와 편향</li>
+<li>매개변수 관리란? : 매개변수의 기울기를 재설정하거나 매개변수를 갱신하는 등의 작업</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[Step 44] : 사용 편의성 개선! (직관적으로)<ul>
+<li>어떻게? 매개변수 관리를 자동화 하는 구조를 만들자!<ul>
+<li>매개변수를 담는 구조 : Parametter, Layer 클래스</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="44-1-Prameter-클래스-구현"><a href="#44-1-Prameter-클래스-구현" class="headerlink" title="44.1 Prameter 클래스 구현"></a>44.1 Prameter 클래스 구현</h2><ul>
+<li><p>Variable 클래스와 똑같은 기능</p>
+<ul>
+<li><p><code>dezero/core.py</code></p>
+<pre><code class="python">class Parameter(Variable):
+    pass
+</code></pre>
+</li>
+<li><p><code>dezero/__init__.py</code></p>
+<pre><code class="python"># ... 중략 ...
+from dezero.core import Parameter
+# ... 중략 ...
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="44-2-Layer-클래스-구현"><a href="#44-2-Layer-클래스-구현" class="headerlink" title="44.2 Layer 클래스 구현"></a>44.2 Layer 클래스 구현</h2><p>Layer 클래스를 구현해보자! (<code>dezero/layer.py</code>)</p>
+<ul>
+<li>역할 : 변수 변환, <strong>매개변수 유지</strong></li>
+<li>구현 : Layer 기반 클래스, Layer의 자식 클래스<ul>
+<li>자식 클래스 예시: Linear 클래스 (Layer 상속)<ul>
+<li> 선형변환과 같은 자세한 구현</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="python">class Layer:
+    def __init__(self):
+        self._params = set()
+
+    def __setattr__(self, name, value):
+        if isinstance(value, Parameter):
+            self._params.add(name)
+        super().__setattr__(name, value)
+
+    def __call__(self, *inputs):
+        outputs = self.forward(*inputs)
+        if not isinstance(outputs, tuple):
+            outputs = (outputs,)
+        self.inputs = [weakref.ref(x) for x in inputs]
+        self.outputs = [weakref.ref(y) for y in outputs]
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, inputs):
+        raise NotImplementedError()
+
+    def params(self):
+        for name in self._params:
+            obj = self.__dict__[name]
+
+    def cleargrads(self):
+        for param in self.params():
+            param.cleargrad()
+</code></pre>
+<h3 id="class-Layer-뜯어보기"><a href="#class-Layer-뜯어보기" class="headerlink" title="class Layer 뜯어보기"></a>class Layer 뜯어보기</h3><ol>
+<li><code>_params</code> : Layer의 인스턴스</li>
+</ol>
+<ul>
+<li><p>매개변수를 보관</p>
+</li>
+<li><p>데이터 타입 set : 중복없이 왜?</p>
+<pre><code class="python">    def __init__(self):
+        self._params = set() # (1) 매개변수를 보관
+</code></pre>
+</li>
+</ul>
+<ol start="2">
+<li><code>__setattr__(self, name, value)</code> : 인스턴스 변수를 설정할 때 호출되는 특수 메서드</li>
+</ol>
+<ul>
+<li><p>이 메서드를 재정의(Overriding) 하여 인스턴스 변수 설정시 로직을 변경할 수 있음</p>
+<pre><code class="python">    # 2-1 변수 설정시 호출
+    def __setattr__(self, name, value):
+        if isinstance(value, Parameter):
+            self._params.add(name) # 2-2 변수이름 추가(set)
+        super().__setattr__(name, value)
+</code></pre>
+<ul>
+<li>1, 2 번 구현확인</li>
+</ul>
+<pre><code class="python">import numpy
+from dezero.core import Parameter, Variable
+
+# 위에 구현한 Layer 클래스 여기 위치해야함
+
+layer = Layer()
+layer.p1 = Parameter(np.array(1))
+layer.p2 = Parameter(np.array(2))
+layer.p3 = Variable(np.array(3))
+layer.p4 = &#39;test&#39;
+
+print(layer._params)
+print(&#39;-------------&#39;)
+
+for name in layer._params:
+    print(name, layer.__dict__[name])]
+</code></pre>
+<p>실행 결과</p>
+<pre><code>&#123;&#39;p2&#39;, &#39;p1&#39;&#125;
+-------------
+p2 variable(2)
+p1 variable(1)
+</code></pre>
+<ul>
+<li><p>[참고] Variable 클래스의 <code>__repr__</code></p>
+<pre><code class="python">def __repr__(self):
+    if self.data is None:
+        return &#39;variable(None)&#39;
+    p = str(self.data).replace(&#39;\n&#39;, &#39;\n&#39; + &#39; &#39; * 9)
+    return &#39;variable(&#39; + p + &#39;)&#39;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p><code>__call__</code> : 입력받은 인수를 건네 forward 메서드를 호출</p>
+<pre><code class="python">def __call__(self, *inputs):
+    outputs = self.forward(*inputs)
+    # 3-1 출력이 하나이면 = 튜플이 아니면, (outputs, )로 반환
+    if not isinstance(outputs, tuple):
+        outputs = (outputs,)
+    # 3-2 약한 참조- 순환참조 방지 (148p 14.7 weakref 모듈참고)
+    self.inputs = [weakref.ref(x) for x in inputs]
+    self.outputs = [weakref.ref(y) for y in outputs]
+    return outputs if len(outputs) &gt; 1 else outputs[0]
+</code></pre>
+</li>
+<li><p>자식 클래스에 구현할 것이기 때문에 pass</p>
+<pre><code class="python">    def forward(self, inputs):
+    raise NotImplementedError()
+</code></pre>
+</li>
+<li><p><code>params</code>: Layer 인스턴스에 담겨있는 Parameter 인스턴스들을 꺼내줌</p>
+<pre><code class="python">def params(self):
+    for name in self._params: # &#123;&#39;p2&#39;, &#39;p1&#39;&#125;
+        obj = self.__dict__[name] # variable(1), variable(2)
+</code></pre>
+</li>
+<li><p><code>cleargrads</code> : Layer가 가진 모든 매개변수에 대해 claergrad를 호출 (self.grad = None)</p>
+<pre><code class="python">def cleargrads(self):
+    for param in self.params():
+        param.cleargrad()
+</code></pre>
+</li>
+</ol>
+<h2 id="44-3-Linear-클래스-구현"><a href="#44-3-Linear-클래스-구현" class="headerlink" title="44.3 Linear 클래스 구현"></a>44.3 Linear 클래스 구현</h2><p>선형 변환을 하는 Linear 클래스 계층으를 구현해보자!</p>
+<ul>
+<li>개선점 1 : 가중치 W를 생성하는 시점을 늦추자<ul>
+<li>가중치를 forward메서드에서 생성하면, inear 클래스 입력 크기를 <strong>자동</strong>으로 결정 가능</li>
+</ul>
+</li>
+</ul>
+<pre><code class="python">class Linear(Layer):
+    def __init__(self, out_size, nobias=False, dtype=np.float32, in_size=None):
+        super().__init__()
+        self.in_size = in_size
+        self.out_size = out_size
+        self.dtype = dtype
+
+        self.W = Parameter(None, name=&#39;W&#39;) # 변수이름 추가 self._params = &#123;&#39;W&#39;&#125;
+        
+        # 1-1 input 사이즈 결정안했으면 일단 초기화 안하고 넘어감
+        if self.in_size is not None:
+            self._init_W()
+
+        if nobias:
+            self.b = None
+        else:
+            self.b = Parameter(np.zeros(out_size, dtype=dtype), name=&#39;b&#39;) # 변수이름 추가 self._params = &#123;&#39;W&#39;, &#39;b&#39;&#125;
+
+    def _init_W(self, xp=np):
+        I, O = self.in_size, self.out_size
+        W_data = xp.random.randn(I, O).astype(self.dtype) * np.sqrt(1 / I)
+        self.W.data = W_data
+
+    def forward(self, x):
+        # 1-2 데이터를 흘려보내는 시점에 가중치를 초기화
+        if self.W.data is None:
+            self.in_size = x.shape[1]
+            xp = cuda.get_array_module(x)
+            self._init_W(xp)
+
+        y = F.linear(x, self.W, self.b)
+        return y
+</code></pre>
+<h2 id="44-4-Layer를-이용한-신경망-구현"><a href="#44-4-Layer를-이용한-신경망-구현" class="headerlink" title="44.4 Layer를 이용한 신경망 구현"></a>44.4 Layer를 이용한 신경망 구현</h2><pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+import dezero.functions as F
+import dezero.layers as L
+
+np.random.seed(0)
+x = np.random.rand(100, 1)
+y = np.sin(2 * np.pi * x) + np.random.rand(100, 1)
+
+# 43 가중치 초기화 -&gt; 44-1 Linear 클래스에서 이뤄짐
+l1 = L.Linear(10) # 이 때, 10과 1 은 output size
+l2 = L.Linear(1)
+
+
+def predict(x):
+    y = l1(x) # 44-2 Layer 클래스의 __call__ 메서드로 forward 결과인  outputs가 return 됨
+    y = F.sigmoid(y)
+    y = l2(y)
+    return y
+
+
+lr = 0.2
+iters = 10000
+
+for i in range(iters):
+    y_pred = predict(x)
+    loss = F.mean_squared_error(y, y_pred)
+
+    l1.cleargrads() # 44-3 self.grad = None
+    l2.cleargrads()
+    loss.backward()
+
+    for l in [l1, l2]: # Layerd 1, Layerd 2 순서대로
+        for p in l.params(): # params를 꺼냄 (W)
+            p.data -= lr * p.grad.data # 그 매개변수 업데이트
+    if i % 1000 == 0:
+        print(loss)
+</code></pre>
+<p>실행결과</p>
+<pre><code>variable(0.8165178492839196)
+variable(0.24990280802148895)
+variable(0.24609876581126014)
+variable(0.2372159081431807)
+variable(0.20793216413350174)
+variable(0.12311905720649353)
+variable(0.0788816650635515)
+variable(0.07655073683421636)
+variable(0.0763780308623822)
+variable(0.07618764131185572)
+</code></pre>
+<h1 id="Step-45-계층을-모아두는-계층"><a href="#Step-45-계층을-모아두는-계층" class="headerlink" title="[Step 45] 계층을 모아두는 계층"></a>[Step 45] 계층을 모아두는 계층</h1><ul>
+<li><p>[Step 44] : 매개변수 관리를 자동화 하는 구조로 Parametter, Layer 클래스를 사용</p>
+<ul>
+<li>Linear layer를 여러번 선언해야 했음</li>
+</ul>
+</li>
+<li><p>[Step 45] : Layer를 확장하자!</p>
+<ul>
+<li>Layer 인스턴스를 관리하자</li>
+</ul>
+<h2 id="45-1-Layer-클래스-확장"><a href="#45-1-Layer-클래스-확장" class="headerlink" title="45.1 Layer 클래스 확장"></a>45.1 Layer 클래스 확장</h2></li>
+<li><p>지금까지, Layer 클래스는 여러개의 Parameter를 가질 수 있음</p>
+</li>
+<li><p>앞으론, <strong>“다른 Layer 클래스</strong>“도 담을 수 있게! </p>
+<p>  <img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC45-1.png"></p>
+<ul>
+<li><p>방법1 : 바깥 Layer에서 그 안에 존재하는 모든 매개변수를 꺼낼 수 있도록 함</p>
+</li>
+<li><p>방법2 : Layer 클래스를 상속하여 모델 전체를 하나의 클래스로 정의</p>
+<p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC45-2.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="방법1-바깥-Layer에서-그-안에-존재하는-모든-매개변수를-꺼낼-수-있도록-함"><a href="#방법1-바깥-Layer에서-그-안에-존재하는-모든-매개변수를-꺼낼-수-있도록-함" class="headerlink" title="방법1 : 바깥 Layer에서 그 안에 존재하는 모든 매개변수를 꺼낼 수 있도록 함"></a>방법1 : 바깥 Layer에서 그 안에 존재하는 모든 매개변수를 꺼낼 수 있도록 함</h3><ol>
+<li><p>Layer 클래스 <code>__setattr__</code> 메서드에 인자로 Layer 를 추가</p>
+</li>
+<li><p>매개변수 꺼내기</p>
+<ul>
+<li><p>기존 : _prarams 에서 name(문자열)을 꺼내 그 name에 해당하는 객체를 obj로 꺼냄</p>
+</li>
+<li><p>이제 : obj가 Layer의 인스턴스라면 obj.params()를 호출 (한번 더 꺼냄)</p>
+</li>
+<li><p><code>yield</code> 와 <code>yield from</code> 을 사용해서, 속에 있는 모든 걸 끄집어냄</p>
+  <details>
+  <summary style="font-Weight : bold; font-size : 12px; color : #CCCCCC;" > yield from 설명 </summary>
+  <div>
+  - yield 기능 : 처리를 일시중지하고 반환 (작업 재개 가능)
+  - generator : yield를 사용한 함수
+  - yield from 사용하면 generator를 이용한 또 다른 generator가 만들어 짐
+  
+  - [yield from](https://frhyme.github.io/python-libs/python_generator_recursion/) : generator 내에서 다시 generator를 가져오는 경우, 해당 generator로부터 모든 원소를 가져오고 싶을 때 사용
+  
+  1. yield  
+      
+      ```python
+      def generator1(lst_of_lst): 
+          # generator 
+          for x in lst_of_lst: 
+              if type(x)==list: 
+                  yield generator1(x)
+              else: 
+                  yield x    
+
+<pre><code>  a = [1, 
+      [1, 2, [3]], 
+      [[[[5]]]], 
+      6, [7, [8]]
+  ]
+          
+  for x in generator1(a):
+      print(x)
+  ```
+
+  실행결과
+
+  ```
+  1
+  &lt;generator object generator1 at 0x0000020C5E1E4CF0&gt;
+  &lt;generator object generator1 at 0x0000020C5E1E4DD0&gt;
+  6
+  &lt;generator object generator1 at 0x0000020C5E1E4DD0&gt;
+  ``` 
+</code></pre>
+<ol start="2">
+<li><p>yield from</p>
+<pre><code class="python">def generator1(lst_of_lst): 
+    # generator 
+    for x in lst_of_lst: 
+        if type(x)==list: 
+            yield from generator1(x)
+        else: 
+            yield x    
+
+a = [1, 
+    [1, 2, [3]], 
+</code></pre>
+<p> 실행결과</p>
+<pre><code>1
+1
+2
+3
+5
+6
+7
+8
+</code></pre>
+</div>
+</details>
+
+</li>
+</ol>
+<pre><code class="python">class Layer:
+  def __init__(self):
+      self._params = set()
+
+  def __setattr__(self, name, value):
+      if isinstance(value, (Parameter, Layer)): # 1. Layer 추가
+          self._params.add(name)
+      super().__setattr__(name, value)
+
+  def params(self):
+      for name in self._params:
+          obj = self.__dict__[name]
+
+          # 2. 매개변수를 싹 다 꺼냄
+          if isinstance(obj, Layer):
+              # obj가 Layer 인스턴스면 그 안에 있는 모든 값을 읽기 위함 
+              yield from obj.params()
+          else:
+              yield obj   
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>확인해보기</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+import dezero.layers as L
+import dezero.functions as F
+from dezero import Layer
+
+model = Layer()
+model.l1 = L.Linear(5) # 출력 크기 지정
+model.l2 = L.Linear(3) # 출력 크기 지정
+
+# 추론
+def predict(model, x):
+    y = model.l1(x)
+    y = F.sigmoid(y)
+    y = model.l2(y)
+    return y
+
+# 모든 매개변수에 접근 가능한지 확인
+for p in model.params():
+    print(p)
+    
+# 모든 매개변수의 기울기를 재설정
+model.cleargrads()
+</code></pre>
+<p>  실행결과</p>
+<pre><code>variable([0. 0. 0.])
+variable(None)
+variable([0. 0. 0. 0. 0.])
+variable(None)
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>결론 : Layer 클래스에서 신경망에 사용하는 모든 매개변수들을 한꺼번에 관리 할 수 있음!</p>
+</blockquote>
+<h3 id="방법2-Layer-클래스를-상속하여-모델-전체를-하나의-클래스로-정의"><a href="#방법2-Layer-클래스를-상속하여-모델-전체를-하나의-클래스로-정의" class="headerlink" title="방법2 : Layer 클래스를 상속하여 모델 전체를 하나의 클래스로 정의"></a>방법2 : Layer 클래스를 상속하여 모델 전체를 하나의 클래스로 정의</h3><ul>
+<li><p><code>__init__(hidden_size, out_size)</code> : 필요한 Layer들을 생성하여 l1, l2와 같은 형태의 인스턴스 변수를 만듦</p>
+</li>
+<li><p><code>forward( x)</code> : 추론을 수행하는 코드로 activation function 을 씌우는 부분</p>
+<pre><code class="python">class TwoLayerNet(Layer):
+    def __init__(self, hidden_size, out_size):
+        super().__init__()
+        self.l1 = L.Linear(hidden_size)
+        self.l2 = L.Linear(out_size)
+
+    def forward(self, x):
+        y = F.sigmoid(self.l1(x))
+        y = self.l2(y)
+        return y
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>결론 : <code>TwoLayerNet</code> 클래스에 신경망에 필요한 모든 코드를 집약 할 수 있게 됨</p>
+</blockquote>
+<h2 id="45-2-Model-클래스"><a href="#45-2-Model-클래스" class="headerlink" title="45.2 Model 클래스"></a>45.2 Model 클래스</h2><ul>
+<li><p>model : (머신러닝) <strong>복잡한</strong> 패턴이나 규칙이 숨어 있는 현상을 수식을 사용하여 <strong>단순하게 표현한 것</strong></p>
+<ul>
+<li>예시 : 신경망 -&gt; 수식으로 표현 가능</li>
+</ul>
+</li>
+<li><p>Model 클래스 선언 (<code>dezero/models.py</code>)</p>
+<ol>
+<li><p>Layer 상속 </p>
+<ul>
+<li><code>class TwoLayerNet(Model): </code> 과 같은 활용이 가능</li>
+</ul>
+</li>
+<li><p><code>plot</code> 시각화 메서드 추가</p>
+<ul>
+<li>입력데이터(다변수)를 인자로 받아서, forward 메서드로 계산함</li>
+<li>위 과정에서 생성된 계산 그래프를 이미지 파일로 내보냄</li>
+</ul>
+<pre><code class="python">class Model(Layer): # 1
+# 2 
+def plot(self, *inputs, to_file=&#39;model.png&#39;): 
+ y = self.forward(*inputs)
+ return utils.plot_dot_graph(y, verbose=True, to_file=to_file)
+</code></pre>
+</li>
+<li><p>Model 클래스를 쉽게 임포트할 수 있도록 <code>dezero/__init__.py</code> 추가</p>
+<pre><code class="python">from dezero.models import Model
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>Model 클래스 활용 (테스트)</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+import dezero.layers as L
+import dezero.functions as F
+from dezero import Model
+from dezero.core import Variable
+
+class TwoLayerNet(Model): # 45.1 Layer 클래스 확장 방법 2
+                        # 45.2 -&gt; Layer 클래스 상속받은 Model 클래스로 대체
+    def __init__(self, hidden_size, out_size):
+        super().__init__()
+        self.l1 = L.Linear(hidden_size)
+        self.l2 = L.Linear(out_size)
+
+    def forward(self, x):
+        y = F.sigmoid(self.l1(x))
+        y = self.l2(y)
+        return y
+
+x = Variable(np.random.randn(5,10), name=&#39;x&#39;)
+model = TwoLayerNet(100,10)
+model.plot(x)
+</code></pre>
+<p>  실행 결과</p>
+<p>  <img src="/media/deeplearning_files/capture/45_2_%EC%8B%A4%ED%96%89%EA%B2%B0%EA%B3%BC_%EA%B3%84%EC%82%B0%EA%B7%B8%EB%9E%98%ED%94%84.png" alt="45_2_실행결과_계산그래프"></p>
+</li>
+</ul>
+<h2 id="45-3-Model을-사용한-문제-해결"><a href="#45-3-Model을-사용한-문제-해결" class="headerlink" title="45.3 Model을 사용한 문제 해결"></a>45.3 Model을 사용한 문제 해결</h2><p>주제 : sin 함수로 생성한 데이터셋 회귀 문제를 다시 풀어보자! (STEP 43, 356p, 43.4 신경망 구현)</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import Model
+import dezero.layers as L
+import dezero.functions as F
+
+
+np.random.seed(0)
+x = np.random.rand(100, 1)
+y = np.sin(2 * np.pi * x) + np.random.rand(100, 1)
+
+# Hyperparameters
+lr = 0.2
+max_iter = 10000
+hidden_size = 10
+
+# 1. Model definition
+class TwoLayerNet(Model):
+    def __init__(self, hidden_size, out_size):
+        super().__init__()
+        self.l1 = L.Linear(hidden_size)
+        self.l2 = L.Linear(out_size)
+
+    def forward(self, x):
+        y = F.sigmoid(self.l1(x))
+        y = self.l2(y)
+        return y
+
+# 2. 단 하나의 클래스로 모델을 생성 - 모든 매개변수는 model을 통해 접근 가능
+model = TwoLayerNet(hidden_size, 1)
+
+# 3. 간편해진 학습 코드
+for i in range(max_iter):
+    y_pred = model(x)
+    loss = F.mean_squared_error(y, y_pred)
+
+    model.cleargrads() # 기울기 재설정
+    loss.backward()
+
+    for p in model.params():
+        p.data -= lr * p.grad.data
+    if i % 1000 == 0:
+        print(loss)
+</code></pre>
+<p>실행결과</p>
+<pre><code>variable(0.8165178492839196)
+variable(0.24990280802148895)
+variable(0.24609876581126014)
+variable(0.2372159081431807)
+variable(0.20793216413350174)
+variable(0.12311905720649353)
+variable(0.0788816650635515)
+variable(0.07655073683421636)
+variable(0.0763780308623822)
+variable(0.07618764131185572)
+</code></pre>
+<!-- ### 시간되면 43-4 (358p) 같은거 그리기 -->
+
+<h2 id="45-4-MLP-클래스"><a href="#45-4-MLP-클래스" class="headerlink" title="45.4 MLP 클래스"></a>45.4 MLP 클래스</h2><ul>
+<li><p>현재 : 층이 2개인 완전연결계층으로 이루어진 모델 (<code>step 45.py</code> 발췌)</p>
+<pre><code class="python">class TwoLayerNet(Model):
+def __init__(self, hidden_size, out_size):
+    super().__init__()
+    self.l1 = L.Linear(hidden_size)
+    self.l2 = L.Linear(out_size)
+
+def forward(self, x):
+    y = F.sigmoid(self.l1(x))
+    y = self.l2(y)
+    return y
+</code></pre>
+</li>
+<li><p>목표 : 더 범용적인 완전연결계층 신경망 (MLP) 구현 (<code>dezero/models.py</code>)</p>
+<ul>
+<li><p>MLP 클래스 초기화 인수 (Multi-Layer-Perception : 다층 퍼셉트론)</p>
+<ol>
+<li><p>fc_output_sizes : 신경망을 구성하는 완전연결계층들의 출력 크기를 튜플 또는 리스트로 지정하는 인자</p>
+<ul>
+<li>예시1 : (10, 1) 이면 Linear 계층 2개를 만드는데, 각각의 출력 크기를 순서대로 10, 1로 구성</li>
+<li>예시2 : (10, 10, 1) 이면 Linear 계층 3개를 만드는데, 각각의 출력 크기를 순서대로 10, 10, 1로 구성</li>
+</ul>
+</li>
+<li><p>activation : 기본값 F.sigmoid, 활성화 함수를 지정하는 인자 </p>
+<pre><code class="python">class MLP(Model):
+def __init__(self, fc_output_sizes, activation=F.sigmoid):
+ super().__init__()
+ self.activation = activation
+ self.layers = []
+
+ for i, out_size in enumerate(fc_output_sizes):
+     layer = L.Linear(out_size)
+     setattr(self, &#39;l&#39; + str(i), layer)
+     self.layers.append(layer)
+</code></pre>
+</li>
+</ol>
+<p>def forward(self, x):</p>
+<pre><code>for l in self.layers[:-1]:
+    x = self.activation(l(x))
+return self.layers[-1](x)
+</code></pre>
+<pre><code>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>구현 확인</p>
+<pre><code class="python">model = MLP((10,1)) # 2층
+model = MLP((10, 20, 30, 40, 1)) # 5층
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>주의사항! : setattr 함수로 인스턴스 변수 설정 (모든게 자동)</p>
+</blockquote>
+<h1 id="Step-46-Optimizer로-수행하는-매개변수-갱신"><a href="#Step-46-Optimizer로-수행하는-매개변수-갱신" class="headerlink" title="[Step 46] Optimizer로 수행하는 매개변수 갱신"></a>[Step 46] Optimizer로 수행하는 매개변수 갱신</h1><ul>
+<li>현재 : 매개변수 갱신법 - 경사하강법</li>
+<li>목표 : 매개변수 갱신 작업을 모듈화 (Optimizer 클래스)</li>
+</ul>
+<h2 id="46-1-Optimizer-클래스"><a href="#46-1-Optimizer-클래스" class="headerlink" title="46.1 Optimizer 클래스"></a>46.1 Optimizer 클래스</h2><ul>
+<li><p>Optimizer 클래스 : 매개변수 갱신을 위한 기반 클래스 (구체적인 최적화 기법은 Optimizer 클래스의 자식 클래스에서 구현)</p>
+</li>
+<li><p>dezero/optimizers.py</p>
+<pre><code class="python">class Optimizer:
+    def __init__(self):
+        self.target = None
+        self.hooks = []
+
+    def setup(self, target):
+        self.target = target
+        return self
+
+    def update(self):
+        # 1 Node 이외의 매개변수를 리스트에 모아둠
+        params = [p for p in self.target.params() if p.grad is not None]
+
+        # 전처리 (옵션)
+        for f in self.hooks:
+            f(params)
+
+        # 매개변수 갱신
+        for param in params:
+            self.update_one(param)
+
+    def update_one(self, param):
+        raise NotImplementedError() # 자식 클래스에서 상세설정
+
+    def add_hook(self, f):
+        self.hooks.append(f)
+</code></pre>
+</li>
+</ul>
+<h3 id="뜯어보기"><a href="#뜯어보기" class="headerlink" title="뜯어보기"></a>뜯어보기</h3><ol>
+<li><p><code>__init__()</code> : Optimizer 클래스 초기화 인수</p>
+<pre><code class="python">def __init__(self):
+    self.target = None
+    self.hooks = []
+</code></pre>
+</li>
+<li><p><code>setup()</code> : 매개변수를 갖는 클래스(Model 또는 Layer)를 인스턴스 변수인 target으로 설정</p>
+<pre><code class="python">def setup(self, target):
+self.target = target
+return self
+</code></pre>
+</li>
+<li><p><code>update()</code> : 모든 매개변수를 갱신(단, self.grad가 None인 매개변수 예외)</p>
+<pre><code class="python">def update(self):
+    # 1 Node 이외의 매개변수를 리스트에 모아둠
+    params = [p for p in self.target.params() if p.grad is not None]
+
+    # 전처리 (옵션)
+    for f in self.hooks:
+        f(params)
+
+    # 매개변수 갱신
+    for param in params:
+        self.update_one(param)
+</code></pre>
+</li>
+<li><p><code>update_one()</code> : 구체적인 매개변수 갱신 수행 - 자식클래스에서</p>
+<pre><code class="python">    def update_one(self, param):
+        raise NotImplementedError() # 자식 클래스에서 상세설정
+</code></pre>
+</li>
+<li><p><code>add_hook(f)</code> : 원하는 전처리가 있을 시, 전처리를 수행하는 함수 f를 추가</p>
+<ul>
+<li><p>가중치 감소 (Weight Decay), 기울기 클리핑(Gradient Clipping) 기법 사용 가능 (구현 예는 example/mnist.py 에서 확인 가능합니다.)</p>
+<pre><code class="python">   def add_hook(self, f):
+       self.hooks.append(f)
+</code></pre>
+</li>
+<li><p>가중치 감소 (Weight Decay) : 특정 가중치값이 커질수록 오버피팅이 발생할 가능성이 높아지므로, 이를 해소하기 위해 특정값을 손실함수에 더해주는 것</p>
+</li>
+<li><p>기울기 클리핑(Gradient Clipping) : gradient vanishing이나 gradient exploding이 많이 발생하는데, gradient exploding을 방지하여 학습의 안정화를 도모하기 위해 사용하는 방법</p>
+<!-- 시간있으면 가중치 감소 (Weight Decay), 기울기 클리핑(Gradient Clipping) 기법 검색-->
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="46-2-SGD-클래스-구현"><a href="#46-2-SGD-클래스-구현" class="headerlink" title="46.2 SGD 클래스 구현"></a>46.2 SGD 클래스 구현</h2><ul>
+<li><p>경사하강법으로 매개변수를 갱신하는 클래스를 구현해보자! (<code>dezero/optimizer.py</code>)</p>
+<ol>
+<li><p>Optimizer 상속</p>
+</li>
+<li><p><code>__init__(lr=0.01)</code> : 학습률 초기화</p>
+</li>
+<li><p><code>update_one(param)</code> 메서드에서 매개변수 갱신 코드 구현</p>
+<pre><code class="python">class SGD(Optimizer): # 1
+ def __init__(self, lr=0.01): # 2
+     super().__init__()
+     self.lr = lr
+
+ def update_one(self, param): # 3
+     param.data -= self.lr * param.grad.data
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>dezero/optimizer.py 에 있으므로 <code>from dezero.optimizers import SGD</code> 로 임포트 가능</p>
+</li>
+</ul>
+<!-- - 시간있으면 SGD 확률적경사하강법(Stochastic Gradient Descent) 찾기 -->
+
+<h2 id="46-4-SGD-클래스를-사용한-문제-해결"><a href="#46-4-SGD-클래스를-사용한-문제-해결" class="headerlink" title="46.4 SGD 클래스를 사용한 문제 해결"></a>46.4 SGD 클래스를 사용한 문제 해결</h2><p>step46.py</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import optimizers # 1. 임포트 dezero/optimizers
+import dezero.functions as F
+from dezero.models import MLP
+
+
+np.random.seed(0)
+x = np.random.rand(100, 1)
+y = np.sin(2 * np.pi * x) + np.random.rand(100, 1)
+
+lr = 0.2
+max_iter = 10000
+hidden_size = 10
+
+# 2. optimizers 설정
+model = MLP((hidden_size, 1))
+optimizer = optimizers.SGD(lr).setup(model)
+
+for i in range(max_iter):
+    y_pred = model(x)
+    loss = F.mean_squared_error(y, y_pred)
+
+    model.cleargrads()
+    loss.backward()
+
+    
+    optimizer.update() # 3. p.grad 가 None이 아닐때, Model의 매개변수(self.target.params)를 받고, Optimizer 클래스의 update_one 메서드로 업데이트
+    if i % 1000 == 0:
+        print(loss)
+</code></pre>
+<p>실행결과</p>
+<pre><code>variable(0.8165178492839196)
+variable(0.24990280802148895)
+variable(0.24609876581126014)
+variable(0.2372159081431807)
+variable(0.20793216413350174)
+variable(0.12311905720649353)
+variable(0.0788816650635515)
+variable(0.07655073683421636)
+variable(0.0763780308623822)
+variable(0.07618764131185572)
+</code></pre>
+<h2 id="SGD-이외의-최적화-기법"><a href="#SGD-이외의-최적화-기법" class="headerlink" title="SGD 이외의 최적화 기법"></a>SGD 이외의 최적화 기법</h2><ul>
+<li><p>기울기를 이용한 최적화 기법의 대표적인 예</p>
+<ul>
+<li><p>Momentum, AdaGrad, AdaDelta, Adam </p>
+<p><a target="_blank" rel="noopener" href="https://koreanfoodie.me/178">밑바닥 부터 시작하는 딥러닝 6.1 매개변수 갱신</a></p>
+</li>
+</ul>
+</li>
+<li><p>Optimizer 클래스 도입목표</p>
+<ol>
+<li>다양한 최적화 기법을 필요에 따라 손쉽게 전환하기 위함</li>
+</ol>
+</li>
+<li><p>기반 클래스(Optimizer)를 상속하여 다른 최적화 기법 Momentum을 구현해보자!</p>
+<ul>
+<li><p>Momentum 기법의 수식 표현</p>
+<ol>
+<li>$\bold{v} \leftarrow \alpha\bold{v} - \eta\frac{\partial L}{\partial\boldsymbol{W}}$ <br/></li>
+</ol>
+<ul>
+<li>$\boldsymbol{W}$ : 갱신할 가중치 매개변수 <br/></li>
+<li>$\alpha\bold{v}$ : 아무런 힘을 받지 않을 때 서서히 감속시키는 역할 ($\alpha$의 값을 0.9 등으로 설정) <br/> <!-- 시간 남으면 찾아보기  --></li>
+<li>$\frac{\partial L}{\partial\boldsymbol{W}}$ : 기울기 ($\boldsymbol{W}$에 관한 손실함수 $\boldsymbol{L}$의 기울기) <br/></li>
+<li>$\eta$ : 학습률 <br/></li>
+<li>$\bold{v}$ : 속도 <br/><br/><blockquote>
+<p>물체가 기울기 방향으로 힘을 받아 가속됨을 나타내는 물리법칙</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li>$\boldsymbol{W} \leftarrow \boldsymbol{W} + \bold{v}$<br/><blockquote>
+<p>속도만큼 위치(매개변수)가 이동</p>
+</blockquote>
+</li>
+</ol>
+<pre><code class="python">class MomentumSGD(Optimizer):
+  def __init__(self, lr=0.01, momentum=0.9):
+      super().__init__()
+      self.lr = lr
+      self.momentum = momentum
+      self.vs = &#123;&#125; # 1. 각 매개변수의 속도에 해당하는 데이터 (유지됨)
+
+  def update_one(self, param):
+      v_key = id(param)
+      if v_key not in self.vs: # 2. update_one()이 호출될 때 매개변수(param.data)와 같은 타입의 데이터를 생성
+          self.vs[v_key] = xp.zeros_like(param.data)
+
+      v = self.vs[v_key]
+      v *= self.momentum
+      v -= self.lr * param.grad.data
+      param.data += v
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>사용 해보기</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import optimizers
+import dezero.functions as F
+from dezero.models import MLP
+
+np.random.seed(0)
+x = np.random.rand(100, 1)
+y = np.sin(2 * np.pi * x) + np.random.rand(100, 1)
+
+lr = 0.2
+max_iter = 10000
+hidden_size = 10
+
+model = MLP((hidden_size, 1))
+optimizer = optimizers.MomentumSGD(lr).setup(model)
+
+for i in range(max_iter):
+    y_pred = model(x)
+    loss = F.mean_squared_error(y, y_pred)
+
+    model.cleargrads()
+    loss.backward()
+
+    optimizer.update()
+    if i % 1000 == 0:
+        print(loss)
+</code></pre>
+<p>  실행 결과</p>
+<pre><code>variable(0.8165178492839196)
+variable(0.07743134827996008)
+variable(0.07544895146731473)
+variable(0.07463260305858642)
+variable(0.07420983776361516)
+variable(0.07397000396385318)
+variable(0.07383179319278564)
+variable(0.07375198316276851)
+variable(0.07370578149495666)
+variable(0.07367887538341851)
+</code></pre>
+</li>
+</ul>
+<h1 id="Step-47-소프트맥스-함수와-교차-엔트로피-오차"><a href="#Step-47-소프트맥스-함수와-교차-엔트로피-오차" class="headerlink" title="[Step 47] 소프트맥스 함수와 교차 엔트로피 오차"></a>[Step 47] 소프트맥스 함수와 교차 엔트로피 오차</h1><!-- ![](/media/deeplearning_files/밑바닥3/그림47-1.png)
+![](/media/deeplearning_files/밑바닥3/그림47-2.png) -->
+
+<ul>
+<li>현재 : 신경망을 사용하여 회귀 문제 품</li>
+<li>목표 : 다중 클래스 분류 (multi-class classification) 를 위한 사전 준비<ul>
+<li>multi-class classification : 분류 대상이 여러 가지 클래스 중 어디에 속하는지 추정</li>
+</ul>
+</li>
+</ul>
+<h2 id="47-1-슬라이스-조작-함수"><a href="#47-1-슬라이스-조작-함수" class="headerlink" title="47.1 슬라이스 조작 함수"></a>47.1 슬라이스 조작 함수</h2><ul>
+<li><p>get_item 함수 등장~!</p>
+<ul>
+<li><p>구현법은 <strong>‘부록 B’</strong> </p>
+<!-- - 시간 되면 ## 부록 B get_item 함수 구현(47 [Step ] 보충)  --></li>
+<li><p>함수 사용법 </p>
+<ul>
+<li><p>다차원 배열 중에서 일부를 슬라이스하여 뽑을 수 있음</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import Variable
+import dezero.functions as F
+
+x = Variable(np.array([[1,2,3],[4,5,6]]))
+y = F.get_item(x,1) # x : 데이터, 1 : 인덱스
+print(y)
+</code></pre>
+<p>실행 결과</p>
+<pre><code>variable([4 5 6])
+</code></pre>
+<ul>
+<li><p>역전파 호출</p>
+<pre><code class="python">y.backward()
+print(x.grad)
+</code></pre>
+<pre><code>variable([[0 0 0]
+        [1 1 1]])
+</code></pre>
+<p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC47-1.png"></p>
+</li>
+<li><p>슬라이스로 인한 계산은 다차원 배열의 데이터 일부를 수정하지 않고 전달</p>
+</li>
+<li><p>이 계산의 역전파는 원래의 다차원 배열에서 데이터가 추출된 위치에 해당 기울기를 설정</p>
+</li>
+<li><p>이 때, y.grad = Variable(np.ones_lik(y.data))으로 기울기가 자동으로 채워짐</p>
+</li>
+<li><p>그 외에는 0으로 설정</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>함수사용법2 :</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import Variable
+import dezero.functions as F
+x = Variable(np.array([[1,2,3],[4,5,6]]))
+indices = np.array([0,0,1])
+y = F.get_item(x,indices) # x : 데이터, 1 : 인덱스
+print(y)
+</code></pre>
+<p>  실행 결과</p>
+<pre><code>variable([[1 2 3]
+          [1 2 3]
+          [4 5 6]])
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>적용 : Variable 클래스의 메서드로 설정해보자!</p>
+<ul>
+<li><p>앞으론 dezero/core.py 의 setup_variable 함수에서 수행</p>
+<ul>
+<li>setup_variable 함수는 DeZero 초기화시 호출 됨</li>
+</ul>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+  import os, sys
+  sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import Variable
+import dezero.functions as F
+
+x = Variable(np.array([[1,2,3],[4,5,6]]))
+indices = np.array([0,0,1])
+y = F.get_item(x,indices) # x : 데이터, 1 : 인덱스
+
+Variable.__getitem__ = F.get_item
+
+y = x[1]
+print(y)
+
+y = x[:,2]
+print(y)
+</code></pre>
+<p>실행결과</p>
+<pre><code>variable([4 5 6])
+variable([3 6])
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="47-2-소프트맥스-함수"><a href="#47-2-소프트맥스-함수" class="headerlink" title="47.2 소프트맥스 함수"></a>47.2 소프트맥스 함수</h2><ul>
+<li>MLP 클래스로 구현해둔 신경망으로, 다중 클래스 분류를 해보자!</li>
+</ul>
+<ol>
+<li><p>MLP 로 완전연결 신경망 생성</p>
+<pre><code class="python">import numpy as np
+from dezero.models import MLP
+
+model = MLP((10, 3))
+
+x = np.array([[0.2, -0.4]])
+y = model(x)
+print(y)
+</code></pre>
+<p> 실행 결과</p>
+<pre><code>variable([[-0.8747762  -0.48520282  0.34520323]])
+</code></pre>
+ <details>
+ <summary style="font-Weight : bold; font-size : 12px; color : #CCCCCC;" > 입력 데이터가 여러개일 때 </summary>
+ <div>  
+ - 여러개의 입력 데이터를 하나로 묶어서 전달한다.
+
+<pre><code class="python">import numpy as np
+from dezero.models import MLP
+
+model = MLP((10, 3))
+
+x = np.array([[0.2, -0.4], [0.3,0.5],[1.3,-3.2],[2.1,0.3]])
+y = model(x)
+print(y)
+</code></pre>
+<p> 실행 결과</p>
+<pre><code>variable([[ 1.02921544  0.25747565 -0.02497574]
+[ 0.85525428  0.28932647 -0.08259818]
+[ 1.44893333  0.33884787 -0.12758118]
+[ 1.04171944  0.33332946 -0.32644438]])
+</code></pre>
+ </div>
+ </details>
+</li>
+<li><p>softmax 함수 : 출력을 확률으로</p>
+<ul>
+<li><p>식 : $\qquad \qquad p_k = \frac{\exp(y_k)}{\sum_{i=1}^{n}\exp(y_i)}$</p>
+  <details>
+  <summary style="font-Weight : bold; font-size : 11px; color : #CCCCCC;" > 식 자세히 </summary>
+  <div>  
+
+<ul>
+<li><p>입력 : $y_k$ 가 n개 (n은 클래스 수)</p>
+</li>
+<li><p>출력 : k번째 출력 $p_k$</p>
+</li>
+<li><p>분자 : $y_k$ 지수함수</p>
+</li>
+<li><p>분모 : 모든 입력의 총합</p>
+<blockquote>
+<p>$0\leq p_i \leq 1$ 이고, $p_1 + p_2 + \dots +  p_n=1$ 이므로 원소 각각을 확률로 해석할 수 있음</p>
+</blockquote>
+</div>
+</details>
+
+</li>
+</ul>
+<p>소프트맥스 함수 코드 구현</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+from dezero import Variable, as_variable
+import dezero.functions as F
+
+def softmax1d(x):
+    x = as_variable(x) # x가 ndarray 인스턴스인 경우 Variable 인스턴스로 변환
+    y = F.exp(x)
+    sum_y = F.sum(y)
+    return y / sum_y # y와 sum_y 의 형상이 다르기 때문에 브로드캐스트 일어남
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>사용</p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+np.random.seed(0)
+from dezero import Variable, as_variable
+import dezero.functions as F
+from dezero.models import MLP
+
+def softmax1d(x):
+    x = as_variable(x)
+    y = F.exp(x)
+    sum_y = F.sum(y)
+    return y / sum_y
+
+model = MLP((10, 3))
+
+x = Variable(np.array([[0.2, -0.4]]))
+y = model(x)
+p = softmax1d(y)
+print(y)
+print(p) # 각 원소는 0이상 1이하, 총합이 1
+</code></pre>
+<p> 실행 결과</p>
+<pre><code>variable([[-0.61505778 -0.42790161  0.31733289]])
+variable([[0.21068639 0.25404893 0.53526469]])
+</code></pre>
+</li>
+</ol>
+<ul>
+<li><p>지수함수를 사용하는 소프트맥스 함수는 ‘오버플로’의 문제가 발생해 수치가 ‘불안정’해질 수 있는 문제점이 있다.</p>
+<ul>
+<li>오버플로(overflow) : 표현할 수 있는 수의 범위가 한정되어 너무 큰값은 표현할 수 없다.<!-- 밑바닥부터 시작하는 딥러닝 3.5.3 소프트 맥스 함수 구현 시 주의점
+
+</li>
+</ul>
+</li>
+</ul>
+<p>오버플로 문제 –&gt;</p>
+<ol start="4">
+<li><p>batch 데이터에 소프트맥스 함수 적용할 수 있도록 확장</p>
+<p> <img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC47-2.png" alt="샘플 데이터 각각에 소프트맥스 함수를 적용하는 경우"></p>
+<ul>
+<li><p>함수 구현</p>
+<ol>
+<li><p>인수 <code>axis</code> : 어떤 축을 따라 소프트맥스 함수를 적용할지를 정함, axis=1 이면 위의 그림대로 나옴</p>
+</li>
+<li><p><code>keepdims=True</code> : 각 행에서 나눗셈이 이루어짐</p>
+<pre><code class="python">def softmax_simple(x, axis=1):
+ x = as_variable(x)
+ y = F.exp(x)
+ sum_y = F.sum(y, axis=axis, keepdims=True)
+ return y / sum_y
+</code></pre>
+<details>
+<summary style="font-Weight : bold; font-size : 11px; color : #CCCCCC;" > 더 나은 구현 </summary>
+<div>  
+
+<pre><code class="python">class Softmax(Function): # Function 상속
+ def __init__(self, axis=1):
+     self.axis = axis
+
+ def forward(self, x):
+     # xp = cuda.get_array_module(x)
+     y = x - x.max(axis=self.axis, keepdims=True)
+     y = xp.exp(y)
+     y /= y.sum(axis=self.axis, keepdims=True)
+     return y
+
+ def backward(self, gy):
+     y = self.outputs[0]()
+     gx = y * gy
+     sumdx = gx.sum(axis=self.axis, keepdims=True)
+     gx -= y * sumdx
+     return gx
+
+def softmax(x, axis=1): # dezero.functions.softmax(x)
+ return Softmax(axis)(x)
+</code></pre>
+</div>
+</details>
+
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="47-3-교차-엔트로피-오차"><a href="#47-3-교차-엔트로피-오차" class="headerlink" title="47.3 교차 엔트로피 오차"></a>47.3 교차 엔트로피 오차</h2><ul>
+<li><p>선형 회귀 손실 함수 =&gt; 평균 제곱 오차 (mse)</p>
+</li>
+<li><p>다중 클래스 분류 =&gt; 교차 엔트로피 오차 (cross entropy error)</p>
+<p>  $\qquad  L=-\sum_k t_k \log{p_k}$</p>
+<p>  $\qquad  L=-\log{\boldsymbol{p}[t]}$</p>
+<ul>
+<li><p>벡터 $\boldsymbol{p}$ 에서 t 번째 요소만을 추출이 가능 (47.1 절에 <code>__get_item__</code>으로 가능해짐)</p>
+<!-- 왜 로그를 씌었을까?
+Gradient 확보하기 위함! 두 가지 관점에서 볼 수 있음.</li>
+</ul>
+<p>  1.시그모이드 그대로 뽑아내면, 함수값이 증가하다가 감소하다가(또는 미분값이 0에 가까운형태)이지만 log를 씌어주면 cost함수가 지속적으로 감소하는 형태로 나타남. </p>
+<ol start="2">
+<li>log는 엔트로피에서 나왔음.</li>
+</ol>
+<ul>
+<li>$t_k$ : 정답 데이터의 k차원째 값을 나타냄</li>
+<li>원핫 벡터(one-hot vector)</li>
+<li>정답에 해당하는 클래스면 1, 그렇지 않으면 0으로 –&gt;</li>
+</ul>
+</li>
+<li><p>소프트맥스 함수와 교차 엔트로피 오차 한꺼번에 수행하는 함수</p>
+<ul>
+<li><p>정답이 크게 나온 애에 대해서만 로스를 반영하게 됨</p>
+<pre><code class="python">def softmax_cross_entropy_simple(x, t): #t 정답데이터
+    x, t = as_variable(x), as_variable(t) 
+    N = x.shape[0]
+
+    p = softmax(x)
+    p = clip(p, 1e-15, 1.0)  # log(0) 방지하기 위해 1e-15 이상으로 함 clip(x, x_min, x_max)
+    log_p = log(p) # log는 DeZero 함수
+    tlog_p = log_p[np.arange(N), t.data]
+    y = -1 * sum(tlog_p) / N # 1차원 배열
+    return y
+</code></pre>
+<details>
+<summary style="font-Weight : bold; font-size : 11px; color : #CCCCCC;" > clip 구현 자세히 </summary>
+<div>  
+- dezero.functions.py 에 있음
+
+<pre><code class="python">class Clip(Function):
+    def __init__(self, x_min, x_max):
+        self.x_min = x_min
+        self.x_max = x_max
+
+    def forward(self, x):
+        xp = cuda.get_array_module(x)
+        y = xp.clip(x, self.x_min, self.x_max)
+        return y
+
+    def backward(self, gy):
+        x, = self.inputs
+        mask = (x.data &gt;= self.x_min) * (x.data &lt;= self.x_max)
+        gx = gy * mask
+        return gx
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>def clip(x, x_min, x_max):
+    return Clip(x_min, x_max)(x)
+```
+
+&lt;/div&gt;
+&lt;/details&gt;
+
+```python
+x = np.array([[0.2, -0.4], [0.3, 0.5], [1.3, -3.2], [2.1, 0.3]])
+t = np.array([2, 0, 1, 0])
+
+y = model(x)
+loss = F.softmax_cross_entropy_simple(y, t)
+loss.backward()
+print(loss)
+```
+
+실행 결과
+
+```
+variable(1.4967442524053063)
+```
+</code></pre>
+<h3 id="보충-부록-B-get-item-함수-구현"><a href="#보충-부록-B-get-item-함수-구현" class="headerlink" title="[보충] 부록 B : get_item 함수 구현"></a>[보충] 부록 B : get_item 함수 구현</h3><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BCB-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BCB-2.png"></p>
+<h2 id="48-Step-다중-클래스-분류"><a href="#48-Step-다중-클래스-분류" class="headerlink" title="48 [Step ] 다중 클래스 분류"></a>48 [Step ] 다중 클래스 분류</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC48-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC48-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC48-3.png"></p>
+<h2 id="49-Step-Dataset-클래스와-전처리"><a href="#49-Step-Dataset-클래스와-전처리" class="headerlink" title="49 [Step ] Dataset 클래스와 전처리"></a>49 [Step ] Dataset 클래스와 전처리</h2><h2 id="50-Step-미니배치를-뽑아주는-DataLoader"><a href="#50-Step-미니배치를-뽑아주는-DataLoader" class="headerlink" title="50 [Step ] 미니배치를 뽑아주는 DataLoader"></a>50 [Step ] 미니배치를 뽑아주는 DataLoader</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC50-1.png"></p>
+<h2 id="51-Step-MNIST-학습"><a href="#51-Step-MNIST-학습" class="headerlink" title="51 [Step ] MNIST 학습"></a>51 [Step ] MNIST 학습</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC51-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC51-2.png"></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>밑바닥 딥러닝 3 (4고지)</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-03-27, 19:23:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-04-14, 14:19:40</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/27/DeepLearning/Mit3/mitdeep4/" title="밑바닥 딥러닝 3 (4고지)">https://chaejin-jen.github.io/2021/03/27/DeepLearning/Mit3/mitdeep4/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

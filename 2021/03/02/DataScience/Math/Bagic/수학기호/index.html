@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>수학 기호 | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content=" Math Basic ">
+  <meta name="description" content="수학 기호 | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="FAST CAMPUS ONLINE 컴퓨터 구조강사 : 이승주     목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기s&#x2F;S : 디렉토리 숨기기 또는 열기 01. 왜 배울까? 현대의 컴퓨터란?  상태 머신(State Machine)과 소프트웨어  State Machine : 자료 입력받고, 프로세스 처리하고 저장하고 결과내고 등 기본적인 상태  (인강 그대로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="컴퓨터 구조">
+<meta property="og:url" content="https://chaejin-jen.github.io/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/index.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="FAST CAMPUS ONLINE 컴퓨터 구조강사 : 이승주     목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기s&#x2F;S : 디렉토리 숨기기 또는 열기 01. 왜 배울까? 현대의 컴퓨터란?  상태 머신(State Machine)과 소프트웨어  State Machine : 자료 입력받고, 프로세스 처리하고 저장하고 결과내고 등 기본적인 상태  (인강 그대로">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BD%94%EB%93%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%EA%B5%AC%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4_%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B3%84%EC%82%B0%EA%B8%B0%EC%97%90%EC%84%9C%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B9%8C%EC%A7%80.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%86%B5%EC%8B%A0%EA%B8%B0%EA%B8%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9C%A0%EB%B9%84%EC%BF%BC%ED%84%B0%EC%8A%A4.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Mobile%EA%B3%BCWireless.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IoT.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/AI.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/mother_board.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/memory_unit.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Memory_unit_and_Auxiliary_memory_device.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Memory_unit_and_Auxiliary_memory_device2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/NOS%EC%9D%98%EC%97%AD%ED%95%A0%ED%99%95%EB%8C%80.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/5G%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%96%91%EC%9E%90%EB%B3%91%EB%A0%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9B%B9%EC%9D%98%EB%AF%B8%EB%9E%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9E%90%EB%A3%8C%EC%9D%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%840.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%842.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/number_system.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/10%EC%A7%84%EC%88%982%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2%EC%A7%84%EC%88%9810%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/8_16%EC%A7%84%EC%88%982%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2sComplement1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2sComplement2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%B4%EC%88%98%EC%9D%98%EC%A4%91%EC%9A%94%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/addition_with_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%EC%9D%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%EC%88%AB%EC%A0%90%EC%95%84%EB%9E%98%EA%B0%92%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%EC%88%98%EC%A0%90%ED%91%9C%ED%98%84_%EC%88%9C%ED%99%98%EB%B0%98%EB%B3%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A0%95%EC%88%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/binary.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ones_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/twos_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zone_digit.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zonetype_ex2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/unpacked_decimal.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zonetype_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned2packed.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/packed_decimal.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned2packed_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/decimal_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B3%A0%EC%A0%95%EC%86%8C%EC%88%98%EC%A0%90_%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%ED%91%9C%ED%98%842.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/BCD%EC%BD%94%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/excess-3%EC%BD%94%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%A8%EB%A6%AC%ED%8B%B0%EB%B9%84%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%95%B4%EB%B0%8D%EB%B9%84%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A7%81%EB%A0%AC%EC%97%B0%EA%B2%B0%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%97%B0%EA%B2%B0%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EA%B3%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%ED%95%A9.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EB%B6%80%EC%A0%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B0%B0%ED%83%80%EC%A0%81%EB%85%BC%EB%A6%AC%ED%95%A9.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/harf_adder_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Commutative_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Distributive_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%93%9C%EB%AA%A8%EB%A5%B4%EA%B0%84%EB%B2%95%EC%B9%99.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/De_Morgam">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EC%9A%B8%EB%8C%80%EC%88%98%EB%A1%9C%EA%B0%84%EB%9E%B5%ED%99%94.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B4%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%BC%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%AC%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B9%B4%EB%85%B8%EB%A7%B5step1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B9%B4%EB%85%B8%EB%A7%B5step2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8%EB%A1%9C%ED%9A%8C%EB%A1%9C%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/full_adder_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/fulladder.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/multiplexer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/demultiplexer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%84%A4%EA%B0%80%EC%A7%80%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SR%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/R-S_Latch.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SR%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/JK%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/JK%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/DFlipFlop.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/D%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/T%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%83%81%ED%83%9C%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%83%81%ED%83%9C%EB%8F%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Major_components_of_CPU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EB%82%B4%EB%B6%80%EA%B5%AC%EC%A1%B0_re.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CU%EB%82%B4%EB%B6%80%EA%B5%AC%EC%A1%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ADD%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98%EC%8B%A4%ED%96%89%EC%98%88.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/RegisterR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/가장일반적비트표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/16비트레지스터의번호표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/상위비트와하위비트의표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0%EC%A0%84%EC%86%A1_%EA%B8%B0%EB%B3%B8%EA%B8%B0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_%EC%A7%81%EC%A0%91%EC%97%B0%EA%B2%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_%EB%B2%84%EC%8A%A4%EC%97%B0%EA%B2%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C_%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0_%EC%83%81%ED%98%B8_%EC%97%B0%EA%B2%B0_%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/three-state_buffer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0_%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_3-%EC%83%81%ED%83%9C%EB%B2%84%EC%8A%A4%EB%B2%84%ED%8D%BC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/stack2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/queue.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/deque.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ALU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%97%B0%EC%82%B0_%EC%82%B0%EC%88%A0%EC%97%B0%EC%82%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%97%B0%EC%82%B0_%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EA%B3%BC_%EC%82%B0%EC%88%A0%EC%8B%9C%ED%94%84%ED%8A%B8%EC%97%B0%EC%82%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0_%EC%98%88%EC%8B%9C1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0_%EC%98%88%EC%8B%9C2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%ED%94%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EC%A2%85%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EA%B5%AC%EC%84%B12.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A7%81%EC%A0%91%EB%AA%A8%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B0%84%EC%A0%91%EB%AA%A8%EB%93%9C%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B0%84%EC%A0%91%EB%AA%A8%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EC%86%8C%EC%A7%80%EC%A0%95%EB%AA%A8%EB%93%9C%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B4%88%EB%8B%A8%EC%9C%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/interrupt_cycle_flow_chart.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/interrupt_cycle_flow_chart_%EC%84%A4%EB%AA%85.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EC%A2%85%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EC%9D%B4%EC%A7%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_16%EC%A7%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EA%B8%B0%ED%98%B8%EC%97%B0%EC%82%B0%EC%BD%94%EB%93%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B8%EC%96%B4%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%952.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B0%9C%EB%B0%9C%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/capturing_from_Wi-Fi.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EC%A4%91%EA%B8%B0%EB%8A%A5%EC%9E%A5%EC%B9%98%EC%98%88.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EC%8B%9C%EA%B0%84%EA%B3%B5%EA%B0%84%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EC%B2%98%EB%A6%AC%EC%98%88%EC%A0%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C1_1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C1_2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%84%A4_%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8_%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%A0%81%EC%9D%B8%EB%8B%A4%EC%A4%91%EA%B8%B0%EB%8A%A5%EC%9E%A5%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%B4%EC%A7%84%EC%88%98%EC%9E%85%EB%A0%A5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%B0%EC%88%A0%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_flowchart.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98_%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98%EC%98%88_%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98_%EC%8B%9C%EA%B0%84%EA%B4%80%EA%B3%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98%EC%98%88_%EC%88%9C%EC%84%9C%EB%8F%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RISC%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%84%EC%B8%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAM%EC%9D%98_%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98_DDR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98_DDR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%B4%EC%A1%B0%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SSD.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAID_level0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAID_level1_6.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/USB%ED%91%9C%EC%A4%80%EC%A0%84%EC%95%95%EA%B3%BC%EC%A0%84%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_memory%EC%9D%98_%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4_%EA%B5%AC%EC%84%B1%EA%B3%BC_%EB%A9%94%EB%AA%A8%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_memory_Key_register%EC%9D%98%EC%97%AD%ED%95%A0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Locality_of_Reference.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/the_mapping_process_diagram.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%84%EC%86%A1%EA%B8%B0%EB%B3%B8%EB%AA%A8%ED%98%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_mapping.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Set-asociative_mapping_cache_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_line.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_lines.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_line_and_IO_bus_line.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IEEE%ED%91%9C%EC%A4%80_796%EB%8B%A4%EC%A4%91%EB%B2%84%EC%8A%A4%EC%8B%A0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%B2%84%EC%8A%A4%EC%A0%9C%EC%96%B4%EA%B8%B0_%EC%A7%81%EB%A0%AC%EC%A4%91%EC%9E%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%B2%84%EC%8A%A4%EC%A0%9C%EC%96%B4%EA%B8%B0_%EB%B3%91%EB%A0%AC%EC%A4%91%EC%9E%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IEEE%ED%91%9C%EC%A4%80_796%EB%8B%A4%EC%A4%91%EB%B2%84%EC%8A%A4%EC%8B%A0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A4%91%EC%95%99%EC%A0%9C%EC%96%B4%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%84%EC%82%B0%EC%A0%9C%EC%96%B4%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8F%99%EA%B8%B0%EB%B2%84%EC%8A%A4%EC%97%90_%EC%9D%98%ED%95%9C_%EC%88%98%ED%96%89.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B9%84%EB%8F%99%EA%B8%B0%EB%B2%84%EC%8A%A4%EC%97%90%EC%9D%98%ED%95%9C%EC%88%98%ED%96%89.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%97%90%EC%9D%98%ED%95%9CIO.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%97%90%EC%9D%98%ED%95%9CIO.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%EC%BD%94%EB%8D%94%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%82%AC%EC%9D%B4%ED%81%B4_%E2%80%AAIEN%EC%83%81%ED%83%9C%EA%B0%92.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A8%EC%9D%BC%EA%B3%B5%ED%86%B5%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B4%EC%A4%91%EB%B2%84%EC%8A%A4%EA%B5%AC%EC%A1%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EC%A4%91%ED%8F%AC%ED%8A%B8%EB%A9%94%EB%AA%A8%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%81%AC%EB%A1%9C%EC%8A%A4%EB%B0%94%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EB%8B%A8%EA%B5%90%ED%99%98%EB%A7%9D.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Hypercube.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4-%ED%81%90%EB%B8%8C.gif">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%B0%A8%EC%9B%90%EC%9D%B4%EC%A7%84%ED%81%90%EB%B8%8C2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Cashe%EC%9D%98%EC%9D%BC%EA%B4%80%EC%84%B1_Ex2.png">
+<meta property="article:published_time" content="2021-04-12T01:12:00.000Z">
+<meta property="article:modified_time" content="2021-04-14T05:25:18.716Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Computer Architecture">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BD%94%EB%93%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%EA%B5%AC%ED%98%84.png">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(18)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
+                                        
+                                        밑바닥 3
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBagic">
+                                                        
+                                                        Bagic
+                                                        
+                                                            <small>(5)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="18">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-12 10:12:00">2021/04/12</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/05/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-04-05 23:12:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_bagic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/09/DataScience/Math/Bagic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/08/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="행렬">행렬</span>
+            <span class="post-date" title="2021-03-08 20:38:35">2021/03/08</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Data structure,Algorithm"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/03/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/02/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-DataScience/Math/Bagic/수학기호" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">수학 기호</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="DataScience">DataScience</a> > 
+            
+            <a  data-rel="DataScience&lt;---&gt;Math">Math</a> > 
+            
+            <a  data-rel="DataScience&lt;---&gt;Math&lt;---&gt;Bagic">Bagic</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Math Basic</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-03-02 18:25:00'>2021-03-02 07:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%A2%8B%EC%9D%80-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%A4%91%EC%9A%94"><span class="toc-text">좋은 사이트 (중요!)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TeX-%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8"><span class="toc-text">TeX 수학기호</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8"><span class="toc-text">수학기호</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B7%B8%EB%A6%AC%EC%8A%A4-%EB%AC%B8%EC%9E%90"><span class="toc-text">그리스 문자</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="좋은-사이트-중요"><a href="#좋은-사이트-중요" class="headerlink" title="좋은 사이트 (중요!)"></a>좋은 사이트 (중요!)</h1><p>익숙하지 않다면 여기서 수식사용! 특히 매트릭스 만들기 너무 좋아요~!<br><a target="_blank" rel="noopener" href="https://latex.codecogs.com/eqneditor/editor.php">latex editor</a></p>
+<h1 id="TeX-수학기호"><a href="#TeX-수학기호" class="headerlink" title="TeX 수학기호"></a>TeX 수학기호</h1><p>Markdown에서는 TeX(텍)이라는 조판언어를 사용하여 수식을 표현함</p>
+<p>수학에서 글씨체</p>
+<p>정체 : 점 (기하학), 특수한 함수, 특수한 확률분포</p>
+<p>볼드체 : 벡터 (일반 및 대학 과정 한정)</p>
+<p>$\mathbf{A}$, $\mathbf{a}$ </p>
+<pre><code>$\mathbf&#123;A&#125;$, $\mathbf&#123;a&#125;$  
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://namu.wiki/w/%EA%B3%BC%ED%95%99/%EA%B8%B0%ED%98%B8">과학기호</a></p>
+<h2 id="수학기호"><a href="#수학기호" class="headerlink" title="수학기호"></a>수학기호</h2><p>$\int{}$ $\iint{}$ $\iiint$<br>$\oint$ $\oiint$ $\oiiint$</p>
+<pre><code>$\int&#123;&#125;$ $\iint&#123;&#125;$ $\iiint$ 
+$\oint$ $\oiint$ $\oiiint$
+</code></pre>
+<p>​    </p>
+<h2 id="그리스-문자"><a href="#그리스-문자" class="headerlink" title="그리스 문자"></a>그리스 문자</h2><p>그리스 문자와 영어 표기, 한글 표기를 나타냄<br>(표에서는 잘 쓰이지 않는 몇 글자는 제외)</p>
+<p>표 1-1 : 그리스 문자</p>
+<table>
+<thead>
+<tr>
+<th>알파벳 대문자</th>
+<th>알파벳 소문자</th>
+<th>영어 표기법</th>
+<th>한글 표기법</th>
+<th>사용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\Huge A$</td>
+<td>$\Huge \alpha$</td>
+<td>alpha</td>
+<td>알파</td>
+<td>$A$ (수학) 집합에서 임의의 그룹을 나타내는 기호</td>
+</tr>
+<tr>
+<td>$\Huge B$</td>
+<td>$\Huge \beta$</td>
+<td>beta</td>
+<td>베타</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Gamma$</td>
+<td>$\Huge \gamma$</td>
+<td>gamma</td>
+<td>감마</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Delta$</td>
+<td>$\Huge \delta$</td>
+<td>delta</td>
+<td>델타</td>
+<td>$\Delta$ 극소의 이등분</td>
+</tr>
+<tr>
+<td>$\Huge E$</td>
+<td>$\Huge \epsilon$</td>
+<td>epsilon</td>
+<td>엡실론</td>
+<td>$\epsilon$ 집합원소 [작다, 적다 개념을 갖고 있음]</td>
+</tr>
+<tr>
+<td>$\Huge Z$</td>
+<td>$\Huge \zeta$</td>
+<td>zeta</td>
+<td>제타</td>
+<td>고전역학</td>
+</tr>
+<tr>
+<td>$\Huge H$</td>
+<td>$\Huge \eta$</td>
+<td>eta</td>
+<td>에타</td>
+<td>(물리)자기장, 전기장</td>
+</tr>
+<tr>
+<td>$\Huge \Theta$</td>
+<td>$\Huge \theta$</td>
+<td>theta</td>
+<td>쎄타</td>
+<td>(수학) 각도</td>
+</tr>
+<tr>
+<td>$\Huge K$</td>
+<td>$\Huge \kappa$</td>
+<td>kappa</td>
+<td>카파</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Lambda$</td>
+<td>$\Huge \lambda$</td>
+<td>lambda</td>
+<td>람다</td>
+<td>$\Lambda$ (선형대수학) 대각행렬, $\lambda$ (선형대수학) 고윳값 / (현대물리) 파장</td>
+</tr>
+<tr>
+<td>$\Huge M$</td>
+<td>$\Huge \mu$</td>
+<td>mu</td>
+<td>뮤</td>
+<td>$\mu$ (통계학) 모평균, (물리) 자기장, (역학) 마찰계수, (전자기학) 투자율</td>
+</tr>
+<tr>
+<td>$\Huge N$</td>
+<td>$\Huge \nu$</td>
+<td>nu</td>
+<td>누</td>
+<td>$\nu$ (물리학) 파동의 진동수 또는 중성미자</td>
+</tr>
+<tr>
+<td>$\Huge \Xi$</td>
+<td>$\Huge \xi$</td>
+<td>xi</td>
+<td>크싸이</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Pi$</td>
+<td>$\Huge \pi$</td>
+<td>pi</td>
+<td>파이</td>
+<td>$\Pi$ (수학) 범주(category) 내의 여러 대상(object)의 곱(product) 추가로, 기호를 뒤집으면 $\coprod$ 쌍대곱(coproduct)을 뜻함, $pi$ (수학) 원주율, projection, 소수계량함수, (물리학) 삼투압</td>
+</tr>
+<tr>
+<td>$\Huge P$</td>
+<td>$\Huge \rho$</td>
+<td>rho</td>
+<td>로</td>
+<td>$\rho$ (원통좌표계) 반지름, (물리) 저항</td>
+</tr>
+<tr>
+<td>$\Huge \Sigma$</td>
+<td>$\Huge \sigma$</td>
+<td>sigma</td>
+<td>시그마</td>
+<td>$\Sigma$ 더하기</td>
+</tr>
+<tr>
+<td>$\Huge T$</td>
+<td>$\Huge \tau$</td>
+<td>tau</td>
+<td>타우</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Phi$</td>
+<td>$\Huge \phi$</td>
+<td>phi</td>
+<td>파이/피</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge X$</td>
+<td>$\Huge \chi$</td>
+<td>chi</td>
+<td>카이</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Psi$</td>
+<td>$\Huge \psi$</td>
+<td>psi</td>
+<td>프사이</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Omega$</td>
+<td>$\Huge \omega$</td>
+<td>omega</td>
+<td>오메가</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>마크다운에서 <code>$</code>(달러) 기호를 이용하면 수식을 표현할 수 있다. 수식에서 그리스 문자를 표시하려면 그리스 문자의 영어 표기법앞에 백슬레시(<code>\</code>) 기호를 붙인다. 예를 들어 알파는 <code>\alpha</code>, 베타는 <code>\beta</code>라고 쓴다.</p>
+<p>인라인(inline) 수식</p>
+<ul>
+<li><p>수식에는 문장 안에서 일부 단어가 수식</p>
+</li>
+<li><p><code>$</code>와 <code>$</code>사이의 수식은 문장내의 인라인 수식을 쓸 때 사용</p>
+<p>디스플레이(display)</p>
+</li>
+<li><p>독립된 문단이 되는 수식</p>
+</li>
+<li><p><code>$$</code>와 <code>$$</code>사이의 수식은 디스플레이 수식을 쓸 때 사용</p>
+<p><code>$ \alpha = \beta $</code> 는 $\alpha = \beta$로 나타난다. 독립된 수식의 경우</p>
+</li>
+</ul>
+<pre><code>$$ \alpha = \beta $$
+</code></pre>
+<p>$$\alpha = \beta$$</p>
+<!-- 
+## 기타 (정리안된 내용 여기다 써둘꺼임)
+### 로그
+$$1 / log2$$
+
+$$\frac{1}{2} = 2^{-1} = $$
+
+밑이 분수 "2분의 1" 즉 0.5인 로그:
+
+$$log_{2}2^{\frac{1}{2}}=log_{2}1.41421356237309503445231939622\cdot\cdot\cdot=log_{2}\sqrt{2}=\frac{1}{2}$$
+$$log_{2}2^{-1}=log_{2}\frac{1}{2}=-1$$
+$$log_\frac{1}{2}2=-1$$  -->
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>수학 기호</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-03-02, 07:25:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-03-02, 18:25:00</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/02/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/" title="수학 기호">https://chaejin-jen.github.io/2021/03/02/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

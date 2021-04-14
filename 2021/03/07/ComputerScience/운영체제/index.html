@@ -3,20 +3,216 @@
 <head>
   <meta charset="utf-8">
   <title>운영체제 | Chaejin&#39;s Blog</title>
-  <meta name="keywords" content=" Computer Science OS ">
+  <meta name="keywords" content=" Computer Science , OS(Operating System) ">
   <meta name="description" content="운영체제 | Chaejin&#39;s Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Chaejin&#39;s Blog">
-<meta property="og:url" content="https://chaejin-jen.github.io/inging/%EC%88%98%ED%95%99%EB%AA%A9%EC%B0%A8.html">
+<meta name="description" content="FAST CAMPUS ONLINE 컴퓨터 구조강사 : 이승주     목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기s&#x2F;S : 디렉토리 숨기기 또는 열기 01. 왜 배울까? 현대의 컴퓨터란?  상태 머신(State Machine)과 소프트웨어  State Machine : 자료 입력받고, 프로세스 처리하고 저장하고 결과내고 등 기본적인 상태  (인강 그대로">
+<meta property="og:type" content="article">
+<meta property="og:title" content="컴퓨터 구조">
+<meta property="og:url" content="https://chaejin-jen.github.io/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/index.html">
 <meta property="og:site_name" content="Chaejin&#39;s Blog">
-<meta property="og:description" content="패스트캠퍼스 데이터 사이언스 완주반, 수학 학습목표선형대수1234567선형대수를 이용하여 기하학적 관점에서 데이터를 분해데이터를 바라보는 여러가지 방법고유값 분해, 특잇값 분해 등 행렬을 분석하는 여러 방법선형대수 데이터 분석에 필요한 도구   벡터와 행렬의 연산이 기하학적으로 어떤 의미인지 이해 벡터를 투영분해 투영분해 결과, 직선의 방정식을 벡터 연산으">
+<meta property="og:description" content="FAST CAMPUS ONLINE 컴퓨터 구조강사 : 이승주     목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기s&#x2F;S : 디렉토리 숨기기 또는 열기 01. 왜 배울까? 현대의 컴퓨터란?  상태 머신(State Machine)과 소프트웨어  State Machine : 자료 입력받고, 프로세스 처리하고 저장하고 결과내고 등 기본적인 상태  (인강 그대로">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-05T04:51:06.821Z">
-<meta property="article:modified_time" content="2021-03-04T07:51:44.000Z">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BD%94%EB%93%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%EA%B5%AC%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4_%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B3%84%EC%82%B0%EA%B8%B0%EC%97%90%EC%84%9C%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B9%8C%EC%A7%80.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%86%B5%EC%8B%A0%EA%B8%B0%EA%B8%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9C%A0%EB%B9%84%EC%BF%BC%ED%84%B0%EC%8A%A4.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Mobile%EA%B3%BCWireless.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IoT.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/AI.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/mother_board.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/memory_unit.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Memory_unit_and_Auxiliary_memory_device.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Memory_unit_and_Auxiliary_memory_device2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/NOS%EC%9D%98%EC%97%AD%ED%95%A0%ED%99%95%EB%8C%80.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/5G%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%96%91%EC%9E%90%EB%B3%91%EB%A0%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9B%B9%EC%9D%98%EB%AF%B8%EB%9E%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9E%90%EB%A3%8C%EC%9D%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%840.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%8B%A8%EC%9C%842.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/number_system.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/10%EC%A7%84%EC%88%982%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2%EC%A7%84%EC%88%9810%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/8_16%EC%A7%84%EC%88%982%EC%A7%84%EC%88%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2sComplement1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/2sComplement2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%B4%EC%88%98%EC%9D%98%EC%A4%91%EC%9A%94%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/addition_with_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%EC%9D%98%EB%B3%80%ED%99%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%EC%88%AB%EC%A0%90%EC%95%84%EB%9E%98%EA%B0%92%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%EC%88%98%EC%A0%90%ED%91%9C%ED%98%84_%EC%88%9C%ED%99%98%EB%B0%98%EB%B3%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A0%95%EC%88%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/binary.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ones_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/twos_complement.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zone_digit.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zonetype_ex2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/unpacked_decimal.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zonetype_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned2packed.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/packed_decimal.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/zoned2packed_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/decimal_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B3%A0%EC%A0%95%EC%86%8C%EC%88%98%EC%A0%90_%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%ED%91%9C%ED%98%842.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%A4%EC%88%98%ED%91%9C%ED%98%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/BCD%EC%BD%94%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/excess-3%EC%BD%94%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%A8%EB%A6%AC%ED%8B%B0%EB%B9%84%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%95%B4%EB%B0%8D%EB%B9%84%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A7%81%EB%A0%AC%EC%97%B0%EA%B2%B0%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%97%B0%EA%B2%B0%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EA%B3%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%ED%95%A9.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EB%B6%80%EC%A0%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B0%B0%ED%83%80%EC%A0%81%EB%85%BC%EB%A6%AC%ED%95%A9.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/harf_adder_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Commutative_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Distributive_Law.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%93%9C%EB%AA%A8%EB%A5%B4%EA%B0%84%EB%B2%95%EC%B9%99.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/De_Morgam">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EC%9A%B8%EB%8C%80%EC%88%98%EB%A1%9C%EA%B0%84%EB%9E%B5%ED%99%94.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B4%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%BC%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%AC%EB%B3%80%EC%88%98%EC%B9%B4%EB%85%B8%EB%A7%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B9%B4%EB%85%B8%EB%A7%B5step1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B9%B4%EB%85%B8%EB%A7%B5step2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC%EA%B2%8C%EC%9D%B4%ED%8A%B8%EB%A1%9C%ED%9A%8C%EB%A1%9C%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/full_adder_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/fulladder.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/multiplexer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/demultiplexer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD_%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%84%A4%EA%B0%80%EC%A7%80%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SR%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/R-S_Latch.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SR%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/JK%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/JK%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/DFlipFlop.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/D%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/T%ED%94%8C%EB%A6%BD%ED%94%8C%EB%A1%AD%EC%97%AC%EA%B8%B0%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%83%81%ED%83%9C%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%83%81%ED%83%9C%EB%8F%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Major_components_of_CPU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EB%82%B4%EB%B6%80%EA%B5%AC%EC%A1%B0_re.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CU%EB%82%B4%EB%B6%80%EA%B5%AC%EC%A1%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ADD%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98%EC%8B%A4%ED%96%89%EC%98%88.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/RegisterR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/가장일반적비트표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/16비트레지스터의번호표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/컴퓨터구조_files/상위비트와하위비트의표현.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0%EC%A0%84%EC%86%A1_%EA%B8%B0%EB%B3%B8%EA%B8%B0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_%EC%A7%81%EC%A0%91%EC%97%B0%EA%B2%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/CPU%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_%EB%B2%84%EC%8A%A4%EC%97%B0%EA%B2%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A1%B0%ED%95%A9%EB%85%BC%EB%A6%AC%ED%9A%8C%EB%A1%9C_%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0_%EC%83%81%ED%98%B8_%EC%97%B0%EA%B2%B0_%EB%A9%80%ED%8B%B0%ED%94%8C%EB%A0%89%EC%84%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/three-state_buffer.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A0%88%EC%A7%80%EC%8A%A4%ED%84%B0_%EC%83%81%ED%98%B8%EC%97%B0%EA%B2%B0_3-%EC%83%81%ED%83%9C%EB%B2%84%EC%8A%A4%EB%B2%84%ED%8D%BC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/stack2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/queue.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/deque.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/ALU.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%97%B0%EC%82%B0_%EC%82%B0%EC%88%A0%EC%97%B0%EC%82%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%97%B0%EC%82%B0_%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0%EA%B3%BC_%EC%82%B0%EC%88%A0%EC%8B%9C%ED%94%84%ED%8A%B8%EC%97%B0%EC%82%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0_%EC%98%88%EC%8B%9C1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0_%EC%98%88%EC%8B%9C2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%ED%94%84%ED%8A%B8%EC%97%B0%EC%82%B0%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EC%A2%85%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%AA%85%EB%A0%B9%EC%96%B4%EA%B5%AC%EC%84%B12.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A7%81%EC%A0%91%EB%AA%A8%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B0%84%EC%A0%91%EB%AA%A8%EB%93%9C%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EA%B0%84%EC%A0%91%EB%AA%A8%EB%93%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EC%86%8C%EC%A7%80%EC%A0%95%EB%AA%A8%EB%93%9C%EC%98%88%EC%8B%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9E%85%EC%B6%9C%EB%A0%A5%EA%B5%AC%EC%84%B1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%B4%88%EB%8B%A8%EC%9C%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/interrupt_cycle_flow_chart.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/interrupt_cycle_flow_chart_%EC%84%A4%EB%AA%85.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EC%A2%85%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EC%9D%B4%EC%A7%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_16%EC%A7%84%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EA%B8%B0%ED%98%B8%EC%97%B0%EC%82%B0%EC%BD%94%EB%93%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%96%B8%EC%96%B4%EA%B0%84%EA%B4%80%EA%B3%84_%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B8%EC%96%B4%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%B2%98%EB%A6%AC%EA%B3%BC%EC%A0%952.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%86%8C%ED%94%84%ED%8A%B8%EC%9B%A8%EC%96%B4%EA%B0%9C%EB%B0%9C%ED%8C%A8%EB%9F%AC%EB%8B%A4%EC%9E%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/capturing_from_Wi-Fi.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EC%A4%91%EA%B8%B0%EB%8A%A5%EC%9E%A5%EC%B9%98%EC%98%88.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EC%8B%9C%EA%B0%84%EA%B3%B5%EA%B0%84%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EC%B2%98%EB%A6%AC%EC%98%88%EC%A0%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C1_1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_%EA%B5%AC%ED%98%84%EC%98%88%EC%A0%9C1_2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%84%A4_%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8_%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%A0%81%EC%9D%B8%EB%8B%A4%EC%A4%91%EA%B8%B0%EB%8A%A5%EC%9E%A5%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90%EC%9D%B4%EC%A7%84%EC%88%98%EC%9E%85%EB%A0%A5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%82%B0%EC%88%A0%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8_flowchart.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98_%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98%EC%98%88_%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98_%EC%8B%9C%EA%B0%84%EA%B4%80%EA%B3%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%84%B8%EA%B7%B8%EB%A8%BC%ED%8A%B8%EB%AA%85%EB%A0%B9%EC%96%B4%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%98%EC%98%88_%EC%88%9C%EC%84%9C%EB%8F%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RISC%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BB%B4%ED%93%A8%ED%84%B0%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%98%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%84%EC%B8%B5.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAM%EC%9D%98_%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98_DDR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A3%BC%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98_DDR.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%B4%EC%A1%B0%EA%B8%B0%EC%96%B5%EC%9E%A5%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/SSD.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAID_level0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/RAID_level1_6.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/USB%ED%91%9C%EC%A4%80%EC%A0%84%EC%95%95%EA%B3%BC%EC%A0%84%EB%A5%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_memory%EC%9D%98_%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4_%EA%B5%AC%EC%84%B1%EA%B3%BC_%EB%A9%94%EB%AA%A8%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_memory_Key_register%EC%9D%98%EC%97%AD%ED%95%A0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Locality_of_Reference.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/the_mapping_process_diagram.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%84%EC%86%A1%EA%B8%B0%EB%B3%B8%EB%AA%A8%ED%98%95.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Direct_Mapping_ex1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Associative_mapping.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Set-asociative_mapping_cache_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_line.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_lines.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Common_bus_line_and_IO_bus_line.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IEEE%ED%91%9C%EC%A4%80_796%EB%8B%A4%EC%A4%91%EB%B2%84%EC%8A%A4%EC%8B%A0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain1.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%B2%84%EC%8A%A4%EC%A0%9C%EC%96%B4%EA%B8%B0_%EC%A7%81%EB%A0%AC%EC%A4%91%EC%9E%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%8B%9C%EC%8A%A4%ED%85%9C%EB%B2%84%EC%8A%A4%EC%A0%9C%EC%96%B4%EA%B8%B0_%EB%B3%91%EB%A0%AC%EC%A4%91%EC%9E%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/IEEE%ED%91%9C%EC%A4%80_796%EB%8B%A4%EC%A4%91%EB%B2%84%EC%8A%A4%EC%8B%A0%ED%98%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%A4%91%EC%95%99%EC%A0%9C%EC%96%B4%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B6%84%EC%82%B0%EC%A0%9C%EC%96%B4%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8F%99%EA%B8%B0%EB%B2%84%EC%8A%A4%EC%97%90_%EC%9D%98%ED%95%9C_%EC%88%98%ED%96%89.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B9%84%EB%8F%99%EA%B8%B0%EB%B2%84%EC%8A%A4%EC%97%90%EC%9D%98%ED%95%9C%EC%88%98%ED%96%89.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%97%90%EC%9D%98%ED%95%9CIO.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%97%90%EC%9D%98%ED%95%9CIO.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Daisy_chain_%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%B3%91%EB%A0%AC%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EC%9D%B8%EC%BD%94%EB%8D%94%EC%A7%84%EB%A6%AC%ED%91%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%82%AC%EC%9D%B4%ED%81%B4_%E2%80%AAIEN%EC%83%81%ED%83%9C%EA%B0%92.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A8%EC%9D%BC%EA%B3%B5%ED%86%B5%EB%B2%84%EC%8A%A4%EC%8B%9C%EC%8A%A4%ED%85%9C.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%9D%B4%EC%A4%91%EB%B2%84%EC%8A%A4%EA%B5%AC%EC%A1%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EC%A4%91%ED%8F%AC%ED%8A%B8%EB%A9%94%EB%AA%A8%EB%A6%AC.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%ED%81%AC%EB%A1%9C%EC%8A%A4%EB%B0%94%EC%8A%A4%EC%9C%84%EC%B9%98.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EB%8B%A4%EB%8B%A8%EA%B5%90%ED%99%98%EB%A7%9D.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Hypercube.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4-%ED%81%90%EB%B8%8C.gif">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/4%EC%B0%A8%EC%9B%90%EC%9D%B4%EC%A7%84%ED%81%90%EB%B8%8C2.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/Cashe%EC%9D%98%EC%9D%BC%EA%B4%80%EC%84%B1_Ex2.png">
+<meta property="article:published_time" content="2021-04-12T01:12:00.000Z">
+<meta property="article:modified_time" content="2021-04-14T05:25:18.716Z">
 <meta property="article:author" content="Chaejin Kim">
+<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Computer Architecture">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0_files/%EC%BD%94%EB%93%9C%EC%83%81%ED%83%9C%EB%A8%B8%EC%8B%A0%EA%B5%AC%ED%98%84.png">
 
 
 <link rel="icon" href="/img/avatar.png">
@@ -134,7 +330,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(10)</small>
+                <small>(18)</small>
             
         </div>
     </li>
@@ -146,18 +342,18 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         DeepLearning
-                        <small>(1)</small>
+                        <small>(5)</small>
                         
                     </div>
                     
                         <ul class="sub hide">
                             
                                 <li>
-                                    <div data-rel="DeepLearning<--->Bagic3">
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
                                         
-                                        Bagic3
+                                        밑바닥 3
                                         
-                                            <small>(1
+                                            <small>(5
                                                 )</small>
                                         
                                     </div>
@@ -215,16 +411,12 @@
     
         
             
-        
-    
-        
-            
                 <li>
                     <div data-rel="ComputerScience">
                         <i class="fold iconfont icon-right"></i>
                         
                         ComputerScience
-                        <small>(1)</small>
+                        <small>(3)</small>
                         
                     </div>
                     
@@ -235,7 +427,7 @@
                                         
                                         Bagic
                                         
-                                            <small>(1
+                                            <small>(3
                                                 )</small>
                                         
                                     </div>
@@ -298,6 +490,24 @@
             
         
     
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
 </ul>
 <div class="right-bottom">
     <div class="menus">
@@ -315,7 +525,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="10">
+<input type="hidden" id="yelog_site_posts_number" value="18">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -362,11 +572,27 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Algorithm Basic</a>
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Computer Science OS</a>
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -375,6 +601,22 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
             </li>
         
     </div>
@@ -388,6 +630,102 @@
     
     <nav id="title-list-nav">
         
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-12 10:12:00">2021/04/12</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/05/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-04-05 23:12:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_bagic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/09/DataScience/Math/Bagic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
         <a  class="All DataScience Math Bagic "
            href="/2021/03/08/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/"
            data-tag="Math Basic"
@@ -396,76 +734,44 @@
             <span class="post-date" title="2021-03-08 20:38:35">2021/03/08</span>
         </a>
         
-        <a  class="All DataScience Math Bagic "
-           href="/2021/03/08/DataScience/Math/Bagic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD,%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D,%EB%9E%AD%ED%81%AC/"
-           data-tag="Math Basic"
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Data structure,Algorithm"
            data-author="" >
-            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
-            <span class="post-date" title="2021-03-08 20:35:48">2021/03/08</span>
-        </a>
-        
-        <a  class="All DataScience Math Bagic "
-           href="/2021/03/08/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
-           data-tag="Math Basic"
-           data-author="" >
-            <span class="post-title" title="벡터">벡터</span>
-            <span class="post-date" title="2021-03-08 20:33:17">2021/03/08</span>
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
         </a>
         
         <a  class="All ComputerScience Bagic "
            href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
-           data-tag="Computer Science OS"
+           data-tag="Computer Science,OS(Operating System)"
            data-author="" >
             <span class="post-title" title="운영체제">운영체제</span>
-            <span class="post-date" title="2021-03-07 16:26:55">2021/03/07</span>
-        </a>
-        
-        <a  class="All DeepLearning Bagic3 "
-           href="/2021/03/06/DeepLearning/Mit3/mitdeep1/"
-           data-tag="DeepLearning Framework"
-           data-author="" >
-            <span class="post-title" title="밑바닥 부터 시작하는 딥러닝 3 (1탄!)">밑바닥 부터 시작하는 딥러닝 3 (1탄!)</span>
-            <span class="post-date" title="2021-03-06 07:26:32">2021/03/06</span>
-        </a>
-        
-        <a  class="All Algorithm Basic "
-           href="/2021/03/06/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
-           data-tag="Algorithm Basic"
-           data-author="" >
-            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
-            <span class="post-date" title="2021-03-06 07:26:31">2021/03/06</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
         </a>
         
         <a  class="All DataScience Math Bagic "
-           href="/2021/03/06/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           href="/2021/03/05/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
            data-tag="Math Basic"
            data-author="" >
-            <span class="post-title" title="수학 기호">수학 기호</span>
-            <span class="post-date" title="2021-03-06 07:25:54">2021/03/06</span>
-        </a>
-        
-        <a  class="All Algorithm Basic "
-           href="/2021/03/06/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
-           data-tag="Algorithm Basic"
-           data-author="" >
-            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
-            <span class="post-date" title="2021-03-06 07:25:54">2021/03/06</span>
-        </a>
-        
-        <a  class="All Algorithm Basic "
-           href="/2021/03/06/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
-           data-tag="Algorithm Basic"
-           data-author="" >
-            <span class="post-title" title="자료구조">자료구조</span>
-            <span class="post-date" title="2021-03-06 07:25:53">2021/03/06</span>
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
         </a>
         
         <a  class="All DataScience Math Bagic "
-           href="/2021/03/05/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           href="/2021/03/03/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
            data-tag="Math Basic"
            data-author="" >
             <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
-            <span class="post-date" title="2021-03-05 14:29:56">2021/03/05</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/02/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
         </a>
         
         <div id="no-item-tips">
@@ -501,14 +807,16 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">Computer Science OS</a>
+            <a class="color2">Computer Science</a>
+            
+            <a class="color1">OS(Operating System)</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-03-10 23:52:48'>2021-03-07 16:26</time>
+            Created At : <time class="date" title='Updated At: 2021-04-14 14:26:03'>2021-03-07 21:18</time>
         
     </div>
     <div class="article-meta">
@@ -552,7 +860,7 @@
 <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기<br><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
 <!-- # 프로그래밍 분류
 
-![프로그래머종류](/운영체제/프로그래머종류.png) -->
+![프로그래머종류](/media/운영체제/프로그래머종류.png) -->
 
 <h1 id="운영체제-역할"><a href="#운영체제-역할" class="headerlink" title="운영체제 역할"></a>운영체제 역할</h1><p>시스템 자원, 응용 프로그램 관리, 효율적 분배</p>
 <h2 id="운영체제를-왜-배워야-할까"><a href="#운영체제를-왜-배워야-할까" class="headerlink" title="운영체제를 왜 배워야 할까?"></a>운영체제를 왜 배워야 할까?</h2><p>컴퓨터 사어인스(전공) 필수 과목<br>컴퓨터 구조가 컴퓨터 하드웨어 원리 이해<br>운영체제는 컴퓨터 하드웨어/소프트웨어 전반적인 동작 이해(특히 컴퓨터 소프트웨어 관련 전반적인 동<br>작 기술 이해)<br>효율적인 소프트웨어 동작을 지원하기 위해 자료구조(큐, 스택등) 및 알고리즘이 사용됨</p>
@@ -601,7 +909,7 @@
 </ol>
 <p>How did we ever run Computer wihtout OS? (OS 미설치된 노트북) [유튜브링크](<a target="_blank" rel="noopener" href="https://youtu.be/e">https://youtu.be/e</a> 9 FrlIvlN38?t=29s)</p>
 <h4 id="운영체제-역할2-사용자와-컴퓨터간의-커뮤니케이션-지원"><a href="#운영체제-역할2-사용자와-컴퓨터간의-커뮤니케이션-지원" class="headerlink" title="운영체제 역할2: 사용자와 컴퓨터간의 커뮤니케이션 지원"></a>운영체제 역할2: 사용자와 컴퓨터간의 커뮤니케이션 지원</h4><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Operating_system_placement_kor.png/180px-Operating_system_placement_kor.png" alt="운영체제 역할2"></p>
-<h4 id="운영체제-역할3-컴퓨터-하드웨어와-프로그램을-제어"><a href="#운영체제-역할3-컴퓨터-하드웨어와-프로그램을-제어" class="headerlink" title="운영체제 역할3: 컴퓨터 하드웨어와 프로그램을 제어"></a>운영체제 역할3: 컴퓨터 하드웨어와 프로그램을 제어</h4><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%97%AD%ED%95%A0.png" alt="운영체제 역할3"></p>
+<h4 id="운영체제-역할3-컴퓨터-하드웨어와-프로그램을-제어"><a href="#운영체제-역할3-컴퓨터-하드웨어와-프로그램을-제어" class="headerlink" title="운영체제 역할3: 컴퓨터 하드웨어와 프로그램을 제어"></a>운영체제 역할3: 컴퓨터 하드웨어와 프로그램을 제어</h4><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%97%AD%ED%95%A0.png" alt="운영체제 역할3"></p>
 <h2 id="운영체제와-응용-프로그램"><a href="#운영체제와-응용-프로그램" class="headerlink" title="운영체제와 응용 프로그램"></a>운영체제와 응용 프로그램</h2><p>응용프로그램이란? ‑ 소프트웨어 (운영체제, 응용 프로그램), 보통 여러개의 프로세스로 구성</p>
 <h3 id="응용-프로그램이란"><a href="#응용-프로그램이란" class="headerlink" title="응용 프로그램이란?"></a>응용 프로그램이란?</h3><ul>
 <li><p>프로그램 = 소프트웨어</p>
@@ -652,7 +960,7 @@
 </blockquote>
 <h4 id="쉬어가기-운영체제는-어디에-있을까요"><a href="#쉬어가기-운영체제는-어디에-있을까요" class="headerlink" title="쉬어가기: 운영체제는 어디에 있을까요?"></a>쉬어가기: 운영체제는 어디에 있을까요?</h4><p>운영체제는 저장매체(SSD/HDD)에 저장(설치) 됩니다.</p>
 <h3 id="컴퓨터-구조-복습"><a href="#컴퓨터-구조-복습" class="headerlink" title="컴퓨터 구조 복습"></a>컴퓨터 구조 복습</h3><p>컴퓨터를 키면? ‑‑&gt; 운영체제는 Memory에 올라게게 됩니다.</p>
-<h4 id="참고-폰노이만-구조"><a href="#참고-폰노이만-구조" class="headerlink" title="참고: 폰노이만 구조"></a>참고: 폰노이만 구조</h4><p>현대컴퓨터구조<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8F%B0%EB%85%B8%EC%9D%B4%EB%A7%8C%EA%B5%AC%EC%A1%B0.png" alt="폰노이만구조"></p>
+<h4 id="참고-폰노이만-구조"><a href="#참고-폰노이만-구조" class="headerlink" title="참고: 폰노이만 구조"></a>참고: 폰노이만 구조</h4><p>현대컴퓨터구조<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8F%B0%EB%85%B8%EC%9D%B4%EB%A7%8C%EA%B5%AC%EC%A1%B0.png" alt="폰노이만구조"></p>
 <p>운영체제도 하나의 소프트웨어이기 때문에, 메모리에 올라감</p>
 <h1 id="History로-보는-운영체제"><a href="#History로-보는-운영체제" class="headerlink" title="History로 보는 운영체제"></a>History로 보는 운영체제</h1><h2 id="1950-년대-1960-년대"><a href="#1950-년대-1960-년대" class="headerlink" title="1950 년대 ~ 1960 년대"></a>1950 년대 ~ 1960 년대</h2><ul>
 <li><p>1950 년대</p>
@@ -919,7 +1227,7 @@
 <li>(달걀견과류 등의 딱딱한) 껍데기</li>
 <li>고둥 껍데기 모양의 것</li>
 </ol>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/kernel%EA%B3%BCshell2.png" alt="kernel과shell"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/kernel%EA%B3%BCshell.png" alt="kernel과shell"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/kernel%EA%B3%BCshell2.png" alt="kernel과shell"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/kernel%EA%B3%BCshell.png" alt="kernel과shell"></p>
 <h2 id="API-C-Library"><a href="#API-C-Library" class="headerlink" title="API, C Library"></a>API, C Library</h2><p>운영체제는 <strong>응용 프로그램을 위한 인터페이스</strong>도 제공</p>
 <ul>
 <li><p>API (Application Programming Interface)</p>
@@ -933,23 +1241,23 @@
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%A0%84%EB%8B%AC%EA%B5%AC%EC%A1%B0.png" alt="운영체제전달구조"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%A0%84%EB%8B%AC%EA%B5%AC%EC%A1%B0.png" alt="운영체제전달구조"></p>
 <h2 id="시스템-콜"><a href="#시스템-콜" class="headerlink" title="시스템 콜"></a>시스템 콜</h2><p><strong>시스템 콜</strong> 또는 <strong>시스템 호출 인터페이스</strong></p>
 <p>운영체제가 운영체제 각 기능을 사용할 수 있도록 하는 <strong>명령</strong> 또는 <strong>함수</strong>를 제공</p>
 <p>API 내부에는 시스템콜을 호출하는 형태로 만들어지는 경우가 대부분</p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C.png" alt="시스템콜"><br>출처: <a target="_blank" rel="noopener" href="https://www.kernel.org/doc/man-pages/">https://www.kernel.org/doc/man-pages/</a></p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%A0%84%EB%8B%AC%EA%B5%AC%EC%A1%B02.png" alt="운영체제전달구조2"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C.png" alt="시스템콜"><br>출처: <a target="_blank" rel="noopener" href="https://www.kernel.org/doc/man-pages/">https://www.kernel.org/doc/man-pages/</a></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%A0%84%EB%8B%AC%EA%B5%AC%EC%A1%B02.png" alt="운영체제전달구조2"></p>
 <h3 id="CPU-Protection-Rings"><a href="#CPU-Protection-Rings" class="headerlink" title="CPU Protection Rings"></a>CPU Protection Rings</h3><h3 id="두-가지-모드"><a href="#두-가지-모드" class="headerlink" title="두 가지 모드"></a>두 가지 모드</h3><p>대부분은 Ring 3, Ring 0 두가지 모드를 사용 (각각 사용자 모드, 커널 모드)</p>
 <ul>
 <li>사용자 모드 (user mode): 응용 프로그램이 사용</li>
 <li>커널 모드 (kernel mode): OS가 사용, 특권 명령어 실행과 원하는 작업 수행을 위한 자원 접근을 가능케 하는 모드</li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/CPU_ProtectionRings.png" alt="CPU_ProtectionRings"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/CPU_ProtectionRings.png" alt="CPU_ProtectionRings"></p>
 <h3 id="응용-프로그램과-운영체제"><a href="#응용-프로그램과-운영체제" class="headerlink" title="응용 프로그램과 운영체제"></a>응용 프로그램과 운영체제</h3><p>우리가 만드는 프로그램은 맨위에서 놀고 있습니다.</p>
 <blockquote>
 <p>어떤 명령은 사용자 영역에서 시행되고<br>어떤 명령은 시스템 호출 인터페이스를 통해서 커널영역에서 시행됨</p>
 </blockquote>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%91%EC%9A%A9%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EA%B3%BC%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C.png" alt="응용프로그램과운영체제"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%91%EC%9A%A9%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EA%B3%BC%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C.png" alt="응용프로그램과운영체제"></p>
 <h3 id="시스템콜은-커널-모드로-실행"><a href="#시스템콜은-커널-모드로-실행" class="headerlink" title="시스템콜은 커널 모드로 실행"></a>시스템콜은 커널 모드로 실행</h3><ul>
 <li>커널 모드에서만 실행 가능한 기능들이 있음</li>
 <li><strong>커널 모드로 실행하려면, 반드시 시스템 콜을 사용해야 함</strong>(거쳐야 함)</li>
@@ -963,18 +1271,18 @@
 </ul>
 </li>
 </ul>
-<h3 id="Code-example-1"><a href="#Code-example-1" class="headerlink" title="Code example 1"></a>Code example 1</h3><p>응용프로그램 시행중에도 사용자모드, 커널모드 왔다갔다 거림<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/code1_2.png" alt="code1"></p>
+<h3 id="Code-example-1"><a href="#Code-example-1" class="headerlink" title="Code example 1"></a>Code example 1</h3><p>응용프로그램 시행중에도 사용자모드, 커널모드 왔다갔다 거림<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/code1_2.png" alt="code1"></p>
 <h3 id="Code-example-2"><a href="#Code-example-2" class="headerlink" title="Code example 2"></a>Code example 2</h3><pre><code class="structure">user    - API
 ------- - System call-------------------
 kernel  - system call을 처리하는 운영체제 함수
 </code></pre>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/code2_2.png" alt="code2_2"></p>
-<h3 id="쉬어가기-응용-프로그래머와-시스템-프로그래머"><a href="#쉬어가기-응용-프로그래머와-시스템-프로그래머" class="headerlink" title="[쉬어가기] 응용 프로그래머와 시스템 프로그래머"></a>[쉬어가기] 응용 프로그래머와 시스템 프로그래머</h3><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%91%EC%9A%A9%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8,%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8.png" alt="응용프로그래머,시스템프로그래머"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/code2_2.png" alt="code2_2"></p>
+<h3 id="쉬어가기-응용-프로그래머와-시스템-프로그래머"><a href="#쉬어가기-응용-프로그래머와-시스템-프로그래머" class="headerlink" title="[쉬어가기] 응용 프로그래머와 시스템 프로그래머"></a>[쉬어가기] 응용 프로그래머와 시스템 프로그래머</h3><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%91%EC%9A%A9%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8,%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8.png" alt="응용프로그래머,시스템프로그래머"></p>
 <h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul>
 <li>운영체제는 <strong>시스템 콜</strong> 제공</li>
 <li>프로그래밍 언어별로 운영체제 기능을 활용하기 위해, 시스템 콜을 기반으로 <strong>API</strong> 제공</li>
 <li>응용 프로그램은 운영체제 기능 필요시, 해당 <strong>API</strong> 를 사용해서 프로그램을 작성</li>
-<li>응용 프로그램이 실행되서, 운영체제 기능이 필요한 <strong>API</strong> 를 호출하면, 시스템 콜이 호출되서, 커널 모드로 변경되어 OS 내부에서 해당 명령이 실행되고, 다시 응용 프로그램으로 돌아간다.<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%91%EC%9A%A9%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EA%B3%BC%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%A0%95%EB%A6%AC.png" alt="응용프로그램과운영체제정리"></li>
+<li>응용 프로그램이 실행되서, 운영체제 기능이 필요한 <strong>API</strong> 를 호출하면, 시스템 콜이 호출되서, 커널 모드로 변경되어 OS 내부에서 해당 명령이 실행되고, 다시 응용 프로그램으로 돌아간다.<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%91%EC%9A%A9%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EA%B3%BC%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%A0%95%EB%A6%AC.png" alt="응용프로그램과운영체제정리"></li>
 </ul>
 <h1 id="프로세스-스케쥴링-1"><a href="#프로세스-스케쥴링-1" class="headerlink" title="프로세스 스케쥴링 1"></a>프로세스 스케쥴링 1</h1><p>배치 처리 시스템, 시분할 시스템, 멀티 태스킹</p>
 <h2 id="배치-처리-시스템-1"><a href="#배치-처리-시스템-1" class="headerlink" title="배치 처리 시스템"></a>배치 처리 시스템</h2><ul>
@@ -982,7 +1290,7 @@ kernel  - system call을 처리하는 운영체제 함수
 <li>컴퓨터 프로그램 실행 요청 순서에 따라 순차적으로 프로그램을 실행하는 방식</li>
 <li>한번에 등록된 여러 프로그램을 순차적으로 실행 가능</li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B0%B0%EC%B9%98%EC%B2%98%EB%A6%AC%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="배치처리시스템"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B0%B0%EC%B9%98%EC%B2%98%EB%A6%AC%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="배치처리시스템"></p>
 <p>FIFO(First In First Out) - 데이터 구조 큐와 비슷</p>
 <h2 id="배치-처리-시스템이-안쓰이는-이유"><a href="#배치-처리-시스템이-안쓰이는-이유" class="headerlink" title="배치 처리 시스템이 안쓰이는 이유"></a>배치 처리 시스템이 안쓰이는 이유</h2><ul>
 <li>요구사항 : 여러 프로그램을 순차적으로 실행시킬 수 있도록 해주세요!<ul>
@@ -998,18 +1306,18 @@ kernel  - system call을 처리하는 운영체제 함수
 </blockquote>
 </li>
 </ul>
-<h2 id="시분할-시스템"><a href="#시분할-시스템" class="headerlink" title="시분할 시스템"></a>시분할 시스템</h2><p>다중 사용자 지원을 위해 컴퓨터 응답 시간을 최소화하는 시스템<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%9C%EB%B6%84%ED%95%A0%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="시분할시스템"></p>
+<h2 id="시분할-시스템"><a href="#시분할-시스템" class="headerlink" title="시분할 시스템"></a>시분할 시스템</h2><p>다중 사용자 지원을 위해 컴퓨터 응답 시간을 최소화하는 시스템<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%9C%EB%B6%84%ED%95%A0%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="시분할시스템"></p>
 <h2 id="멀티-태스킹"><a href="#멀티-태스킹" class="headerlink" title="멀티 태스킹"></a>멀티 태스킹</h2><p>단일 CPU에서, 여러 응용 프로그램이 동시에 실행되는 것처럼 보이도록 하는 시스템</p>
 <ul>
-<li>MP 3 음악을 들으며, 문서 작성하는 상황 그림<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%83%9C%EC%8A%A4%ED%82%B9.png" alt="멀티태스킹"></li>
+<li>MP 3 음악을 들으며, 문서 작성하는 상황 그림<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%83%9C%EC%8A%A4%ED%82%B9.png" alt="멀티태스킹"></li>
 </ul>
 <h3 id="실제-멀티-태스킹"><a href="#실제-멀티-태스킹" class="headerlink" title="실제 멀티 태스킹"></a>실제 멀티 태스킹</h3><ul>
 <li>1000 밀리초(ms) = 1 초</li>
 <li>10 ~ 20 ms 단위로도 실행 응용 프로그램이 바뀌더라</li>
 <li>사용자에게는 동시에 실행되는 것처럼 보임</li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%83%9C%EC%8A%A4%ED%82%B92.png" alt="멀티태스킹2"></p>
-<h2 id="멀티-태스킹과-멀티-프로세싱"><a href="#멀티-태스킹과-멀티-프로세싱" class="headerlink" title="멀티 태스킹과 멀티 프로세싱"></a>멀티 태스킹과 멀티 프로세싱</h2><p>-멀티 태스킹: 단일 CPU<br>-멀티 프로세싱: 여러 CPU에 하나의 프로그램을 병렬로 실행해서 실행속도를 극대화시키는 시스템<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%83%9C%EC%8A%A4%ED%82%B9%EA%B3%BC%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EC%84%B8%EC%8B%B1%EB%B9%84%EA%B5%90.png" alt="멀티태스킹과멀티프로세싱비교"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%83%9C%EC%8A%A4%ED%82%B92.png" alt="멀티태스킹2"></p>
+<h2 id="멀티-태스킹과-멀티-프로세싱"><a href="#멀티-태스킹과-멀티-프로세싱" class="headerlink" title="멀티 태스킹과 멀티 프로세싱"></a>멀티 태스킹과 멀티 프로세싱</h2><p>-멀티 태스킹: 단일 CPU<br>-멀티 프로세싱: 여러 CPU에 하나의 프로그램을 병렬로 실행해서 실행속도를 극대화시키는 시스템<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%83%9C%EC%8A%A4%ED%82%B9%EA%B3%BC%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EC%84%B8%EC%8B%B1%EB%B9%84%EA%B5%90.png" alt="멀티태스킹과멀티프로세싱비교"></p>
 <p>출처: <a target="_blank" rel="noopener" href="http://donghoson.tistory.com/15">http://donghoson.tistory.com/15</a></p>
 <h2 id="정리-1"><a href="#정리-1" class="headerlink" title="정리"></a>정리</h2><ul>
 <li>배치 처리 시스템:</li>
@@ -1028,12 +1336,12 @@ kernel  - system call을 처리하는 운영체제 함수
 <li><p>응용 프로그램은 온전히 CPU를 쓰기 보다, 다른 작업을 중간에 필요로 하는 경우가 많다</p>
 <ul>
 <li>응용 프로그램이 실행되다가 파일을 읽는다.</li>
-<li>응용 프로그램이 실행되다가 프린팅을 한다.<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.png" alt="멀티프로그래밍"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D2.png" alt="멀티프로그래밍2"></li>
+<li>응용 프로그램이 실행되다가 프린팅을 한다.<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D.png" alt="멀티프로그래밍"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D2.png" alt="멀티프로그래밍2"></li>
 </ul>
 </li>
 </ul>
-<h2 id="Code-example"><a href="#Code-example" class="headerlink" title="Code example"></a>Code example</h2><h2 id="메모리-계층-‑-컴퓨터-구조-복습"><a href="#메모리-계층-‑-컴퓨터-구조-복습" class="headerlink" title="메모리 계층 ‑ 컴퓨터 구조 복습"></a>메모리 계층 ‑ 컴퓨터 구조 복습</h2><p>Flash Drive - SSD<br>Hard Disk - HDD<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%84%EC%B8%B5%EA%B5%AC%EC%A1%B0.png" alt="메모리계층구조"><br>출처: <a target="_blank" rel="noopener" href="http://computationstructures.org/lectures/caches/caches.html">http://computationstructures.org/lectures/caches/caches.html</a></p>
-<h2 id="System-Bus-‑-컴퓨터-구조-복습"><a href="#System-Bus-‑-컴퓨터-구조-복습" class="headerlink" title="System Bus ‑ 컴퓨터 구조 복습"></a>System Bus ‑ 컴퓨터 구조 복습</h2><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0.png" alt="컴퓨터구조"></p>
+<h2 id="Code-example"><a href="#Code-example" class="headerlink" title="Code example"></a>Code example</h2><h2 id="메모리-계층-‑-컴퓨터-구조-복습"><a href="#메모리-계층-‑-컴퓨터-구조-복습" class="headerlink" title="메모리 계층 ‑ 컴퓨터 구조 복습"></a>메모리 계층 ‑ 컴퓨터 구조 복습</h2><p>Flash Drive - SSD<br>Hard Disk - HDD<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%84%EC%B8%B5%EA%B5%AC%EC%A1%B0.png" alt="메모리계층구조"><br>출처: <a target="_blank" rel="noopener" href="http://computationstructures.org/lectures/caches/caches.html">http://computationstructures.org/lectures/caches/caches.html</a></p>
+<h2 id="System-Bus-‑-컴퓨터-구조-복습"><a href="#System-Bus-‑-컴퓨터-구조-복습" class="headerlink" title="System Bus ‑ 컴퓨터 구조 복습"></a>System Bus ‑ 컴퓨터 구조 복습</h2><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0.png" alt="컴퓨터구조"></p>
 <h2 id="정리-2"><a href="#정리-2" class="headerlink" title="정리"></a>정리</h2><p>실제로는 시분할 시스템, 멀티 프로그래밍, 멀티 태스킹이 유사한 의미로 통용된다.</p>
 <blockquote>
 <p>핵심</p>
@@ -1085,21 +1393,21 @@ kernel  - system call을 처리하는 운영체제 함수
 <ul>
 <li>목표<ul>
 <li>시분할 시스템 예: 프로세스 응답 시간을 가능한 짧게</li>
-<li>멀티 프로그래밍 예: CPU 활용도를 최대로 높혀서, 프로세스를 빨리 실행<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/FIFO_Scheduler.png" alt="FIFO_Scheduler"></li>
+<li>멀티 프로그래밍 예: CPU 활용도를 최대로 높혀서, 프로세스를 빨리 실행<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/FIFO_Scheduler.png" alt="FIFO_Scheduler"></li>
 </ul>
 </li>
 </ul>
 <h3 id="FIFO-스케쥴러"><a href="#FIFO-스케쥴러" class="headerlink" title="FIFO 스케쥴러"></a>FIFO 스케쥴러</h3><blockquote>
 <p>프로세스가 저장매체를 읽는 다든지, 프린팅을 한다든지 하는 작업 없이, 쭉 CPU를 처음부터 끝까지 사용한다. </p>
 </blockquote>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/FIFO_Scheduler2.png" alt="FIFO_Scheduler2"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/FIFO_Scheduler2.png" alt="FIFO_Scheduler2"></p>
 <ul>
 <li>가장 간단한 스케쥴러 (배치 처리 시스템)</li>
 <li>FCFS (First Come First Served) 스케쥴러 라고도 함</li>
 </ul>
-<h4 id="FIFO-는-어디서-배웠을까"><a href="#FIFO-는-어디서-배웠을까" class="headerlink" title="FIFO 는 어디서 배웠을까?"></a>FIFO 는 어디서 배웠을까?</h4><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/FIFO.png" alt="FIFO"></p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Queue_FIFO.png" alt="Queue_FIFO"><br>출처: <a target="_blank" rel="noopener" href="http://www.stoimen.com/blog/2012/06/05/computer%E2%80%91algorithms%E2%80%91stack%E2%80%91and%E2%80%91queue%E2%80%91">http://www.stoimen.com/blog/2012/06/05/computer‑algorithms‑stack‑and‑queue‑</a><br>data‑structure/</p>
-<h3 id="최단-작업-우선-SJF-스케쥴러"><a href="#최단-작업-우선-SJF-스케쥴러" class="headerlink" title="최단 작업 우선(SJF) 스케쥴러"></a>최단 작업 우선(SJF) 스케쥴러</h3><p>SJF(Shortest Job First) 스케쥴러<br>가장 프로세스 실행시간이 짧은 프로세스부터 먼저 실행을 시키는 알고리즘<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/SJF.png" alt="SJF"></p>
+<h4 id="FIFO-는-어디서-배웠을까"><a href="#FIFO-는-어디서-배웠을까" class="headerlink" title="FIFO 는 어디서 배웠을까?"></a>FIFO 는 어디서 배웠을까?</h4><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/FIFO.png" alt="FIFO"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Queue_FIFO.png" alt="Queue_FIFO"><br>출처: <a target="_blank" rel="noopener" href="http://www.stoimen.com/blog/2012/06/05/computer%E2%80%91algorithms%E2%80%91stack%E2%80%91and%E2%80%91queue%E2%80%91">http://www.stoimen.com/blog/2012/06/05/computer‑algorithms‑stack‑and‑queue‑</a><br>data‑structure/</p>
+<h3 id="최단-작업-우선-SJF-스케쥴러"><a href="#최단-작업-우선-SJF-스케쥴러" class="headerlink" title="최단 작업 우선(SJF) 스케쥴러"></a>최단 작업 우선(SJF) 스케쥴러</h3><p>SJF(Shortest Job First) 스케쥴러<br>가장 프로세스 실행시간이 짧은 프로세스부터 먼저 실행을 시키는 알고리즘<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/SJF.png" alt="SJF"></p>
 <h3 id="여기서-잠깐-RTOS-GPOS"><a href="#여기서-잠깐-RTOS-GPOS" class="headerlink" title="여기서 잠깐! RTOS, GPOS"></a>여기서 잠깐! RTOS, GPOS</h3><ul>
 <li>RealTime OS(RTOS): 응용 프로그램 실시간 성능 보장을 목표로 하는 OS<ul>
 <li>정확하게 프로그램 시작, 완료 시간을 보장 (공정에서 사용)</li>
@@ -1119,13 +1427,13 @@ kernel  - system call을 처리하는 운영체제 함수
 </ul>
 </li>
 <li>동적 우선순위<ul>
-<li>스케쥴러가 상황에 따라 우선순위를 동적으로 변경<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Priority_Scheduler.png" alt="Priority_Scheduler"></li>
+<li>스케쥴러가 상황에 따라 우선순위를 동적으로 변경<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Priority_Scheduler.png" alt="Priority_Scheduler"></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="Round-Robin-스케쥴러"><a href="#Round-Robin-스케쥴러" class="headerlink" title="Round Robin 스케쥴러"></a>Round Robin 스케쥴러</h3><p>시분할 시스템 + 큐<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/RoundRobin_Scheduler.png" alt="RoundRobin_Scheduler"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/RoundRobin_Scheduler2.png" alt="RoundRobin_Scheduler2"></p>
+<h3 id="Round-Robin-스케쥴러"><a href="#Round-Robin-스케쥴러" class="headerlink" title="Round Robin 스케쥴러"></a>Round Robin 스케쥴러</h3><p>시분할 시스템 + 큐<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/RoundRobin_Scheduler.png" alt="RoundRobin_Scheduler"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/RoundRobin_Scheduler2.png" alt="RoundRobin_Scheduler2"></p>
 <h2 id="정리-3"><a href="#정리-3" class="headerlink" title="정리"></a>정리</h2><ul>
 <li>다양한 기본 스케쥴링 알고리즘<ul>
 <li>FIFO (FCFS) 스케쥴링 알고리즘 (배치 처리 시스템)</li>
@@ -1144,9 +1452,9 @@ kernel  - system call을 처리하는 운영체제 함수
 <h1 id="스케쥴링-알고리즘-2"><a href="#스케쥴링-알고리즘-2" class="headerlink" title="스케쥴링 알고리즘 2"></a>스케쥴링 알고리즘 2</h1><p>프로세스 상태와 스케쥴링</p>
 <h2 id="멀티-프로그래밍과-Wait"><a href="#멀티-프로그래밍과-Wait" class="headerlink" title="멀티 프로그래밍과 Wait"></a>멀티 프로그래밍과 Wait</h2><ul>
 <li>멀티 프로그래밍: CPU의 활용도를 극대화 하는 스케쥴링 알고리즘</li>
-<li>Wait: 간단히 저장매체로부터 파일 읽기를 기다리는 시간으로 가정<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BCwait.png" alt="멀티프로그래밍과wait"></li>
+<li>Wait: 간단히 저장매체로부터 파일 읽기를 기다리는 시간으로 가정<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%80%ED%8B%B0%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%BCwait.png" alt="멀티프로그래밍과wait"></li>
 </ul>
-<h2 id="프로세스-상태"><a href="#프로세스-상태" class="headerlink" title="프로세스 상태"></a>프로세스 상태</h2><p>스케줄러가 각 시점에 따라 프로세스의 상태를 알고 있어야 한다.<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%83%81%ED%83%9C.png" alt="프로세스상태"></p>
+<h2 id="프로세스-상태"><a href="#프로세스-상태" class="headerlink" title="프로세스 상태"></a>프로세스 상태</h2><p>스케줄러가 각 시점에 따라 프로세스의 상태를 알고 있어야 한다.<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%83%81%ED%83%9C.png" alt="프로세스상태"></p>
 <ul>
 <li>running state: 현재 CPU에서 실행 상태</li>
 <li>ready state: CPU에서 실행 가능 상태 (실행 대기 상태)</li>
@@ -1158,13 +1466,13 @@ kernel  - system call을 처리하는 운영체제 함수
 <li>최신의 알고리즘은 훨신 복잡하게 이리저리 쪼개놓음</li>
 </ul>
 <h2 id="프로세스-상태간-관계"><a href="#프로세스-상태간-관계" class="headerlink" title="프로세스 상태간 관계"></a>프로세스 상태간 관계</h2><ul>
-<li>ready, running, block states<br>input(=특정 이벤트) 대기<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%83%81%ED%83%9C%EA%B0%84%EA%B4%80%EA%B3%84.png" alt="프로세스상태간관계">  <blockquote>
+<li>ready, running, block states<br>input(=특정 이벤트) 대기<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%83%81%ED%83%9C%EA%B0%84%EA%B4%80%EA%B3%84.png" alt="프로세스상태간관계">  <blockquote>
 <p>OS.xlsx -&gt; Process Status (BASIC) &amp; (QUEUE)</p>
 </blockquote>
 </li>
 </ul>
 <h2 id="프로세스가-3가지인-경우-스케줄러-동작"><a href="#프로세스가-3가지인-경우-스케줄러-동작" class="headerlink" title="프로세스가 3가지인 경우 스케줄러 동작"></a>프로세스가 3가지인 경우 스케줄러 동작</h2><p>프로세스가 3가지인 경우 다음과 같이 3개의 큐를 사용해 관리하면 됨</p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%83%80%EA%B3%84%ED%95%A0%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%ED%95%84%EC%9A%94%ED%95%9C%EC%83%81%ED%99%A9.png" alt="타계할알고리즘필요한상황"><br>해결법<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/3%EA%B0%9C%EC%9D%98_%ED%81%90%EB%A1%9C_%EC%8A%A4%EC%BC%80%EC%A4%84%EA%B4%80%EB%A6%AC_2.png" alt="3개의_큐로_스케줄관리"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%83%80%EA%B3%84%ED%95%A0%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%ED%95%84%EC%9A%94%ED%95%9C%EC%83%81%ED%99%A9.png" alt="타계할알고리즘필요한상황"><br>해결법<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/3%EA%B0%9C%EC%9D%98_%ED%81%90%EB%A1%9C_%EC%8A%A4%EC%BC%80%EC%A4%84%EA%B4%80%EB%A6%AC_2.png" alt="3개의_큐로_스케줄관리"></p>
 <p>*** CPU idle 상태 : CPU가 아무것도 하지않는 상태</p>
 <h1 id="스케쥴링-알고리즘-3"><a href="#스케쥴링-알고리즘-3" class="headerlink" title="스케쥴링 알고리즘 3"></a>스케쥴링 알고리즘 3</h1><p>선점형과 비선점형 스케쥴러</p>
 <h2 id="선점형과-비선점형-스케쥴러"><a href="#선점형과-비선점형-스케쥴러" class="headerlink" title="선점형과 비선점형 스케쥴러"></a>선점형과 비선점형 스케쥴러</h2><ul>
@@ -1172,16 +1480,16 @@ kernel  - system call을 처리하는 운영체제 함수
 <li>비선점형 스케쥴러 (Non‑preemptive Scheduling)<br>: 하나의 프로세스가 끝나지 않으면 다른 프로세스는 CPU를 사용할 수 없음</li>
 </ul>
 <h2 id="선점형과-비선점형-스케쥴러-차이"><a href="#선점형과-비선점형-스케쥴러-차이" class="headerlink" title="선점형과 비선점형 스케쥴러 차이"></a>선점형과 비선점형 스케쥴러 차이</h2><p>비선점형: 프로세스가 자발적으로 blocking 상태로 들어가거나, 실행이 끝났을 때만, 다른 프로세스로 교체 가능</p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B9%84%EC%84%A0%EC%A0%90%ED%98%95%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC.png" alt="비선점형스케쥴러"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B9%84%EC%84%A0%EC%A0%90%ED%98%95%EC%8A%A4%EC%BC%80%EC%A5%B4%EB%9F%AC.png" alt="비선점형스케쥴러"></p>
 <p>선점형: 프로세스 running 중에 스케쥴러가 이를 중단시키고, 다른 프로세스로 교체 가능</p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%83%81%ED%83%9C%EA%B0%84%EA%B4%80%EA%B3%84.png" alt="프로세스상태간관계">  </p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B9%84%EC%84%A0%EC%A0%90%ED%98%95%EC%84%A0%EC%A0%90%ED%98%95%EB%B9%84%EA%B5%90.png" alt="비선점형선점형비교"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%83%81%ED%83%9C%EA%B0%84%EA%B4%80%EA%B3%84.png" alt="프로세스상태간관계">  </p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B9%84%EC%84%A0%EC%A0%90%ED%98%95%EC%84%A0%EC%A0%90%ED%98%95%EB%B9%84%EA%B5%90.png" alt="비선점형선점형비교"></p>
 <blockquote>
 <p>OS.xlsx ‑&gt; Preemptive</p>
 </blockquote>
 <h2 id="스케쥴러-구분"><a href="#스케쥴러-구분" class="headerlink" title="스케쥴러 구분"></a>스케쥴러 구분</h2><p>FIFO(FCFS), SJF, Priority‑based 는 어떤 프로세스를 먼저 실행시킬지에 대한 알고리즘<br>RoundRobin 은 시분할 시스템을 위한 기본 알고리즘 (선점형 스케쥴러)</p>
 <blockquote>
-<p>여러 알고리즘 조합가능!!<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EA%B8%B0%EB%B0%98,%EC%8B%9C%EB%B6%84%ED%95%A0,%EC%84%A0%EC%A0%90%ED%98%95.png" alt="우선순위기반,시분할,선점형.png"></p>
+<p>여러 알고리즘 조합가능!!<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%EA%B8%B0%EB%B0%98,%EC%8B%9C%EB%B6%84%ED%95%A0,%EC%84%A0%EC%A0%90%ED%98%95.png" alt="우선순위기반,시분할,선점형.png"></p>
 </blockquote>
 <h2 id="랙"><a href="#랙" class="headerlink" title="랙?"></a>랙?</h2><p>: 마우스 / 키보드 반응이 느린 경우?</p>
 <ul>
@@ -1209,7 +1517,7 @@ kernel  - system call을 처리하는 운영체제 함수
 <h3 id="이벤트와-인터럽트"><a href="#이벤트와-인터럽트" class="headerlink" title="이벤트와 인터럽트"></a>이벤트와 인터럽트</h3><ul>
 <li>  인터럽트는 일종의 이벤트로 불림</li>
 <li>  이벤트에 맞게 운영체제가 처리</li>
-<li><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/CPU%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%A1%B0.png" alt="CPU기본구조"><br>복습. 시그널을 보내주는게 인터럽트<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/event%EB%B0%9C%EC%83%9D%EC%9D%B4interupt.png" alt="event발생이interupt"></li>
+<li><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/CPU%EA%B8%B0%EB%B3%B8%EA%B5%AC%EC%A1%B0.png" alt="CPU기본구조"><br>복습. 시그널을 보내주는게 인터럽트<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/event%EB%B0%9C%EC%83%9D%EC%9D%B4interupt.png" alt="event발생이interupt"></li>
 </ul>
 <h2 id="인터럽트-필요-이유"><a href="#인터럽트-필요-이유" class="headerlink" title="인터럽트 필요 이유"></a>인터럽트 필요 이유</h2><ul>
 <li><p>선점형 스케쥴러 구현</p>
@@ -1351,7 +1659,7 @@ int 0x80 // 소프트웨어 인터럽트 명령
 </li>
 </ul>
 <p><img src="https://www.fun-coding.org/00_Images/SYSCALLLIST.png"></p>
-<h4 id="이거-나중에-다시보기"><a href="#이거-나중에-다시보기" class="headerlink" title="이거 나중에 다시보기"></a>이거 나중에 다시보기</h4><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%99%80%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C(%EA%B3%A0%EA%B8%89).png" alt="인터럽트와시스템콜(고급)"></p>
+<h4 id="이거-나중에-다시보기"><a href="#이거-나중에-다시보기" class="headerlink" title="이거 나중에 다시보기"></a>이거 나중에 다시보기</h4><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%99%80%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C(%EA%B3%A0%EA%B8%89).png" alt="인터럽트와시스템콜(고급)"></p>
 <h2 id="사용자-커널-모드와-프로세스-인터럽트"><a href="#사용자-커널-모드와-프로세스-인터럽트" class="headerlink" title="사용자/커널 모드와 프로세스, 인터럽트"></a>사용자/커널 모드와 프로세스, 인터럽트</h2><hr>
 <p><img src="https://www.fun-coding.org/00_Images/mode&syscall.png"></p>
 <p>정리</p>
@@ -1450,7 +1758,7 @@ int 0x80 // 소프트웨어 인터럽트 명령
 </blockquote>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BD%94%EB%93%9C%EC%8B%A4%ED%96%89%EC%8A%A4%ED%83%9D%EC%82%AC%EC%9A%A9.png" alt="코드실행스택사용"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BD%94%EB%93%9C%EC%8B%A4%ED%96%89%EC%8A%A4%ED%83%9D%EC%82%AC%EC%9A%A9.png" alt="코드실행스택사용"></p>
 <ul>
 <li><p>Heap</p>
 <ul>
@@ -1476,13 +1784,13 @@ int main()
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/C%EC%96%B8%EC%96%B4%EC%BD%94%EB%93%9C%EB%8F%99%EC%9E%91.png" alt="C언어코드동작"></p>
-<h4 id="함수의-동작"><a href="#함수의-동작" class="headerlink" title="함수의 동작"></a>함수의 동작</h4><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD.png" alt="프로세스와컨텍스트스위칭"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/C%EC%96%B8%EC%96%B4%EC%BD%94%EB%93%9C%EB%8F%99%EC%9E%91.png" alt="C언어코드동작"></p>
+<h4 id="함수의-동작"><a href="#함수의-동작" class="headerlink" title="함수의 동작"></a>함수의 동작</h4><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD.png" alt="프로세스와컨텍스트스위칭"></p>
 <ul>
 <li><p>함수안에도 별도의 변수를 지정할 수 있음  </p>
 <ul>
 <li>함수가 끝나면 사라짐  <blockquote>
-<p>함수는 스택이라는 동적으로 할당되는 메모리 공간을 갖고있음<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD2.png" alt="프로세스와컨텍스트스위칭2"></p>
+<p>함수는 스택이라는 동적으로 할당되는 메모리 공간을 갖고있음<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD2.png" alt="프로세스와컨텍스트스위칭2"></p>
 </blockquote>
 </li>
 </ul>
@@ -1500,7 +1808,7 @@ int main()
 </ul>
 <p><em>c언어의 molloc()으로 특정 메모리 공간을 형성 (동적인 메모리임)</em></p>
 <h3 id="파이썬에서-동작"><a href="#파이썬에서-동작" class="headerlink" title="파이썬에서 동작"></a>파이썬에서 동작</h3><p>주의 : TEXT (CODE)부는 원래 중앙 하단처럼 뒤집혀서 들어가 있어야 하지만 보기 편하게 위에서부터 써 둠  </p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%BD%94%EB%93%9C%EC%8B%A4%ED%96%89%EC%8B%9C%EB%A9%94%EB%AA%A8%EB%A6%AC.png" alt="파이썬코드실행시메모리"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%BD%94%EB%93%9C%EC%8B%A4%ED%96%89%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%A7%88%EC%A7%80%EB%A7%89.png" alt="파이썬코드실행메모리마지막"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%BD%94%EB%93%9C%EC%8B%A4%ED%96%89%EC%8B%9C%EB%A9%94%EB%AA%A8%EB%A6%AC.png" alt="파이썬코드실행시메모리"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%BD%94%EB%93%9C%EC%8B%A4%ED%96%89%EB%A9%94%EB%AA%A8%EB%A6%AC%EB%A7%88%EC%A7%80%EB%A7%89.png" alt="파이썬코드실행메모리마지막"></p>
 <blockquote>
 <p>EBP</p>
 </blockquote>
@@ -1513,7 +1821,7 @@ int main()
 <ul>
 <li>DATA를 BSS와 DATA로 분리<ul>
 <li>BSS : 초기화 되지 않은 전역변수 </li>
-<li>DATA : 초기값이 있는 전역변수<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%98%81%EC%97%AD.png" alt="메모리할당"></li>
+<li>DATA : 초기값이 있는 전역변수<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%98%81%EC%97%AD.png" alt="메모리할당"></li>
 </ul>
 </li>
 </ul>
@@ -1526,9 +1834,9 @@ int main()
 <li><p><em>주의 : 엑셀그림에선 스택을 보기편하게 거꿀로 기술함</em></p>
 </li>
 <li><p>strcpy는 end 기호까지를 무조건 복사하는 함수</p>
-<p>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/strcpy%EC%99%80argc.png" alt="strcpy와argc"><br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/strcpy%EC%99%80argc2.png" alt="strcpy와argc2"></p>
+<p>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/strcpy%EC%99%80argc.png" alt="strcpy와argc"><br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/strcpy%EC%99%80argc2.png" alt="strcpy와argc2"></p>
 </li>
-<li><p>마지막에 해커가 원하는 주소를 가르켜서 실행되는 프로그램을 바꿔버림(루트 사용자권한을 얻음)<br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/strcpy%EC%99%80argc3.png" alt="strcpy와argc3"></p>
+<li><p>마지막에 해커가 원하는 주소를 가르켜서 실행되는 프로그램을 바꿔버림(루트 사용자권한을 얻음)<br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/strcpy%EC%99%80argc3.png" alt="strcpy와argc3"></p>
 <p>  <img src="https://www.fun-coding.org/00_Images/processstructure.png"></p>
 </li>
 </ul>
@@ -1536,7 +1844,7 @@ int main()
 <p>출처: <a target="_blank" rel="noopener" href="http://www.drdobbs.com/security/anatomy-of-a-stack-smashing-attack-and-h/240001832">http://www.drdobbs.com/security/anatomy-of-a-stack-smashing-attack-and-h/240001832</a></p>
 </blockquote>
 <hr>
-<h2 id="컨텍스트-스위칭-원리"><a href="#컨텍스트-스위칭-원리" class="headerlink" title="컨텍스트 스위칭 원리"></a>컨텍스트 스위칭 원리</h2><p>컨텍스트 스위칭 : CPU가 A란 프로세스를 실행하다가 스케줄러에 인해 B 프로세스를 실행할 때, 이것을 컨텍스트 스위칭 이라 함<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD%EC%9D%B4%EB%9E%80.png" alt="컨텍스트스위칭이란"></p>
+<h2 id="컨텍스트-스위칭-원리"><a href="#컨텍스트-스위칭-원리" class="headerlink" title="컨텍스트 스위칭 원리"></a>컨텍스트 스위칭 원리</h2><p>컨텍스트 스위칭 : CPU가 A란 프로세스를 실행하다가 스케줄러에 인해 B 프로세스를 실행할 때, 이것을 컨텍스트 스위칭 이라 함<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD%EC%9D%B4%EB%9E%80.png" alt="컨텍스트스위칭이란"></p>
 <blockquote>
 <p>다시 PC, SP에 주목하자. (주요 레지스터)</p>
 </blockquote>
@@ -1552,9 +1860,9 @@ int main()
 <!-- > 
 > OS.xlsx -> ProcessAllWithCS -->
 
-<!-- ![컨텍스트스위칭두가지비교](/운영체제/컨스1.png)
-![컨텍스트스위칭두가지비교](/운영체제/컨스2.png)
-![컨스3(PCB)](/운영체제/컨스3(PCB).png) -->
+<!-- ![컨텍스트스위칭두가지비교](/media/운영체제/컨스1.png)
+![컨텍스트스위칭두가지비교](/media/운영체제/컨스2.png)
+![컨스3(PCB)](/media/운영체제/컨스3(PCB).png) -->
 
 <hr>
 <h3 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a>PCB</h3><p>: 프로세스 상태가 저장되어 있는 위치!</p>
@@ -1585,7 +1893,7 @@ int main()
 </ol>
 <hr>
 <p>CPU에 있는 Program Counter와 Stack Pointer를 PCB에 PC와 SP에 저장하고,</p>
-<p>바꿀 프로세스의 PCB에 저장된 PC, SP값을 CPU에 넣어줌 (업데이트)<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80%EC%8A%A4%EC%9C%84%EC%B9%ADPCB.png" alt="컨텍스트와스위칭PCB"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80%EC%8A%A4%EC%9C%84%EC%B9%ADPCB2.png" alt="컨텍스트와스위칭PCB"></p>
+<p>바꿀 프로세스의 PCB에 저장된 PC, SP값을 CPU에 넣어줌 (업데이트)<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80%EC%8A%A4%EC%9C%84%EC%B9%ADPCB.png" alt="컨텍스트와스위칭PCB"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80%EC%8A%A4%EC%9C%84%EC%B9%ADPCB2.png" alt="컨텍스트와스위칭PCB"></p>
 <hr>
 <h3 id="PCB-리눅스-예"><a href="#PCB-리눅스-예" class="headerlink" title="PCB: 리눅스 예"></a>PCB: 리눅스 예</h3><hr>
 <ol>
@@ -1798,7 +2106,7 @@ int main()
 <ul>
 <li>  커널 공간은 공유한다.</li>
 </ul>
-<p><img src="https://www.fun-coding.org/00_Images/processspacewithkernel.png"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/kernel%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%B5%EC%9C%A0.png" alt="kernel메모리공유"></p>
+<p><img src="https://www.fun-coding.org/00_Images/processspacewithkernel.png"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/kernel%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B3%B5%EC%9C%A0.png" alt="kernel메모리공유"></p>
 <blockquote>
 <p>보다 구체적인 내용은 가상 메모리에서 다룸</p>
 </blockquote>
@@ -1840,7 +2148,7 @@ int main()
 </li>
 </ul>
 <hr>
-<h3 id="파이프-코드-예제"><a href="#파이프-코드-예제" class="headerlink" title="파이프 코드 예제"></a>파이프 코드 예제</h3><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/fork%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C.png" alt="fork시스템콜"></p>
+<h3 id="파이프-코드-예제"><a href="#파이프-코드-예제" class="headerlink" title="파이프 코드 예제"></a>파이프 코드 예제</h3><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/fork%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C.png" alt="fork시스템콜"></p>
 <ul>
 <li><p>원래의 유닉스는 포크라는 시스템콜이 있음</p>
 </li>
@@ -1875,7 +2183,7 @@ int main()
 </code></pre>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/fork%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C%ED%86%B5%EC%8B%A0.png" alt="fork시스템콜통신"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/fork%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%BD%9C%ED%86%B5%EC%8B%A0.png" alt="fork시스템콜통신"></p>
 <hr>
 <h2 id="메시지-큐-message-queue"><a href="#메시지-큐-message-queue" class="headerlink" title="메시지 큐(message queue)"></a>메시지 큐(message queue)</h2><ul>
 <li>큐니까, 기본은 FIFO 정책으로 데이터 전송  <img src="https://www.fun-coding.org/00_Images/queue.png"><ul>
@@ -2004,7 +2312,7 @@ shmaddr = shmat(shmid, (void *)0, 0)
 </li>
 </ul>
 <blockquote>
-<p>시그널 종류: kill -l<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/signalkill.png" alt="signalkill"><br>SIGUSER1 SIGUSR2 를 정의해서 프로세스간 통신 가능</p>
+<p>시그널 종류: kill -l<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/signalkill.png" alt="signalkill"><br>SIGUSER1 SIGUSR2 를 정의해서 프로세스간 통신 가능</p>
 </blockquote>
 <h4 id="시그널-동작"><a href="#시그널-동작" class="headerlink" title="시그널 동작"></a>시그널 동작</h4><p>프로세스 관련 코드에 관련 시그널 핸들러를 등록해서, 해당 시그널 처리 실행</p>
 <ul>
@@ -2066,7 +2374,7 @@ int main (void) &#123;
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/PCBsignal.png" alt="PCBsignal"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/PCBsignal.png" alt="PCBsignal"></p>
 <ul>
 <li>PCB에서 해당 프로세스 signal 자료구조 확인해서, 필요한 커널 함수를 호출해서 실행 한 후 사용자 모드로 올라감</li>
 <li>만약 특정동작을 프로세스에서 정의했다면 (사용자 모드에 있음), 함수가 기본동작이 아니라 그 동작을 사용자모드로 전환할 때 함</li>
@@ -2084,7 +2392,7 @@ int main (void) &#123;
 <h4 id="소켓-socket-과-IPC"><a href="#소켓-socket-과-IPC" class="headerlink" title="소켓(socket)과 IPC"></a>소켓(socket)과 IPC</h4><p>레이어드된 프로토콜 기술로? 지금은 넘어가기 (시스템프로그래밍에서 이해하자)<br>자기 컴퓨터 안에서, 또 다른 프로세스 안에서도 사용가능하기 때문에 IPC에서도 사용하게 됨   </p>
 <ul>
 <li>소켓을 하나의 컴퓨터 안에서, 두 개의 프로세스간에 통신 기법으로 사용 가능</li>
-<li>리눅스 커널 내부 네트워크 스택 예  <img src="https://www.fun-coding.org/00_Images/socketIPC.png"><br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/IPCsoket.png" alt="IPCsoket"></li>
+<li>리눅스 커널 내부 네트워크 스택 예  <img src="https://www.fun-coding.org/00_Images/socketIPC.png"><br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/IPCsoket.png" alt="IPCsoket"></li>
 </ul>
 <hr>
 <h2 id="정리-8"><a href="#정리-8" class="headerlink" title="정리"></a>정리</h2><ul>
@@ -2100,12 +2408,12 @@ int main (void) &#123;
 </blockquote>
 <h1 id="코드-돌아가는-거-지금까지-한거-정리"><a href="#코드-돌아가는-거-지금까지-한거-정리" class="headerlink" title="코드 돌아가는 거 (지금까지 한거 정리)"></a>코드 돌아가는 거 (지금까지 한거 정리)</h1><p>실행 전까지 과정</p>
 <ol>
-<li>코드 작성 $\rightarrow$ 컴파일<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%9C%EC%95%BC%EB%84%93%ED%9E%88%EA%B8%B01.png" alt="시야넓히기1"></li>
-<li>코드가 들어감<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%BD%94%EB%93%9C.png" alt="메모리에코드"></li>
-<li>스케줄러 정책에 따라 러닝 스테이트로 바꿔줌<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC%EC%97%90%EC%84%9C%EB%9F%AC%EB%8B%9D.png" alt="스케줄러에서러닝"></li>
+<li>코드 작성 $\rightarrow$ 컴파일<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%9C%EC%95%BC%EB%84%93%ED%9E%88%EA%B8%B01.png" alt="시야넓히기1"></li>
+<li>코드가 들어감<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%BD%94%EB%93%9C.png" alt="메모리에코드"></li>
+<li>스케줄러 정책에 따라 러닝 스테이트로 바꿔줌<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC%EC%97%90%EC%84%9C%EB%9F%AC%EB%8B%9D.png" alt="스케줄러에서러닝"></li>
 </ol>
 <ul>
-<li>선점형 스케줄러, 50ms 0.05초 마다 프로세스 상태를 바꿔주겠다(=컨택스트 스위칭을 하겠다)고하면<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%84%A0%EC%A0%90%ED%98%95%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC.png" alt="선점형스케줄러"></li>
+<li>선점형 스케줄러, 50ms 0.05초 마다 프로세스 상태를 바꿔주겠다(=컨택스트 스위칭을 하겠다)고하면<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%84%A0%EC%A0%90%ED%98%95%EC%8A%A4%EC%BC%80%EC%A4%84%EB%9F%AC.png" alt="선점형스케줄러"></li>
 <li>운영체제에게 알려주는 타이머 인터럽트가 있다고 가정</li>
 </ul>
 <ol start="4">
@@ -2113,24 +2421,24 @@ int main (void) &#123;
 </ol>
 <ul>
 <li>을 위해 CPU 가 사용자 모드를 커널 모드로 바꿔주고</li>
-<li>IDT 라는 테이블에 들어가서 timer 인터럽트에 해당하는 번호에 매칭된 커널함수의 주소 값을 찾아서 실행함<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png" alt="인터럽트"></li>
+<li>IDT 라는 테이블에 들어가서 timer 인터럽트에 해당하는 번호에 매칭된 커널함수의 주소 값을 찾아서 실행함<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8.png" alt="인터럽트"></li>
 </ul>
 <ol start="5">
-<li>러닝상태로 컨텍스트 스위칭<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%9E%90%EC%84%B8%ED%9E%88.png" alt="인터럽트자세히"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%9F%AC%EB%8B%9D%EC%83%81%ED%83%9C%EB%A1%9C%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD.png" alt="러닝상태로컨텍스트스위칭"></li>
+<li>러닝상태로 컨텍스트 스위칭<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%9E%90%EC%84%B8%ED%9E%88.png" alt="인터럽트자세히"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%9F%AC%EB%8B%9D%EC%83%81%ED%83%9C%EB%A1%9C%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%8A%A4%EC%9C%84%EC%B9%AD.png" alt="러닝상태로컨텍스트스위칭"></li>
 </ol>
-<p>실행<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%A4%ED%96%89.png" alt="실행"><br>프로그램 실행</p>
+<p>실행<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%A4%ED%96%89.png" alt="실행"><br>프로그램 실행</p>
 <ol>
-<li>stack에 메인함수 올라 감<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/stack%EC%97%90%EB%A9%94%EC%9D%B8%ED%95%A8%EC%88%98%EC%98%AC%EB%9D%BC%EA%B0%90.png" alt="stack에메인함수올라감"></li>
-<li>open 함수, 헤더파일로 들어감<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/open%ED%95%A8%EC%88%98.png" alt="open함수"></li>
-<li>open() $\rightarrow$ 시스템콜<br>CPU 명령어 op code (인터럽트 번호를 사용해서 일으킴)<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/open%ED%95%A8%EC%88%98%EB%82%B4%EB%B6%80.png" alt="open함수내부"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%9E%90%EC%84%B8%ED%9E%882.png" alt="인터럽트자세히2"></li>
-<li>sysopen()<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/sysopen.png" alt="sysopen"></li>
-<li>저장매체에서 open하는 동안 wait mode<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/cpuDMS.png" alt="cpuDMS"></li>
+<li>stack에 메인함수 올라 감<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/stack%EC%97%90%EB%A9%94%EC%9D%B8%ED%95%A8%EC%88%98%EC%98%AC%EB%9D%BC%EA%B0%90.png" alt="stack에메인함수올라감"></li>
+<li>open 함수, 헤더파일로 들어감<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/open%ED%95%A8%EC%88%98.png" alt="open함수"></li>
+<li>open() $\rightarrow$ 시스템콜<br>CPU 명령어 op code (인터럽트 번호를 사용해서 일으킴)<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/open%ED%95%A8%EC%88%98%EB%82%B4%EB%B6%80.png" alt="open함수내부"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%ED%84%B0%EB%9F%BD%ED%8A%B8%EC%9E%90%EC%84%B8%ED%9E%882.png" alt="인터럽트자세히2"></li>
+<li>sysopen()<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/sysopen.png" alt="sysopen"></li>
+<li>저장매체에서 open하는 동안 wait mode<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/cpuDMS.png" alt="cpuDMS"></li>
 </ol>
-<p>저장메체를 처리하는 것은 레지스터를 처리하는 것과 다르게 굉장히 시간을 많이 소요함<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%95%84%EC%A7%81%EB%AA%BB%EB%84%98%EC%96%B4%EA%B0%80%EB%82%98.png" alt="아직못넘어가나"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%B2%9C%EB%B0%B0%EB%A7%8C%EB%B0%B0%EC%B0%A8%EC%9D%B4.png" alt="천배만배차이"><br>따라서 waiting 으로 넘어감<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/waitmode.png" alt="waitmode"><br>6. 다 읽으면 DMS 가 CPU에 다읽었다고 알림<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/DMS%EA%B0%80CPU%EC%97%90%EA%B2%8C.png" alt="DMS가CPU에게"><br>7. 다시 인터럽트가 됨<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/ready%EB%A1%9C%EB%B0%94%EB%80%9C.png" alt="ready로바뀜"></p>
+<p>저장메체를 처리하는 것은 레지스터를 처리하는 것과 다르게 굉장히 시간을 많이 소요함<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%95%84%EC%A7%81%EB%AA%BB%EB%84%98%EC%96%B4%EA%B0%80%EB%82%98.png" alt="아직못넘어가나"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%B2%9C%EB%B0%B0%EB%A7%8C%EB%B0%B0%EC%B0%A8%EC%9D%B4.png" alt="천배만배차이"><br>따라서 waiting 으로 넘어감<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/waitmode.png" alt="waitmode"><br>6. 다 읽으면 DMS 가 CPU에 다읽었다고 알림<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/DMS%EA%B0%80CPU%EC%97%90%EA%B2%8C.png" alt="DMS가CPU에게"><br>7. 다시 인터럽트가 됨<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/ready%EB%A1%9C%EB%B0%94%EB%80%9C.png" alt="ready로바뀜"></p>
 <ol start="8">
-<li>타이머 인터럽트<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%8B%A4%EC%8B%9Crunning.png" alt="다시running"></li>
+<li>타이머 인터럽트<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%8B%A4%EC%8B%9Crunning.png" alt="다시running"></li>
 </ol>
-<p>마지막<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/IO%EA%B4%80%EB%A0%A8%EC%B2%98%EB%A6%AC.png" alt="IO관련처리"><br>따라서 빈번한 IO는 시간을 $\uparrow$<br>그래서 한방에 메모리를 읽고 프로그램을 처리하려고 노력함</p>
+<p>마지막<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/IO%EA%B4%80%EB%A0%A8%EC%B2%98%EB%A6%AC.png" alt="IO관련처리"><br>따라서 빈번한 IO는 시간을 $\uparrow$<br>그래서 한방에 메모리를 읽고 프로그램을 처리하려고 노력함</p>
 <p>옛날엔 빅데이터는 읽어오고 하는데 1<del>2일 걸림. 스파크는 메모리에 싹올려놔서 1</del>2시간</p>
 <p>결론!  </p>
 <blockquote>
@@ -2149,9 +2457,9 @@ int main (void) &#123;
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/IPC%EC%99%80Thread.png" alt="IPC와Thread"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/IPC%EC%99%80Thread.png" alt="IPC와Thread"></p>
 <hr>
-<h2 id="Thread는-각기-실행이-가능한-stack-존재"><a href="#Thread는-각기-실행이-가능한-stack-존재" class="headerlink" title="Thread는 각기 실행이 가능한 stack 존재"></a>Thread는 각기 실행이 가능한 stack 존재</h2><p>스레드는 각각의 스택포인트를 가진 함수 (스택과 힙 중간에 특별한 공간을 만들어서 사용)<br>각 스레드를 위한 SP와 PC가 존재<br>힙과 DATA(BSS/DATA), CODE를 모두 공유<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Thread.png" alt="Thread"></p>
+<h2 id="Thread는-각기-실행이-가능한-stack-존재"><a href="#Thread는-각기-실행이-가능한-stack-존재" class="headerlink" title="Thread는 각기 실행이 가능한 stack 존재"></a>Thread는 각기 실행이 가능한 stack 존재</h2><p>스레드는 각각의 스택포인트를 가진 함수 (스택과 힙 중간에 특별한 공간을 만들어서 사용)<br>각 스레드를 위한 SP와 PC가 존재<br>힙과 DATA(BSS/DATA), CODE를 모두 공유<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Thread.png" alt="Thread"></p>
 <p><strong>Process VS Thread</strong></p>
 <p><img src="https://www.fun-coding.org/00_Images/process&thread.png"></p>
 <blockquote>
@@ -2183,7 +2491,7 @@ int main (void) &#123;
 <hr>
 <h2 id="Thread-장단점"><a href="#Thread-장단점" class="headerlink" title="Thread 장단점"></a>Thread 장단점</h2><h3 id="Thread-장점"><a href="#Thread-장점" class="headerlink" title="Thread 장점"></a>Thread 장점</h3><ol>
 <li><p>사용자에 대한 응답성 향상</p>
-<p> <img src="https://www.fun-coding.org/00_Images/threadad1.png"><br> <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Thread%EC%9E%A5%EC%A0%90%EB%B9%A0%EB%A5%B8%EC%9D%91%EB%8B%B5.png" alt="Thread장점빠른응답"></p>
+<p> <img src="https://www.fun-coding.org/00_Images/threadad1.png"><br> <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/Thread%EC%9E%A5%EC%A0%90%EB%B9%A0%EB%A5%B8%EC%9D%91%EB%8B%B5.png" alt="Thread장점빠른응답"></p>
 </li>
 <li><p>자원 공유 효율</p>
 <ul>
@@ -2250,7 +2558,7 @@ int main (void) &#123;
 </li>
 </ul>
 <hr>
-<h2 id="동기화-Synchronization"><a href="#동기화-Synchronization" class="headerlink" title="동기화(Synchronization)"></a>동기화(Synchronization)</h2><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%8F%99%EA%B8%B0%ED%99%94%EC%9D%B4%EC%8A%88%EB%9E%80.png" alt="동기화이슈란"></p>
+<h2 id="동기화-Synchronization"><a href="#동기화-Synchronization" class="headerlink" title="동기화(Synchronization)"></a>동기화(Synchronization)</h2><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%8F%99%EA%B8%B0%ED%99%94%EC%9D%B4%EC%8A%88%EB%9E%80.png" alt="동기화이슈란"></p>
 <h3 id="여기서-잠깐-1"><a href="#여기서-잠깐-1" class="headerlink" title="여기서 잠깐!"></a>여기서 잠깐!</h3><blockquote>
 <p>스레드의 개념/원리를 이해하면 관리가 용이! 사용하다 문제가 생겼을 때, 어떤 부분이 잘못될 수 있는지, 왜 특별한 함수들을 사용하는지를 이해 가능!</p>
 </blockquote>
@@ -2297,7 +2605,7 @@ print(&#39;g_count = &#39;, g_count)
     g_count = 12470682 #500000
 
 </code></pre>
-<p>Thread Testing 예제 코드 부연 설명 그림 (python_mutual_exclusion.ipynb)<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/ThreadPython%EC%98%88%EC%A0%9C%EB%B6%84%EC%84%9D.png" alt="ThreadPython예제분석"></p>
+<p>Thread Testing 예제 코드 부연 설명 그림 (python_mutual_exclusion.ipynb)<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/ThreadPython%EC%98%88%EC%A0%9C%EB%B6%84%EC%84%9D.png" alt="ThreadPython예제분석"></p>
 <ul>
 <li>컨택스트 스위칭이 되면서 덧셈이 누락됐음 $\rightarrow$ 동기화 이슈</li>
 <li></li>
@@ -2451,7 +2759,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>  무한 대기 상태: 두 개 이상의 작업이 서로 상대방의 작업이 끝나기 만을 기다리고 있기 때문에, 다음 단계로 진행하지 못하는 상태</li>
 </ul>
 <!-- ![](https://www.fun-coding.org/00_Images/deadlock2.png) -->
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9C.png" alt="교착상태"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B5%90%EC%B0%A9%EC%83%81%ED%83%9C.png" alt="교착상태"></p>
 <blockquote>
 <p>배치 처리 시스템에서는 일어나지 않는 문제 프로세스, 스레드 둘다 이와 같은 상태가 일어날 수 있음</p>
 </blockquote>
@@ -2506,7 +2814,7 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 </ul>
 <hr>
-<h3 id="기아상태-starvation"><a href="#기아상태-starvation" class="headerlink" title="기아상태(starvation)"></a>기아상태(starvation)</h3><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B8%B0%EC%95%84%EC%83%81%ED%83%9C%EC%9E%90%EC%9B%90%EB%B6%80%EC%A1%B1.png" alt="기아상태자원부족"></p>
+<h3 id="기아상태-starvation"><a href="#기아상태-starvation" class="headerlink" title="기아상태(starvation)"></a>기아상태(starvation)</h3><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B8%B0%EC%95%84%EC%83%81%ED%83%9C%EC%9E%90%EC%9B%90%EB%B6%80%EC%A1%B1.png" alt="기아상태자원부족"></p>
 <ul>
 <li>특정 프로세스의 우선순위가 낮아서 원하는 자원을 계속 할당 받지 못하는 상태</li>
 <li>교착상태와 기아상태<ul>
@@ -2536,7 +2844,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>  통상 메모리는 8GB? 16GB?</li>
 </ul>
 <blockquote>
-<p>폰노이만 구조 기반이므로, 코드는 메모리에 반드시 있어야 함<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B0%9C%EC%9A%94.png" alt="가상메모리개요"></p>
+<p>폰노이만 구조 기반이므로, 코드는 메모리에 반드시 있어야 함<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EA%B0%9C%EC%9A%94.png" alt="가상메모리개요"></p>
 </blockquote>
 <hr>
 <h2 id="가상-메모리가-필요한-이유"><a href="#가상-메모리가-필요한-이유" class="headerlink" title="가상 메모리가 필요한 이유"></a>가상 메모리가 필요한 이유</h2><ul>
@@ -2603,7 +2911,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 <li>  리눅스에서는 4KB로 paging</li>
-<li>페이지 번호를 기반으로 가상 주소/물리 주소 매핑 정보를 기록/사용<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%95%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="페이징시스템"></li>
+<li>페이지 번호를 기반으로 가상 주소/물리 주소 매핑 정보를 기록/사용<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%95%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="페이징시스템"></li>
 </ul>
 </li>
 </ul>
@@ -2658,7 +2966,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>해당 프로세스에서 특정 가상 주소 엑세스를 하려면<ul>
 <li>  해당 프로세스의 page table 에 해당 가상 주소가 포함된 page 번호가 있는지 확인</li>
 <li>  page 번호가 있으면 이 page가 매핑된 첫 물리 주소를 알아내고(p’)</li>
-<li>p’ + d 가 실제 물리 주소가 됨<br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%85%8C%EC%9D%B4%EB%B8%94.png" alt="페이지테이블"><br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%85%8C%EC%9D%B4%EB%B8%942.png" alt="페이지테이블2"></li>
+<li>p’ + d 가 실제 물리 주소가 됨<br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%85%8C%EC%9D%B4%EB%B8%94.png" alt="페이지테이블"><br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%85%8C%EC%9D%B4%EB%B8%942.png" alt="페이지테이블2"></li>
 </ul>
 </li>
 </ul>
@@ -2678,7 +2986,7 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 </ul>
 <hr>
-<h4 id="다중-단계-페이징-시스템"><a href="#다중-단계-페이징-시스템" class="headerlink" title="다중 단계 페이징 시스템"></a>다중 단계 페이징 시스템</h4><p>페이지 테이블은 <strong>메모리에 올림</strong><br>$\rightarrow$ 쓸데 없는 메모리를 낭비할 수 있다.<br>따라서, 전체를 만들지 않고 필요한 부분만 올리면,<br>즉, 페이징 정보를 단계를 나누어 생성하면 공간 절약이 가능하다.<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%8B%A4%EC%A4%91%EB%8B%A8%EA%B3%84%ED%8E%98%EC%9D%B4%EC%A7%95%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="다중단계페이징 시스템"></p>
+<h4 id="다중-단계-페이징-시스템"><a href="#다중-단계-페이징-시스템" class="headerlink" title="다중 단계 페이징 시스템"></a>다중 단계 페이징 시스템</h4><p>페이지 테이블은 <strong>메모리에 올림</strong><br>$\rightarrow$ 쓸데 없는 메모리를 낭비할 수 있다.<br>따라서, 전체를 만들지 않고 필요한 부분만 올리면,<br>즉, 페이징 정보를 단계를 나누어 생성하면 공간 절약이 가능하다.<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%8B%A4%EC%A4%91%EB%8B%A8%EA%B3%84%ED%8E%98%EC%9D%B4%EC%A7%95%EC%8B%9C%EC%8A%A4%ED%85%9C.png" alt="다중단계페이징 시스템"></p>
 <ul>
 <li>32bit 시스템에서 4KB 페이지를 위한 페이징 시스템은<ul>
 <li>  하위 12bit는 오프셋</li>
@@ -2800,7 +3108,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%94%EA%B5%AC%ED%8E%98%EC%9D%B4%EC%A7%951.png" alt="요구페이징1"><br>해당 페이지를 올려준 모습<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%94%EA%B5%AC%ED%8E%98%EC%9D%B4%EC%A7%952.png" alt="요구페이징2"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%94%EA%B5%AC%ED%8E%98%EC%9D%B4%EC%A7%951.png" alt="요구페이징1"><br>해당 페이지를 올려준 모습<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9A%94%EA%B5%AC%ED%8E%98%EC%9D%B4%EC%A7%952.png" alt="요구페이징2"></p>
 <hr>
 <h3 id="페이지-폴트-page-fault"><a href="#페이지-폴트-page-fault" class="headerlink" title="페이지 폴트 (page fault)"></a>페이지 폴트 (page fault)</h3><p>인터럽트</p>
 <ul>
@@ -2810,10 +3118,10 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 <li><p>예시</p>
 <ul>
-<li>page3 이 일어나려는데, page3에대한 valid bit 가 i 임 (없네?!)<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%8F%B4%ED%8A%B8.png" alt="페이지폴트1"></li>
+<li>page3 이 일어나려는데, page3에대한 valid bit 가 i 임 (없네?!)<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%8F%B4%ED%8A%B8.png" alt="페이지폴트1"></li>
 <li>처리방법 : page fault 인터럽트를 운영체제에 날려줌<ul>
 <li>페이지 폴트를 받은 운영체제가 해당 페이지를 물리메모리에 올려준 다음, valid bit로 바꿔줌</li>
-<li>다시 재실행<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%8F%B4%ED%8A%B82.png" alt="페이지폴트2"></li>
+<li>다시 재실행<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%ED%8F%B4%ED%8A%B82.png" alt="페이지폴트2"></li>
 </ul>
 </li>
 <li>이제 요구페이징을 지원하는 메커니즘을 만들 수 있음~!</li>
@@ -2906,7 +3214,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4FIFO.png" alt="페이지교체FIFO"><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4FIFO%EA%B2%B0%EA%B3%BC.png" alt="페이지교체FIFO결과"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4FIFO.png" alt="페이지교체FIFO"><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4FIFO%EA%B2%B0%EA%B3%BC.png" alt="페이지교체FIFO결과"></p>
 <hr>
 <h4 id="페이지-교체-알고리즘-OPT"><a href="#페이지-교체-알고리즘-OPT" class="headerlink" title="페이지 교체 알고리즘 (OPT)"></a>페이지 교체 알고리즘 (OPT)</h4><ul>
 <li>최적 페이지 교체 알고리즘 (OPTimal Replacement Algorithm)<ul>
@@ -2918,7 +3226,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4OPT.png" alt="페이지교체OPT"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4OPT.png" alt="페이지교체OPT"></p>
 <ul>
 <li>Requested Page : 시간대 별로 요청된 페이지</li>
 <li>Physical Memory : 물리메모리에 어떤 페이지가 들어가 있는진</li>
@@ -2932,7 +3240,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4LRU.png" alt="페이지교체LRU"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4LRU.png" alt="페이지교체LRU"></p>
 <ul>
 <li>결과 : 가장 오래 전에 사용한 페이지 3을 4로 교체</li>
 </ul>
@@ -2946,7 +3254,7 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 <li>결론 : 가장 오래 전에 사용된 페이지는 사용이 안 될 가능성이 높음</li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A7%80%EC%97%AD%EC%84%B1for%EB%AC%B8.png" alt="메모리지역성for문"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A7%80%EC%97%AD%EC%84%B1for%EB%AC%B8.png" alt="메모리지역성for문"></p>
 <hr>
 <h5 id="페이지-스왑-알고리즘-LFU"><a href="#페이지-스왑-알고리즘-LFU" class="headerlink" title="페이지 스왑 알고리즘 (LFU)"></a>페이지 스왑 알고리즘 (LFU)</h5><ul>
 <li>LFU(Least Frequently Used) Page Replacement Algorithm<ul>
@@ -2954,7 +3262,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4LFU.png" alt="페이지교체LFU"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4LFU.png" alt="페이지교체LFU"></p>
 <ul>
 <li>결과 : page3이 2번 사용으로 가장 적게 사용되서 4로 교체</li>
 </ul>
@@ -2968,7 +3276,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>  (0, 0) : 읽기도 안됐고, 수정도 안됐고</li>
 <li>  (0, 1) : 수정만 됐고</li>
 <li>  (1, 0) : 읽기만 됐고</li>
-<li>  (1, 1) : 읽기도 됐고, 수정도 됐고<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4NUR.png" alt="페이지교체NUR"></li>
+<li>  (1, 1) : 읽기도 됐고, 수정도 됐고<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8E%98%EC%9D%B4%EC%A7%80%EA%B5%90%EC%B2%B4NUR.png" alt="페이지교체NUR"></li>
 </ul>
 </li>
 </ul>
@@ -3030,11 +3338,11 @@ print(&#39;g_count = &#39;, g_count)
 <hr>
 <ul>
 <li>내부 단편화 (페이지 기법)<ul>
-<li>페이지 블록만큼 데이터가 딱 맞게 채워져있지 않을 때 공간 낭비<br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%82%B4%EB%B6%80%EB%8B%A8%ED%8E%B8%ED%99%94.png" alt="내부단편화"></li>
+<li>페이지 블록만큼 데이터가 딱 맞게 채워져있지 않을 때 공간 낭비<br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%82%B4%EB%B6%80%EB%8B%A8%ED%8E%B8%ED%99%94.png" alt="내부단편화"></li>
 </ul>
 </li>
 <li>외부 단편화 (세그멘테이션 기법)<ul>
-<li>물리 메모리가 원하는 연속된 크기의 메모리를 제공해주지 못하는 경우<br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%99%B8%EB%B6%80%EB%8B%A8%ED%8E%B8%ED%99%94.png" alt="외부단편화">   </li>
+<li>물리 메모리가 원하는 연속된 크기의 메모리를 제공해주지 못하는 경우<br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%99%B8%EB%B6%80%EB%8B%A8%ED%8E%B8%ED%99%94.png" alt="외부단편화">   </li>
 </ul>
 </li>
 <li>세그멘테이션/페이징 모두 <strong>하드웨어 지원 필요</strong><ul>
@@ -3046,7 +3354,7 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 </ul>
 <h2 id="총정리-실제-프로세스의-메모리-사용-및-동작-방식"><a href="#총정리-실제-프로세스의-메모리-사용-및-동작-방식" class="headerlink" title="총정리 : 실제 프로세스의 메모리 사용 및 동작 방식"></a>총정리 : 실제 프로세스의 메모리 사용 및 동작 방식</h2><p>가상메모리 이해를 기반으로 실제 프로세스의 메모리 사용과 동작 방식을 알아보자!<br>프로그램을 보는 시야를 넓히자!</p>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC1.png" alt="가상메모리총정리1"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC1.png" alt="가상메모리총정리1"></p>
 <ol>
 <li><p>컴파일 $\rightarrow$ 실행파일(size 1KB)</p>
 </li>
@@ -3055,7 +3363,7 @@ print(&#39;g_count = &#39;, g_count)
 <li><p>프로세스가 만들어짐</p>
 <ul>
 <li>이 때 프로세스가 차지하고 있는 가상 메모리 영역 : 4GB<ul>
-<li>실행파일이 1KB 여도, 가상 메모리 영역에 있는건 4GB<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC2.png" alt="가상메모리총정리2"></li>
+<li>실행파일이 1KB 여도, 가상 메모리 영역에 있는건 4GB<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC2.png" alt="가상메모리총정리2"></li>
 </ul>
 </li>
 <li>4GB 위치엔 가상메모리주소</li>
@@ -3068,17 +3376,17 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 </ul>
 </li>
-<li>프로그램 실행파일은 1kB 밖에 안됨 $\rightarrow$ 그러나 사용은 4GB<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC3.png" alt="가상메모리총정리3"></li>
+<li>프로그램 실행파일은 1kB 밖에 안됨 $\rightarrow$ 그러나 사용은 4GB<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC3.png" alt="가상메모리총정리3"></li>
 </ul>
 </li>
 <li><p>(보통 4KB의) 고정된 페이지로 나뉘어서 (왼쪽 가상메모리), 실제 페이지들이 물리메모리(오른쪽)에 들어가 있는지 안들어가있는지 확인하고, 들어가있다면 그 때 주소는 어떻게 되는지, 주소를 가지고 있는 페이지 테이블들이 생성 됨</p>
 <ul>
-<li>실제 코드는 1KB이기 때문에, 모든 것(4GB)에 대해 페이지를 만드는 것은 굉장히 비효율적임<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC4.png" alt="가상메모리총정리4"></li>
+<li>실제 코드는 1KB이기 때문에, 모든 것(4GB)에 대해 페이지를 만드는 것은 굉장히 비효율적임<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC4.png" alt="가상메모리총정리4"></li>
 </ul>
 </li>
 <li><p>페이지 디렉토리로 만들어서 필요없는 디렉토리들은 페이지 영역을 만들지 않고, 필요한 영역만 해당 페이지 테이블을 만들어서 디렉토리로 관리를 함</p>
 <ul>
-<li><p>나머지 필요없는 애들은 페이지 테이블을 만들지 않기 때문에, 페이지 테이블을 만드는 공간과 시간을 줄일 수 있음<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC5.png" alt="가상메모리총정리5"></p>
+<li><p>나머지 필요없는 애들은 페이지 테이블을 만들지 않기 때문에, 페이지 테이블을 만드는 공간과 시간을 줄일 수 있음<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC5.png" alt="가상메모리총정리5"></p>
 </li>
 <li><p>실행파일을 만들 때 마다 (=프로세스마다) 커널영역이 붙음</p>
 <ul>
@@ -3121,7 +3429,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ol>
-<h3 id="다시정리"><a href="#다시정리" class="headerlink" title="다시정리"></a>다시정리</h3><p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC0.png" alt="가상메모리총정리0"><br>전체적으로 가상메모리가 동작하는 것은</p>
+<h3 id="다시정리"><a href="#다시정리" class="headerlink" title="다시정리"></a>다시정리</h3><p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EA%B0%80%EC%83%81%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%B4%9D%EC%A0%95%EB%A6%AC0.png" alt="가상메모리총정리0"><br>전체적으로 가상메모리가 동작하는 것은</p>
 <ol>
 <li>CPU가 특정 가상 어드레스를 요청하면</li>
 <li>MMU가 일단 캐시에 있는지를 TLB를 보고 확인하고<br>만약에 없으면 해당 페이지의 테이블에가서, 해당 페이지가 물리메모리에 있는 지를 보고</li>
@@ -3178,11 +3486,11 @@ print(&#39;g_count = &#39;, g_count)
 <li>불연속 공간에 파일 저장 기능 지원 필요<ol>
 <li>블록 체인: 블록을 링크드 리스트로 연결<ul>
 <li>블록 단위로 저장을 불연속적으로 함 (첫번째블록 주소만 저장)</li>
-<li>단점 : 끝에 있는 블록을 찾으려면, 맨 처음 블록부터 주소를 따라가야 함<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8.png" alt="블록체인"></li>
+<li>단점 : 끝에 있는 블록을 찾으려면, 맨 처음 블록부터 주소를 따라가야 함<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B8%94%EB%A1%9D%EC%B2%B4%EC%9D%B8.png" alt="블록체인"></li>
 </ul>
 </li>
 <li>인덱스 블록 기법: 각 블록에 대한 위치 정보를 기록해서, 한번에 끝 블록을 찾아길 수 있도록 함<ul>
-<li>요즘 운영체제는 인덱스 블록 기법 기반<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%B8%94%EB%A1%9D%EA%B8%B0%EB%B2%95.png" alt="인덱스블록기법"></li>
+<li>요즘 운영체제는 인덱스 블록 기법 기반<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%9D%B8%EB%8D%B1%EC%8A%A4%EB%B8%94%EB%A1%9D%EA%B8%B0%EB%B2%95.png" alt="인덱스블록기법"></li>
 </ul>
 </li>
 </ol>
@@ -3208,7 +3516,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 <hr>
 <h2 id="파일-시스템과-시스템-콜"><a href="#파일-시스템과-시스템-콜" class="headerlink" title="파일 시스템과 시스템 콜"></a>파일 시스템과 시스템 콜</h2><ul>
-<li>동일한 시스템콜을 사용해서 다양한 파일 시스템 지원 가능토록 구현<br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%98%A4%ED%94%88.png" alt="파일오픈"><ul>
+<li>동일한 시스템콜을 사용해서 다양한 파일 시스템 지원 가능토록 구현<br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%98%A4%ED%94%88.png" alt="파일오픈"><ul>
 <li>read/write 시스템 콜 호출시, 각 기기 및 파일 시스템에 따라 실질적인 처리를 담당하는 함수를 구현해둠<ul>
 <li>  예: read_spec/write_spec</li>
 <li>  즉, 어떤 파일시스템을 사용하는지에 대한 고려는 하지 않고 사용 가능</li>
@@ -3280,7 +3588,7 @@ print(&#39;g_count = &#39;, g_count)
 </ol>
 <hr>
 <h3 id="inode-구조와-파일"><a href="#inode-구조와-파일" class="headerlink" title="inode 구조와 파일"></a>inode 구조와 파일</h3><!-- ![](https://www.fun-coding.org/00_Images/superblock_inode.png) -->
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/DirectBlocks.png" alt="DirectBlocks"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/DirectBlocks.png" alt="DirectBlocks"></p>
 <ul>
 <li>cat files.txt :  파일에 들어있는 내용을 출력<ul>
 <li>파일이름에 해당하는 inode 번호를 찾아서, inode 번호에 맞는 inode 블록으로 접근</li>
@@ -3294,12 +3602,12 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%83%81%EC%84%B8%EC%A0%95%EB%B3%B4.png" alt="파일상세정보"></p>
+<p><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%83%81%EC%84%B8%EC%A0%95%EB%B3%B4.png" alt="파일상세정보"></p>
 <ul>
 <li>ls -al data10.txt : 파일 상세정보를 출력<ul>
 <li>-rw-rw-r– : 파일 권한</li>
 <li>ubuntu ubuntu : 시스템 프로그래밍에서 사용자 정보</li>
-<li>Nov 4 14:52 : 파일 생성시간<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%83%81%EC%84%B8%EC%A0%95%EB%B3%B4%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png" alt="파일상세정보가져오기"></li>
+<li>Nov 4 14:52 : 파일 생성시간<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%83%81%EC%84%B8%EC%A0%95%EB%B3%B4%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0.png" alt="파일상세정보가져오기"></li>
 </ul>
 </li>
 </ul>
@@ -3329,7 +3637,7 @@ print(&#39;g_count = &#39;, g_count)
 </li>
 <li><p>Triple Indirect Block : double indirect pointers를 가르키는데, 걔네는 1024개(4KB/4byte=1024)의 single indirect pointers를 가르키고있고, 걔네는 다시 각각 1024개의 direct block pointers 를 가르키고, 각각의 direct block pointers 다시 1024개의 데이터블록을 가르킴</p>
 <ul>
-<li> 약 4GB의 데이터블록 (1024 * 1024 * 1024 * 4KB = 400GB)<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/datablckpointers.png" alt="datablckpointers"></li>
+<li> 약 4GB의 데이터블록 (1024 * 1024 * 1024 * 4KB = 400GB)<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/datablckpointers.png" alt="datablckpointers"></li>
 </ul>
 </li>
 </ul>
@@ -3380,7 +3688,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>모든 것은 파일이라는 철학을 따름<ul>
 <li>  모든 인터렉션은 파일을 읽고, 쓰는 것처럼 이루어져있음</li>
 <li>  마우스, 키보드와 같은 모든 디바이스 관련된 기술도 파일과 같이 다루어짐</li>
-<li><strong>모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용</strong><br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%82%B4%EB%B6%80%EB%A5%BC%EB%AA%B0%EB%9D%BC%EB%8F%84%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%A5%BC%ED%86%B5%ED%95%B4%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5.png" alt="내부를몰라도인터페이스만 사용하면 사용이 가능"></li>
+<li><strong>모든 자원에 대한 추상화 인터페이스로 파일 인터페이스를 활용</strong><br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%82%B4%EB%B6%80%EB%A5%BC%EB%AA%B0%EB%9D%BC%EB%8F%84%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%A5%BC%ED%86%B5%ED%95%B4%EC%82%AC%EC%9A%A9%EA%B0%80%EB%8A%A5.png" alt="내부를몰라도인터페이스만 사용하면 사용이 가능"></li>
 </ul>
 </li>
 </ul>
@@ -3409,7 +3717,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 </ul>
-<p>폰노이만 구조 : CPU, 메모리, 프로그램 구조를 갖는 프로그램 내장 방식 컴퓨터<br>메모리에 올라와 있는 프로세스가 동작해야함<br>맨 처음엔 아무것도 없을텐데 대체 어디서 가져오는 걸까?!<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B6%80%ED%8C%85%EC%8B%9C%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%95%84%EB%AC%B4%EA%B2%83%EB%8F%84%EC%97%86%EC%9D%8C.png" alt="부팅시메모리에아무것도없음"></p>
+<p>폰노이만 구조 : CPU, 메모리, 프로그램 구조를 갖는 프로그램 내장 방식 컴퓨터<br>메모리에 올라와 있는 프로세스가 동작해야함<br>맨 처음엔 아무것도 없을텐데 대체 어디서 가져오는 걸까?!<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EB%B6%80%ED%8C%85%EC%8B%9C%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%95%84%EB%AC%B4%EA%B2%83%EB%8F%84%EC%97%86%EC%9D%8C.png" alt="부팅시메모리에아무것도없음"></p>
 <hr>
 <h2 id="부팅-과정"><a href="#부팅-과정" class="headerlink" title="부팅 과정"></a>부팅 과정</h2><ul>
 <li><p>컴퓨터를 키면</p>
@@ -3619,7 +3927,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>  AWS(클라우드 컴퓨팅) 환경도 Bare-Metal 기반 가상 머신 기술 활용 (KVM)</li>
 </ul>
 </li>
-<li>Docker는 경량 이미지로 <strong>실행환경을 통째로 백업, 실행 가능</strong> (실무에 많이 사용됨)<br>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD%EC%84%A4%EC%B9%98.png" alt="실행환경설치"><ul>
+<li>Docker는 경량 이미지로 <strong>실행환경을 통째로 백업, 실행 가능</strong> (실무에 많이 사용됨)<br>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%A4%ED%96%89%ED%99%98%EA%B2%BD%EC%84%A4%EC%B9%98.png" alt="실행환경설치"><ul>
 <li>  Data Engineering에서 Docker로 시스템 환경 설정 + 프로그램을 한번에 배포</li>
 <li>  예: 프로그램 업데이트 -&gt; Docker 이미지 작성 -&gt; Jenkins로 배치잡 생성 및 실행(AWS EC2 재생성 및 Docker 이미지 설치, 실행)</li>
 </ul>
@@ -3628,7 +3936,7 @@ print(&#39;g_count = &#39;, g_count)
 <hr>
 <h3 id="Java-Virtual-Machine"><a href="#Java-Virtual-Machine" class="headerlink" title="Java Virtual Machine"></a>Java Virtual Machine</h3><ul>
 <li>가상 머신과는 다른 목적 (응용프로그램 레벨 가상화)<ul>
-<li>응용프로그램 실행 환경에 따라, 실행을 알아서 맞춰줌<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/JavaVM.png" alt="JavaVM"></li>
+<li>응용프로그램 실행 환경에 따라, 실행을 알아서 맞춰줌<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/JavaVM.png" alt="JavaVM"></li>
 </ul>
 </li>
 <li>  Java 컴파일러는 CPU dependency를 가지지 않는 bytecode를 생성함</li>
@@ -3646,7 +3954,7 @@ print(&#39;g_count = &#39;, g_count)
 <ul>
 <li><p>리눅스 커널(운영체제) + 시스템 프로그램(쉘) + 응용 프로그램</p>
   <!-- ![](https://www.fun-coding.org/00_Images/kernel.png) -->
-<p>  <img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%A4%EC%A0%9C%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A1%9C%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%B4%9D%EC%A0%95%EB%A6%AC.png" alt="실제리눅스로운영체제총정리"></p>
+<p>  <img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%8B%A4%EC%A0%9C%EB%A6%AC%EB%88%85%EC%8A%A4%EB%A1%9C%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%B4%9D%EC%A0%95%EB%A6%AC.png" alt="실제리눅스로운영체제총정리"></p>
 <ul>
 <li>Hardware<ul>
 <li>various terminal equipment : IO device</li>
@@ -3761,7 +4069,7 @@ print(&#39;g_count = &#39;, g_count)
 <li>각 운영체제마다 별도로 구현이 되야 함<ul>
 <li>시스템콜은 운영체제에서 제공이 되는데, 각 라이브러리에 있는 함수들은 내부적으로는 해당 시스템콜을 호출하도록 구현을 함. (이 함수를 각 프로그래밍 언어에 맞게 제공을 하면 됨)<ul>
 <li>예시 : Linux 운영체제에서 Python 프로그래밍 언어를 동작시킬 때, 내가 open_file() 이라는 함수를 구현하려고 한다면, 그 함수안에 리눅스가 제공하는 시스템콜이 들어가 있어야 함<ul>
-<li>이걸 컴파일해서 라이브러리로 만들고, 쓸 수 있게 만들면 그게 파이썬에서 파일처리가 가능한 라이브러리임<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%B2%98%EB%A6%AC%EC%A7%80%EC%9B%90%EC%9D%80%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%97%90%EB%8B%AC%EB%A6%BC.png" alt="파일처리지원은운영체제에달림"> </li>
+<li>이걸 컴파일해서 라이브러리로 만들고, 쓸 수 있게 만들면 그게 파이썬에서 파일처리가 가능한 라이브러리임<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%ED%8C%8C%EC%9D%BC%EC%B2%98%EB%A6%AC%EC%A7%80%EC%9B%90%EC%9D%80%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%EC%97%90%EB%8B%AC%EB%A6%BC.png" alt="파일처리지원은운영체제에달림"> </li>
 </ul>
 </li>
 </ul>
@@ -3784,7 +4092,7 @@ print(&#39;g_count = &#39;, g_count)
 </ul>
 </li>
 <li>안드로이드 런타임 부분에 JAVA VM 이 들어있음<ul>
-<li>JAVA VM : 똑같은 코드를 운영체제에 맞게 코드를 바꿔서 실행시켜주는 기능을 함<br><img src="/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%ED%94%8C%EB%9E%AB%ED%8F%BC.png" alt="안드로이드플랫폼"><ul>
+<li>JAVA VM : 똑같은 코드를 운영체제에 맞게 코드를 바꿔서 실행시켜주는 기능을 함<br><img src="/media/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%ED%94%8C%EB%9E%AB%ED%8F%BC.png" alt="안드로이드플랫폼"><ul>
 <li>안정적인 운영체제 커널을 만들기 위해선 시간이 너무 오래걸림</li>
 <li>수십년동안 사용된 리눅스 커널을 사용하는 것이 이득이었음</li>
 </ul>
@@ -3857,8 +4165,8 @@ print(&#39;g_count = &#39;, g_count)
     <p><span class="copy-title">Title:</span>운영체제</p>
     
     <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
-    <p><span class="copy-title">Created At:</span>2021-03-07, 16:26:55</p>
-    <p><span class="copy-title">Updated At:</span>2021-03-10, 23:52:48</p>
+    <p><span class="copy-title">Created At:</span>2021-03-07, 21:18:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-04-14, 14:26:03</p>
     <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/" title="운영체제">https://chaejin-jen.github.io/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/</a>
     <p>
         <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
