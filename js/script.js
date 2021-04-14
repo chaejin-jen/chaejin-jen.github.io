@@ -364,8 +364,8 @@ function inputChange() {
             $(".nav-right nav").find("a." + activeTitle + ":contains_author('" + val.substr(1) + "')").css("display", "block");
         }
     } else {
-        searchType = '标题'
-        containType = '包含'
+        searchType = '' /* 标题 */
+        containType = '' /* 包含 */
         $(".nav-right nav a").css("display", "none");
         $(".nav-right nav").find("a." + activeTitle + ":"+ ($('#search-panel > .icon-case-sensitive').hasClass('active') ? 'containsSensitive' : 'contains') + "('" + val + "')").css("display", "block");
     }
@@ -374,7 +374,7 @@ function inputChange() {
         if (val === 'in:') {
             $('#no-item-tips').show().html('正在进行全局关键字搜索，请输入关键字');
         } else if (!val.startsWith('in:') && $(".nav-right nav a:visible").length === 0) {
-            $('#no-item-tips').show().html('未在 <span>' + activeTitle + '</span> 分类中找到'+ searchType + containType + ' <span>' + val.replace(/^[@|#]/g,'') + '</span> 的文章');
+            $('#no-item-tips').show().html('카테고리 <span>' + activeTitle + '</span> 검색 결과'+ searchType + containType + ' <span>' + val.replace(/^[@|#]/g,'') + '</span> 포함한 제목 0건'); /*分类中找到  的文章*/
         }
     } else {
         $('#default-panel .icon-search').removeClass('active')
