@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>알고리즘 복잡도 | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content=" Algorithm , Algorithm Complexity , Big-O ">
+  <meta name="description" content="알고리즘 복잡도 | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/2021/04/14/test/index.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-14T07:36:01.609Z">
+<meta property="article:modified_time" content="2021-04-14T07:36:01.609Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(9)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="9">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All "
+           href="/2021/04/14/test/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-04-14 16:36:01">2021/04/14</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/12/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-12 10:12:00">2021/04/12</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/05/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-04-05 23:12:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_bagic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm,Data structure"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-CodeAlgorithm/알고리즘복잡도" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">알고리즘 복잡도</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Algorithm">Algorithm</a> > 
+            
+            <a  data-rel="Algorithm&lt;---&gt;Basic">Basic</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">Algorithm</a>
+            
+            <a class="color1">Algorithm Complexity</a>
+            
+            <a class="color1">Big-O</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-04-14 14:28:34'>2021-03-10 20:26</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AA%A9%EC%B0%A8"><span class="toc-text">목차</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84-%ED%91%9C%ED%98%84-%EB%B0%A9%EB%B2%95"><span class="toc-text">알고리즘 복잡도 표현 방법</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EC%99%9C-%EB%B0%B0%EC%9A%B8%EA%B9%8C"><span class="toc-text">1. 왜 배울까?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EB%AD%98-%EB%B0%B0%EC%9A%B8%EA%B9%8C"><span class="toc-text">2. 뭘 배울까</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84"><span class="toc-text">시간 복잡도</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EC%A3%BC%EC%9A%94-%EC%9A%94%EC%86%8C"><span class="toc-text">1. 주요 요소</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%84%B1%EB%8A%A5-%ED%91%9C%EA%B8%B0%EB%B2%95"><span class="toc-text">2.알고리즘 성능 표기법</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%EB%8C%80%EB%AC%B8%EC%9E%90-O-%ED%91%9C%EA%B8%B0%EB%B2%95"><span class="toc-text">3. 대문자 O 표기법</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EB%B3%84-%EC%8B%9C%EA%B0%84%EB%B3%B5%EC%9E%A1%EB%8F%84"><span class="toc-text">참고 : 자료구조별 시간복잡도</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%EC%98%88%EC%8B%9C"><span class="toc-text">4. 예시</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%981"><span class="toc-text">4.1.1 알고리즘1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-%EA%B5%AC%ED%95%98%EA%B8%B0"><span class="toc-text">4.1.2 시간 복잡도 구하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%982"><span class="toc-text">4.2.1. 알고리즘2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-2-%EC%8B%9C%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-%EA%B5%AC%ED%95%98%EA%B8%B0"><span class="toc-text">4.2.2. 시간 복잡도 구하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%EC%84%B1%EB%8A%A5%EB%B9%84%EA%B5%90"><span class="toc-text">4.3. 성능비교</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84"><span class="toc-text">공간 복잡도</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-%EB%8C%80%EB%9E%B5%EC%A0%81%EC%9D%B8-%EA%B3%84%EC%82%B0%EC%9D%80-%ED%95%84%EC%9A%94%ED%95%A8"><span class="toc-text">공간 복잡도 대략적인 계산은 필요함</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-Space-Complexity"><span class="toc-text">1. 공간 복잡도 (Space Complexity)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EA%B3%B5%EA%B0%84-%EB%B3%B5%EC%9E%A1%EB%8F%84-%EA%B3%84%EC%82%B0"><span class="toc-text">2. 공간 복잡도 계산</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%A0%9C1"><span class="toc-text">예제1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%A0%9C2"><span class="toc-text">예제2</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>이 글의 Dave Lee 선생님의 강의를 듣고 작성된 내용이며, 가장 기본적인 알고리즘 복잡도 (주로 bigO표기법)에 대해 다루고 있습니다. </p>
+<p>모든 내용의 출처는 <a target="_blank" rel="noopener" href="https://www.fun-coding.org/">Dave Lee 선생님의 사이트</a>에 있음을 밝히며, 단기간에 끝내고자 하신다면 강의 들으시는 것을 추천 드립니다. (+ 강의 수강 시 아래 내용이, ipynb 파일로 제공됩니다.)</p>
+<hr>
+<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기<br><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
+<h1 id="알고리즘-복잡도-표현-방법"><a href="#알고리즘-복잡도-표현-방법" class="headerlink" title="알고리즘 복잡도 표현 방법"></a>알고리즘 복잡도 표현 방법</h1><p>시간 복잡도가 중요! 표기법 외우기!</p>
+<h2 id="1-왜-배울까"><a href="#1-왜-배울까" class="headerlink" title="1. 왜 배울까?"></a>1. 왜 배울까?</h2><p><strong>하나의 문제를 푸는 알고리즘은 다양할 수 있음</strong></p>
+<ul>
+<li>정수의 절대값 구하기<ul>
+<li>1, -1 -&gt;&gt; 1</li>
+<li>방법1: 정수값을 제곱한 값에 다시 루트를 씌우기</li>
+<li>방법2: 정수가 음수인지 확인해서, 음수일 때만, -1을 곱하기</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>다양한 알고리즘 중 어느 알고리즘이 더 좋은지를 분석하기 위해, 복잡도를 정의하고 계산함</p>
+</blockquote>
+<h2 id="2-뭘-배울까"><a href="#2-뭘-배울까" class="headerlink" title="2. 뭘 배울까"></a>2. 뭘 배울까</h2><p>알고리즘 복잡도 계산 항목 두가지</p>
+<ol>
+<li><strong>시간 복잡도</strong>: <strong>알고리즘 실행 속도</strong></li>
+<li><strong>공간 복잡도</strong>: 알고리즘이 사용하는 메모리 사이즈</li>
+</ol>
+<h1 id="시간-복잡도"><a href="#시간-복잡도" class="headerlink" title="시간 복잡도"></a>시간 복잡도</h1><h2 id="1-주요-요소"><a href="#1-주요-요소" class="headerlink" title="1. 주요 요소"></a>1. 주요 요소</h2><blockquote>
+<p>반복문</p>
+</blockquote>
+<div class="alert alert-block alert-warning">
+<strong>생각해보기: 자동차로 서울에서 부산을 가기 위해, 다음과 같이 항목을 나누었을 때, 가장 총 시간에 영향을 많이 미칠 것 같은 요소는?</strong>
+
+<p>예:  자동차로 서울에서 부산가기</p>
+<ol>
+<li>자동차 문열기</li>
+<li>자동차 문닫기</li>
+<li>자동차 운전석 등받이 조정하기</li>
+<li>자동차 시동걸기</li>
+<li>자동차로 서울에서 부산가기</li>
+<li>자동차 시동끄기</li>
+<li>자동차 문열기</li>
+<li>자동차 문닫기</div>
+
+</li>
+</ol>
+<blockquote>
+<p>위와 같이, 프로그래밍에서 시간 복잡도에 가장 영향을 많이 미치는 요소는 반복문</p>
+</blockquote>
+<ul>
+<li>입력의 크기가 커지면 커질수록 반복문이 알고리즘 수행 시간을 지배함</li>
+</ul>
+<h2 id="2-알고리즘-성능-표기법"><a href="#2-알고리즘-성능-표기법" class="headerlink" title="2.알고리즘 성능 표기법"></a>2.알고리즘 성능 표기법</h2><ul>
+<li><p>Big O (빅-오) 표기법: O(N)</p>
+<ul>
+<li>알고리즘 최악의 실행 시간을 표기</li>
+<li><strong>가장 많이/일반적으로 사용함</strong></li>
+<li><strong>아무리 최악의 상황이라도, 이정도의 성능은 보장한다는 의미이기 때문</strong></li>
+</ul>
+</li>
+<li><p>Ω (오메가) 표기법:  Ω(N)</p>
+<ul>
+<li>오메가 표기법은 알고리즘 최상의 실행 시간을 표기</li>
+</ul>
+</li>
+<li><p>Θ (세타) 표기법: Θ(N)</p>
+<ul>
+<li>오메가 표기법은 알고리즘 평균 실행 시간을 표기</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>시간 복잡도 계산은 반복문이 핵심 요소임을 인지하고, 계산 표기는 최상, 평균, 최악 중, 최악의 시간인 Big-O 표기법을 중심으로 익히면 됨 </p>
+</blockquote>
+<h2 id="3-대문자-O-표기법"><a href="#3-대문자-O-표기법" class="headerlink" title="3. 대문자 O 표기법"></a>3. 대문자 O 표기법</h2><ul>
+<li><p>빅 오 표기법, Big-O 표기법 이라고도 부름</p>
+</li>
+<li><p>O(입력)</p>
+<ul>
+<li>입력 n 에 따라 결정되는 시간 복잡도 함수</li>
+<li>O(1), O($log n$), O(n), O(n$log n$), O($n^2$), O($2^n$), O(n!)등으로 표기함</li>
+<li>입력 n 의 크기에 따라 기하급수적으로 시간 복잡도가 늘어날 수 있음<ul>
+<li>O(1) &lt; O($log n$) &lt; O(n) &lt; O(n$log n$) &lt; O($n^2$) &lt; O($2^n$) &lt; O(n!)<ul>
+<li>참고: log n 의 베이스는 2 : $log_2 n$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>단순하게 입력 n에 따라, 몇번 실행이 되는지를 계산하면 됩니다.</p>
+<ul>
+<li><strong>표현식에 가장 큰 영향을 미치는 n 의 단위로 표기합니다.</strong></li>
+<li>n이 1이든 100이든, 1000이든, 10000이든 실행을<ul>
+<li>무조건 2회(상수회) 실행한다: O(1) <pre><code class="python">     if n &gt; 10:
+          print(n)
+</code></pre>
+</li>
+<li>n에 따라, n번, n + 10 번, 또는 3n + 10 번등 실행한다: O(n)<pre><code class="python">     variable = 1
+     for num in range(3):
+         for index in range(n):
+              print(index)
+</code></pre>
+</li>
+<li>n에 따라, $n^2$번, $n^2$ + 1000 번, 100$n^2$ - 100, 또는 300$n^2$ + 1번등 실행한다: O($n^2$)<pre><code class="python">     variable = 1
+     for i in range(300):
+         for num in range(n):
+             for index in range(n):
+                  print(index)
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/media/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0_files/BigO.png" alt="BigO"></p>
+<ul>
+<li>빅 오 입력값 표기 방법<ul>
+<li>예: <ul>
+<li>만약 시간 복잡도 함수가 2$n^2$ + 3n 이라면<ul>
+<li>가장 높은 차수는 2$n^2$ </li>
+<li>상수는 실제 큰 영향이 없음 </li>
+<li>결국 빅 오 표기법으로는 O($n^2$) (서울부터 부산까지 가는 자동차의 예를 상기)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="참고-자료구조별-시간복잡도"><a href="#참고-자료구조별-시간복잡도" class="headerlink" title="참고 : 자료구조별 시간복잡도"></a>참고 : 자료구조별 시간복잡도</h3><p><a target="_blank" rel="noopener" href="https://www.bigocheatsheet.com/">자료구조별 시간복잡도</a></p>
+<table>
+<thead>
+<tr>
+<th>Data Structure</th>
+<th>Time Complexity</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th>Space Complexity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Average</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Worst</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Worst</td>
+</tr>
+<tr>
+<td></td>
+<td>Access</td>
+<td>Search</td>
+<td>Insertion</td>
+<td>Deletion</td>
+<td>Access</td>
+<td>Search</td>
+<td>Insertion</td>
+<td>Deletion</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Array</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+</tr>
+<tr>
+<td><strong>Stack</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(n)</strong></td>
+</tr>
+<tr>
+<td><strong>Queue</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(n)</strong></td>
+</tr>
+<tr>
+<td><strong>Singly-Linked List</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(n)</strong></td>
+</tr>
+<tr>
+<td><strong>Doubly-Linked List</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(n)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(1)</strong></td>
+<td><strong>O(n)</strong></td>
+</tr>
+<tr>
+<td>Skip List</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n log(n))</td>
+</tr>
+<tr>
+<td><strong>Hash Table</strong></td>
+<td><strong>N/A</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>Θ(1)</strong></td>
+<td><strong>N/A</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+<td><strong>O(n)</strong></td>
+</tr>
+<tr>
+<td>Binary Search Tree</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Cartesian Tree</td>
+<td>N/A</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>N/A</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>B-Tree</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Red-Black Tree</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(n)v</td>
+</tr>
+<tr>
+<td>Splay Tree</td>
+<td>N/A</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>N/A</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>AVL Tree</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>KD Tree</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>Θ(log(n))</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+</tbody></table>
+<h2 id="4-예시"><a href="#4-예시" class="headerlink" title="4. 예시"></a>4. 예시</h2><p>실제 알고리즘을 예로 각 알고리즘의 <strong>시간 복잡도</strong>와 <strong>빅 오 표기법</strong> 알아보기</p>
+<div class="alert alert-block alert-warning">
+<strong>연습1:  1부터 n까지의 합을 구하는 알고리즘 작성해보기</strong>
+</div>
+
+<h3 id="4-1-1-알고리즘1"><a href="#4-1-1-알고리즘1" class="headerlink" title="4.1.1 알고리즘1"></a>4.1.1 알고리즘1</h3><p><strong>알고리즘1: 1부터 n까지의 합을 구하는 알고리즘1</strong></p>
+<ul>
+<li>합을 기록할 변수를 만들고 0을 저장</li>
+<li>n을 1부터 1씩 증가하면서 반복</li>
+<li>반복문 안에서 합을 기록할 변수에 1씩 증가된 값을 더함</li>
+<li>반복이 끝나면 합을 출력</li>
+</ul>
+<pre><code class="python">def sum_all(n):
+    total = 0
+    for num in range(1, n + 1):
+        total += num
+    return total
+</code></pre>
+<pre><code class="python">sum_all(100)
+</code></pre>
+<h3 id="4-1-2-시간-복잡도-구하기"><a href="#4-1-2-시간-복잡도-구하기" class="headerlink" title="4.1.2 시간 복잡도 구하기"></a>4.1.2 시간 복잡도 구하기</h3><ul>
+<li>1부터 n까지의 합을 구하는 알고리즘<ul>
+<li>입력 n에 따라 덧셈을 n 번 해야 함 (반복문!)</li>
+<li>시간 복잡도: n, 빅 오 표기법으로는 <strong>O(n)</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-1-알고리즘2"><a href="#4-2-1-알고리즘2" class="headerlink" title="4.2.1. 알고리즘2"></a>4.2.1. 알고리즘2</h3><p><strong>1부터 n까지의 합을 구하는 알고리즘</strong></p>
+<p><font size=5em>$\frac { n (n + 1) }{ 2 }$</font></p>
+<pre><code class="python">def sum_all(n):
+    return int(n * (n + 1) / 2)
+</code></pre>
+<pre><code class="python">sum_all(100)
+</code></pre>
+<h3 id="4-2-2-시간-복잡도-구하기"><a href="#4-2-2-시간-복잡도-구하기" class="headerlink" title="4.2.2. 시간 복잡도 구하기"></a>4.2.2. 시간 복잡도 구하기</h3><ul>
+<li>1부터 n까지의 합을 구하는 알고리즘2<ul>
+<li>입력 n이 어떻든 간에, 곱셈/덧셈/나눗셈 하면 됨 (반복문이 없음!)</li>
+<li>시간 복잡도: 1, 빅 오 표기법으로는 <strong>O(1)</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="4-3-성능비교"><a href="#4-3-성능비교" class="headerlink" title="4.3. 성능비교"></a>4.3. 성능비교</h3><ul>
+<li>알고리즘1 vs 알고리즘2<ul>
+<li>O(n) vs O(1)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>이와 같이, 동일한 문제를 푸는 알고리즘은 다양할 수 있음<br>어느 알고리즘이 보다 좋은지를 객관적으로 비교하기 위해, 빅 오 표기법등의 시간복잡도 계산법을 사용함</p>
+</blockquote>
+<h1 id="공간-복잡도"><a href="#공간-복잡도" class="headerlink" title="공간 복잡도"></a>공간 복잡도</h1><ul>
+<li>알고리즘 계산 복잡도는 다음 두 가지 척도로 표현될 수 있음<ul>
+<li>시간 복잡도: 얼마나 빠르게 실행되는지</li>
+<li>공간 복잡도: 얼마나 많은 저장 공간이 필요한지</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>좋은 알고리즘은 실행 시간도 짧고, 저장 공간도 적게 쓰는 알고리즘</p>
+</blockquote>
+<ul>
+<li>통상 둘 다를 만족시키기는 어려움<ul>
+<li>시간과 공간은 반비례적 경향이 있음</li>
+<li>최근 대용량 시스템이 보편화되면서, 공간 복잡도보다는 시간 복잡도가 우선 </li>
+<li>그래서! 알고리즘은 시간 복잡도가 중심</li>
+</ul>
+</li>
+</ul>
+<h2 id="공간-복잡도-대략적인-계산은-필요함"><a href="#공간-복잡도-대략적인-계산은-필요함" class="headerlink" title="공간 복잡도 대략적인 계산은 필요함"></a>공간 복잡도 대략적인 계산은 필요함</h2><ul>
+<li>기존 알고리즘 문제는 예전에 공간 복잡도도 고려되어야할 때 만들어진 경우가 많음</li>
+<li>그래서 기존 알고리즘 문제에 시간 복잡도뿐만 아니라, 공간 복잡도 제약 사항이 있는 경우가 있음</li>
+<li>또한, 기존 알고리즘 문제에 영향을 받아서, 면접시에도 공간 복잡도를 묻는 경우도 있음</li>
+</ul>
+<p>Complexity:</p>
+<ul>
+<li>expected worst-case time complexity: O(N)</li>
+<li>expected worst-case space complexity: O(N)</li>
+</ul>
+<blockquote>
+<p>현업에서 최근 빅데이터를 다룰 때는 저장 공간을 고려해서 구현을 하는 경우도 있음 </p>
+</blockquote>
+<h2 id="1-공간-복잡도-Space-Complexity"><a href="#1-공간-복잡도-Space-Complexity" class="headerlink" title="1. 공간 복잡도 (Space Complexity)"></a>1. 공간 복잡도 (Space Complexity)</h2><ul>
+<li>프로그램을 실행 및 완료하는데 필요한 저장공간의 양을 뜻함</li>
+<li>총 필요 저장 공간<ul>
+<li>고정 공간 (알고리즘과 무관한 공간): 코드 저장 공간, 단순 변수 및 상수</li>
+<li>가변 공간 (알고리즘 실행과 관련있는 공간): 실행 중 동적으로 필요한 공간</li>
+<li>$ S(P) = c + S_p(n) $<ul>
+<li>c: 고정 공간</li>
+<li>$ S_p(n) $: 가변 공간</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>빅 오 표기법을 생각해볼 때, 고정 공간은 상수이므로 공간 복잡도는 <strong>가변 공간</strong>에 좌우됨</p>
+</blockquote>
+<h2 id="2-공간-복잡도-계산"><a href="#2-공간-복잡도-계산" class="headerlink" title="2. 공간 복잡도 계산"></a>2. 공간 복잡도 계산</h2><ul>
+<li>공간 복잡도 계산은 알고리즘에서 실제 사용되는 저장 공간을 계산하면 됨 <ul>
+<li>이를 빅 오 표기법으로 표현할 수 있으면 됨 </li>
+</ul>
+</li>
+</ul>
+<h3 id="예제1"><a href="#예제1" class="headerlink" title="예제1"></a>예제1</h3><ul>
+<li>n! 팩토리얼 구하기<ul>
+<li>n! = 1 x 2 x … x n</li>
+</ul>
+</li>
+<li>n의 값에 상관없이 변수 n, 변수 fac, 변수 index 만 필요함</li>
+<li>공간 복잡도는 <strong>O(1)</strong></li>
+</ul>
+<blockquote>
+<p>공간 복잡도 계산은 실제 알고리즘 실행시 사용되는 저장공간을 계산하면 됨</p>
+</blockquote>
+<pre><code class="python">def factorial(n):
+    fac = 1
+    for index in range(2, n + 1):
+        fac = fac * index
+    return fac
+
+factorial(3)
+</code></pre>
+<p>실행결과</p>
+<pre><code>6
+</code></pre>
+<h3 id="예제2"><a href="#예제2" class="headerlink" title="예제2"></a>예제2</h3><ul>
+<li>n! 팩토리얼 구하기<ul>
+<li>n! = 1 x 2 x … x n</li>
+</ul>
+</li>
+<li>재귀함수를 사용하였으므로, n에 따라, 변수 n이 n개가 만들어지게 됨<ul>
+<li>factorial 함수를 재귀 함수로 1까지 호출하였을 경우, n부터 1까지 스택에 쌓이게 됨</li>
+</ul>
+</li>
+<li>공간 복잡도는 <strong>O(n)</strong></li>
+</ul>
+<pre><code class="python">def factorial(n):
+    if n &gt; 1:
+        return n * factorial(n - 1)
+    else:
+        return 1
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>알고리즘 복잡도</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-03-10, 20:26:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-04-14, 14:28:34</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/" title="알고리즘 복잡도">https://chaejin-jen.github.io/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
