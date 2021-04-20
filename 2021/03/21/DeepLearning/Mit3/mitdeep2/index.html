@@ -1,0 +1,2940 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>밑바닥 딥러닝 3 (2고지) | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content=" DeepLearning Framework , 밑바닥 부터 시작하는 딥러닝 3 ">
+  <meta name="description" content="밑바닥 딥러닝 3 (2고지) | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="이 글은 컴퓨터 공학자 따라잡기 온라인 완주반의 강의를 들으면서 작성되었습니다.    출처 : 패스트캠퍼스 컴퓨터 공학 전공자 따라잡기 온라인 완주반    목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기 s&#x2F;S : 디렉토리 숨기기 또는 열기  데이터 모델을 데이터베이스로 변환관계 모델 V2 소개 ANSI SPARC 스키마 소개 데이터베이스 구성요소 명명 규">
+<meta property="og:type" content="article">
+<meta property="og:title" content="데이터베이스 설계">
+<meta property="og:url" content="https://chaejin-jen.github.io/2021/04/16/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/index.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="이 글은 컴퓨터 공학자 따라잡기 온라인 완주반의 강의를 들으면서 작성되었습니다.    출처 : 패스트캠퍼스 컴퓨터 공학 전공자 따라잡기 온라인 완주반    목차w&#x2F;W : 글 목차 확인 또는 글 목록 보기 s&#x2F;S : 디렉토리 숨기기 또는 열기  데이터 모델을 데이터베이스로 변환관계 모델 V2 소개 ANSI SPARC 스키마 소개 데이터베이스 구성요소 명명 규">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/RelationModel_%EB%B0%9C%EC%A0%84.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/ANSISPARCthree_level_architecture.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/ANSI3levelDataIndependency.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/DB_Object_Map.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/%EC%97%94%ED%8B%B0%ED%8B%B0%EC%9C%A0%ED%98%95_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/%EC%86%8D%EC%84%B1%EC%9C%A0%ED%98%95%EC%9D%84_%EC%BB%AC%EB%9F%BC%EC%9C%BC%EB%A1%9C%EC%A0%95%EC%9D%98_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/DataTypes.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/FOREIGN_KEY_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/PRIMARY_KEY_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/%ED%8C%8C%EC%9D%BC%EC%9D%84DB%EA%B5%AC%EC%A1%B0%EB%A1%9CMapping.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/Interleaving_%ED%85%8C%EC%9D%B4%EB%B8%94%EB%8D%B0%EC%9D%B4%ED%84%B0.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/%EC%97%AD%EC%A0%95%EA%B7%9C%ED%99%94%EC%9D%98%EB%AF%B8_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/%EB%B0%98%EB%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%EA%B7%B8%EB%A3%B9%EA%B5%AC%EC%84%B1_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/DB%EB%82%B4_%EA%B3%84%EC%B8%B5%EB%8D%B0%EC%9D%B4%ED%84%B0_Ex.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/%EA%B3%84%EC%B8%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC_%EC%9C%84%ED%95%9C_%EC%8A%A4%ED%94%BC%EB%93%9C%ED%85%8C%EC%9D%B4%EB%B8%94_Ex.png">
+<meta property="article:published_time" content="2021-04-16T02:08:00.000Z">
+<meta property="article:modified_time" content="2021-04-16T12:46:30.825Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta property="article:tag" content="DataBase Design">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4_files/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/RelationModel_%EB%B0%9C%EC%A0%84.png">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(22)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
+                                        
+                                        밑바닥 3
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->DataBase">
+                                        
+                                        DataBase
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBagic">
+                                                        
+                                                        Bagic
+                                                        
+                                                            <small>(5)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="22">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Design</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Modeling</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Network</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/16/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/"
+           data-tag="DataBase Design"
+           data-author="" >
+            <span class="post-title" title="데이터베이스 설계">데이터베이스 설계</span>
+            <span class="post-date" title="2021-04-16 11:08:00">2021/04/16</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/13/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81/"
+           data-tag="DataBase Modeling"
+           data-author="" >
+            <span class="post-title" title="데이터 모델링">데이터 모델링</span>
+            <span class="post-date" title="2021-04-13 11:43:00">2021/04/13</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/05/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"
+           data-tag="Data Architecture"
+           data-author="" >
+            <span class="post-title" title="데이터 아키텍처">데이터 아키텍처</span>
+            <span class="post-date" title="2021-04-05 18:13:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/04/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"
+           data-tag="Computer Science,Network"
+           data-author="" >
+            <span class="post-title" title="네트워크">네트워크</span>
+            <span class="post-date" title="2021-04-04 17:01:29">2021/04/04</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/02/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-02 10:12:00">2021/04/02</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_bagic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/14/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-03-14 23:12:00">2021/03/14</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/13/DataScience/Math/Bagic/%ED%96%89%EB%A0%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="행렬">행렬</span>
+            <span class="post-date" title="2021-03-13 19:42:00">2021/03/13</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/09/DataScience/Math/Bagic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm,Data structure"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/05/DataScience/Math/Bagic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/03/DataScience/Math/Bagic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Bagic "
+           href="/2021/03/02/DataScience/Math/Bagic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-DeepLearning/Mit3/mitdeep2" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">밑바닥 딥러닝 3 (2고지)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="DeepLearning">DeepLearning</a> > 
+            
+            <a  data-rel="DeepLearning&lt;---&gt;밑바닥 3">밑바닥 3</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">DeepLearning Framework</a>
+            
+            <a class="color3">밑바닥 부터 시작하는 딥러닝 3</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-04-16 13:33:43'>2021-03-21 13:48</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AA%A9%EC%B0%A8"><span class="toc-text">목차</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%A0%9C2%EA%B3%A0%EC%A7%80-%EC%9E%90%EC%97%B0%EC%8A%A4%EB%9F%AC%EC%9A%B4-%EC%BD%94%EB%93%9C%EB%A1%9C"><span class="toc-text">제2고지 자연스러운 코드로</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-11-%EA%B0%80%EB%B3%80-%EA%B8%B8%EC%9D%B4-%EC%9D%B8%EC%88%98-%EC%88%9C%EC%A0%84%ED%8C%8C-%ED%8E%B8"><span class="toc-text">[Step 11] 가변 길이 인수(순전파 편)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-Function-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%88%98%EC%A0%95"><span class="toc-text">11.1 Function 클래스 수정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-Add-%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B5%AC%ED%98%84"><span class="toc-text">11.2 Add 클래스 구현</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-12-%EA%B0%80%EB%B3%80-%EA%B8%B8%EC%9D%B4-%EC%9D%B8%EC%88%98-%EA%B0%9C%EC%84%A0-%ED%8E%B8"><span class="toc-text">[Step 12] 가변 길이 인수(개선 편)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-%ED%95%A8%EC%88%98%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-%EC%89%BD%EA%B2%8C"><span class="toc-text">12.1 함수를 사용하기 쉽게</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-13-%EA%B0%80%EB%B3%80-%EA%B8%B8%EC%9D%B4-%EC%9D%B8%EC%88%98-%EC%97%AD%EC%A0%84%ED%8C%8C-%ED%8E%B8"><span class="toc-text">[Step 13] 가변 길이 인수(역전파 편)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Variable-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%88%98%EC%A0%95"><span class="toc-text">Variable 클래스 수정</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-14-%EA%B0%99%EC%9D%80-%EB%B3%80%EC%88%98-%EB%B0%98%EB%B3%B5-%EC%82%AC%EC%9A%A9"><span class="toc-text">[Step 14] 같은 변수 반복 사용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B3%B4%EC%B6%A9-%EB%B6%80%EB%A1%9D-A-%EC%9D%B8%ED%94%8C%EB%A0%88%EC%9D%B4%EC%8A%A4-%EC%97%B0%EC%82%B0"><span class="toc-text">[보충] 부록 A : 인플레이스 연산</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-15-%EB%B3%B5%EC%9E%A1%ED%95%9C-%EA%B3%84%EC%82%B0-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9D%B4%EB%A1%A0-%ED%8E%B8"><span class="toc-text">[Step 15] 복잡한 계산 그래프(이론 편)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-16-%EB%B3%B5%EC%9E%A1%ED%95%9C-%EA%B3%84%EC%82%B0-%EA%B7%B8%EB%9E%98%ED%94%84-%EA%B5%AC%ED%98%84-%ED%8E%B8"><span class="toc-text">[Step 16] 복잡한 계산 그래프(구현 편)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-17-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EA%B4%80%EB%A6%AC%EC%99%80-%EC%88%9C%ED%99%98-%EC%B0%B8%EC%A1%B0"><span class="toc-text">[Step 17] 메모리 관리와 순환 참조</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-18-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%88%EC%95%BD-%EB%AA%A8%EB%93%9C"><span class="toc-text">[Step 18] 메모리 절약 모드</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-19-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9%EC%84%B1-%EA%B0%9C%EC%84%A0"><span class="toc-text">[Step 19] 변수 사용성 개선</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%9C%AF%EC%96%B4-%EB%B3%B4%EA%B8%B0"><span class="toc-text">뜯어 보기</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%B3%80%EC%88%98-%EC%9D%B4%EB%A6%84-%EC%84%A4%EC%A0%95"><span class="toc-text">변수 이름 설정</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-20-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%93%9C-1"><span class="toc-text">[Step 20] 연산자 오버로드(1)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%9C%AF%EC%96%B4-%EB%B3%B4%EA%B8%B0-1"><span class="toc-text">뜯어 보기</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-21-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%93%9C-2"><span class="toc-text">[Step 21] 연산자 오버로드(2)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%9C%AF%EC%96%B4-%EB%B3%B4%EA%B8%B0-2"><span class="toc-text">뜯어 보기</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ndarray-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%99%80-%EA%B3%84%EC%82%B0%ED%95%A0-%EC%88%98-%EC%9E%88%EA%B2%8C-%ED%95%98%EA%B8%B0-1"><span class="toc-text">ndarray 인스턴스와 계산할 수 있게 하기 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ndarray-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%EC%99%80-%EA%B3%84%EC%82%B0%ED%95%A0-%EC%88%98-%EC%9E%88%EA%B2%8C-%ED%95%98%EA%B8%B0-2"><span class="toc-text">ndarray 인스턴스와 계산할 수 있게 하기 2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A2%8C%ED%95%AD-%EC%9A%B0%ED%95%AD"><span class="toc-text">좌항 우항</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%97%B0%EC%82%B0%EC%9E%90-%EC%9A%B0%EC%84%A0-%EC%88%9C%EC%9C%84"><span class="toc-text">연산자 우선 순위</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-22-%EC%97%B0%EC%82%B0%EC%9E%90-%EC%98%A4%EB%B2%84%EB%A1%9C%EB%93%9C-3"><span class="toc-text">[Step 22] 연산자 오버로드(3)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%9C%AF%EC%96%B4%EB%B3%B4%EA%B8%B0"><span class="toc-text">뜯어보기</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%B6%80%ED%98%B8-%EB%B3%80%ED%99%98-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="toc-text">부호 변환 연산자</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%BA%84%EC%85%88"><span class="toc-text">뺄셈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%82%98%EB%88%97%EC%85%88"><span class="toc-text">나눗셈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B1%B0%EB%93%AD%EC%A0%9C%EA%B3%B1"><span class="toc-text">거듭제곱</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-23-%ED%8C%A8%ED%82%A4%EC%A7%80%EB%A1%9C-%EC%A0%95%EB%A6%AC"><span class="toc-text">[Step 23] 패키지로 정리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step-24-%EB%B3%B5%EC%9E%A1%ED%95%9C-%ED%95%A8%EC%88%98%EC%9D%98-%EB%AF%B8%EB%B6%84"><span class="toc-text">[Step 24] 복잡한 함수의 미분</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기</p>
+<p><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
+<hr>
+<!-- gitblog\source\_posts\\\mitdeep1.md -->
+<!-- 그림구하기 : 아직 그림 안찾은거 -->
+
+<h1 id="제2고지-자연스러운-코드로"><a href="#제2고지-자연스러운-코드로" class="headerlink" title="제2고지 자연스러운 코드로"></a>제2고지 자연스러운 코드로</h1><h2 id="Step-11-가변-길이-인수-순전파-편"><a href="#Step-11-가변-길이-인수-순전파-편" class="headerlink" title="[Step 11] 가변 길이 인수(순전파 편)"></a>[Step 11] 가변 길이 인수(순전파 편)</h2><ul>
+<li>[Step 10] : 입출력 변수가 하나씩인 경우만 생각함</li>
+<li>[Step 11] : 입력과 출력이 여러 개인 함수를 고려<br>  <img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC11-1.png"><br>  <img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC11-2.png"></li>
+</ul>
+<hr>
+<!-- ### creator 설정
+- `def set_creator(self, func)`: creator를 설정할 수 있도록 set_creator 메서드 추가
+
+### for output in outputs:
+
+            output.set_creator(self) # 출력변수에 창조자 설정
+
+        self.inputs = inputs # 역전파에 쓰려고 저장해둠 
+
+        self.outputs = outputs # 출력도 저장해둠
+- self.inputs = inputs # 역전파에 쓰려고 저장해둠  -->
+
+
+<pre><code class="python">import numpy as np
+
+
+class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+
+    def set_creator(self, func):
+        self.creator = func
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = [self.creator]
+        while funcs:
+            f = funcs.pop()
+            x, y = f.input, f.output
+            x.grad = f.backward(y.grad)
+
+            if x.creator is not None:
+                funcs.append(x.creator)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, inputs):
+        xs = [x.data for x in inputs]  # Get data from Variable
+        ys = self.forward(xs)
+        outputs = [Variable(as_array(y)) for y in ys]  # Wrap data
+
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs
+        self.outputs = outputs
+        return outputs
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, xs):
+        x0, x1 = xs
+        y = x0 + x1
+        return (y,)
+
+
+xs = [Variable(np.array(2)), Variable(np.array(3))]
+f = Add()
+ys = f(xs)
+y = ys[0]
+print(y.data)
+</code></pre>
+<p>실행 결과</p>
+<pre><code>5
+</code></pre>
+<h3 id="11-1-Function-클래스-수정"><a href="#11-1-Function-클래스-수정" class="headerlink" title="11.1 Function 클래스 수정"></a>11.1 Function 클래스 수정</h3><ul>
+<li><p>목표 :  가변 길이 입출력을 처리할 수 있도록 확장 </p>
+</li>
+<li><p>방법</p>
+<ul>
+<li><p>조건 1 : 인수와 반환값의 타입을 리스트(또는 튜플)로 바꿈</p>
+</li>
+<li><p>조건 2 : 리스트로 객체를 하나씩 내보내기 위해 반복문을 사용</p>
+<pre><code class="python">class Function:
+    def __call__(self, inputs):
+        
+        #11.1.1
+        xs = [x.data for x in inputs]  
+        ys = self.forward(xs)
+        outputs = [Variable(as_array(y)) for y in ys] 
+        
+        # 11.1.2
+        for output in outputs: 
+            output.set_creator(self)
+            
+        self.inputs = inputs
+        self.outputs = outputs
+        return outputs
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+</code></pre>
+<h3 id="11-2-Add-클래스-구현"><a href="#11-2-Add-클래스-구현" class="headerlink" title="11.2 Add 클래스 구현"></a>11.2 Add 클래스 구현</h3></li>
+</ul>
+</li>
+<li><p>조건 : 인수와 반환값이 리스트(또는 튜플)</p>
+<pre><code class="python">class Add(Function):
+    def forward(self, xs):
+        x0, x1 = xs
+        y = x0 + x1
+        return (y,)
+</code></pre>
+</li>
+</ul>
+<h2 id="Step-12-가변-길이-인수-개선-편"><a href="#Step-12-가변-길이-인수-개선-편" class="headerlink" title="[Step 12] 가변 길이 인수(개선 편)"></a>[Step 12] 가변 길이 인수(개선 편)</h2><ul>
+<li><p>[Step 12] : 리스트나 튜플을 거치지 않고 인수와 결과를 직접 주고받자!</p>
+</li>
+<li><p>함수의 인자를 가변인자로 변경 $\rightarrow$ 임의 개수의 인수를 받음</p>
+<pre><code class="python">import numpy as np
+
+</code></pre>
+</li>
+</ul>
+<pre><code>class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+
+    def set_creator(self, func):
+        self.creator = func
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = [self.creator]
+        while funcs:
+            f = funcs.pop()
+            x, y = f.input, f.output
+            x.grad = f.backward(y.grad)
+
+            if x.creator is not None:
+                funcs.append(x.creator)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs
+        self.outputs = outputs
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+x0 = Variable(np.array(2))
+x1 = Variable(np.array(3))
+y = add(x0, x1)
+print(y.data)
+```
+
+실행 결과
+
+```
+5
+```
+</code></pre>
+<h3 id="12-1-함수를-사용하기-쉽게"><a href="#12-1-함수를-사용하기-쉽게" class="headerlink" title="12.1 함수를 사용하기 쉽게"></a>12.1 함수를 사용하기 쉽게</h3><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC12-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC12-2.png"></p>
+<!-- 여기부터 해야 함 -->
+
+
+<h2 id="Step-13-가변-길이-인수-역전파-편"><a href="#Step-13-가변-길이-인수-역전파-편" class="headerlink" title="[Step 13] 가변 길이 인수(역전파 편)"></a>[Step 13] 가변 길이 인수(역전파 편)</h2><ul>
+<li><p>역전파니까 pop() 함수 사용 (끝에서 부터 받아냄)<br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC13-1.png"></p>
+<h3 id="Variable-클래스-수정"><a href="#Variable-클래스-수정" class="headerlink" title="Variable 클래스 수정"></a>Variable 클래스 수정</h3></li>
+<li><p><code>gys = [output.grad for output in f.outputs]</code> : outputs에 담겨있는 미분값들을 리스트에 담음</p>
+</li>
+<li><p><code>gxs = f.backward(*gys)</code> : f의 역전파를 호출</p>
+</li>
+<li><p><code>if not isinstance(gxs, tuple): gxs = (gxs,)</code> : 튜플이 아니라면 튜플로 변환 </p>
+</li>
+<li><p><code>for x, gx in zip(f.inputs, gxs): x.grad = gx</code> : 역전파로 전파되는 미분값을 Variable의 인스턴스 변수 grad에 저장</p>
+<ul>
+<li><code>if x.creator is not None: funcs.append(x.creator)</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="python">import numpy as np
+
+
+class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+
+    def set_creator(self, func):
+        self.creator = func
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = [self.creator]
+        while funcs:
+            f = funcs.pop()
+            gys = [output.grad for output in f.outputs]
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                x.grad = gx
+
+                if x.creator is not None:
+                    funcs.append(x.creator)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs
+        self.outputs = outputs
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Square(Function):
+    def forward(self, x):
+        y = x ** 2
+        return y
+
+    def backward(self, gy):
+        x = self.inputs[0].data
+        gx = 2 * x * gy
+        return gx
+
+
+def square(x):
+    f = Square()
+    return f(x)
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+x = Variable(np.array(2.0))
+y = Variable(np.array(3.0))
+
+z = add(square(x), square(y))
+z.backward()
+print(z.data)
+print(x.grad)
+print(y.grad)
+</code></pre>
+<!-- ```python
+``` -->
+<h2 id="Step-14-같은-변수-반복-사용"><a href="#Step-14-같은-변수-반복-사용" class="headerlink" title="[Step 14] 같은 변수 반복 사용"></a>[Step 14] 같은 변수 반복 사용</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC14-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC14-2.png"></p>
+<pre><code class="python">import numpy as np
+
+
+class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+
+    def set_creator(self, func):
+        self.creator = func
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = [self.creator]
+        while funcs:
+            f = funcs.pop()
+            gys = [output.grad for output in f.outputs]
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    funcs.append(x.creator)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs
+        self.outputs = outputs
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+x = Variable(np.array(3.0))
+y = add(x, x)
+y.backward()
+print(x.grad)
+
+
+x = Variable(np.array(3.0))  # or x.cleargrad()
+y = add(add(x, x), x)
+y.backward()
+print(x.grad)
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+
+<h3 id="보충-부록-A-인플레이스-연산"><a href="#보충-부록-A-인플레이스-연산" class="headerlink" title="[보충] 부록 A : 인플레이스 연산"></a>[보충] 부록 A : 인플레이스 연산</h3><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BCA-1.png"></p>
+<h2 id="Step-15-복잡한-계산-그래프-이론-편"><a href="#Step-15-복잡한-계산-그래프-이론-편" class="headerlink" title="[Step 15] 복잡한 계산 그래프(이론 편)"></a>[Step 15] 복잡한 계산 그래프(이론 편)</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-4.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-5.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-6.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-7.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC15-8.png"></p>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-16-복잡한-계산-그래프-구현-편"><a href="#Step-16-복잡한-계산-그래프-구현-편" class="headerlink" title="[Step 16] 복잡한 계산 그래프(구현 편)"></a>[Step 16] 복잡한 계산 그래프(구현 편)</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC16-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC16-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC16-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC16-4.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC16-5.png"></p>
+<pre><code class="python">import numpy as np
+
+
+class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output.grad for output in f.outputs]
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        self.generation = max([x.generation for x in inputs])
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs
+        self.outputs = outputs
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Square(Function):
+    def forward(self, x):
+        y = x ** 2
+        return y
+
+    def backward(self, gy):
+        x = self.inputs[0].data
+        gx = 2 * x * gy
+        return gx
+
+
+def square(x):
+    return Square()(x)
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+x = Variable(np.array(2.0))
+a = square(x)
+y = add(square(a), square(a))
+y.backward()
+
+print(y.data)
+print(x.grad)
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-17-메모리-관리와-순환-참조"><a href="#Step-17-메모리-관리와-순환-참조" class="headerlink" title="[Step 17] 메모리 관리와 순환 참조"></a>[Step 17] 메모리 관리와 순환 참조</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC17-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC17-2.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC17-3.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC17-4.png"></p>
+<pre><code class="python">import weakref
+import numpy as np
+
+
+class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output().grad for output in f.outputs]  # output is weakref
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        self.generation = max([x.generation for x in inputs])
+        for output in outputs:
+            output.set_creator(self)
+        self.inputs = inputs
+        self.outputs = [weakref.ref(output) for output in outputs]
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Square(Function):
+    def forward(self, x):
+        y = x ** 2
+        return y
+
+    def backward(self, gy):
+        x = self.inputs[0].data
+        gx = 2 * x * gy
+        return gx
+
+
+def square(x):
+    return Square()(x)
+
+
+for i in range(10):
+    x = Variable(np.random.randn(10000))  # big data
+    y = square(square(square(x)))
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-18-메모리-절약-모드"><a href="#Step-18-메모리-절약-모드" class="headerlink" title="[Step 18] 메모리 절약 모드"></a>[Step 18] 메모리 절약 모드</h2><pre><code class="python">import weakref
+import numpy as np
+import contextlib
+
+
+class Config:
+    enable_backprop = True
+
+
+@contextlib.contextmanager
+def using_config(name, value):
+    old_value = getattr(Config, name)
+    setattr(Config, name, value)
+    try:
+        yield
+    finally:
+        setattr(Config, name, old_value)
+
+
+def no_grad():
+    return using_config(&#39;enable_backprop&#39;, False)
+
+
+class Variable:
+    def __init__(self, data):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self, retain_grad=False):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output().grad for output in f.outputs]  # output is weakref
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+            if not retain_grad:
+                for y in f.outputs:
+                    y().grad = None  # y is weakref
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        if Config.enable_backprop:
+            self.generation = max([x.generation for x in inputs])
+            for output in outputs:
+                output.set_creator(self)
+            self.inputs = inputs
+            self.outputs = [weakref.ref(output) for output in outputs]
+
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Square(Function):
+    def forward(self, x):
+        y = x ** 2
+        return y
+
+    def backward(self, gy):
+        x = self.inputs[0].data
+        gx = 2 * x * gy
+        return gx
+
+
+def square(x):
+    return Square()(x)
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+x0 = Variable(np.array(1.0))
+x1 = Variable(np.array(1.0))
+t = add(x0, x1)
+y = add(x0, t)
+y.backward()
+print(y.grad, t.grad)  # None None
+print(x0.grad, x1.grad)  # 2.0 1.0
+
+
+with using_config(&#39;enable_backprop&#39;, False):
+    x = Variable(np.array(2.0))
+    y = square(x)
+
+with no_grad():
+    x = Variable(np.array(2.0))
+    y = square(x)
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-19-변수-사용성-개선"><a href="#Step-19-변수-사용성-개선" class="headerlink" title="[Step 19] 변수 사용성 개선"></a>[Step 19] 변수 사용성 개선</h2><pre><code class="python">import weakref
+import numpy as np
+import contextlib
+
+
+class Config:
+    enable_backprop = True
+
+
+@contextlib.contextmanager
+def using_config(name, value):
+    old_value = getattr(Config, name)
+    setattr(Config, name, value)
+    try:
+        yield
+    finally:
+        setattr(Config, name, old_value)
+
+
+def no_grad():
+    return using_config(&#39;enable_backprop&#39;, False)
+
+
+class Variable:
+    def __init__(self, data, name=None):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.name = name
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    @property
+    def shape(self):
+        return self.data.shape
+
+    @property
+    def ndim(self):
+        return self.data.ndim
+
+    @property
+    def size(self):
+        return self.data.size
+
+    @property
+    def dtype(self):
+        return self.data.dtype
+
+    def __len__(self):
+        return len(self.data)
+
+    def __repr__(self):
+        if self.data is None:
+            return &#39;variable(None)&#39;
+        p = str(self.data).replace(&#39;\n&#39;, &#39;\n&#39; + &#39; &#39; * 9)
+        return &#39;variable(&#39; + p + &#39;)&#39;
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self, retain_grad=False):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output().grad for output in f.outputs]  # output is weakref
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+            if not retain_grad:
+                for y in f.outputs:
+                    y().grad = None  # y is weakref
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        if Config.enable_backprop:
+            self.generation = max([x.generation for x in inputs])
+            for output in outputs:
+                output.set_creator(self)
+            self.inputs = inputs
+            self.outputs = [weakref.ref(output) for output in outputs]
+
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Square(Function):
+    def forward(self, x):
+        y = x ** 2
+        return y
+
+    def backward(self, gy):
+        x = self.inputs[0].data
+        gx = 2 * x * gy
+        return gx
+
+
+def square(x):
+    return Square()(x)
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+x = Variable(np.array([[1, 2, 3], [4, 5, 6]]))
+x.name = &#39;x&#39;
+
+print(x.name)
+print(x.shape)
+print(x)
+</code></pre>
+<h3 id="뜯어-보기"><a href="#뜯어-보기" class="headerlink" title="뜯어 보기"></a>뜯어 보기</h3><h4 id="변수-이름-설정"><a href="#변수-이름-설정" class="headerlink" title="변수 이름 설정"></a>변수 이름 설정</h4><ul>
+<li><p><code>self.name = name</code> : 수많은 변수를 처리할 때 구분하기 위해 이름을 설정 </p>
+</li>
+<li><p><code>y = add(mul(a, b), c)</code> $\rightarrow$ <code>y = a * b + c</code> </p>
+</li>
+<li><p><code>@property</code></p>
+<ul>
+<li><code>def dtype(self): return self.data.dtype</code> : 데이터 타입 </li>
+</ul>
+</li>
+<li><p><code>def __len__(self): return len(self.data)</code> : 원소 수 반환</p>
+</li>
+<li><p><code>def __repr__(self):</code> : print 찍을 때, 나오는 값 설정</p>
+</li>
+</ul>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-20-연산자-오버로드-1"><a href="#Step-20-연산자-오버로드-1" class="headerlink" title="[Step 20] 연산자 오버로드(1)"></a>[Step 20] 연산자 오버로드(1)</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC20-1.png"><br><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC20-2.png"></p>
+<pre><code class="python">import weakref
+import numpy as np
+import contextlib
+
+
+class Config:
+    enable_backprop = True
+
+
+@contextlib.contextmanager
+def using_config(name, value):
+    old_value = getattr(Config, name)
+    setattr(Config, name, value)
+    try:
+        yield
+    finally:
+        setattr(Config, name, old_value)
+
+
+def no_grad():
+    return using_config(&#39;enable_backprop&#39;, False)
+
+
+class Variable:
+    def __init__(self, data, name=None):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.name = name
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    @property
+    def shape(self):
+        return self.data.shape
+
+    @property
+    def ndim(self):
+        return self.data.ndim
+
+    @property
+    def size(self):
+        return self.data.size
+
+    @property
+    def dtype(self):
+        return self.data.dtype
+
+    def __len__(self):
+        return len(self.data)
+
+    def __repr__(self):
+        if self.data is None:
+            return &#39;variable(None)&#39;
+        p = str(self.data).replace(&#39;\n&#39;, &#39;\n&#39; + &#39; &#39; * 9)
+        return &#39;variable(&#39; + p + &#39;)&#39;
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self, retain_grad=False):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output().grad for output in f.outputs]  # output is weakref
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+            if not retain_grad:
+                for y in f.outputs:
+                    y().grad = None  # y is weakref
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        if Config.enable_backprop:
+            self.generation = max([x.generation for x in inputs])
+            for output in outputs:
+                output.set_creator(self)
+            self.inputs = inputs
+            self.outputs = [weakref.ref(output) for output in outputs]
+
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    return Add()(x0, x1)
+
+
+class Mul(Function):
+    def forward(self, x0, x1):
+        y = x0 * x1
+        return y
+
+    def backward(self, gy):
+        x0, x1 = self.inputs[0].data, self.inputs[1].data
+        return gy * x1, gy * x0
+
+
+def mul(x0, x1):
+    return Mul()(x0, x1)
+
+
+Variable.__add__ = add
+Variable.__mul__ = mul
+
+a = Variable(np.array(3.0))
+b = Variable(np.array(2.0))
+c = Variable(np.array(1.0))
+
+# y = add(mul(a, b), c)
+y = a * b + c
+y.backward()
+
+print(y)
+print(a.grad)
+print(b.grad)
+</code></pre>
+<h3 id="뜯어-보기-1"><a href="#뜯어-보기-1" class="headerlink" title="뜯어 보기"></a>뜯어 보기</h3><ul>
+<li><p>연산자는 좌항의 인스턴스에 대한 특수 (연산자) 메서드부터 호출해서 연산한다.</p>
+</li>
+<li><p>좌항의 인스턴스에 특수 메서드가 존재하지 않으면 우항의 인스턴스에 대한 특수 연산자를 호출하여 연산한다.</p>
+<ul>
+<li><p>example<br>a * b 의 연산에서 $<strong>mul</strong>(self, other)$에서 인수가 전달되는 방식  </p>
+<pre><code>self &lt;- a  
+other &lt;- b  
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-21-연산자-오버로드-2"><a href="#Step-21-연산자-오버로드-2" class="headerlink" title="[Step 21] 연산자 오버로드(2)"></a>[Step 21] 연산자 오버로드(2)</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC21-1.png"></p>
+<pre><code class="python">import weakref
+import numpy as np
+import contextlib
+
+
+class Config:
+    enable_backprop = True
+
+
+@contextlib.contextmanager
+def using_config(name, value):
+    old_value = getattr(Config, name)
+    setattr(Config, name, value)
+    try:
+        yield
+    finally:
+        setattr(Config, name, old_value)
+
+
+def no_grad():
+    return using_config(&#39;enable_backprop&#39;, False)
+
+
+class Variable:
+    __array_priority__ = 200
+
+    def __init__(self, data, name=None):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.name = name
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    @property
+    def shape(self):
+        return self.data.shape
+
+    @property
+    def ndim(self):
+        return self.data.ndim
+
+    @property
+    def size(self):
+        return self.data.size
+
+    @property
+    def dtype(self):
+        return self.data.dtype
+
+    def __len__(self):
+        return len(self.data)
+
+    def __repr__(self):
+        if self.data is None:
+            return &#39;variable(None)&#39;
+        p = str(self.data).replace(&#39;\n&#39;, &#39;\n&#39; + &#39; &#39; * 9)
+        return &#39;variable(&#39; + p + &#39;)&#39;
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self, retain_grad=False):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output().grad for output in f.outputs]  # output is weakref
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+            if not retain_grad:
+                for y in f.outputs:
+                    y().grad = None  # y is weakref
+
+
+def as_variable(obj):
+    if isinstance(obj, Variable):
+        return obj
+    return Variable(obj)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        inputs = [as_variable(x) for x in inputs]
+
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        if Config.enable_backprop:
+            self.generation = max([x.generation for x in inputs])
+            for output in outputs:
+                output.set_creator(self)
+            self.inputs = inputs
+            self.outputs = [weakref.ref(output) for output in outputs]
+
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    x1 = as_array(x1)
+    return Add()(x0, x1)
+
+
+class Mul(Function):
+    def forward(self, x0, x1):
+        y = x0 * x1
+        return y
+
+    def backward(self, gy):
+        x0, x1 = self.inputs[0].data, self.inputs[1].data
+        return gy * x1, gy * x0
+
+
+def mul(x0, x1):
+    x1 = as_array(x1)
+    return Mul()(x0, x1)
+
+
+Variable.__add__ = add
+Variable.__radd__ = add
+Variable.__mul__ = mul
+Variable.__rmul__ = mul
+
+x = Variable(np.array(2.0))
+y = x + np.array(3.0)
+print(y)
+
+y = x + 3.0
+print(y)
+
+y = 3.0 * x + 1.0
+print(y)
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+
+<h3 id="뜯어-보기-2"><a href="#뜯어-보기-2" class="headerlink" title="뜯어 보기"></a>뜯어 보기</h3><ul>
+<li><p>ndarray 인스턴스와의 계산  </p>
+<p>ex) a * np.array(2.0)</p>
+</li>
+<li><p>수치 데이터(int, float 등)와의 계산  </p>
+<p>ex) 3 + b</p>
+</li>
+</ul>
+<h4 id="ndarray-인스턴스와-계산할-수-있게-하기-1"><a href="#ndarray-인스턴스와-계산할-수-있게-하기-1" class="headerlink" title="ndarray 인스턴스와 계산할 수 있게 하기 1"></a>ndarray 인스턴스와 계산할 수 있게 하기 1</h4><pre><code class="python">def as_variable(obj):
+
+  &#39;&#39;&#39;
+
+  # 인수로 주어진 객체를 Variable 인스턴스로 변환해주는 함수
+
+    ndarray 인스턴스와 Variable 인스턴스를 함께 사용하기 위해 ndarray 인스턴스를 Variable 인스턴스로 변환한다.
+
+  &#39;&#39;&#39;
+
+  if isinstance(obj, Variable):
+
+    return obj
+
+  return Variable(obj)
+</code></pre>
+<h4 id="ndarray-인스턴스와-계산할-수-있게-하기-2"><a href="#ndarray-인스턴스와-계산할-수-있게-하기-2" class="headerlink" title="ndarray 인스턴스와 계산할 수 있게 하기 2"></a>ndarray 인스턴스와 계산할 수 있게 하기 2</h4><pre><code class="python">class Function:
+
+  def __call__(self, *inputs):
+
+    # 처음부터 as_variable 메서드를 거치게 해서 모든 인수를 Variable 인스턴스 형태로 만듬
+
+    inputs = [as_variable(x) for x in inputs]
+
+
+
+    xs = [x.data for x in inputs]
+
+    ys = self.forward(*xs)
+
+    if not isinstance(ys, tuple):
+
+      ys = (ys,)
+
+    outputs = [Variable(as_array(y)) for y in ys]
+
+
+
+    if Config.enable_backprop:
+
+      self.generation = max([x.generation for x in inputs])
+
+      for output in outputs:
+
+          output.set_creator(self)
+
+      self.inputs = inputs
+
+      self.outputs = [weakref.ref(output) for output in outputs]
+
+
+
+    return outputs if len(outputs) &gt; 1 else outputs[0]
+
+
+
+  def forward(self, xs):
+
+    raise NotImplementedError()
+
+
+
+  def backward(self, gys):
+
+    raise NotImplementedError()
+</code></pre>
+<h3 id="좌항-우항"><a href="#좌항-우항" class="headerlink" title="좌항 우항"></a>좌항 우항</h3><!-- - 이후에 Function 클래스에서 Variable 인스턴스로 변환되기 때문에 ndarray 인스턴스로 바꿨다고 해서 걱정할 필요는 없다.
+    variable(5.0)
+    
+
+하지만 지금까지 코드로는 x + 3.0나 x + np.array(2.0) 처럼 **좌항은 Variable 인스턴스이고, 우항이 Variable 인스턴스가 아닌 경우에만 할 수 있다**는 문제가 생긴다.  
+
+
+=> **자리가 바뀌면 계산을 못함!!** -->
+
+<ul>
+<li><p>연산자의 좌항에 있을 경우</p>
+<pre><code class="python">Variable.__add__ = add
+
+Variable.__mul__ = mul
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><p>연산자의 우항에 있을 경우</p>
+<pre><code class="python">Variable.__radd__ = add
+
+Variable.__rmul__ = mul
+</code></pre>
+</li>
+</ul>
+<h3 id="연산자-우선-순위"><a href="#연산자-우선-순위" class="headerlink" title="연산자 우선 순위"></a>연산자 우선 순위</h3><!-- 그러면 좌항이 ndarray 인스턴스 일 때는?  
+
+ndarray 인스턴스 안에는 연산을 해주는 특수 메서드가 지정되어있다.  
+
+그래서 ndarray 인스턴스가 좌항에 올 경우 연산자는 ndarray 인스턴스에서 호출한 메소드로 연산하게 된다.  
+
+
+
+하지만 여기서는 ndarray 인스턴스가 아닌 Variable 인스턴스 일 때의 연산과정이 필요하기 때문에 좌항에 ndarray 인스턴스가 있더라도 Variable 인스턴스의 메소드를 먼저 호출 할 수 있도록 해야한다.  
+
+=> 연산자 우선순위를 지정하자!   -->
+
+<p>Variable 인스턴스의 속성 <code>__array_priority__</code>를 추가하고 그 값을 큰 정수로 설정하면 된다.  </p>
+<p><code>__array_priority__</code>에 대한 자세한 설명 : <a target="_blank" rel="noopener" href="https://numpy.org/doc/stable/reference/arrays.classes.html#numpy.class.__array_ufunc__">Standard array subclasses</a></p>
+<h2 id="Step-22-연산자-오버로드-3"><a href="#Step-22-연산자-오버로드-3" class="headerlink" title="[Step 22] 연산자 오버로드(3)"></a>[Step 22] 연산자 오버로드(3)</h2><pre><code class="python">import weakref
+import numpy as np
+import contextlib
+
+
+class Config:
+    enable_backprop = True
+
+
+@contextlib.contextmanager
+def using_config(name, value):
+    old_value = getattr(Config, name)
+    setattr(Config, name, value)
+    try:
+        yield
+    finally:
+        setattr(Config, name, old_value)
+
+
+def no_grad():
+    return using_config(&#39;enable_backprop&#39;, False)
+
+
+class Variable:
+    __array_priority__ = 200
+
+    def __init__(self, data, name=None):
+        if data is not None:
+            if not isinstance(data, np.ndarray):
+                raise TypeError(&#39;&#123;&#125; is not supported&#39;.format(type(data)))
+
+        self.data = data
+        self.name = name
+        self.grad = None
+        self.creator = None
+        self.generation = 0
+
+    @property
+    def shape(self):
+        return self.data.shape
+
+    @property
+    def ndim(self):
+        return self.data.ndim
+
+    @property
+    def size(self):
+        return self.data.size
+
+    @property
+    def dtype(self):
+        return self.data.dtype
+
+    def __len__(self):
+        return len(self.data)
+
+    def __repr__(self):
+        if self.data is None:
+            return &#39;variable(None)&#39;
+        p = str(self.data).replace(&#39;\n&#39;, &#39;\n&#39; + &#39; &#39; * 9)
+        return &#39;variable(&#39; + p + &#39;)&#39;
+
+    def set_creator(self, func):
+        self.creator = func
+        self.generation = func.generation + 1
+
+    def cleargrad(self):
+        self.grad = None
+
+    def backward(self, retain_grad=False):
+        if self.grad is None:
+            self.grad = np.ones_like(self.data)
+
+        funcs = []
+        seen_set = set()
+
+        def add_func(f):
+            if f not in seen_set:
+                funcs.append(f)
+                seen_set.add(f)
+                funcs.sort(key=lambda x: x.generation)
+
+        add_func(self.creator)
+
+        while funcs:
+            f = funcs.pop()
+            gys = [output().grad for output in f.outputs]  # output is weakref
+            gxs = f.backward(*gys)
+            if not isinstance(gxs, tuple):
+                gxs = (gxs,)
+
+            for x, gx in zip(f.inputs, gxs):
+                if x.grad is None:
+                    x.grad = gx
+                else:
+                    x.grad = x.grad + gx
+
+                if x.creator is not None:
+                    add_func(x.creator)
+
+            if not retain_grad:
+                for y in f.outputs:
+                    y().grad = None  # y is weakref
+
+
+def as_variable(obj):
+    if isinstance(obj, Variable):
+        return obj
+    return Variable(obj)
+
+
+def as_array(x):
+    if np.isscalar(x):
+        return np.array(x)
+    return x
+
+
+class Function:
+    def __call__(self, *inputs):
+        inputs = [as_variable(x) for x in inputs]
+
+        xs = [x.data for x in inputs]
+        ys = self.forward(*xs)
+        if not isinstance(ys, tuple):
+            ys = (ys,)
+        outputs = [Variable(as_array(y)) for y in ys]
+
+        if Config.enable_backprop:
+            self.generation = max([x.generation for x in inputs])
+            for output in outputs:
+                output.set_creator(self)
+            self.inputs = inputs
+            self.outputs = [weakref.ref(output) for output in outputs]
+
+        return outputs if len(outputs) &gt; 1 else outputs[0]
+
+    def forward(self, xs):
+        raise NotImplementedError()
+
+    def backward(self, gys):
+        raise NotImplementedError()
+
+
+class Add(Function):
+    def forward(self, x0, x1):
+        y = x0 + x1
+        return y
+
+    def backward(self, gy):
+        return gy, gy
+
+
+def add(x0, x1):
+    x1 = as_array(x1)
+    return Add()(x0, x1)
+
+
+class Mul(Function):
+    def forward(self, x0, x1):
+        y = x0 * x1
+        return y
+
+    def backward(self, gy):
+        x0, x1 = self.inputs[0].data, self.inputs[1].data
+        return gy * x1, gy * x0
+
+
+def mul(x0, x1):
+    x1 = as_array(x1)
+    return Mul()(x0, x1)
+
+
+class Neg(Function):
+    def forward(self, x):
+        return -x
+
+    def backward(self, gy):
+        return -gy
+
+
+def neg(x):
+    return Neg()(x)
+
+
+class Sub(Function):
+    def forward(self, x0, x1):
+        y = x0 - x1
+        return y
+
+    def backward(self, gy):
+        return gy, -gy
+
+
+def sub(x0, x1):
+    x1 = as_array(x1)
+    return Sub()(x0, x1)
+
+
+def rsub(x0, x1):
+    x1 = as_array(x1)
+    return sub(x1, x0)
+
+
+class Div(Function):
+    def forward(self, x0, x1):
+        y = x0 / x1
+        return y
+
+    def backward(self, gy):
+        x0, x1 = self.inputs[0].data, self.inputs[1].data
+        gx0 = gy / x1
+        gx1 = gy * (-x0 / x1 ** 2)
+        return gx0, gx1
+
+
+def div(x0, x1):
+    x1 = as_array(x1)
+    return Div()(x0, x1)
+
+
+def rdiv(x0, x1):
+    x1 = as_array(x1)
+    return div(x1, x0)
+
+
+class Pow(Function):
+    def __init__(self, c):
+        self.c = c
+
+    def forward(self, x):
+        y = x ** self.c
+        return y
+
+    def backward(self, gy):
+        x = self.inputs[0].data
+        c = self.c
+
+        gx = c * x ** (c - 1) * gy
+        return gx
+
+
+def pow(x, c):
+    return Pow(c)(x)
+
+
+Variable.__add__ = add
+Variable.__radd__ = add
+Variable.__mul__ = mul
+Variable.__rmul__ = mul
+Variable.__neg__ = neg
+Variable.__sub__ = sub
+Variable.__rsub__ = rsub
+Variable.__truediv__ = div
+Variable.__rtruediv__ = rdiv
+Variable.__pow__ = pow
+
+x = Variable(np.array(2.0))
+y = -x
+print(y)  # variable(-2.0)
+
+y1 = 2.0 - x
+y2 = x - 1.0
+print(y1)  # variable(0.0)
+print(y2)  # variable(1.0)
+
+y = 3.0 / x
+print(y)  # variable(1.5)
+
+y = x ** 3
+y.backward()
+print(y)  # variable(8.0)
+</code></pre>
+<h3 id="뜯어보기"><a href="#뜯어보기" class="headerlink" title="뜯어보기"></a>뜯어보기</h3><h4 id="부호-변환-연산자"><a href="#부호-변환-연산자" class="headerlink" title="부호 변환 연산자"></a>부호 변환 연산자</h4><ul>
+<li>절댓값 또는 negtive 화</li>
+<li>단항 연산자라서 들어오는 인수도 하나기 때문에 좌항우항 위치 상관 안해도 됨</li>
+</ul>
+<pre><code class="python">class Neg(Function):
+
+    def forward(self, x):
+        return -x
+
+    def backward(self, gy):
+        return -gy
+
+def neg(x):
+    return Neg()(x)
+</code></pre>
+<h4 id="뺄셈"><a href="#뺄셈" class="headerlink" title="뺄셈"></a>뺄셈</h4><ul>
+<li><p>덧셈과 곱셈은 좌항과 우항의 순서가 바껴도 계산결과 같기 때문에 <code>__add__</code>와 <code>__radd__</code>처럼 지정은 해주지만 계산 자체에 구별할 필요가 없다. (둘다 결국 <code>add</code> 메서드로 계산되기 때문에)</p>
+</li>
+<li><p>뺄셈은 계산에 구별(좌항과 우항의 위치변화에 따라)이 필요하기 때문에 직접 <code>rsub</code> 메서드를 지정해 준다. </p>
+</li>
+</ul>
+<h4 id="나눗셈"><a href="#나눗셈" class="headerlink" title="나눗셈"></a>나눗셈</h4><ul>
+<li><p>뺄셈과 마찬가지로 인수의 위치구별이 필요하기 때문에 rdiv 메서드를 지정해준다.</p>
+<pre><code class="python">class Div(Function):
+
+    def forward(self, x0, x1):
+
+        y = x0 / x1
+
+        return y
+
+    def backward(self, gy):
+
+        x0, x1 = self.inputs[0].data, self.inputs[1].data
+
+        gx0 = gy / x1
+
+        gx1 = gy * (-x0 / x1 ** 2)
+
+        return gx0, gx1
+
+def div(x0, x1):
+
+    x1 = as_array(x1)
+
+    return Div()(x0, x1)
+
+def rdiv(x0, x1):
+
+    x1 = as_array(x1)
+
+    return div(x1, x0)
+</code></pre>
+</li>
+</ul>
+<h4 id="거듭제곱"><a href="#거듭제곱" class="headerlink" title="거듭제곱"></a>거듭제곱</h4><ul>
+<li><p>x를 밑, c를 지수로 할 경우</p>
+</li>
+<li><p>실전에서는 거의 사용되지 않으므로 연습정도로 작성함</p>
+<pre><code class="python">class Pow(Function):
+
+    def __init__(self, c):
+
+        self.c = c
+
+    def forward(self, x):
+
+        y = x ** self.c
+
+        return y
+    
+    def backward(self, gy):
+
+        x = self.inputs[0].data
+
+        c = self.c
+
+        gx = c * x ** (c - 1) * gy
+
+        return gx
+        
+def pow(x, c):
+
+    return Pow(c)(x)
+</code></pre>
+<pre><code class="python">Variable.__neg__ = neg
+
+Variable.__sub__ = sub
+
+Variable.__rsub__ = rsub
+
+Variable.__truediv__ = div
+
+Variable.__rtruediv__ = rdiv
+
+Variable.__pow__ = pow
+</code></pre>
+</li>
+<li><p>$-$, $**$, $/$으로도 사용 가능하게 파이썬 함수로도 구현한다.</p>
+</li>
+</ul>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-23-패키지로-정리"><a href="#Step-23-패키지로-정리" class="headerlink" title="[Step 23] 패키지로 정리"></a>[Step 23] 패키지로 정리</h2><pre><code class="python"># Add import path for the dezero directory.
+if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+
+import numpy as np
+from dezero import Variable
+
+
+x = Variable(np.array(1.0))
+y = (x + 3) ** 2
+y.backward()
+
+print(y)
+print(x.grad)
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+<h2 id="Step-24-복잡한-함수의-미분"><a href="#Step-24-복잡한-함수의-미분" class="headerlink" title="[Step 24] 복잡한 함수의 미분"></a>[Step 24] 복잡한 함수의 미분</h2><p><img src="/media/deeplearning_files/%EB%B0%91%EB%B0%94%EB%8B%A53/%EA%B7%B8%EB%A6%BC24-1.png"></p>
+<pre><code class="python">if &#39;__file__&#39; in globals():
+    import os, sys
+    sys.path.append(os.path.join(os.path.dirname(__file__), &#39;..&#39;))
+import numpy as np
+from dezero import Variable
+
+
+def sphere(x, y):
+    z = x ** 2 + y ** 2
+    return z
+
+
+def matyas(x, y):
+    z = 0.26 * (x ** 2 + y ** 2) - 0.48 * x * y
+    return z
+
+
+def goldstein(x, y):
+    z = (1 + (x + y + 1)**2 * (19 - 14*x + 3*x**2 - 14*y + 6*x*y + 3*y**2)) * \
+        (30 + (2*x - 3*y)**2 * (18 - 32*x + 12*x**2 + 48*y - 36*x*y + 27*y**2))
+    return z
+
+
+x = Variable(np.array(1.0))
+y = Variable(np.array(1.0))
+z = goldstein(x, y)  # sphere(x, y) / matyas(x, y)
+z.backward()
+print(x.grad, y.grad)
+</code></pre>
+<!-- ```python
+``` -->
+
+<!-- ```python
+``` -->
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>밑바닥 딥러닝 3 (2고지)</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-03-21, 13:48:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-04-16, 13:33:43</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/21/DeepLearning/Mit3/mitdeep2/" title="밑바닥 딥러닝 3 (2고지)">https://chaejin-jen.github.io/2021/03/21/DeepLearning/Mit3/mitdeep2/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
