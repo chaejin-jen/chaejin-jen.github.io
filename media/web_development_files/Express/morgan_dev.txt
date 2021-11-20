@@ -1,0 +1,59 @@
+
+### [방법1] 메인코드에서 사용 : app.use()
+
+morgan 모듈의 미들웨어 함수 dev를 예시로 **미들웨어 사용**을 알아보자
+
+![](/media/web_development_files/Express/morgan_logger_ex.png)
+
+* * *
+
+app.js 에 미들웨어 세팅 코드 추가 (**라우팅 이전**에 사용해야함)
+
+```js
+// ..생략..
+
+const logger = require('morgan')
+
+// ..생략..
+
+app.use( logger('dev') ); // 미들웨어 셋팅
+
+// ..생략..
+
+```
+
+
+<details>
+<summary style="font-Weight : bold; font-size : 10px; color : #CCCCCC;" > app.js 수정 후 </summary>
+<div>  
+
+```js
+const express = require('express');
+const nunjucks = require('nunjucks');
+const logger = require('morgan')
+
+const admin = require('./routes/admin');
+
+const app = express();
+const port = 3000;
+
+nunjucks.configure('template', {
+    autoescape : true , 
+    express : app
+})
+
+app.use( logger('dev') ); // 미들웨어 셋팅
+
+app.get('/', (req, res) => {
+    res.send('hello express');
+});
+
+app.use('/admin', admin);
+
+app.listen( port, () => {
+    console.log('Express listening on port', port)
+})
+```
+
+</div>
+</details>

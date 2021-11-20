@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>수학 기호 | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content=" Math Basic ">
+  <meta name="description" content="수학 기호 | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Philgineer | My daily reports for Naver Boostamp AI Tech            {&quot;description&quot;:&quot;My daily reports for Naver Boostamp AI Tech&quot;,&quot;url&quot;:&quot;https:&#x2F;&#x2F;philgineer.github.io&#x2F;&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;na">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="Philgineer | My daily reports for Naver Boostamp AI Tech            {&quot;description&quot;:&quot;My daily reports for Naver Boostamp AI Tech&quot;,&quot;url&quot;:&quot;https:&#x2F;&#x2F;philgineer.github.io&#x2F;&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;na">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/my-icon.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Boostcamp-AI%20Tech-02c73">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Review-합격후기-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/CODE-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day11-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day12-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day13-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day14-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day15-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day16-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day17-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day18-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day19-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day20-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day11-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day12-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day13-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day14-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day15-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day16-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day17-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day18-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day19-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day20-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day21-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day22-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day23-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day24-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day25-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day26-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day27-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day28-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day29-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/공휴일-grey">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day31-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day32-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day33-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day34-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day35-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day36-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day37-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day38-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day39-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day40-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/github-icon.svg">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/blogger-icon.svg">
+<meta property="article:published_time" content="2021-06-01T02:08:23.258Z">
+<meta property="article:modified_time" content="2021-05-30T05:26:39.003Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/my-icon.png">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(44)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
+                                        
+                                        밑바닥 3
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Basic">
+                        
+                        Basic
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->DataBase">
+                                        
+                                        DataBase
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBasic">
+                                                        
+                                                        Basic
+                                                        
+                                                            <small>(5)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Development">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Development
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Development<--->HTML/CSS">
+                                        
+                                        HTML/CSS
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Machin Learning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Machin Learning
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Machin Learning<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Mathmatics">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Mathmatics
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Mathmatics<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web Development">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Web Development
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Express">
+                                        
+                                        Express
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->HTML/CSS">
+                                        
+                                        HTML/CSS
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->JavaScript">
+                                        
+                                        JavaScript
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Node.js">
+                                        
+                                        Node.js
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Promise">
+                                        
+                                        Promise
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Sequelize">
+                                        
+                                        Sequelize
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="WebService">
+                        
+                        WebService
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="44">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Design</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Modeling</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataScience Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Decision Tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ensemble</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Interactive Code Editor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Machin Learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Markup Language</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Network</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node.js basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Optimizing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pandas.Dataframe.plot</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Programming Language</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Promise</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Sequelize</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Supervised Algorithms</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>WebService Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All Web Development Sequelize "
+           href="/2021/06/02/WebDevelopment/Sequelize/"
+           data-tag="Sequelize"
+           data-author="" >
+            <span class="post-title" title="Sequelize 사용">Sequelize 사용</span>
+            <span class="post-date" title="2021-06-02 12:01:22">2021/06/02</span>
+        </a>
+        
+        <a  class="All Web Development Express "
+           href="/2021/06/02/WebDevelopment/Express/"
+           data-tag="Express"
+           data-author="" >
+            <span class="post-title" title="Express 사용">Express 사용</span>
+            <span class="post-date" title="2021-06-02 12:01:22">2021/06/02</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/06/02/WebDevelopment/facameats/1_menu_thumbnail/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-06-02 08:50:05">2021/06/02</span>
+        </a>
+        
+        <a  class="All Basic "
+           href="/2021/05/31/Basics/Languages_in_Computer/"
+           data-tag="Programming Language,Markup Language"
+           data-author="" >
+            <span class="post-title" title="언어/언어/언어">언어/언어/언어</span>
+            <span class="post-date" title="2021-05-31 12:41:56">2021/05/31</span>
+        </a>
+        
+        <a  class="All Basic "
+           href="/2021/05/29/DataScience/Basic/interactive_code_editor/"
+           data-tag="Interactive Code Editor"
+           data-author="" >
+            <span class="post-title" title="인터랙티브 코드 편집기 (feat. Jupyter, Colab)">인터랙티브 코드 편집기 (feat. Jupyter, Colab)</span>
+            <span class="post-date" title="2021-05-29 14:58:23">2021/05/29</span>
+        </a>
+        
+        <a  class="All Web Development Promise "
+           href="/2021/05/28/WebDevelopment/Promise/"
+           data-tag="Promise"
+           data-author="" >
+            <span class="post-title" title="Promise 사용">Promise 사용</span>
+            <span class="post-date" title="2021-05-28 01:17:51">2021/05/28</span>
+        </a>
+        
+        <a  class="All Web Development Node.js "
+           href="/2021/05/23/WebDevelopment/JavaScript/NodeJS/"
+           data-tag="Node.js basics"
+           data-author="" >
+            <span class="post-title" title="Node.js 시작하기">Node.js 시작하기</span>
+            <span class="post-date" title="2021-05-23 18:42:31">2021/05/23</span>
+        </a>
+        
+        <a  class="All Development HTML/CSS "
+           href="/2021/05/19/WebDevelopment/CSS/CSS_basics/"
+           data-tag="HTML"
+           data-author="" >
+            <span class="post-title" title="CSS 기본">CSS 기본</span>
+            <span class="post-date" title="2021-05-19 22:32:57">2021/05/19</span>
+        </a>
+        
+        <a  class="All WebService "
+           href="/2021/05/19/WebDevelopment/Web_Development_basics/"
+           data-tag="WebService Basic"
+           data-author="" >
+            <span class="post-title" title="웹개발 기초 지식">웹개발 기초 지식</span>
+            <span class="post-date" title="2021-05-19 22:30:35">2021/05/19</span>
+        </a>
+        
+        <a  class="All Web Development HTML/CSS "
+           href="/2021/05/19/WebDevelopment/HTML/HTML_basics/"
+           data-tag="HTML basics"
+           data-author="" >
+            <span class="post-title" title="HTML 기본">HTML 기본</span>
+            <span class="post-date" title="2021-05-19 22:20:19">2021/05/19</span>
+        </a>
+        
+        <a  class="All Web Development JavaScript "
+           href="/2021/05/19/WebDevelopment/JavaScript/JavaScript_basics/"
+           data-tag="JavaScript basics"
+           data-author="" >
+            <span class="post-title" title="JavaScript 기본">JavaScript 기본</span>
+            <span class="post-date" title="2021-05-19 13:50:54">2021/05/19</span>
+        </a>
+        
+        <a  class="All Mathmatics Basic "
+           href="/2021/05/15/DataScience/Math/Basic/math_for_ML/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="머신러닝을 위한 수학">머신러닝을 위한 수학</span>
+            <span class="post-date" title="2021-05-15 15:54:54">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/decision_tree_and_ensemble/"
+           data-tag="Machin Learning,Decision Tree,Ensemble"
+           data-author="" >
+            <span class="post-title" title="결정 트리와 앙상블 기법">결정 트리와 앙상블 기법</span>
+            <span class="post-date" title="2021-05-15 01:29:47">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/optimizing_machine_learning_models/"
+           data-tag="Machin Learning,Optimizing"
+           data-author="" >
+            <span class="post-title" title="머신 러닝, 더 빠르고 정확하게">머신 러닝, 더 빠르고 정확하게</span>
+            <span class="post-date" title="2021-05-15 01:29:30">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/elementary_supervised_algorithms/"
+           data-tag="Machin Learning,Supervised Algorithms"
+           data-author="" >
+            <span class="post-title" title="기본 지도 학습 알고리즘들">기본 지도 학습 알고리즘들</span>
+            <span class="post-date" title="2021-05-15 01:29:04">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/pre_machine_learning/"
+           data-tag="Machin Learning"
+           data-author="" >
+            <span class="post-title" title="머신 러닝 기본기">머신 러닝 기본기</span>
+            <span class="post-date" title="2021-05-15 01:28:45">2021/05/15</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/05/14/DataScience/Basic/collecting_and_creating_data/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 만들기">데이터 만들기</span>
+            <span class="post-date" title="2021-05-14 11:17:37">2021/05/14</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/05/14/DataScience/Basic/improving_data_quality/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 퀄리티 높이기">데이터 퀄리티 높이기</span>
+            <span class="post-date" title="2021-05-14 11:07:07">2021/05/14</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/04/30/DeepLearning/%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94%EB%94%A5%EB%9F%AC%EB%8B%9D1%EA%B6%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-04-30 08:19:52">2021/04/30</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/28/DataScience/Basic/data_analysis_and_visualization/"
+           data-tag="DataScience Basic,pandas.Dataframe.plot"
+           data-author="" >
+            <span class="post-title" title="데이터 분석과 시각화">데이터 분석과 시각화</span>
+            <span class="post-date" title="2021-04-28 19:43:13">2021/04/28</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/16/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/"
+           data-tag="DataBase Design"
+           data-author="" >
+            <span class="post-title" title="데이터베이스 설계">데이터베이스 설계</span>
+            <span class="post-date" title="2021-04-16 11:08:00">2021/04/16</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/13/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81/"
+           data-tag="DataBase Modeling"
+           data-author="" >
+            <span class="post-title" title="데이터 모델링">데이터 모델링</span>
+            <span class="post-date" title="2021-04-13 11:43:00">2021/04/13</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/05/DataScience/Basic/Numpy_Pandas/"
+           data-tag="DataScience Basic,Pandas,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy, Pandas 기본 사용">Numpy, Pandas 기본 사용</span>
+            <span class="post-date" title="2021-04-05 22:20:22">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/05/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"
+           data-tag="Data Architecture"
+           data-author="" >
+            <span class="post-title" title="데이터 아키텍처">데이터 아키텍처</span>
+            <span class="post-date" title="2021-04-05 18:13:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/04/ComputerScience/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"
+           data-tag="Computer Science,Network"
+           data-author="" >
+            <span class="post-title" title="네트워크">네트워크</span>
+            <span class="post-date" title="2021-04-04 17:01:29">2021/04/04</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/02/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-02 10:12:00">2021/04/02</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/01/DataScience/Basic/getting_started_with_data_science/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 사이언스란?">데이터 사이언스란?</span>
+            <span class="post-date" title="2021-04-01 19:35:53">2021/04/01</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_basic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/14/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-03-14 23:12:00">2021/03/14</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/13/DataScience/Math/Basic/%ED%96%89%EB%A0%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="행렬">행렬</span>
+            <span class="post-date" title="2021-03-13 19:42:00">2021/03/13</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/09/DataScience/Math/Basic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm,Data structure"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/05/DataScience/Math/Basic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/03/DataScience/Math/Basic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/02/DataScience/Math/Basic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-DataScience/Math/Basic/수학기호" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">수학 기호</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="DataScience">DataScience</a> > 
+            
+            <a  data-rel="DataScience&lt;---&gt;Math">Math</a> > 
+            
+            <a  data-rel="DataScience&lt;---&gt;Math&lt;---&gt;Basic">Basic</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Math Basic</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-04-30 16:06:35'>2021-03-02 07:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AA%A9%EC%B0%A8"><span class="toc-text">목차</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%A2%8B%EC%9D%80-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%A4%91%EC%9A%94"><span class="toc-text">좋은 사이트 (중요!)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TeX-%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8"><span class="toc-text">TeX 수학기호</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8"><span class="toc-text">수학기호</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B7%B8%EB%A6%AC%EC%8A%A4-%EB%AC%B8%EC%9E%90"><span class="toc-text">그리스 문자</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기</p>
+<p><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
+<hr>
+<h1 id="좋은-사이트-중요"><a href="#좋은-사이트-중요" class="headerlink" title="좋은 사이트 (중요!)"></a>좋은 사이트 (중요!)</h1><p>익숙하지 않다면 여기서 수식사용! 특히 매트릭스 만들기 너무 좋아요~!<br><a target="_blank" rel="noopener" href="https://latex.codecogs.com/eqneditor/editor.php">latex editor</a></p>
+<h1 id="TeX-수학기호"><a href="#TeX-수학기호" class="headerlink" title="TeX 수학기호"></a>TeX 수학기호</h1><p>Markdown에서는 TeX(텍)이라는 조판언어를 사용하여 수식을 표현함</p>
+<p>수학에서 글씨체</p>
+<p>정체 : 점 (기하학), 특수한 함수, 특수한 확률분포</p>
+<p>볼드체 : 벡터 (일반 및 대학 과정 한정)</p>
+<p>$\mathbf{A}$, $\mathbf{a}$ </p>
+<pre><code>$\mathbf&#123;A&#125;$, $\mathbf&#123;a&#125;$  
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://namu.wiki/w/%EA%B3%BC%ED%95%99/%EA%B8%B0%ED%98%B8">과학기호</a></p>
+<h2 id="수학기호"><a href="#수학기호" class="headerlink" title="수학기호"></a>수학기호</h2><p>$\int{}$ $\iint{}$ $\iiint$<br>$\oint$ $\oiint$ $\oiiint$</p>
+<pre><code>$\int&#123;&#125;$ $\iint&#123;&#125;$ $\iiint$ 
+$\oint$ $\oiint$ $\oiiint$
+</code></pre>
+<p>​    </p>
+<h2 id="그리스-문자"><a href="#그리스-문자" class="headerlink" title="그리스 문자"></a>그리스 문자</h2><p>그리스 문자와 영어 표기, 한글 표기를 나타냄<br>(표에서는 잘 쓰이지 않는 몇 글자는 제외)</p>
+<p>표 1-1 : 그리스 문자</p>
+<table>
+<thead>
+<tr>
+<th>알파벳 대문자</th>
+<th>알파벳 소문자</th>
+<th>영어 표기법</th>
+<th>한글 표기법</th>
+<th>사용</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\Huge A$</td>
+<td>$\Huge \alpha$</td>
+<td>alpha</td>
+<td>알파</td>
+<td>$A$ (수학) 집합에서 임의의 그룹을 나타내는 기호</td>
+</tr>
+<tr>
+<td>$\Huge B$</td>
+<td>$\Huge \beta$</td>
+<td>beta</td>
+<td>베타</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Gamma$</td>
+<td>$\Huge \gamma$</td>
+<td>gamma</td>
+<td>감마</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Delta$</td>
+<td>$\Huge \delta$</td>
+<td>delta</td>
+<td>델타</td>
+<td>$\Delta$ 극소의 이등분</td>
+</tr>
+<tr>
+<td>$\Huge E$</td>
+<td>$\Huge \epsilon$</td>
+<td>epsilon</td>
+<td>엡실론</td>
+<td>$\epsilon$ 집합원소 [작다, 적다 개념을 갖고 있음]</td>
+</tr>
+<tr>
+<td>$\Huge Z$</td>
+<td>$\Huge \zeta$</td>
+<td>zeta</td>
+<td>제타</td>
+<td>고전역학</td>
+</tr>
+<tr>
+<td>$\Huge H$</td>
+<td>$\Huge \eta$</td>
+<td>eta</td>
+<td>에타</td>
+<td>(물리)자기장, 전기장</td>
+</tr>
+<tr>
+<td>$\Huge \Theta$</td>
+<td>$\Huge \theta$</td>
+<td>theta</td>
+<td>쎄타</td>
+<td>(수학) 각도</td>
+</tr>
+<tr>
+<td>$\Huge K$</td>
+<td>$\Huge \kappa$</td>
+<td>kappa</td>
+<td>카파</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Lambda$</td>
+<td>$\Huge \lambda$</td>
+<td>lambda</td>
+<td>람다</td>
+<td>$\Lambda$ (선형대수학) 대각행렬, $\lambda$ (선형대수학) 고윳값 / (현대물리) 파장</td>
+</tr>
+<tr>
+<td>$\Huge M$</td>
+<td>$\Huge \mu$</td>
+<td>mu</td>
+<td>뮤</td>
+<td>$\mu$ (통계학) 모평균, (물리) 자기장, (역학) 마찰계수, (전자기학) 투자율</td>
+</tr>
+<tr>
+<td>$\Huge N$</td>
+<td>$\Huge \nu$</td>
+<td>nu</td>
+<td>누</td>
+<td>$\nu$ (물리학) 파동의 진동수 또는 중성미자</td>
+</tr>
+<tr>
+<td>$\Huge \Xi$</td>
+<td>$\Huge \xi$</td>
+<td>xi</td>
+<td>크싸이</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Pi$</td>
+<td>$\Huge \pi$</td>
+<td>pi</td>
+<td>파이</td>
+<td>$\Pi$ (수학) 범주(category) 내의 여러 대상(object)의 곱(product) 추가로, 기호를 뒤집으면 $\coprod$ 쌍대곱(coproduct)을 뜻함, $pi$ (수학) 원주율, projection, 소수계량함수, (물리학) 삼투압</td>
+</tr>
+<tr>
+<td>$\Huge P$</td>
+<td>$\Huge \rho$</td>
+<td>rho</td>
+<td>로</td>
+<td>$\rho$ (원통좌표계) 반지름, (물리) 저항</td>
+</tr>
+<tr>
+<td>$\Huge \Sigma$</td>
+<td>$\Huge \sigma$</td>
+<td>sigma</td>
+<td>시그마</td>
+<td>$\Sigma$ 더하기</td>
+</tr>
+<tr>
+<td>$\Huge T$</td>
+<td>$\Huge \tau$</td>
+<td>tau</td>
+<td>타우</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Phi$</td>
+<td>$\Huge \phi$</td>
+<td>phi</td>
+<td>파이/피</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge X$</td>
+<td>$\Huge \chi$</td>
+<td>chi</td>
+<td>카이</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Psi$</td>
+<td>$\Huge \psi$</td>
+<td>psi</td>
+<td>프사이</td>
+<td></td>
+</tr>
+<tr>
+<td>$\Huge \Omega$</td>
+<td>$\Huge \omega$</td>
+<td>omega</td>
+<td>오메가</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>마크다운에서 <code>$</code>(달러) 기호를 이용하면 수식을 표현할 수 있다. 수식에서 그리스 문자를 표시하려면 그리스 문자의 영어 표기법앞에 백슬레시(<code>\</code>) 기호를 붙인다. 예를 들어 알파는 <code>\alpha</code>, 베타는 <code>\beta</code>라고 쓴다.</p>
+<p>인라인(inline) 수식</p>
+<ul>
+<li><p>수식에는 문장 안에서 일부 단어가 수식</p>
+</li>
+<li><p><code>$</code>와 <code>$</code>사이의 수식은 문장내의 인라인 수식을 쓸 때 사용</p>
+<p>디스플레이(display)</p>
+</li>
+<li><p>독립된 문단이 되는 수식</p>
+</li>
+<li><p><code>$$</code>와 <code>$$</code>사이의 수식은 디스플레이 수식을 쓸 때 사용</p>
+<p><code>$ \alpha = \beta $</code> 는 $\alpha = \beta$로 나타난다. 독립된 수식의 경우</p>
+</li>
+</ul>
+<pre><code>$$ \alpha = \beta $$
+</code></pre>
+<p>$$\alpha = \beta$$</p>
+<!-- 
+## 기타 (정리안된 내용 여기다 써둘꺼임)
+### 로그
+$$1 / log2$$
+
+$$\frac{1}{2} = 2^{-1} = $$
+
+밑이 분수 "2분의 1" 즉 0.5인 로그:
+
+$$log_{2}2^{\frac{1}{2}}=log_{2}1.41421356237309503445231939622\cdot\cdot\cdot=log_{2}\sqrt{2}=\frac{1}{2}$$
+$$log_{2}2^{-1}=log_{2}\frac{1}{2}=-1$$
+$$log_\frac{1}{2}2=-1$$  -->
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>수학 기호</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-03-02, 07:25:00</p>
+    <p><span class="copy-title">Updated At:</span>2021-04-30, 16:06:35</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/03/02/DataScience/Math/Basic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/" title="수학 기호">https://chaejin-jen.github.io/2021/03/02/DataScience/Math/Basic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

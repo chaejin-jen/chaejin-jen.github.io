@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>머신러닝을 위한 수학 | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="머신러닝을 위한 수학 | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Philgineer | My daily reports for Naver Boostamp AI Tech            {&quot;description&quot;:&quot;My daily reports for Naver Boostamp AI Tech&quot;,&quot;url&quot;:&quot;https:&#x2F;&#x2F;philgineer.github.io&#x2F;&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;na">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="Philgineer | My daily reports for Naver Boostamp AI Tech            {&quot;description&quot;:&quot;My daily reports for Naver Boostamp AI Tech&quot;,&quot;url&quot;:&quot;https:&#x2F;&#x2F;philgineer.github.io&#x2F;&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;na">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/my-icon.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Boostcamp-AI%20Tech-02c73">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Review-합격후기-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/CODE-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day11-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day12-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day13-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day14-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day15-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day16-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day17-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day18-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day19-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day20-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day11-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day12-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day13-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day14-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day15-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day16-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day17-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day18-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day19-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day20-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day21-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day22-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day23-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day24-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day25-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day26-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day27-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day28-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day29-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/공휴일-grey">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day31-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day32-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day33-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day34-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day35-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day36-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day37-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day38-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day39-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day40-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/github-icon.svg">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/blogger-icon.svg">
+<meta property="article:published_time" content="2021-06-01T02:08:23.258Z">
+<meta property="article:modified_time" content="2021-05-30T05:26:39.003Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/my-icon.png">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(44)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
+                                        
+                                        밑바닥 3
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Basic">
+                        
+                        Basic
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->DataBase">
+                                        
+                                        DataBase
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBasic">
+                                                        
+                                                        Basic
+                                                        
+                                                            <small>(5)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Development">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Development
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Development<--->HTML/CSS">
+                                        
+                                        HTML/CSS
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Machin Learning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Machin Learning
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Machin Learning<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Mathmatics">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Mathmatics
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Mathmatics<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web Development">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Web Development
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Express">
+                                        
+                                        Express
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->HTML/CSS">
+                                        
+                                        HTML/CSS
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->JavaScript">
+                                        
+                                        JavaScript
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Node.js">
+                                        
+                                        Node.js
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Promise">
+                                        
+                                        Promise
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Sequelize">
+                                        
+                                        Sequelize
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="WebService">
+                        
+                        WebService
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="44">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Design</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Modeling</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataScience Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Decision Tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ensemble</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Interactive Code Editor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Machin Learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Markup Language</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Network</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node.js basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Optimizing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pandas.Dataframe.plot</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Programming Language</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Promise</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Sequelize</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Supervised Algorithms</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>WebService Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All Web Development Sequelize "
+           href="/2021/06/02/WebDevelopment/Sequelize/"
+           data-tag="Sequelize"
+           data-author="" >
+            <span class="post-title" title="Sequelize 사용">Sequelize 사용</span>
+            <span class="post-date" title="2021-06-02 12:01:22">2021/06/02</span>
+        </a>
+        
+        <a  class="All Web Development Express "
+           href="/2021/06/02/WebDevelopment/Express/"
+           data-tag="Express"
+           data-author="" >
+            <span class="post-title" title="Express 사용">Express 사용</span>
+            <span class="post-date" title="2021-06-02 12:01:22">2021/06/02</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/06/02/WebDevelopment/facameats/1_menu_thumbnail/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-06-02 08:50:05">2021/06/02</span>
+        </a>
+        
+        <a  class="All Basic "
+           href="/2021/05/31/Basics/Languages_in_Computer/"
+           data-tag="Programming Language,Markup Language"
+           data-author="" >
+            <span class="post-title" title="언어/언어/언어">언어/언어/언어</span>
+            <span class="post-date" title="2021-05-31 12:41:56">2021/05/31</span>
+        </a>
+        
+        <a  class="All Basic "
+           href="/2021/05/29/DataScience/Basic/interactive_code_editor/"
+           data-tag="Interactive Code Editor"
+           data-author="" >
+            <span class="post-title" title="인터랙티브 코드 편집기 (feat. Jupyter, Colab)">인터랙티브 코드 편집기 (feat. Jupyter, Colab)</span>
+            <span class="post-date" title="2021-05-29 14:58:23">2021/05/29</span>
+        </a>
+        
+        <a  class="All Web Development Promise "
+           href="/2021/05/28/WebDevelopment/Promise/"
+           data-tag="Promise"
+           data-author="" >
+            <span class="post-title" title="Promise 사용">Promise 사용</span>
+            <span class="post-date" title="2021-05-28 01:17:51">2021/05/28</span>
+        </a>
+        
+        <a  class="All Web Development Node.js "
+           href="/2021/05/23/WebDevelopment/JavaScript/NodeJS/"
+           data-tag="Node.js basics"
+           data-author="" >
+            <span class="post-title" title="Node.js 시작하기">Node.js 시작하기</span>
+            <span class="post-date" title="2021-05-23 18:42:31">2021/05/23</span>
+        </a>
+        
+        <a  class="All Development HTML/CSS "
+           href="/2021/05/19/WebDevelopment/CSS/CSS_basics/"
+           data-tag="HTML"
+           data-author="" >
+            <span class="post-title" title="CSS 기본">CSS 기본</span>
+            <span class="post-date" title="2021-05-19 22:32:57">2021/05/19</span>
+        </a>
+        
+        <a  class="All WebService "
+           href="/2021/05/19/WebDevelopment/Web_Development_basics/"
+           data-tag="WebService Basic"
+           data-author="" >
+            <span class="post-title" title="웹개발 기초 지식">웹개발 기초 지식</span>
+            <span class="post-date" title="2021-05-19 22:30:35">2021/05/19</span>
+        </a>
+        
+        <a  class="All Web Development HTML/CSS "
+           href="/2021/05/19/WebDevelopment/HTML/HTML_basics/"
+           data-tag="HTML basics"
+           data-author="" >
+            <span class="post-title" title="HTML 기본">HTML 기본</span>
+            <span class="post-date" title="2021-05-19 22:20:19">2021/05/19</span>
+        </a>
+        
+        <a  class="All Web Development JavaScript "
+           href="/2021/05/19/WebDevelopment/JavaScript/JavaScript_basics/"
+           data-tag="JavaScript basics"
+           data-author="" >
+            <span class="post-title" title="JavaScript 기본">JavaScript 기본</span>
+            <span class="post-date" title="2021-05-19 13:50:54">2021/05/19</span>
+        </a>
+        
+        <a  class="All Mathmatics Basic "
+           href="/2021/05/15/DataScience/Math/Basic/math_for_ML/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="머신러닝을 위한 수학">머신러닝을 위한 수학</span>
+            <span class="post-date" title="2021-05-15 15:54:54">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/decision_tree_and_ensemble/"
+           data-tag="Machin Learning,Decision Tree,Ensemble"
+           data-author="" >
+            <span class="post-title" title="결정 트리와 앙상블 기법">결정 트리와 앙상블 기법</span>
+            <span class="post-date" title="2021-05-15 01:29:47">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/optimizing_machine_learning_models/"
+           data-tag="Machin Learning,Optimizing"
+           data-author="" >
+            <span class="post-title" title="머신 러닝, 더 빠르고 정확하게">머신 러닝, 더 빠르고 정확하게</span>
+            <span class="post-date" title="2021-05-15 01:29:30">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/elementary_supervised_algorithms/"
+           data-tag="Machin Learning,Supervised Algorithms"
+           data-author="" >
+            <span class="post-title" title="기본 지도 학습 알고리즘들">기본 지도 학습 알고리즘들</span>
+            <span class="post-date" title="2021-05-15 01:29:04">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/pre_machine_learning/"
+           data-tag="Machin Learning"
+           data-author="" >
+            <span class="post-title" title="머신 러닝 기본기">머신 러닝 기본기</span>
+            <span class="post-date" title="2021-05-15 01:28:45">2021/05/15</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/05/14/DataScience/Basic/collecting_and_creating_data/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 만들기">데이터 만들기</span>
+            <span class="post-date" title="2021-05-14 11:17:37">2021/05/14</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/05/14/DataScience/Basic/improving_data_quality/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 퀄리티 높이기">데이터 퀄리티 높이기</span>
+            <span class="post-date" title="2021-05-14 11:07:07">2021/05/14</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/04/30/DeepLearning/%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94%EB%94%A5%EB%9F%AC%EB%8B%9D1%EA%B6%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-04-30 08:19:52">2021/04/30</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/28/DataScience/Basic/data_analysis_and_visualization/"
+           data-tag="DataScience Basic,pandas.Dataframe.plot"
+           data-author="" >
+            <span class="post-title" title="데이터 분석과 시각화">데이터 분석과 시각화</span>
+            <span class="post-date" title="2021-04-28 19:43:13">2021/04/28</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/16/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/"
+           data-tag="DataBase Design"
+           data-author="" >
+            <span class="post-title" title="데이터베이스 설계">데이터베이스 설계</span>
+            <span class="post-date" title="2021-04-16 11:08:00">2021/04/16</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/13/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81/"
+           data-tag="DataBase Modeling"
+           data-author="" >
+            <span class="post-title" title="데이터 모델링">데이터 모델링</span>
+            <span class="post-date" title="2021-04-13 11:43:00">2021/04/13</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/05/DataScience/Basic/Numpy_Pandas/"
+           data-tag="DataScience Basic,Pandas,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy, Pandas 기본 사용">Numpy, Pandas 기본 사용</span>
+            <span class="post-date" title="2021-04-05 22:20:22">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/05/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"
+           data-tag="Data Architecture"
+           data-author="" >
+            <span class="post-title" title="데이터 아키텍처">데이터 아키텍처</span>
+            <span class="post-date" title="2021-04-05 18:13:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/04/ComputerScience/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"
+           data-tag="Computer Science,Network"
+           data-author="" >
+            <span class="post-title" title="네트워크">네트워크</span>
+            <span class="post-date" title="2021-04-04 17:01:29">2021/04/04</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/02/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-02 10:12:00">2021/04/02</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/01/DataScience/Basic/getting_started_with_data_science/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 사이언스란?">데이터 사이언스란?</span>
+            <span class="post-date" title="2021-04-01 19:35:53">2021/04/01</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_basic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/14/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-03-14 23:12:00">2021/03/14</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/13/DataScience/Math/Basic/%ED%96%89%EB%A0%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="행렬">행렬</span>
+            <span class="post-date" title="2021-03-13 19:42:00">2021/03/13</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/09/DataScience/Math/Basic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm,Data structure"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/05/DataScience/Math/Basic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/03/DataScience/Math/Basic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/02/DataScience/Math/Basic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-DataScience/Math/Basic/math_for_ML" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">머신러닝을 위한 수학</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Mathmatics">Mathmatics</a> > 
+            
+            <a  data-rel="Mathmatics&lt;---&gt;Basic">Basic</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-06-03 16:00:36'>2021-05-15 15:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AA%A9%EC%B0%A8"><span class="toc-text">목차</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98%ED%95%99-%ED%95%84%EC%9A%94%ED%95%9C-%EB%A7%8C%ED%81%BC%EB%A7%8C-%EB%B0%B0%EC%9A%B0%EA%B8%B0"><span class="toc-text">선형대수학 필요한 만큼만 배우기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%BC%EC%B0%A8%EC%8B%9D%EA%B3%BC-%EC%9D%BC%EC%B0%A8-%ED%95%A8%EC%88%98"><span class="toc-text">일차식과 일차 함수</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%BC%EC%B0%A8-%ED%95%A8%EC%88%98-%ED%91%9C%EA%B8%B0%EB%B2%95"><span class="toc-text">일차 함수 표기법</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%96%89%EB%A0%AC%EA%B3%BC-%EB%B2%A1%ED%84%B0"><span class="toc-text">행렬과 벡터</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B2%A1%ED%84%B0-%EA%B3%B1-Vector-Multiplication"><span class="toc-text">벡터 곱 (Vector Multiplication)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy%EB%A1%9C-%ED%96%89%EB%A0%AC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"><span class="toc-text">numpy로 행렬 사용하기</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#np-random-rand-vs-np-random-random"><span class="toc-text">np.random.rand vs np.random.random</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%96%89%EB%A0%AC-%EC%97%B0%EC%82%B0"><span class="toc-text">행렬 연산</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8D%A7%EC%85%88-%EC%8A%A4%EC%B9%BC%EB%9D%BC%EA%B3%B1"><span class="toc-text">덧셈, 스칼라곱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%91%90-%ED%96%89%EB%A0%AC%EC%9D%98-%EA%B3%B1-%EB%82%B4%EC%A0%81%EA%B3%B1"><span class="toc-text">두 행렬의 곱 (내적곱)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%96%89%EB%A0%AC-%EC%B0%A8%EC%9B%90"><span class="toc-text">행렬 차원</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EA%B5%90%ED%99%98-%EB%B2%95%EC%B9%99-%EC%84%B1%EB%A6%BD-%EC%95%88-%ED%95%A8"><span class="toc-text">교환 법칙 성립 안 함</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9A%94%EC%86%8C%EB%B3%84-%EA%B3%B1%ED%95%98%EA%B8%B0-Element-wise-Multiplication"><span class="toc-text">요소별 곱하기 (Element-wise Multiplication)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0"><span class="toc-text">사용하는 이유</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#numpy%EB%A1%9C-%EC%9A%94%EC%86%8C%EB%B3%84-%EA%B3%B1%ED%95%98%EA%B8%B0-%ED%95%98%EA%B8%B0"><span class="toc-text">numpy로 요소별 곱하기 하기</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A7%88%EB%AC%B8-%ED%96%89%EB%A0%AC-%EC%99%B8%EC%A0%81%EC%97%90-%EB%8C%80%ED%95%B4-%EC%A7%88%EB%AC%B8%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4-%EC%9A%A9%EC%96%B4-%EC%A7%88%EB%AC%B8"><span class="toc-text">[질문] 행렬 외적에 대해 질문드립니다. (+용어 질문)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy%EB%A1%9C-%ED%96%89%EB%A0%AC-%EC%97%B0%EC%82%B0%ED%95%98%EA%B8%B0"><span class="toc-text">numpy로 행렬 연산하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8A%B9%EC%88%98%ED%95%9C-%ED%96%89%EB%A0%AC"><span class="toc-text">특수한 행렬</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%A0%84%EC%B9%98-%ED%96%89%EB%A0%AC-transposed-matrix"><span class="toc-text">전치 행렬 (transposed matrix)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%8B%A8%EC%9C%84-%ED%96%89%EB%A0%AC-identity-matrix"><span class="toc-text">단위 행렬 (identity matrix)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#A-I-A"><span class="toc-text">A * I &#x3D; A</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%97%AD%ED%96%89%EB%A0%AC-inverse-matrix"><span class="toc-text">역행렬 (inverse matrix)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#numpy%EB%A1%9C-%EC%A0%84%EC%B9%98-%EB%8B%A8%EC%9C%84-%EC%97%AD%ED%96%89%EB%A0%AC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"><span class="toc-text">numpy로 전치, 단위, 역행렬 사용하기</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#numpy-linalg-det"><span class="toc-text">numpy.linalg.det</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#numpy-linalg-pinv"><span class="toc-text">numpy.linalg.pinv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EC%98%88%EC%A0%9C-numpy%EB%A1%9C-%EC%A0%84%EC%B9%98-%EB%8B%A8%EC%9C%84-%EC%97%AD%ED%96%89%EB%A0%AC"><span class="toc-text">[예제] numpy로 전치, 단위, 역행렬</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98%ED%95%99%EA%B3%BC-%ED%96%89%EB%A0%AC-%EB%B2%A1%ED%84%B0"><span class="toc-text">선형대수학과 행렬&#x2F;벡터</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%84%A0%ED%98%95%EB%8C%80%EC%88%98%ED%95%99%EC%9D%B4-%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%97%90-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0"><span class="toc-text">선형대수학이 머신 러닝에 필요한 이유</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AF%B8%EB%B6%84-%ED%95%84%EC%9A%94%ED%95%9C-%EB%A7%8C%ED%81%BC%EB%A7%8C-%EB%B0%B0%EC%9A%B0%EA%B8%B0"><span class="toc-text">미분 필요한 만큼만 배우기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EC%99%80-%EA%B7%B8%EB%9E%98%ED%94%84"><span class="toc-text">함수와 그래프</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%A8%EC%88%98"><span class="toc-text">함수</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EB%AA%85%EC%B9%AD-%EB%B0%8F-%ED%91%9C%EA%B8%B0"><span class="toc-text">명칭 및 표기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%95%A8%EC%88%98-%EB%8C%80%EC%9D%91%EA%B4%80%EA%B3%84%EC%9D%98-%ED%8A%B9%EC%A7%95-%EC%97%AD%ED%95%A8%EC%88%98"><span class="toc-text">함수 대응관계의 특징 (+역함수)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EC%A2%85%EB%A5%98"><span class="toc-text">함수의 종류</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B7%B8%EB%9E%98%ED%94%84"><span class="toc-text">그래프</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EB%B3%80%ED%99%94%EC%9C%A8"><span class="toc-text">함수의 변화율</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%8F%89%EA%B7%A0-%EB%B3%80%ED%99%94%EC%9C%A8"><span class="toc-text">평균 변화율</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%88%9C%EA%B0%84-%EB%B3%80%ED%99%94%EC%9C%A8"><span class="toc-text">순간 변화율</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9D%BC%EB%B3%80%EC%88%98-%ED%95%A8%EC%88%98-%EB%AF%B8%EB%B6%84"><span class="toc-text">일변수 함수 미분</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%80%EC%9E%A5-%EA%B0%80%ED%8C%8C%EB%A5%B8-%EB%B0%A9%ED%96%A5-2%EC%B0%A8%EC%9B%90"><span class="toc-text">가장 가파른 방향 (2차원)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B7%B9%EC%86%8C%EC%A0%90-%EA%B7%B9%EB%8C%80%EC%A0%90"><span class="toc-text">극소점, 극대점</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%8B%A4%EB%B3%80%EC%88%98-%ED%95%A8%EC%88%98"><span class="toc-text">다변수 함수</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%98%88%EC%A0%9C-%ED%8E%B8%EB%AF%B8%EB%B6%84"><span class="toc-text">[예제] 편미분</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%80%EC%9E%A5-%EA%B0%80%ED%8C%8C%EB%A5%B8-%EB%B0%A9%ED%96%A5-%EA%B3%A0%EC%B0%A8%EC%9B%90"><span class="toc-text">가장 가파른 방향 (고차원)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EC%9D%98-%EA%B2%BD%EC%82%AC%EC%99%80-%ED%95%A8%EC%88%98%EA%B0%92"><span class="toc-text">함수의 경사와 함수값</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D%EC%97%90-%EB%AF%B8%EB%B6%84%EC%9D%B4-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0"><span class="toc-text">머신 러닝에 미분이 필요한 이유</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기</p>
+<p><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
+<hr>
+<p>본 게시글은 코드잇을 수강하고 작성된 노트필기입니다. 복습할때 쓸려고 작성되어서 문체가 일정하지 않습니다.</p>
+<h1 id="선형대수학-필요한-만큼만-배우기"><a href="#선형대수학-필요한-만큼만-배우기" class="headerlink" title="선형대수학 필요한 만큼만 배우기"></a>선형대수학 필요한 만큼만 배우기</h1><h2 id="일차식과-일차-함수"><a href="#일차식과-일차-함수" class="headerlink" title="일차식과 일차 함수"></a>일차식과 일차 함수</h2><p>선형 대수학 : 일차식이나 일차 함수를 공부하는 학문</p>
+<ul>
+<li><p>일차식 : 가장 높은 차수가 1인 다항식</p>
+<ul>
+<li><p>항 : 어떤 숫자와 변수를 곱한 것 </p>
+<ul>
+<li>$2x^3$, $- y^2$, $4y$, $1$<ul>
+<li>계수 : 항의 수</li>
+<li>변수 : 항의 문자</li>
+<li>차수 : 변수가 몇번 곱해졌는지</li>
+<li>상수항 : 변수가 없는 항 = 변수가 0번 곱해진 (차수가 0인) 항</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>다항식 : 항들을 합한 것 </p>
+<ul>
+<li>$2x^3 - y^2 + 4y + 1$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>일차함수 : </p>
+<ul>
+<li>$y = 3x + 6$ , $f(x) = 3x + 6$<br>  : x에 어떤 값을 넣었는지에 따라 y의 값이 달라짐</li>
+<li>함수 : 입력과 출력의 형태를 가진 것 [아래 “미분 필요한 만큼 배우기”에서 자세히 정리]<ul>
+<li>$f(x,y) = 2x^3 -y^2 + 4y + 1$  (다변수함수, 삼차함수)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- $\mathbb{R}$ -->
+<h3 id="일차-함수-표기법"><a href="#일차-함수-표기법" class="headerlink" title="일차 함수 표기법"></a>일차 함수 표기법</h3><p>$f(x,y) = 3x + 6y + 4$ </p>
+<p>$f(x,y,z,a,b,c) = 4x + y - 2z + 16a + 7b + 3c$ </p>
+<p>문자가 다양하면 복잡하니까 아래처럼 표현함</p>
+<p>$f(x_0, x_1, …, x_n) = a_0x_0 + a_1x_1 + \cdots + a_nx_n + b$ </p>
+<h2 id="행렬과-벡터"><a href="#행렬과-벡터" class="headerlink" title="행렬과 벡터"></a>행렬과 벡터</h2><ul>
+<li><p>행렬 (Matrix) - 주로 <em>대문자</em> 로 나타냄</p>
+<ul>
+<li><p>구성 : 원소, 행(row), 열(column)</p>
+</li>
+<li><p>예시 : 3x4 행렬 (3x4 차원)</p>
+<p>$$<br>A =<br>\begin{bmatrix}<br>1 &amp; 1 &amp; 0&amp; 2  \\<br>2 &amp; 1 &amp; 4&amp; 1  \\<br>0 &amp; 3 &amp; 2&amp; 1  \\<br>\end{bmatrix}<br>\qquad \qquad \qquad \qquad<br>$$</p>
+</li>
+<li><p>일반화 : 행렬 $A$ 의 원소 $A_{ij}$ 는 i행 j열에 있는 원소</p>
+<p>$$<br>A_{m,n} = \begin{bmatrix} A_{1,1} &amp; A_{1,2} &amp; \cdots &amp; A_{1,n} \\ A_{2,1} &amp; A_{2,2} &amp; \cdots &amp; A_{2,n} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ A_{m,1} &amp; A_{m,2} &amp; \cdots &amp; A_{m,n} \end{bmatrix}<br>\qquad<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>벡터 (Vector) - 주로 <em>소문자</em>로 나타냄</p>
+<ul>
+<li><p>열 또는 행이 하나만 존재하는 행렬 (기본은 열벡터)</p>
+<p>$$<br>a = \begin{bmatrix} 1 \\ 0 \\ 2 \\ 4 \\ 1\end{bmatrix}<br>\qquad<br>b = \begin{bmatrix} 1 &amp; 0 &amp; 2 &amp; 4\end{bmatrix}<br>\qquad<br>\quad<br>$$</p>
+</li>
+<li><p>벡터의 차원 = 원소의 수</p>
+</li>
+<li><p>일반화  </p>
+<p>$$<br>a_{m} = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_m \end{bmatrix}<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>\quad<br>$$</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="벡터-곱-Vector-Multiplication"><a href="#벡터-곱-Vector-Multiplication" class="headerlink" title="벡터 곱 (Vector Multiplication)"></a>벡터 곱 (Vector Multiplication)</h3><p>출처 : <a target="_blank" rel="noopener" href="https://rfriend.tistory.com/145">https://rfriend.tistory.com/145</a></p>
+<p>Vector Multiplication 종류</p>
+<!-- ![](https://t1.daumcdn.net/cfile/tistory/2139DF3E5672DC8D2A) -->
+
+<ul>
+<li><p>내적(inner product, dot product, scalar product,  projection product)</p>
+</li>
+<li><p>외적(outer product, cross product, vector product, directed area product)</p>
+<p>벡터의 내적과 외적 비교</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>내적</th>
+<th>외적</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>명칭</td>
+<td>inner product, dot product, scalar product,  projection product</td>
+<td>outer product, cross product, vector product, directed area product</td>
+</tr>
+<tr>
+<td>표기</br>(notation)</td>
+<td>$\cdot$ (dot)</br>ex) $a \cdot b$</td>
+<td>$\times$ (cross)</br>ex)$a \times b$</td>
+</tr>
+<tr>
+<td>대상 벡터</br>(dimension of</br>input vector)</td>
+<td>2 dimension</br>3 dimension</br>…</br>n dimension</br>즉, $\mathbb{R}^n$</td>
+<td>only for 3 dimensional Euclidean space</br>$\mathbb{R}^3$</td>
+</tr>
+<tr>
+<td>계산 공식</td>
+<td>$a\cdot b =$</br>$a_1b_1 + a_2b_2 + a_3b_3 + \cdots + a_nb_n$</br>$a\cdot b = |a| |b|cos\theta$</td>
+<td>$a\times b =$</br>$a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1$</br></br>$a\times b = |a| |b| sin\theta$ <del>n</del></td>
+</tr>
+<tr>
+<td>의미</br>$\rightarrow$ 활용</td>
+<td>벡터a에 대한 벡터b의 정사영</br>(그림자, $|b|cos\theta$)의 곱</br>$\rightarrow$ 벡터의 길이, 벡터 간 각도</td>
+<td>a와 b를 두 변으로 하는 평행사변형의 넓이</br>$\rightarrow$ 삼각형, 평행사변형 넓이 계산</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Scalar</td>
+<td>Vector</br>(두 벡터 a, b에 직교)</td>
+</tr>
+<tr>
+<td>교환법칙</br>(Commutative)</td>
+<td>Commutative</br>$a\cdot b=b \cdot a$</td>
+<td>Anticommutative</br>$a\times b=-b \times a$</td>
+</tr>
+<tr>
+<td>최대</br>최소</td>
+<td>두 벡터가 평행일 때</br>두 벡터가 수직일 때</td>
+<td>두 벡터가 수직일 때</br>두 벡터가 평행일 때</td>
+</tr>
+</tbody></table>
+<hr>
+<p></br></br></p>
+<!-- ![](https://t1.daumcdn.net/cfile/tistory/2355F4475674FB4208) -->
+
+
+<!-- #### 벡터의 내적 
+내적(inner product, dot product, scalar product,  projection product)
+
+ 
+
+**(1) 내적의 표기 (notation and symbol of the inner product)**
+
+  
+
+두 벡터의 **내적(inner product)**은 아래 그림처럼 **「.****」(dot)**으로 표기하며, 이래서 **점곱(dot product)**이라고도 말합니다.  혹은 **(a, b)**와 같이 표기하기도 합니다.  결과값이 스칼라이기 때문에 **스칼라곱(scalar product)**이라고도 하며, 계산할 때 한쪽 벡터의 코사인값을 사용하기 때문에 (즉, 한쪽 벡터에 직사광선을 쪼였을 때 그 그림자에 해당하는 코사인값을 사용) **영사곱(projection product)**이라고도 말합니다.
+
+  
+
+똑같은 개념을 두고 왜 이리 표현하는 말들이 많은지 의아할 수도 있겠는데요, 대수학, 기하학, 물리학 등의 학문영역별로 명칭, 표기가 다르다는 정도만 이해하면 되겠습니다.  최적화에서도 민감도분석할 때 보면 수학자는 쌍대변수(dual variable)이라고 말하는데 경제학자들은 잠재가격(shadow price)라고 말하거든요.  헛갈리는데 다 같은 말입니다. ^^;
+
+  
+
+![](https://t1.daumcdn.net/cfile/tistory/236E81345674CFBD1D)
+
+  
+  
+
+**(2) 내적의 정의 (difinition of the inner product)**
+
+  
+
+R^n 내의 두 열 벡터 a, b에 대하여 곱 T(a)b 의 결과인 단일 성분을 갖는 1 \* 1 행렬, 즉 하나의 실수인 Scalar 가 내적(inner product)이 되겠습니다.  그 수식을 풀어써보면 아래와 같은 계산식이 되며, 그 output은 스칼라(Scalar)가 됩니다. 
+
+  
+
+참고로, 외적(outer product)은 output이 벡터(Vector)가 됩니다. 
+
+  
+
+![](https://t1.daumcdn.net/cfile/tistory/227334345674D0E21B)
+
+
+아래에 두개의 성분(2차원, 2 dimension)을 가지는 열벡터 a=(-5, 6), b=(3, 9)의 내적 예와 세 개의 성분(3차원, 3 dimensions)을 가지는 열벡터 c=(5, 3, 6), d=(2, 7, 4)에 대한 내적 계산을 소개하였습니다.  같은 행의 component끼리 각각 곱해서 모두 더하면 됩니다.
+
+  
+
+![](https://t1.daumcdn.net/cfile/tistory/254226435675208134)
+
+  
+  
+
+위의 2개의 문제를 **R의 '%\*%' 함수**를 사용해서 풀어보면 아래와 같습니다. 
+
+위에서 소개한 공식을 가지고 아래에 사용자정의 함수도 한번 만들어봤습니다.  R에 내적계산을 위한 함수로 '%\*%'가 있기 때문에 굳이 사용자정의함수를 사용할 필요는 없겠습니다만, 개념을 이해하는 차원에서 참고하시기 바랍니다.  
+
+
+```sh
+> ##--------------------------------------
+> ## multiplying a vector by a vector
+> ##--------------------------------------
+> 
+> 
+> ##---------
+> ## (1) dot product
+> 
+> ## vector with 2 components (dimensions)
+> a <- c(-5, 6)
+> b <- c(3, 9)
+> 
+> # dot product of vector with 2 components (dimensions) : (a) %*%
+> a %*% b
+     [,1]
+[1,]   39
+> 
+> 
+> # dot product of vector with 2 components : (b) user defined function
+> dot_prod_fun_v2 <- function(a, b) {
++   if(length(a)!=2 | length(b) !=2) stop('number of vector component is not 2')
++   d <- a[1]*b[1] + a[2]*b[2]
++   return(d)
++ }
+> 
+> dot_prod_fun_v2(a=a, b=b)
+[1] 39
+> 
+> 
+> 
+> ## vector with 3 components (dimensions)
+> c <- c(5, 3, 6)
+> d <- c(2, 7, 4)
+> 
+> # dot product of vector with 3 components (dimensions) : (a) %*%
+> c %*% d
+     [,1]
+[1,]   55
+> 
+> 
+> # dot prduct of vector with 3 components : (b) user defined function
+> dot_prod_fun_v3 <- function(c, d) {
++   if(length(c)!=3 | length(d) !=3) stop('number of vector component is not 3')
++   dot_prd <- c[1]*d[1] + c[2]*d[2] + c[3]*d[3]
++   return(dot_prd)
++ }
+> dot_prod_fun_v3(c=c, d=d)
+[1] 55
+```  
+  
+
+**(3) 내적의 성질 (properties of the inner product)**
+
+
+수학자들이 정의하는 실내적공간(real inner product space, or real pre-Hilbert space)의 정의와 공리는 아래와 같습니다. 실내적의 공리로 **교환법칙(commutative law), 임의의 실수 c곱의 자유로운 이동 가능, 분배법칙(distributive law)** 등의 공리도 아래에 소개하였습니다.  
+
+
+![](https://t1.daumcdn.net/cfile/tistory/262C5D3E5674EBCF0A)
+
+
+  
+
+**(4) 내적의 계산 원리, 방법 1 (1st formula of the inner product calculation)**
+
+  
+
+내적을 계산하는 원리, 방법중에 벡터를 성분분해해서 각 성분들의 벡터의 길이(length of vector, norm)를 가지고 곱한 후 더하는 방법으로 구하는 방법이 있습니다.  아래 그림에 벡터 a를 ax, ay로, 벡터 b를 bx, by로 분해한 후에 내적을 구하는 방법을 소개해 보겠습니다. 힘과 방향을 가지는 벡터를 분해할 수 있다는 것은 벡터 연산을 할 때 굉장히 중요한 개념입니다. 참고로, 벡터와 스칼라를 곱했을 때도 분해한 벡터 성분에 스칼라를 각각 구해서 구하게 됩니다.
+
+
+![](https://t1.daumcdn.net/cfile/tistory/2547CD3A5674D9870A)
+
+  
+  
+
+**(5) 내적의 계산 원리, 방법 2 (2nd formula of the inner product calculation)**
+  
+
+내적을 계산하는 또 한가지 방법은 **벡터의 힘의 크기 또는 길이(magnitude or length of vector, norm)****와 각도(angle between vector a and b)**를 이용하는 방법입니다. **벡터의 힘의 크기 또는 길이는 "norm"** 이라고도 불립니다.  두 개중 한개의 벡터에 빛을 비추었을 때 직각으로 생기는 그림자 (=vector a \* cosine(θ))에다가 나머지 다른 한개의 벡터를 곱하는 개념입니다.
+
+
+![](https://t1.daumcdn.net/cfile/tistory/2432E037567535B112)
+
+
+위의 내적 구하는 공식에 cos(θ)가 사용이 되었는데요, 참고로 직각삼각형 ABC의 삼각함수(trigonometric functions) sine, cosine, tangent 구하는 공식은 아래와 같습니다. 
+
+  
+
+![](https://t1.daumcdn.net/cfile/tistory/250A174E56750B5429)
+
+
+  
+
+참고로 벡터의 **힘의 크기 또는 길이(magnitude or length of vector), 또는 다른 말로 "norm" |a|, |b|를 구하는 방법**은 아래와 같습니다. 
+
+  
+
+![](https://t1.daumcdn.net/cfile/tistory/2205B04E56750CA332)
+
+  
+
+  
+
+**(6) 내적을 활용한 두 벡터의 각도 계산 (calculating the angle between vector a and b)**
+
+  
+
+위에서 소개한 두 벡터의 내적을 구하는 공식을 사용하면 **_벡터의 길이(length of vector)_**를 구하거나 혹은 **_두 벡터간 각도(angle between vector a and b)_**를 구할 수 있습니다.  왜 내적을 공부해야 하지, 내적을 어디에 써먹을 수 있지 궁금하셨을 것 같은데요, 위에서 예로 들었던 두 벡터 a=(-5, 6), b=(3, 9)의 각도를 내적을 활용해서 구해보도록 하겠습니다.
+
+  
+
+![](https://t1.daumcdn.net/cfile/tistory/2144C43B567530E21C)
+
+  
+
+참고로, 위 계산 절차의 제일 마지막에 cos^-1(0.526354)\***57.3** 을 했는데요, inverse(cos(0.526354))를 통해서 계산된 값이 degree 가 아니라 radian 이기 때문에 1 radian 은 약 57.3 이므로 이를 곱해준 것입니다.  degree는 우리가 일반적으로 사용하는 것처럼 원을 0~360도 표기하는 방법이구요, radian은 부채꼴의 호의 길이와 반지름의 길이가 같게 되는 각도를 1 radian이라고 합니다.
+
+180 degree = π radian 이며, 1 radian = 180 degree/ π = 57.3 입니다.
+
+  
+
+이를 R을 사용해서 계산해보면 아래와 같습니다.  사용자정의함수로 작성했습니다. 참고로, 함수 acos()는 cos()의 inverse 함수입니다.
+
+  
+```sh
+> # angle between vector a and b
+> a <- c(-5, 6)
+> b <- c(3, 9)
+> 
+> angle_theta <- function(a, b){
++   dot.prod <- a%*%b 
++   norm.a <- norm(a, type="2")
++   norm.b <- norm(b, type="2")
++   theta_radian <- acos(dot.prod / (norm.a * norm.b))
++   angle_theta <- 57.3*theta_radian
++   as.numeric(angle_theta)
++   
++   return(angle_theta)
++ }
+> 
+> angle_theta(a, b)
+         [,1]
+[1,] 58.24481
+ ```
+
+위의 예에서는 이해를 돕기 위해서 2차원 (구성요소가 2개) 벡터 a, b를 가지고만 설명을 했는데요, 내적은 실벡터공간 내 3차원, 4차원, ..., n차원 벡터 모두에 대해서 가능합니다.  반면 외적은 3차원 유클리디안 공간에서만 가능합니다.
+
+  
+
+  
+
+다음 번에는 벡터의 곱 두번째로 [외적 (outer product, cross product, vector product, tensor product)](http://rfriend.tistory.com/146) 에 대해서 소개하도록 하겠습니다.
+
+  
+
+행렬, 벡터 관련 포스팅은 아래 링크를 걸어놓았습니다.
+
+[행렬 기본 이해](http://rfriend.tistory.com/140)
+
+[특수한 형태의 행렬](http://rfriend.tistory.com/141)
+
+[가우스 소거법을 활용한 역행렬 계산](http://rfriend.tistory.com/142)
+
+[**행렬의 기본 연산**](http://rfriend.tistory.com/40) (**+, -, \*, /, ^, %\*%,** **colMeans(), rowMeans(), colSums(), rowSums())** 
+
+[벡터의 기본 이해와 연산 (vector: addition, subtraction, multiplication by scalar)](http://rfriend.tistory.com/144)
+
+[**벡터의 곱 (2) 외적 (outer product, cross product, vector product, tensor product)**](http://rfriend.tistory.com/146)
+
+#### 벡터의 외적 -->
+
+<h3 id="numpy로-행렬-사용하기"><a href="#numpy로-행렬-사용하기" class="headerlink" title="numpy로 행렬 사용하기"></a>numpy로 행렬 사용하기</h3><pre><code class="python">import numpy as np
+
+A = np.array([
+    [1, -1, 2],
+    [3, 2, 2],
+    [4, 1, 2],
+    [7,5,6]
+])
+
+A
+</code></pre>
+<pre><code>array([[ 1, -1,  2],
+       [ 3,  2,  2],
+       [ 4,  1,  2],
+       [ 7,  5,  6]])
+</code></pre>
+<pre><code class="python">B = np.array([
+    [0, 1],
+    [-1, 3],
+    [5, 2]
+])
+B
+</code></pre>
+<pre><code>array([[ 0,  1],
+       [-1,  3],
+       [ 5,  2]])
+</code></pre>
+<pre><code class="python">C = np.random.rand(3, 5)
+C
+</code></pre>
+<pre><code>array([[0.25708577, 0.94499581, 0.00716481, 0.92629597, 0.86536939],
+       [0.45436089, 0.79097904, 0.47108279, 0.87945204, 0.13908699],
+       [0.62553379, 0.98822447, 0.01541435, 0.94284435, 0.7805241 ]])
+</code></pre>
+<pre><code class="python">D = np.zeros((2,4))
+D
+</code></pre>
+<pre><code>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+</code></pre>
+<pre><code class="python">A[0][2] # 1행 3열
+</code></pre>
+<pre><code>2
+</code></pre>
+<h4 id="np-random-rand-vs-np-random-random"><a href="#np-random-rand-vs-np-random-random" class="headerlink" title="np.random.rand vs np.random.random"></a>np.random.rand vs np.random.random</h4><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/47231852/np-random-rand-vs-np-random-random">https://stackoverflow.com/questions/47231852/np-random-rand-vs-np-random-random</a></p>
+<h2 id="행렬-연산"><a href="#행렬-연산" class="headerlink" title="행렬 연산"></a>행렬 연산</h2><p>dot product / matrix multiplication </p>
+<p>cross product </p>
+<h3 id="덧셈-스칼라곱"><a href="#덧셈-스칼라곱" class="headerlink" title="덧셈, 스칼라곱"></a>덧셈, 스칼라곱</h3><blockquote>
+<p>행렬의 덧셈시 <strong>두 행렬은 차원이 같아야 함</strong></p>
+</blockquote>
+<p>$$<br>A = \begin{bmatrix} 1 &amp; 1 \\ 2 &amp; 3\end{bmatrix}, \qquad B = \begin{bmatrix} 3 &amp; 1 \\ 2 &amp; 4\end{bmatrix}<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>$$</p>
+<p>$$<br>A + B = \begin{bmatrix} 1 &amp; 1 \\ 2 &amp; 3\end{bmatrix} + \begin{bmatrix} 3 &amp; 1 \\ 2 &amp; 4\end{bmatrix} = \begin{bmatrix} 4 &amp; 2 \\ 4 &amp; 7\end{bmatrix}<br>\qquad<br>\qquad<br>\quad<br>$$</p>
+<blockquote>
+<p>스칼라 곱 : 행렬과 수를 곱하는 것 (<strong>각 원소에 스칼라 값이 곱해짐</strong>)</p>
+</blockquote>
+<p>$$<br>i = 5, A = \begin{bmatrix}3 &amp; 1 \\ 2 &amp; 3 \end{bmatrix}<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>$$</p>
+<p>$$<br>iA = \begin{bmatrix} 5 \times 3 &amp; 5 \times 1 \\ 5 \times 2 &amp; 5 \times 3 \end{bmatrix} = \begin{bmatrix}15 &amp; 5 \\ 10 &amp; 15\end{bmatrix}<br>\qquad<br>\qquad<br>\qquad<br>$$</p>
+<h3 id="두-행렬의-곱-내적곱"><a href="#두-행렬의-곱-내적곱" class="headerlink" title="두 행렬의 곱 (내적곱)"></a>두 행렬의 곱 (내적곱)</h3><blockquote>
+<p>곱셈의 결과 새롭게 만들어진 행렬은 행렬곱(matrix product)라 함  </p>
+</blockquote>
+<blockquote>
+<p>$A \times B \rightarrow$ (A 의 행 수)x(B의 열 수) </p>
+</blockquote>
+<p>$$<br>A = \begin{bmatrix}1 &amp; 3 &amp; 1 \\ 2 &amp; 2 &amp; 1\end{bmatrix}, B = \begin{bmatrix}5 &amp; 6 \\ 4 &amp; 2 \\ 3 &amp; 1\end{bmatrix}<br>\qquad<br>\qquad<br>\qquad<br>\qquad<br>$$</p>
+<p>$$<br>AB = \begin{bmatrix}1 &amp; 3 &amp; 1 \\ 2 &amp; 2 &amp; 1\end{bmatrix} \times \begin{bmatrix}5 &amp; 6 \\ 4 &amp; 2 \\ 3 &amp; 1\end{bmatrix} = \begin{bmatrix}20 &amp; 13 \\ 21 &amp; 17 \end{bmatrix}<br>\qquad<br>\qquad<br>$$</p>
+<blockquote>
+<p>$AB=C$ 라 할 때, $C_{ij}$ 는 A 의 i번째 행(=행벡터)와 B의 j번째 열(=열벡터) 의 내적이다 (각 위치끼리 곱한 후 더 해짐)</p>
+</blockquote>
+<ul>
+<li><p>1행 1열 : $1 * 5 + 3 * 4 + 1 * 3 = 20$</p>
+</li>
+<li><p>1행 2열 : $1 * 6 + 3 * 2 + 1 * 1 = 13$</p>
+</li>
+<li><p>2행 1열 : $2 * 5 + 2 * 4 + 1 * 3 = 21$</p>
+</li>
+<li><p>2행 2열 : $2 * 6 + 2 * 2 + 1 * 1 = 17$</p>
+<p>  $$<br>  AB = \begin{bmatrix}20 &amp; 13 \\ 21 &amp; 17 \end{bmatrix}<br>  \qquad<br>  \qquad<br>  \qquad<br>  \qquad<br>  $$</p>
+</li>
+</ul>
+<blockquote>
+<p>즉, $c_{ij} = a_{i1} b_{1j} + a_{i2}b_{2j} + \cdots + a_{in}b_{nj} = \sum_{k=1}^{n}a_{ik}b_{kj}$ 이다.</p>
+</blockquote>
+<p>벡터의 선형결합 또는 선형사상의 합성 등의 의미를 부여 가능</p>
+<h4 id="행렬-차원"><a href="#행렬-차원" class="headerlink" title="행렬 차원"></a>행렬 차원</h4><blockquote>
+<p>앞의 행렬의 열과 뒤에 행렬의 행 수가 같아야 곱셈 가능! (예시 : mxn 행렬과 nxp)</p>
+</blockquote>
+<p>$$<br>AB = \begin{bmatrix}1 &amp; 3 &amp; 1 \\ 2 &amp; 2 &amp; 1\end{bmatrix} \times \begin{bmatrix}5 &amp; 6 \\ 4 &amp; 2 \\ 3 &amp; 1\end{bmatrix} = \begin{bmatrix}20 &amp; 13 \\ 21 &amp; 17 \end{bmatrix}<br>\qquad<br>\qquad<br>$$</p>
+<h4 id="교환-법칙-성립-안-함"><a href="#교환-법칙-성립-안-함" class="headerlink" title="교환 법칙 성립 안 함"></a>교환 법칙 성립 안 함</h4><blockquote>
+<p>$AB \neq BA$</p>
+</blockquote>
+<p>예시</p>
+<ul>
+<li>AB (계산 가능)</li>
+</ul>
+<p>$$<br>AB = \begin{bmatrix}1 &amp; 3 &amp; 1 \\ 2 &amp; 2 &amp; 1\end{bmatrix} \times \begin{bmatrix}5 &amp; 6 \\ 4 &amp; 2 \\ 3 &amp; 1\end{bmatrix}<br>\qquad<br>\qquad<br>$$</p>
+<ul>
+<li>BA (계산 불가능)</li>
+</ul>
+<p>$$<br>BA = \begin{bmatrix}5 &amp; 6 \\ 4 &amp; 2 \\ 3 &amp; 1\end{bmatrix} \times \begin{bmatrix}1 &amp; 3 &amp; 1 \\ 2 &amp; 2 &amp; 1\end{bmatrix}<br>\qquad<br>\qquad<br>$$</p>
+<h3 id="요소별-곱하기-Element-wise-Multiplication"><a href="#요소별-곱하기-Element-wise-Multiplication" class="headerlink" title="요소별 곱하기 (Element-wise Multiplication)"></a>요소별 곱하기 (Element-wise Multiplication)</h3><p>행렬 덧셈 연산과 거의 똑같은 성질을 갖는 연산</p>
+<blockquote>
+<p>아다마르 곱(Hadamard product) 이라고도 함</p>
+</blockquote>
+<blockquote>
+<p><strong>같은 차원을 갖는 두 행렬의 각 성분을 곱하는 연산</strong></p>
+</blockquote>
+<p>즉, m x n과 m x n의 꼴의 두 행렬의 성분 곱</p>
+<blockquote>
+<p>표기 : 동그라미($\circ$)를 써서 표현 ($A \circ B$)</p>
+</blockquote>
+<p>$$<br>A = \begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4\end{bmatrix}, B = \begin{bmatrix}-1 &amp; 2 \\ 3 &amp; 1 \end{bmatrix}<br>$$</p>
+<p>$$<br>A \circ B = \begin{bmatrix}-1 &amp; 4 \\ 9 &amp; 4\end{bmatrix}<br>$$</p>
+<p>A의 행과 열에 있는 요소들과 BB의 행과 열에 있는 요소들을 서로 곱해서 새로운 행렬을 만듦</p>
+<blockquote>
+<p>덧셈에 대하여 분배 법칙을 따름</p>
+</blockquote>
+<h4 id="사용하는-이유"><a href="#사용하는-이유" class="headerlink" title="사용하는 이유"></a>사용하는 이유</h4><p>요소별 곱하기를 사용하는 이유</p>
+<ol>
+<li><p>내적곱을 하게되면 차원이 다 없어짐 (스칼라값만 남기 때문)<br> 보통 그 스칼라 값을 feature로 많이 놓으나, 차원이 다 없어지면 좀…</p>
+</li>
+<li><p>단순 계산적인 부분에서 속도가 좋음 </p>
+</li>
+</ol>
+<h4 id="numpy로-요소별-곱하기-하기"><a href="#numpy로-요소별-곱하기-하기" class="headerlink" title="numpy로 요소별 곱하기 하기"></a>numpy로 요소별 곱하기 하기</h4><pre><code class="python">import numpy as np
+
+A = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+
+B = np.array([
+    [0, 1, 2],
+    [2, 0, 1],
+    [1, 2, 0]
+])
+</code></pre>
+<pre><code class="python">A * B
+</code></pre>
+<pre><code>arrray([0, 2, 6]
+       [8, 0, 6]
+       [7, 16, 0])
+</code></pre>
+<!-- ### 여러가지 곱셈
+inner product
+dot product
+scalar product
+projection product -->
+
+<h3 id="질문-행렬-외적에-대해-질문드립니다-용어-질문"><a href="#질문-행렬-외적에-대해-질문드립니다-용어-질문" class="headerlink" title="[질문] 행렬 외적에 대해 질문드립니다. (+용어 질문)"></a>[질문] 행렬 외적에 대해 질문드립니다. (+용어 질문)</h3><ol>
+<li><p>앞선 강의에서 설명한 “두 행렬의 곱”이 “내적곱”이며, “행렬 곱셈(matrix multiplication)” 인가요?</p>
+<p> (“두 행렬의 곱” =  “내적곱” =  “행렬 곱셈(matrix multiplication)” )</p>
+</li>
+</ol>
+<ol start="2">
+<li>내적과 내적곱, 외적과 외적곱이 이음동의어 인가요?</li>
+</ol>
+<ol start="3">
+<li>행렬 내적과 외적을 검색해 봤는데, 각각 matrix inner product 와 matrix outer product 라 불리며, 각각 행벡터 곱하기 열벡터, 열벡터 곱하기 행벡터라고 하는데 맞나요? 아니라면, 두 곱의 차이가 뭔지 구분 부탁드립니다.</li>
+</ol>
+<ol start="4">
+<li> 행렬 내적과 외적이 어떤 때에 사용되는지 알고싶습니다. (왜 필요해서 그런 개념이 나온건지 알고싶습니다.)</li>
+</ol>
+<p>*** 벡터 내적과 외적 설명 : <a target="_blank" rel="noopener" href="https://rfriend.tistory.com/145">https://rfriend.tistory.com/145</a></p>
+<p>*** 행렬 내적과 외적 설명 : …부탁드려요..</p>
+<h3 id="numpy로-행렬-연산하기"><a href="#numpy로-행렬-연산하기" class="headerlink" title="numpy로 행렬 연산하기"></a>numpy로 행렬 연산하기</h3><ul>
+<li>숫자/행렬 스칼라 곱은 *  </li>
+<li>행렬 덧셈은 +  </li>
+<li>행렬 곱셈은 @  </li>
+</ul>
+<p>$2 A \times -B \times (3C + D)$</p>
+<h3 id="특수한-행렬"><a href="#특수한-행렬" class="headerlink" title="특수한 행렬"></a>특수한 행렬</h3><h4 id="전치-행렬-transposed-matrix"><a href="#전치-행렬-transposed-matrix" class="headerlink" title="전치 행렬 (transposed matrix)"></a>전치 행렬 (transposed matrix)</h4><p>$$<br>A = \begin{bmatrix}1 &amp; 2 &amp; 1 \\ 3 &amp; 2 &amp; 2\end{bmatrix}<br>$$</p>
+<p>위 A 행렬의 열과 행을 바꾸면 아래와 같고, 이것을 <strong>‘전치 행렬’</strong> 이라 한다.</p>
+<p>$$<br>A^T = \begin{bmatrix}1 &amp; 3 \\ 2 &amp; 2 \\ 1 &amp; 2\end{bmatrix}<br>$$</p>
+<blockquote>
+<p>$A^{T}$ : A의 전치, 즉 A의 transpose라는 의미에서 A 위에 작은 T를 써서 표기</p>
+</blockquote>
+<p>기존에 첫 번째 행이었던 게 이제 첫 번째 열이 되었고, 두 번째 행이었던 게 이제 두 번째 열이 되었음<br>마찬가지로 첫 번째 열이었던 게 첫 번째 행이 되었고, 두 번째 열은 두 번째 행이 됐고, 세 번째 열은 세 번째 행이 됨</p>
+<blockquote>
+<p>전치 행렬을 사용하 : 행렬 계산을 할 때 모양을 맞춰야할 때 사용 </p>
+</blockquote>
+<p>예를 들어, 행렬과 행렬을 곱할 때, 왼쪽 행렬의 열 수랑 오른쪽 행렬을 행 수가 맞아 떨어져야 함<br>이처럼 행렬 계산을 할 때 모양을 맞춰야 할 때, 기존 행렬에서 모양이 안 맞으면, 전치 행렬을 사용해서 맞출 수 있음  </p>
+<h4 id="단위-행렬-identity-matrix"><a href="#단위-행렬-identity-matrix" class="headerlink" title="단위 행렬 (identity matrix)"></a>단위 행렬 (identity matrix)</h4><blockquote>
+<p>단위 행렬은 ‘Identity’를 줄인 ‘I’라는 문자로 항상 표현</p>
+</blockquote>
+<p>$$<br>I = \begin{bmatrix}1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}<br>$$</p>
+<blockquote>
+<p>왼쪽 위에부터 대각선으로는 원소가 쭉 1이고요, 그 외에는 모두 0</p>
+</blockquote>
+<p>위 예시는 3 by 3 단위 행렬이며, <strong>단위 행렬은 항상 정사각형의 모양</strong>이기 때문에, 4 x 4 단위 행렬, 5 x 5 단위 행렬, 6 x 6 단위 행렬… 이런 식으로 사용함</p>
+<blockquote>
+<p>단위 행렬의 목적 : 수 계산에서 1과 같은 역할 = 어떤 행렬이든 간에 단위 행렬을 곱하면 기존 행렬이 그대로 유지</p>
+</blockquote>
+<p>우리가 수학 계산할 때 어떤 수든 간에 1을 곱하면, 그냥 그 수가 그대로 나오듯이<br>선형대수학에서는 단위 행렬이 그 역할을 함</p>
+<h5 id="A-I-A"><a href="#A-I-A" class="headerlink" title="A * I = A"></a>A * I = A</h5><p>$$<br>A = \begin{bmatrix}3 &amp; 4 \\ 1 &amp; 2\end{bmatrix} I = \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 1\end{bmatrix}<br>$$</p>
+<p>여기 2 x 2 행렬 A와 2 x 2 단위 행렬 I가 있습니다. A랑 I를 곱해 봅시다. </p>
+<p>$$<br>AI = \begin{bmatrix}3 &amp; 4 \\ 1 &amp; 2\end{bmatrix} \times \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 1\end{bmatrix} = \begin{bmatrix}3 &amp; 4 \\ 1 &amp; 2\end{bmatrix}<br>$$</p>
+<p>A의 1행과 I의 1열을 곱하면, $3 * 1 + 4 * 0 = 3$<br>A의 1행과 I의 2열을 곱하면, $3 * 0 + 4 * 1=4$<br>A의 2행과 I의 1열을 곱하면, $1 * 1 + 2 * 0 = 1$<br>A의 2행과 I의 2열을 곱하면, $1 * 0 + 2 * 1 = 2$  </p>
+<p>결과 행렬을 보면 기존의 A와 같다.</p>
+<blockquote>
+<p>즉, A * I = A</p>
+</blockquote>
+<h4 id="역행렬-inverse-matrix"><a href="#역행렬-inverse-matrix" class="headerlink" title="역행렬 (inverse matrix)"></a>역행렬 (inverse matrix)</h4><p>선형대수학에는 역행렬은 우리가 익히 아는 역수의 비슷한 개념  </p>
+<blockquote>
+<p>역행렬(inverse matrix) : 행렬 A에 곱했을 때 단위 행렬 I가 나오도록 하는 행렬을 역행렬</p>
+</blockquote>
+<details>
+<summary style="font-Weight : bold; font-size : 20px; color : #CCCCCC;" > 역수 </summary>
+<div>  
+"역수" : 곱했을 때 1이 나오도록 하는 수  
+10이라는 수가 있으면, 여기에 1/10을 곱해야 1이 나옴  
+5라는 수가 있으면 1/5을 곱해야 1이 나옴  
+</div>
+</details>
+
+<p>예시<br>$$<br>A = \begin{bmatrix}3 &amp; 4 \\ 1 &amp; 2\end{bmatrix}<br>$$</p>
+<p>$$<br>A * ? = I<br>$$</p>
+<p>A에 어떤 행렬을 곱해야 I가 나올까? = A의 역행렬이 무엇일까?</p>
+<blockquote>
+<p>$A^{-1}$ : 기존 행렬 위에 작게 -1을 써서 역행렬을 표현</p>
+</blockquote>
+<p>$$<br>A^{-1} = \begin{bmatrix}1 &amp; -2 \\ -\frac{1}{2} &amp; \frac{3}{2}\end{bmatrix}<br>$$</p>
+<p>실제로 A랑 곱해보면 2 x 2 단위 행렬이 나오는 걸 확인 가능</p>
+<blockquote>
+<p><strong>역행렬은 꼭 정사각형</strong>이어야 함</p>
+</blockquote>
+<blockquote>
+<p><strong>모든 행렬에 역행렬이 있는 건 아님</strong> = 그 어떤 행렬을 곱해 줘도 I가 절대로 안 나오는 경우도 있음</p>
+</blockquote>
+<h3 id="numpy로-전치-단위-역행렬-사용하기"><a href="#numpy로-전치-단위-역행렬-사용하기" class="headerlink" title="numpy로 전치, 단위, 역행렬 사용하기"></a>numpy로 전치, 단위, 역행렬 사용하기</h3><h4 id="numpy-linalg-det"><a href="#numpy-linalg-det" class="headerlink" title="numpy.linalg.det"></a>numpy.linalg.det</h4><p>행렬식(determinant, det) : 역행렬이 존재하는지 여부를 확인하는 지표</p>
+<p>‘0’이 아니면 역행렬이 존재하고, 이 행렬식이 ‘0’이면 역행렬이 존재하지 않음</p>
+<h4 id="numpy-linalg-pinv"><a href="#numpy-linalg-pinv" class="headerlink" title="numpy.linalg.pinv"></a>numpy.linalg.pinv</h4><p>(Linear Algebra 의 Psuedo Inverse)</p>
+<blockquote>
+<p>파라미터로 받은 행렬이 역행렬이 있으면 역행렬을 리턴하고, 역행렬이 존재하지 않을 경우 Moore-Penrose inverse 를 계산해서 리턴</p>
+</blockquote>
+<p>$A^+$ : 행렬 $A$ 에 대한 pseudo-inverse 행렬<br>$AA^+ = I$ : 역행렬과 마찬가지</p>
+<blockquote>
+<p>$A$ 에 곱해서 $I$ 가 되는 아무 행렬이나 찾아줌<br>(행렬 $A$ 가 정사각행렬이 아니여도, 또는 다양한 이유로 역행렬을 계산하는 게 불가능해도 찾아줌)<br>진짜 역행렬은 단순히 원래 행렬에 곱해서 $I$ 가 나오는 것 이외에 여러 가지 특성들이 있음. pseudo-inverse는 역행렬이 갖는 모든 특성들을 보장하지는 않음.</p>
+</blockquote>
+<p>하나의 행렬에 대해서 여러 개의 pseudo-inverse가 있을 수 있음 (unique하지 않을 수 있음)</p>
+<p><a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.linalg.det.html">https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.linalg.det.html</a></p>
+<h4 id="예제-numpy로-전치-단위-역행렬"><a href="#예제-numpy로-전치-단위-역행렬" class="headerlink" title="[예제] numpy로 전치, 단위, 역행렬"></a>[예제] numpy로 전치, 단위, 역행렬</h4><h3 id="선형대수학과-행렬-벡터"><a href="#선형대수학과-행렬-벡터" class="headerlink" title="선형대수학과 행렬/벡터"></a>선형대수학과 행렬/벡터</h3><p>일차식이 여러개 있는걸 선형 시스템이라 함</p>
+<ul>
+<li><p>선형시스템과 행렬의 관계</p>
+<table>
+<thead>
+<tr>
+<th>선형 시스템</th>
+<th>행렬 표현 ($Ax=y$)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$2x_0-4x_1+x_2=3$</br>$3x_0+x_1-6x_2=10$</br>$x_0+x_1+x_2=5$</td>
+<td>$\begin{bmatrix}2 &amp; -4 &amp; 1 \\ 4 &amp; 1 &amp; -6 \\ 1 &amp; 1 &amp; 1\end{bmatrix} \begin{bmatrix}x_0 \\ x_1 \\ x_3\end{bmatrix} = \begin{bmatrix}3 \\ 10 \\ 5 \end{bmatrix}$</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>$A=\begin{bmatrix}2 &amp; -4 &amp; 1 \\ 4 &amp; 1 &amp; -6 \\ 1 &amp; 1 &amp; 1\end{bmatrix}$ <br><br></p>
+</li>
+<li><p>$x=\begin{bmatrix}x_0 \\ x_1 \\ x_3\end{bmatrix}$ <br><br></p>
+</li>
+<li><p>$y = \begin{bmatrix}3 \\ 10 \\ 5 \end{bmatrix}$ <br><br></p>
+</li>
+<li><p>$Ax=\begin{bmatrix}2x_0 -4x_1 + x_3 \\ 4x_0 + x_1 -6x_3 \\ x_0 + x_1 + x_3 \end{bmatrix}$ <br><br></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>아무리 복잡한 선형 시스템도 행렬과 벡터로 쉽게 표현할 수 있음!</p>
+</blockquote>
+<h3 id="선형대수학이-머신-러닝에-필요한-이유"><a href="#선형대수학이-머신-러닝에-필요한-이유" class="headerlink" title="선형대수학이 머신 러닝에 필요한 이유"></a>선형대수학이 머신 러닝에 필요한 이유</h3><p>아파트 가격 예측을 예시로 들어보자  </p>
+<ul>
+<li><p>집값 = 크기$\times a_1$ + 지하철 역 거리$\times a_2$ + 층수$\times a_3$</p>
+</li>
+<li><p>일차식<br>  첫 번째 아파트 가격 :  110$\times a_1$ + 400$\times a_2$ + 20$\times a_1$<br>  두 번째 아파트 가격 :  100$\times a_1$ + 1000$\times a_2$ + 5$\times a_1$<br>  세 번째 아파트 가격 :  180$\times a_1$ + 10$\times a_2$ + 30$\times a_1$<br>  네 번째 아파트 가격 :  50$\times a_1$ + 300$\times a_2$ + 5$\times a_1$<br>  …</p>
+</li>
+<li><p>행렬로 표현<br>  $\begin{bmatrix}110 &amp; 400 &amp; 20 \\ 100 &amp; 1000 &amp; 5 \\ 180 &amp; 10 &amp; 30 \\ 50 &amp; 300 &amp; 5 \end{bmatrix} \begin{bmatrix}a_0 \\ a_1 \\ a_3 \end{bmatrix}$ <br><br></p>
+<ul>
+<li>$X=\begin{bmatrix}110 &amp; 400 &amp; 20 \\ 100 &amp; 1000 &amp; 5 \\ 180 &amp; 10 &amp; 30 \\ 50 &amp; 300 &amp; 5 \end{bmatrix}$  <br><br><ul>
+<li> 행렬 X에서 각 행은 아파트, 열은 <strong>특징</strong></li>
+</ul>
+</li>
+<li>$a=\begin{bmatrix}a_0 \\ a_1 \\ a_3 \end{bmatrix}$ <br><br><ul>
+<li> 벡터 a는 각 특징의 <strong>영향력</strong> </li>
+</ul>
+</li>
+<li>모든 집 값 = $Xa$</li>
+</ul>
+</li>
+</ul>
+<p>결론</p>
+<blockquote>
+<p>머신 러닝을 할 때 데이터를 일차식으로 사용하는 경우가 많음<br>$\rightarrow$ 행렬을 이용하면 정돈된 형태로 효율적이게 계산할 수 있음<br>$\rightarrow$ 선형 대수학은 일차식, 일차 함수, 행렬, 벡터를 다루는 학문이기 때문에 필수</p>
+</blockquote>
+<!-- ### 선형대수학 퀴즈 -->
+
+
+
+
+
+
+
+
+
+<h1 id="미분-필요한-만큼만-배우기"><a href="#미분-필요한-만큼만-배우기" class="headerlink" title="미분 필요한 만큼만 배우기"></a>미분 필요한 만큼만 배우기</h1><p>미분 : 함수의 순간 변화율을 구하는 방법</p>
+<h2 id="함수와-그래프"><a href="#함수와-그래프" class="headerlink" title="함수와 그래프"></a>함수와 그래프</h2><h3 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h3><p>: 하나의 인풋에 대해서 하나의 아웃풋</p>
+<p><img src="/media/math_files/math_for_ML/function.png" alt="함수"></p>
+<ul>
+<li>고차함수<br>  $f(x) = x^3 + 3x^2 + 3x + 1$</li>
+<li>다변수 함수<br>  $f(x,y) = x + 2y$</li>
+<li>현실 세계에서의 함수<ul>
+<li>거리 시간 : $d = 60t$</li>
+<li>비만 지수 : $BMI=\frac{몸무게}{키\times 키}$</li>
+</ul>
+</li>
+</ul>
+<h4 id="명칭-및-표기"><a href="#명칭-및-표기" class="headerlink" title="명칭 및 표기"></a>명칭 및 표기</h4><ul>
+<li>독립변수 : 입력되는 변수</li>
+<li>종속변수 : 출력되는 변수</li>
+<li>표기<ul>
+<li>𝑓: 𝑋 → 𝑌<ul>
+<li>𝑋 : 정의역domain, 𝑌 : 공역codomain</li>
+</ul>
+</li>
+<li>𝑓(𝑋) = 𝑌</li>
+<li>실수 집합을 ℝ 이라 할 때, 𝑓 ∶ ℝ → ℝ는 실수를 실수로 대응시키는 함수</li>
+</ul>
+</li>
+</ul>
+<h4 id="함수-대응관계의-특징-역함수"><a href="#함수-대응관계의-특징-역함수" class="headerlink" title="함수 대응관계의 특징 (+역함수)"></a>함수 대응관계의 특징 (+역함수)</h4><table>
+<thead>
+<tr>
+<th>function</th>
+<th>Surjection func.</th>
+<th>Injection func.</th>
+<th>Bijection func.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="/media/math_files/math_for_ML/regular_function.png" alt="일반 함수"></td>
+<td><img src="/media/math_files/math_for_ML/surjective_function.png" alt="전사함수"></td>
+<td><img src="/media/math_files/math_for_ML/injection_function.png" alt="일대일 함수"></td>
+<td><img src="/media/math_files/math_for_ML/bijection_function.png" alt="일대일 대응 함수"></td>
+</tr>
+<tr>
+<td><img src="/media/math_files/math_for_ML/regular_function_inv.png"></td>
+<td><img src="/media/math_files/math_for_ML/surjective_function_inv.png"></td>
+<td><img src="/media/math_files/math_for_ML/injection_function_inv.png"></td>
+<td><img src="/media/math_files/math_for_ML/bijection_function_inv.png" alt="역함수 존재!"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>일대일 대응 함수에서만, 역함수가 존재 (rank와 연관성 찾아보기)</p>
+</blockquote>
+<h4 id="함수의-종류"><a href="#함수의-종류" class="headerlink" title="함수의 종류"></a>함수의 종류</h4><p><img src="/media/math_files/math_for_ML/funcion_types.png" alt="입력과 출력의 형태에 따른 분류"></p>
+<ul>
+<li>일변수-실함수(univariable scalar func.)      : $𝑦 = 𝑓(𝑥) = x^2, 𝑓: ℝ → ℝ$<ul>
+<li>다항함수, 분수함수, 지수함수, 로그함수, 삼각함수, <strong>로지스틱함수</strong></li>
+</ul>
+</li>
+<li>다변수-실함수 (multivariable scalar func.)   : $𝑧 = 𝑓(𝑥, 𝑦) = 𝑥 + 𝑦, 𝑓: ℝ^2 → ℝ$<ul>
+<li>스칼라 장 : 공간에서의 온도장, 대기의 기압장 등</li>
+</ul>
+</li>
+<li>일변수-벡터함수 (univariable vector func.)   : $𝐫(𝑡) = (𝑥(𝑡) , 𝑦(𝑡) , 𝑧(𝑡)),  ℝ → ℝ^3$<ul>
+<li>시간에 따른 물체의 이동 경로</li>
+</ul>
+</li>
+<li>다변수-벡터함수 (multivariable vector func)  : $𝐫(𝑢, 𝑣) = (𝑥(𝑢, 𝑣) , 𝑦(𝑢, 𝑣) , 𝑧(𝑢, 𝑣)), ℝ^2 → ℝ^3$<ul>
+<li>공간에 존재하는 곡면, <strong>소프트맥스 함수</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="그래프"><a href="#그래프" class="headerlink" title="그래프"></a>그래프</h3><p>: 수학을 시각적으로 표현하는 방법</p>
+<blockquote>
+<p>그래프를 그리면 함수의 특징을 쉽게 알 수 있음</p>
+<ul>
+<li>최소점, 기울기(x값에 대한 y값의 변화) 등</li>
+</ul>
+</blockquote>
+<p>일차 함수의 경우, 기울기가 일정함</p>
+<p>고차함수의 경우 위치에 따라 기울기가 달라짐 $\rightarrow$ 순간 변화율(instantaneous rate of change)  </p>
+<p>순간 변화율(점 관점)을 알기위해 평균 변화율(average rate of change, 구간 관점)을 먼저 알아보자</p>
+<h2 id="함수의-변화율"><a href="#함수의-변화율" class="headerlink" title="함수의 변화율"></a>함수의 변화율</h2><h3 id="평균-변화율"><a href="#평균-변화율" class="headerlink" title="평균 변화율"></a>평균 변화율</h3><blockquote>
+<p>$\frac{f(b)−f(a)}{b−a}$</p>
+</blockquote>
+<p><img src="/media/math_files/math_for_ML/Average_rate_of_change.jpg"></p>
+<blockquote>
+<p>$\frac{f(a+h)−f(a)}{(a+h) - (a)} = \frac{f(a+h)−f(a)}{h}$<br>​    </p>
+</blockquote>
+<p><img src="/media/math_files/math_for_ML/Average_rate_of_change2.jpg"></p>
+<h3 id="순간-변화율"><a href="#순간-변화율" class="headerlink" title="순간 변화율"></a>순간 변화율</h3><blockquote>
+<p>$\lim\limits_{h\to 0} \frac{f(a+h)−f(a)}{h}$</p>
+</blockquote>
+<p><img src="/media/math_files/math_for_ML/instantaneous_rate_of_change.jpg"><br><img src="/media/math_files/math_for_ML/instantaneous_rate_of_change_ex1.jpg"><br><img src="/media/math_files/math_for_ML/instantaneous_rate_of_change_ex2.jpg">  </p>
+<h2 id="일변수-함수-미분"><a href="#일변수-함수-미분" class="headerlink" title="일변수 함수 미분"></a>일변수 함수 미분</h2><blockquote>
+<p>미분 : 함수의 순간 변화율을 구하는 방법</p>
+</blockquote>
+<p>예를 들어, $f(x) = x^2 - 2x + 1$ 의 미분을 구한다했을 때 다음과 같이 표현함</p>
+<blockquote>
+<p>$\frac{d}{dx}f(x)$ 또는 $f’(x)$</p>
+</blockquote>
+<p>함수 f의 미분을 구하는데, 변수 x에 대해서 미분을 구한다는 의미</p>
+<blockquote>
+<p>즉, x의 변화에 따른 순간 변화율을 계산하기 위함</p>
+</blockquote>
+<p>함수 f는 다항식으로 이루어져있고, 다항식을 미분하는 방법은 각각 항별로 차수를 계수에 곱하고, 차수에서 1을 빼주면 됨</p>
+<p>$﻿\frac{d}{dx}f(x) = 2x - 2$ </p>
+<p>한가지 예시를 더 들어보면,<br>$f(x)=−x^4 +2x^3 +2x^2 +1﻿$ 의 변수 x에 대한 미분은<br>$﻿\frac{d}{dx}f(x) = -4x^3 + 6x^2 + 4x$</p>
+<blockquote>
+<p>특정 x에 대한 순간 변화율을 알고 싶으면, 미분한 함수에 값을 대입하면 됨</p>
+</blockquote>
+<h3 id="가장-가파른-방향-2차원"><a href="#가장-가파른-방향-2차원" class="headerlink" title="가장 가파른 방향 (2차원)"></a>가장 가파른 방향 (2차원)</h3><p>﻿$f(x) = x^2 - 2x + 1$ 의 미분 $\frac{d}{dx}f(x)$ 에 특정 x를 대입하면 그 때의 순간 변화율</p>
+<p><img src="/media/math_files/math_for_ML/f_prime_2.png">  </p>
+<blockquote>
+<p>기울기가 음수면, x가 커질수록 y가 작아짐</p>
+</blockquote>
+<p><img src="/media/math_files/math_for_ML/gradient_negative.png">  </p>
+<blockquote>
+<p>기울기가 양수면, x가 커질수록 y가 커짐 </p>
+</blockquote>
+<p><img src="/media/math_files/math_for_ML/gradient_positive.png">  </p>
+<blockquote>
+<p>즉, 기울기는 그래프는 다음 정보를 제공</p>
+<ol>
+<li>해당 지점에서 얼마나 기울어져 있는지</li>
+<li><strong>어떤 방향으로 가야 가장 가파르게 올라갈 수 있는지</strong> (머신러닝의 핵심)</li>
+</ol>
+</blockquote>
+<!--
+<details>
+<summary style="font-Weight : bold; font-size : 10px; color : #CCCCCC;" > 왜 핵심이라는 걸까? </summary>
+<div>  
+
+머신러닝 : 경험적으로 작업의 성능을 최적화해나가는 것
+
+한 점에서 기울기는 해당 함수를 미분한 식으로 구하며
+
+순간변화율을 통해 함수의 극대점이나 극소점을 찾아 나갈 수 있으므로 머신러닝의 중요 개념임
+
+</div>
+</details>
+-->
+
+<p><img src="/media/math_files/math_for_ML/gradient_negative2.png">  </p>
+<p><img src="/media/math_files/math_for_ML/gradient_positive2.png"> </p>
+<h3 id="극소점-극대점"><a href="#극소점-극대점" class="headerlink" title="극소점, 극대점"></a>극소점, 극대점</h3><p>순간 변화율을 어떻게 해석할 수 있을까?</p>
+<p>순간 변화율이 양수 - 해당 지점에서 x가 늘어나면 y도 늘어남을 의미<br>순간 변화율이 음수 - 해당 지점에서 x가 늘어나면 y가 줄어듬을 의미</p>
+<blockquote>
+<p><strong>순간 변화율이 0인 지점</strong> : 해당 지점에서 x가 변해도 y는 그대로<br>발생하는 경우는 크게 세 가지 : 1. 극소점, 2. 극대점, 3. 안장점</p>
+</blockquote>
+<blockquote>
+<ol>
+<li>극소점 (Local Minimum)</li>
+</ol>
+</blockquote>
+<p>그래프에서 아래로 볼록 튀어 나오는 경우</p>
+<p><img src="/media/math_files/math_for_ML/Local_Minimum.png"> </p>
+<p>이 지점에서 왼쪽으로는 기울기가 음수고, 오른쪽으로는 기울기가 양수<br>(기울기가 음수에서 양수로 전환할 때 한 번 0을 찍고 감)</p>
+<p>극소점이 여러 개인 경우, 이 중에서 <strong>제일 작은 값은 최소점(global minimum)</strong> 이라고 하고, <strong>나머지는 local minimum</strong> 이라 함</p>
+<blockquote>
+<ol start="2">
+<li>극대점 (Local Maximum)</li>
+</ol>
+</blockquote>
+<p>그래프에서 위로 볼록 튀어 나오는 경우</p>
+<p><img src="/media/math_files/math_for_ML/Local_Maximum.png"> </p>
+<p>이 지점에서 왼쪽으로는 기울기가 양수고, 오른쪽으로는 기울기가 음수<br>(기울기가 양수에서 음수로 전환할 때 0을 찍고 감)</p>
+<p>극소점이 여러 개인 경우, 이 중에서 <strong>가장 큰 값을 최대점(global maximum)</strong> 이라고 하고, <strong>나머지는 local maximum</strong> 이라 함</p>
+<blockquote>
+<ol start="3">
+<li>안장점 (Saddle Point)</li>
+</ol>
+</blockquote>
+<p>극소점도 아니고 극대점도 아닌 경우<br>즉, 기울기의 부호 변화가 없이, 기울기가 평평해졌다가 다시 가팔라지는 경우가 이에 해당함</p>
+<p><img src="/media/math_files/math_for_ML/Saddle_Point.png"> </p>
+<hr>
+<details>
+<summary style="font-Weight : bold; font-size : 10px; color : #CCCCCC;" > 기타 </summary>
+<div>  
+
+<p>극소점이나 극대점 같은 지점은 그래프에서 특별함<br>머신 러닝을 하다 보면 이런 지점들을 찾아야 하는 경우가 자주 있기 때문 (언제인지는 나중에 배우기)<br>그 지점에서 순간 변화율이 0이라는 그 특징을 파악하고 있으면 찾을 수 있음</p>
+<p>변곡점 (Inflection point) : 양 쪽의 미분의 부호가 다르고 미분값이 0이 되는 점<br>안장점 (saddle point) : 미분값이 0이긴 하나 양쪽 미분 부호가 같은 점</p>
+</div>
+</details>
+
+
+<h2 id="다변수-함수"><a href="#다변수-함수" class="headerlink" title="다변수 함수"></a>다변수 함수</h2><p>고차원에서 미분</p>
+<blockquote>
+<p>다변수 함수 : input 변수가 여러개인 경우 (고차원)</p>
+</blockquote>
+<p>다변수 함수에서의 순간 변화율이란? 순간 변화율, 기울기… 따지지말고 일단 미분부터 해보자</p>
+<blockquote>
+<p>다변수 함수를 미분하려면 <strong>‘편미분’</strong> 이 필요</p>
+<ul>
+<li>편미분 : 변수 하나에 대해서만 미분을 하는 것</li>
+</ul>
+</blockquote>
+<h3 id="예제-편미분"><a href="#예제-편미분" class="headerlink" title="[예제] 편미분"></a>[예제] 편미분</h3><p>$﻿f(x, y) = x^2 + 2y^2$ 미분 해보자</p>
+<p>변수 x에 대해서 편미분을 할 수도 있고, 변수 y에 대해서 편미분을 할 수도 있다</p>
+<blockquote>
+<p>변수 x에 대해서 편미분 : $\frac{\partial}{\partial x}$</p>
+</blockquote>
+<ul>
+<li><p>∂ :’델’이라고 읽음 <!-- $\partial$ --></p>
+</li>
+<li><p>x를 제외한 나머지 변수들은 마치 상수인 것처럼 취급<br>  (즉, y를 변수가 아니라 그냥 일반 숫자처럼 취급)</p>
+<p>  $$\frac{\partial}{\partial x} f(x, y) = \frac{\partial}{\partial x} (x^2 + 2y^2) = 2x \qquad \qquad \qquad$$</p>
+</li>
+</ul>
+<blockquote>
+<p>변수 y에 대해서 편미분 : $\frac{\partial}{\partial y}$</p>
+</blockquote>
+<ul>
+<li><p>y를 제외한 나머지 변수들은 마치 상수인 것처럼 취급<br>  (즉, x를 변수가 아니라 그냥 일반 숫자처럼 취급)</p>
+<p>  $$﻿\frac{\partial}{\partial y} f(x, y) = \frac{\partial}{\partial y} (x^2 + 2y^2) = 4y \qquad \qquad \qquad$$ </p>
+</li>
+</ul>
+<blockquote>
+<p>합치기 : 편미분의 결과를 합쳐서 벡터로 나타낼 수 있음</p>
+</blockquote>
+<ul>
+<li><p>이 벡터가 바로 이 함수의 <strong>기울기</strong> <small> 역세모 기호(∇)를 사용하여 표기 </small><br>  $$﻿\nabla f(x, y) = \begin{bmatrix}2x \\ 4y\end{bmatrix} \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \quad$$  </p>
+</li>
+<li><p>x가 1이고 y가 1인 지점의 기울기 : $﻿\nabla f(1, 1) = \begin{bmatrix}2 \\ 4\end{bmatrix}$</p>
+<ul>
+<li><p><strong>y를 1로 고정시킨다고 가정했을 때, 변수 x에 대한 함수 f의 기울기가 2</strong>라는 의미<br>  x에 대해 편미분을 한다는 건 y를 고정시키는 것<br>  y를 1로 고정시키면, 사실상 변수는 x 하나밖에 없으므로, 2차원 그래프로 나타낼 수 있고, 그 그래프에 그려지는 함수의 기울기가 2임</p>
+<p><img src="/media/math_files/math_for_ML/Partial_Derivative_graph1.png"> </p>
+</li>
+<li><p><strong>x를 1로 고정시킨다고 가정했을 때, 변수 y에 대한 함수 f의 기울기가 4</strong>라는 의미<br>  y에 대해 편미분을 한다는 건 x를 고정시키는 것<br>  x를 1로 고정시키면, 사실상 변수는 y 하나밖에 없으므로, 2차원 그래프를 그릴 수 있고, 그 그래프에 그려지는 이 함수의 기울기가 4임</p>
+<p><img src="/media/math_files/math_for_ML/Partial_Derivative_graph2.png"> </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="가장-가파른-방향-고차원"><a href="#가장-가파른-방향-고차원" class="headerlink" title="가장 가파른 방향 (고차원)"></a>가장 가파른 방향 (고차원)</h3><blockquote>
+<p>가장 가파른 방향 = 함수 값의 변화량이 가장 큰 방향</p>
+</blockquote>
+<hr>
+<p>$﻿f(x, y) = x^2 + 2y^2$ 라는 함수에 대한 그래프는 다음과 같음</p>
+<p><img src="/media/math_files/math_for_ML/higher_order_function_graph1.png"> </p>
+<blockquote>
+<p>함수의 기울기 벡터 : $﻿\nabla f(x, y) = \begin{bmatrix}2x \\ 4y\end{bmatrix}$ (편미분을 통해 구함)</p>
+</blockquote>
+<blockquote>
+<p>기울기 벡터가 주는 정보 : 1. 해당 지점에서의 기울기, 2. <strong>어떤 방향으로 가야 가장 가파르게 올라갈 수 있는지</strong></p>
+</blockquote>
+<p>그래프의 어떤 한 지점에 우리가 딱 놓였다고 가정해보자.</p>
+<blockquote>
+<p>어떤 방향으로 걸어가는지에 따라 더 낮은 곳으로 내려가게 될 수도 있고, 더 높은 곳으로 올라갈 수도 있다. (기울기 벡터의 부호)</p>
+</blockquote>
+<blockquote>
+<p>그리고 조금 더 가파르게 올라갈 수도 있고, 조금 덜 가파르게 올라갈 수도 있다. (기울기 벡터의 요소)</p>
+</blockquote>
+<p>즉, 기울기 벡터는 그래프를 가장 가파르게 올라갈 수 있는 방향을 알려 줌</p>
+<blockquote>
+<p>2차원 그래프에서의 <strong>기울기</strong> 와 고차원 그래프에서의 <strong>기울기가 벡터</strong> 는<br><strong>가장 가파르게 올라가기 위해</strong> 왼쪽으로 가야 하는지, 오른쪽으로 가야 하는지, 기울기가 그 <strong>방향</strong> 을 알려준다.  </p>
+</blockquote>
+<p>예를 들어서 x가 1이고 y가 1인 지점에서의 기울기 벡터는 2, 4이고 그래프에 표시하면 다음과 같음</p>
+<p><img src="/media/math_files/math_for_ML/gredient_vector_ex1.png"> </p>
+<p>즉, 그래프의 저 대각선 방향 (기울기 벡터) 으로 움직이면, 그래프를 가장 가파르게 오를 수 있음</p>
+<p>반대로 가장 가파르게 <strong>내려가고 싶다면, 기울기 벡터에 마이너스</strong> 를 붙여주면 됨</p>
+<p><img src="/media/math_files/math_for_ML/gredient_vector_ex2.png"> </p>
+<hr>
+<p>더 높은 차원</p>
+<p>인풋 변수가 3개 이상이 되면 시각적으로 이걸 이해하는 것이 불가능함 (공간이 3차원이기 때문에 그릴 수 없음..)</p>
+<p>하지만 편미분 개념과 기울기 개념은 <strong>인풋 변수가 아무리 많아져도 똑같이 적용</strong>할 수 있음<br>편미분을 통해 기울기 벡터를 구할 수 있고, 이 기울기 벡터는 가장 가파르게 올라가는 방향을 가리킨다는 점은 언제나 똑같음</p>
+<h4 id="함수의-경사와-함수값"><a href="#함수의-경사와-함수값" class="headerlink" title="함수의 경사와 함수값"></a>함수의 경사와 함수값</h4><blockquote>
+<p>함수의 경사는 함수값이 높아지는 방향을 가르킴</p>
+</blockquote>
+<p>예를 들어 변수 $x$﻿에 대한 함수 $f$ 의 경사가 $﻿x = 3$ 일 때 $﻿5$ 라고 해보자.<br>﻿5 는 양수이므로, $x = 3$ $x$﻿를 늘리면, 함수 $f$ 값은 순간적으로 증가한다.<br>반대로, $x$ 를 줄이면 함수 $f$ 값은 순간적으로 감소한다.</p>
+<p>반대로 경사가 $-3$ (음수) 라고 생각해보자.<br>$x$ 를 늘리면 순간적으로 함수 $f$ 값은 감소한다. 줄이면 순간적으로 줄어든다.</p>
+<blockquote>
+<p>경사가 양수이면, $x$ 를 늘렸을 때, 순간적으로 함수 값이 늘어난다</p>
+</blockquote>
+<blockquote>
+<p>경사가 음수이면, $x$ ﻿를 줄였을 때 순간적으로 함수 값이 줄어든다</p>
+</blockquote>
+<blockquote>
+<p>즉, <strong>경사는 항상 함수가 늘어나는 방향</strong> 을 가르킨다.</p>
+<ul>
+<li>변수가 $x$ 하나일 때는 +, 또는 -의 방향</li>
+<li>두 개 때는 360도 방향 아무 방향</li>
+<li>더 많은 때는 시각적으로 이해하기 힘든 방향</li>
+</ul>
+</blockquote>
+<h2 id="머신-러닝에-미분이-필요한-이유"><a href="#머신-러닝에-미분이-필요한-이유" class="headerlink" title="머신 러닝에 미분이 필요한 이유"></a>머신 러닝에 미분이 필요한 이유</h2><p>함수를 미분하면 <strong>기울기</strong> (특정 지점에서의 순간 변화율)를 구할 수 있고,<br>기울기는 <strong>극소점</strong> (최솟값 포함)과 <strong>극대점</strong> (최댓값 포함), 함수의 변화 ( <strong>증가하거나 감소하는 구간</strong> )을 알려준다.</p>
+<blockquote>
+<p>머신러닝 : 경험적으로 작업의 성능을 최적화해나가는 것</p>
+</blockquote>
+<p>성능 평가, 최적화 방법 </p>
+<p>성능 평가의 기준 = 함수로 표현</p>
+<p>이 함수의 output이 크면 성능이 않좋고, 작을 수록 성능이 작다고 하면, 극소값(그 중 최소값이면 제일 좋음) 을 찾으면 성능이 제일 좋음</p>
+<p>예시 그래프를 한번 살펴보자</p>
+<p><img src="/media/math_files/math_for_ML/performance_function_graph_ex.png"> </p>
+<p>x=1 일 때 성능이 제일 좋고 그 지점을 찾는 것을 <strong>최적화</strong> 라고 한다.</p>
+<!-- ![](/media/math_files/math_for_ML/performance_function_graph_ex1.png)  -->
+
+
+<p>즉, 최적화를 위해선 함수의 극소값을 찾아야 하므로 미분의 이해가 중요하다.</p>
+<p>한 점에서 기울기는 해당 함수를 미분한 식으로 구하며</p>
+<p>순간변화율을 통해 함수의 극대점이나 극소점을 찾아 나갈 수 있으므로 머신러닝의 중요 개념임</p>
+<hr>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>머신러닝을 위한 수학</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-05-15, 15:54:54</p>
+    <p><span class="copy-title">Updated At:</span>2021-06-03, 16:00:36</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/05/15/DataScience/Math/Basic/math_for_ML/" title="머신러닝을 위한 수학">https://chaejin-jen.github.io/2021/05/15/DataScience/Math/Basic/math_for_ML/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

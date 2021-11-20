@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>웹개발 기초 지식 | Chaejin&#39;s Blog</title>
+  <meta name="keywords" content=" WebService Basic ">
+  <meta name="description" content="웹개발 기초 지식 | Chaejin&#39;s Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Philgineer | My daily reports for Naver Boostamp AI Tech            {&quot;description&quot;:&quot;My daily reports for Naver Boostamp AI Tech&quot;,&quot;url&quot;:&quot;https:&#x2F;&#x2F;philgineer.github.io&#x2F;&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;na">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chaejin&#39;s Blog">
+<meta property="og:url" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech.html">
+<meta property="og:site_name" content="Chaejin&#39;s Blog">
+<meta property="og:description" content="Philgineer | My daily reports for Naver Boostamp AI Tech            {&quot;description&quot;:&quot;My daily reports for Naver Boostamp AI Tech&quot;,&quot;url&quot;:&quot;https:&#x2F;&#x2F;philgineer.github.io&#x2F;&quot;,&quot;@type&quot;:&quot;WebSite&quot;,&quot;na">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/my-icon.png">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Boostcamp-AI%20Tech-02c73">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Review-합격후기-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/CODE-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day11-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day12-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day13-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day14-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day15-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day16-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day17-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day18-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day19-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day20-45ADA8">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-gold">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-purple">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/REPORT-161c22">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-brown">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day01-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day02-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day03-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day04-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day05-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day06-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day07-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day08-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day09-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day10-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day11-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day12-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day13-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day14-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day15-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day16-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day17-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day18-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day19-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day20-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day21-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day22-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day23-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day24-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day25-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day26-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day27-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day28-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day29-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/공휴일-grey">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day31-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day32-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day33-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day34-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day35-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day36-red">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day37-orange">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day38-yellow">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day39-green">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/Day40-blue">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/github-icon.svg">
+<meta property="og:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/blogger-icon.svg">
+<meta property="article:published_time" content="2021-06-01T02:08:23.258Z">
+<meta property="article:modified_time" content="2021-05-30T05:26:39.003Z">
+<meta property="article:author" content="Chaejin Kim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chaejin-jen.github.io/media/DataScience_files/numpy_pandas/Philgineer/Philgineer%20_%20My%20daily%20reports%20for%20Naver%20Boostamp%20AI%20Tech_files/my-icon.png">
+
+
+<link rel="icon" href="/img/avatar.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/darcula.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="hide-list">
+        <div class="semicircle" data-title=" close">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.png"/>
+</a>
+<div class="author">
+    <span>Chaejin Kim</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="rss"
+               href="/atom.xml"
+               target="_blank">
+                
+                    <i class="iconfont icon-rss"></i>
+                
+            </a>
+        
+    
+        
+            <a title="github"
+               href="https://github.com/chaejin-jen"
+               target="_blank">
+                
+                    <i class="iconfont icon-github"></i>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(44)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="DeepLearning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DeepLearning
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DeepLearning<--->밑바닥 3">
+                                        
+                                        밑바닥 3
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Algorithm">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Algorithm
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Algorithm<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Basic">
+                        
+                        Basic
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="ComputerScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        ComputerScience
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->Bagic">
+                                        
+                                        Bagic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="ComputerScience<--->DataBase">
+                                        
+                                        DataBase
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="DataScience">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        DataScience
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="DataScience<--->Math">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        Math
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="DataScience<--->MathBasic">
+                                                        
+                                                        Basic
+                                                        
+                                                            <small>(5)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Development">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Development
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Development<--->HTML/CSS">
+                                        
+                                        HTML/CSS
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Machin Learning">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Machin Learning
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Machin Learning<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Mathmatics">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Mathmatics
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Mathmatics<--->Basic">
+                                        
+                                        Basic
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Unity">
+                        
+                        Unity
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web Development">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Web Development
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Express">
+                                        
+                                        Express
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->HTML/CSS">
+                                        
+                                        HTML/CSS
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->JavaScript">
+                                        
+                                        JavaScript
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Node.js">
+                                        
+                                        Node.js
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Promise">
+                                        
+                                        Promise
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="Web Development<--->Sequelize">
+                                        
+                                        Sequelize
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="WebService">
+                        
+                        WebService
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="right-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  site_url"
+               
+               href="/about">About</a>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="44">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">Outline</div>
+            <i class="iconfont icon-list" data-title="카테고리"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="이전"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="대소 문자 구분"></i>
+            <i class="iconfont icon-tag" data-title="태그검색"></i>
+        </div>
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="검색 "></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="개요보기 "></i>
+        </div>        
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm Complexity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Big-O</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Computer Science</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data Architecture</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Data structure</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Design</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataBase Modeling</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DataScience Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Decision Tree</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>DeepLearning Framework</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ensemble</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Express</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>HTML basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Interactive Code Editor</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Machin Learning</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Markup Language</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Math Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Network</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Node.js basics</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Optimizing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>OS(Operating System)</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pandas.Dataframe.plot</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Programming Language</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Promise</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Sequelize</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Supervised Algorithms</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>System Programming</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Unity</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>WebService Basic</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>밑바닥 부터 시작하는 딥러닝 3</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All Web Development Sequelize "
+           href="/2021/06/02/WebDevelopment/Sequelize/"
+           data-tag="Sequelize"
+           data-author="" >
+            <span class="post-title" title="Sequelize 사용">Sequelize 사용</span>
+            <span class="post-date" title="2021-06-02 12:01:22">2021/06/02</span>
+        </a>
+        
+        <a  class="All Web Development Express "
+           href="/2021/06/02/WebDevelopment/Express/"
+           data-tag="Express"
+           data-author="" >
+            <span class="post-title" title="Express 사용">Express 사용</span>
+            <span class="post-date" title="2021-06-02 12:01:22">2021/06/02</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/06/02/WebDevelopment/facameats/1_menu_thumbnail/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-06-02 08:50:05">2021/06/02</span>
+        </a>
+        
+        <a  class="All Basic "
+           href="/2021/05/31/Basics/Languages_in_Computer/"
+           data-tag="Programming Language,Markup Language"
+           data-author="" >
+            <span class="post-title" title="언어/언어/언어">언어/언어/언어</span>
+            <span class="post-date" title="2021-05-31 12:41:56">2021/05/31</span>
+        </a>
+        
+        <a  class="All Basic "
+           href="/2021/05/29/DataScience/Basic/interactive_code_editor/"
+           data-tag="Interactive Code Editor"
+           data-author="" >
+            <span class="post-title" title="인터랙티브 코드 편집기 (feat. Jupyter, Colab)">인터랙티브 코드 편집기 (feat. Jupyter, Colab)</span>
+            <span class="post-date" title="2021-05-29 14:58:23">2021/05/29</span>
+        </a>
+        
+        <a  class="All Web Development Promise "
+           href="/2021/05/28/WebDevelopment/Promise/"
+           data-tag="Promise"
+           data-author="" >
+            <span class="post-title" title="Promise 사용">Promise 사용</span>
+            <span class="post-date" title="2021-05-28 01:17:51">2021/05/28</span>
+        </a>
+        
+        <a  class="All Web Development Node.js "
+           href="/2021/05/23/WebDevelopment/JavaScript/NodeJS/"
+           data-tag="Node.js basics"
+           data-author="" >
+            <span class="post-title" title="Node.js 시작하기">Node.js 시작하기</span>
+            <span class="post-date" title="2021-05-23 18:42:31">2021/05/23</span>
+        </a>
+        
+        <a  class="All Development HTML/CSS "
+           href="/2021/05/19/WebDevelopment/CSS/CSS_basics/"
+           data-tag="HTML"
+           data-author="" >
+            <span class="post-title" title="CSS 기본">CSS 기본</span>
+            <span class="post-date" title="2021-05-19 22:32:57">2021/05/19</span>
+        </a>
+        
+        <a  class="All WebService "
+           href="/2021/05/19/WebDevelopment/Web_Development_basics/"
+           data-tag="WebService Basic"
+           data-author="" >
+            <span class="post-title" title="웹개발 기초 지식">웹개발 기초 지식</span>
+            <span class="post-date" title="2021-05-19 22:30:35">2021/05/19</span>
+        </a>
+        
+        <a  class="All Web Development HTML/CSS "
+           href="/2021/05/19/WebDevelopment/HTML/HTML_basics/"
+           data-tag="HTML basics"
+           data-author="" >
+            <span class="post-title" title="HTML 기본">HTML 기본</span>
+            <span class="post-date" title="2021-05-19 22:20:19">2021/05/19</span>
+        </a>
+        
+        <a  class="All Web Development JavaScript "
+           href="/2021/05/19/WebDevelopment/JavaScript/JavaScript_basics/"
+           data-tag="JavaScript basics"
+           data-author="" >
+            <span class="post-title" title="JavaScript 기본">JavaScript 기본</span>
+            <span class="post-date" title="2021-05-19 13:50:54">2021/05/19</span>
+        </a>
+        
+        <a  class="All Mathmatics Basic "
+           href="/2021/05/15/DataScience/Math/Basic/math_for_ML/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="머신러닝을 위한 수학">머신러닝을 위한 수학</span>
+            <span class="post-date" title="2021-05-15 15:54:54">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/decision_tree_and_ensemble/"
+           data-tag="Machin Learning,Decision Tree,Ensemble"
+           data-author="" >
+            <span class="post-title" title="결정 트리와 앙상블 기법">결정 트리와 앙상블 기법</span>
+            <span class="post-date" title="2021-05-15 01:29:47">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/optimizing_machine_learning_models/"
+           data-tag="Machin Learning,Optimizing"
+           data-author="" >
+            <span class="post-title" title="머신 러닝, 더 빠르고 정확하게">머신 러닝, 더 빠르고 정확하게</span>
+            <span class="post-date" title="2021-05-15 01:29:30">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/elementary_supervised_algorithms/"
+           data-tag="Machin Learning,Supervised Algorithms"
+           data-author="" >
+            <span class="post-title" title="기본 지도 학습 알고리즘들">기본 지도 학습 알고리즘들</span>
+            <span class="post-date" title="2021-05-15 01:29:04">2021/05/15</span>
+        </a>
+        
+        <a  class="All Machin Learning Basic "
+           href="/2021/05/15/MachinLearning/pre_machine_learning/"
+           data-tag="Machin Learning"
+           data-author="" >
+            <span class="post-title" title="머신 러닝 기본기">머신 러닝 기본기</span>
+            <span class="post-date" title="2021-05-15 01:28:45">2021/05/15</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/05/14/DataScience/Basic/collecting_and_creating_data/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 만들기">데이터 만들기</span>
+            <span class="post-date" title="2021-05-14 11:17:37">2021/05/14</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/05/14/DataScience/Basic/improving_data_quality/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 퀄리티 높이기">데이터 퀄리티 높이기</span>
+            <span class="post-date" title="2021-05-14 11:07:07">2021/05/14</span>
+        </a>
+        
+        <a  class="All "
+           href="/2021/04/30/DeepLearning/%EB%B0%91%EB%B0%94%EB%8B%A5%EB%B6%80%ED%84%B0%EC%8B%9C%EC%9E%91%ED%95%98%EB%8A%94%EB%94%A5%EB%9F%AC%EB%8B%9D1%EA%B6%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title=""></span>
+            <span class="post-date" title="2021-04-30 08:19:52">2021/04/30</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/28/DataScience/Basic/data_analysis_and_visualization/"
+           data-tag="DataScience Basic,pandas.Dataframe.plot"
+           data-author="" >
+            <span class="post-title" title="데이터 분석과 시각화">데이터 분석과 시각화</span>
+            <span class="post-date" title="2021-04-28 19:43:13">2021/04/28</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/16/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EC%84%A4%EA%B3%84/"
+           data-tag="DataBase Design"
+           data-author="" >
+            <span class="post-title" title="데이터베이스 설계">데이터베이스 설계</span>
+            <span class="post-date" title="2021-04-16 11:08:00">2021/04/16</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/13/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%AA%A8%EB%8D%B8%EB%A7%81/"
+           data-tag="DataBase Modeling"
+           data-author="" >
+            <span class="post-title" title="데이터 모델링">데이터 모델링</span>
+            <span class="post-date" title="2021-04-13 11:43:00">2021/04/13</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/05/DataScience/Basic/Numpy_Pandas/"
+           data-tag="DataScience Basic,Pandas,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy, Pandas 기본 사용">Numpy, Pandas 기본 사용</span>
+            <span class="post-date" title="2021-04-05 22:20:22">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience DataBase "
+           href="/2021/04/05/ComputerScience/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/"
+           data-tag="Data Architecture"
+           data-author="" >
+            <span class="post-title" title="데이터 아키텍처">데이터 아키텍처</span>
+            <span class="post-date" title="2021-04-05 18:13:00">2021/04/05</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/04/ComputerScience/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/"
+           data-tag="Computer Science,Network"
+           data-author="" >
+            <span class="post-title" title="네트워크">네트워크</span>
+            <span class="post-date" title="2021-04-04 17:01:29">2021/04/04</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/04/02/ComputerScience/%EC%BB%B4%ED%93%A8%ED%84%B0%EA%B5%AC%EC%A1%B0/"
+           data-tag="Computer Science,Computer Architecture"
+           data-author="" >
+            <span class="post-title" title="컴퓨터 구조">컴퓨터 구조</span>
+            <span class="post-date" title="2021-04-02 10:12:00">2021/04/02</span>
+        </a>
+        
+        <a  class="All DataScience Basic "
+           href="/2021/04/01/DataScience/Basic/getting_started_with_data_science/"
+           data-tag="DataScience Basic"
+           data-author="" >
+            <span class="post-title" title="데이터 사이언스란?">데이터 사이언스란?</span>
+            <span class="post-date" title="2021-04-01 19:35:53">2021/04/01</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/27/DeepLearning/Mit3/mitdeep4/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (4고지)">밑바닥 딥러닝 3 (4고지)</span>
+            <span class="post-date" title="2021-03-27 19:23:00">2021/03/27</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/25/Unity/unity_basic/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 기본">Unity 기본</span>
+            <span class="post-date" title="2021-03-25 12:03:00">2021/03/25</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/24/DeepLearning/Mit3/mitdeep3/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (3고지)">밑바닥 딥러닝 3 (3고지)</span>
+            <span class="post-date" title="2021-03-24 23:07:00">2021/03/24</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/21/DeepLearning/Mit3/mitdeep2/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (2고지)">밑바닥 딥러닝 3 (2고지)</span>
+            <span class="post-date" title="2021-03-21 13:48:00">2021/03/21</span>
+        </a>
+        
+        <a  class="All Unity "
+           href="/2021/03/19/Unity/unity_install/"
+           data-tag="Unity"
+           data-author="" >
+            <span class="post-title" title="Unity 설치">Unity 설치</span>
+            <span class="post-date" title="2021-03-19 08:53:00">2021/03/19</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/18/DeepLearning/Mit3/mitdeep1/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (1고지)">밑바닥 딥러닝 3 (1고지)</span>
+            <span class="post-date" title="2021-03-18 10:22:00">2021/03/18</span>
+        </a>
+        
+        <a  class="All DeepLearning 밑바닥 3 "
+           href="/2021/03/15/DeepLearning/Mit3/mitdeep0/"
+           data-tag="DeepLearning Framework,밑바닥 부터 시작하는 딥러닝 3"
+           data-author="" >
+            <span class="post-title" title="밑바닥 딥러닝 3 (개요)">밑바닥 딥러닝 3 (개요)</span>
+            <span class="post-date" title="2021-03-15 15:11:00">2021/03/15</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/14/ComputerScience/%EC%8B%9C%EC%8A%A4%ED%85%9C%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/"
+           data-tag="Computer Science,System Programming"
+           data-author="" >
+            <span class="post-title" title="시스템 프로그래밍">시스템 프로그래밍</span>
+            <span class="post-date" title="2021-03-14 23:12:00">2021/03/14</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/13/DataScience/Math/Basic/%ED%96%89%EB%A0%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="행렬">행렬</span>
+            <span class="post-date" title="2021-03-13 19:42:00">2021/03/13</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/11/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="기본 핵심 알고리즘 (정렬, 탐색)">기본 핵심 알고리즘 (정렬, 탐색)</span>
+            <span class="post-date" title="2021-03-11 22:43:00">2021/03/11</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/10/CodeAlgorithm/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98%EB%B3%B5%EC%9E%A1%EB%8F%84/"
+           data-tag="Algorithm,Algorithm Complexity,Big-O"
+           data-author="" >
+            <span class="post-title" title="알고리즘 복잡도">알고리즘 복잡도</span>
+            <span class="post-date" title="2021-03-10 20:26:00">2021/03/10</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/09/DataScience/Math/Basic/%EC%84%A0%ED%98%95%EB%8F%85%EB%A6%BD_%EC%84%A0%ED%98%95%EC%A2%85%EC%86%8D_%EB%9E%AD%ED%81%AC/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="선형독립,선형종속,랭크">선형독립,선형종속,랭크</span>
+            <span class="post-date" title="2021-03-09 20:35:00">2021/03/09</span>
+        </a>
+        
+        <a  class="All Algorithm Basic "
+           href="/2021/03/08/CodeAlgorithm/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/"
+           data-tag="Algorithm,Data structure"
+           data-author="" >
+            <span class="post-title" title="자료구조">자료구조</span>
+            <span class="post-date" title="2021-03-08 19:24:00">2021/03/08</span>
+        </a>
+        
+        <a  class="All ComputerScience Bagic "
+           href="/2021/03/07/ComputerScience/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C/"
+           data-tag="Computer Science,OS(Operating System)"
+           data-author="" >
+            <span class="post-title" title="운영체제">운영체제</span>
+            <span class="post-date" title="2021-03-07 21:18:00">2021/03/07</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/05/DataScience/Math/Basic/%EB%B2%A1%ED%84%B0/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="벡터">벡터</span>
+            <span class="post-date" title="2021-03-05 20:33:00">2021/03/05</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/03/DataScience/Math/Basic/%EC%88%98%EC%97%B4%EC%A7%91%ED%95%A9%EC%9D%98_%ED%95%A9%EA%B3%BC%EA%B3%B1/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수열 집합의 합과 곱">수열 집합의 합과 곱</span>
+            <span class="post-date" title="2021-03-03 14:29:00">2021/03/03</span>
+        </a>
+        
+        <a  class="All DataScience Math Basic "
+           href="/2021/03/02/DataScience/Math/Basic/%EC%88%98%ED%95%99%EA%B8%B0%ED%98%B8/"
+           data-tag="Math Basic"
+           data-author="" >
+            <span class="post-title" title="수학 기호">수학 기호</span>
+            <span class="post-date" title="2021-03-02 07:25:00">2021/03/02</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-WebDevelopment/Web_Development_basics" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">웹개발 기초 지식</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="WebService">WebService</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">WebService Basic</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-05-31 18:53:35'>2021-05-19 22:30</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%AA%A9%EC%B0%A8"><span class="toc-text">목차</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EA%B8%B0%EC%B4%88-%EC%A7%80%EC%8B%9D"><span class="toc-text">기초 지식</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%84%9C%EB%B2%84%EC%99%80-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8"><span class="toc-text">서버와 클라이언트</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP-HyperText-Transfer-Protocol"><span class="toc-text">HTTP (HyperText Transfer Protocol)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-%EC%83%81%ED%83%9C%EC%BD%94%EB%93%9C"><span class="toc-text">HTTP 상태코드</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%EA%B0%80%EC%A7%80-%EB%A9%94%EC%84%9C%EB%93%9C"><span class="toc-text">5 가지 메서드</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP-over-TCP-IP"><span class="toc-text">HTTP over TCP&#x2F;IP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-SDK"><span class="toc-text">API, SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%A3%BC%EC%86%8C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0"><span class="toc-text">웹사이트 주소 이해하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Domain-Name"><span class="toc-text">Domain Name</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EC%95%B1-vs-%EC%9B%B9-%EC%95%B1-vs-%ED%95%98%EC%9D%B4%EB%B8%8C%EB%A6%AC%EB%93%9C-%EC%95%B1"><span class="toc-text">네이티브 앱 vs 웹 앱 vs 하이브리드 앱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A0%81%EC%9D%91%ED%98%95-%EC%9B%B9-vs-%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9"><span class="toc-text">적응형 웹 vs 반응형 웹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%BF%A0%ED%82%A4-vs-%EC%84%B8%EC%85%98-vs-%EC%BA%90%EC%8B%9C"><span class="toc-text">쿠키 vs 세션 vs 캐시</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%A0%95%EB%B3%B4-%EC%88%98%EC%A7%91"><span class="toc-text">이벤트&#x2F;정보 수집</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GA-firebase"><span class="toc-text">GA, firebase</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DB"><span class="toc-text">DB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B4%80%EA%B3%84%ED%98%95-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B2%A0%EC%9D%B4%EC%8A%A4-RDB"><span class="toc-text">관계형 데이터 베이스(RDB)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DBMS"><span class="toc-text">DBMS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sever-Client"><span class="toc-text">Sever, Client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8D%B0%EC%9D%B4%ED%84%B0"><span class="toc-text">이미지데이터</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A7%81%EB%AC%B4%EB%B6%84%EB%A5%98"><span class="toc-text">직무분류</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%AC%B8%EC%84%9C-%EC%A0%95%EB%A6%AC"><span class="toc-text">문서 정리</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%9B%B9"><span class="toc-text">웹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9B%B9%EC%9D%98-%EA%B8%B0%EB%B3%B8"><span class="toc-text">웹의 기본</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%81%AC%EB%A1%AC-%EA%B0%9C%EB%B0%9C%EC%9E%90-%EB%8F%84%EA%B5%AC-%EC%9B%B9-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0"><span class="toc-text">크롬 개발자 도구 웹 이해하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9B%B9%EA%B3%BC-%EC%95%B1%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="toc-text">웹과 앱의 차이</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80"><span class="toc-text">브라우저</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B2%84%EC%A0%84-deprecated"><span class="toc-text">버전, deprecated</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B8%B0%EC%B4%88-%EC%A7%80%EC%8B%9D"><span class="toc-text">프로그래밍 기초 지식</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD"><span class="toc-text">개발 환경</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD%EC%9D%98-%EA%B2%B0%EC%A0%95"><span class="toc-text">개발 환경의 결정</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#python"><span class="toc-text">python</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%88%B4"><span class="toc-text">툴</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC"><span class="toc-text">라이브러리</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React"><span class="toc-text">React</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery"><span class="toc-text">jQuery</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC"><span class="toc-text">프레임워크</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap"><span class="toc-text">Bootstrap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Codeigniter"><span class="toc-text">Codeigniter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js"><span class="toc-text">Vue.js</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B0%B0%ED%8F%AC"><span class="toc-text">배포</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A0%95%EB%A6%AC%EC%95%88%ED%95%9C-%EC%9E%84%EC%8B%9C-%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C-%ED%94%84%EB%A0%88%EC%9E%84-%EC%9B%8C%ED%81%AC"><span class="toc-text">[정리안한 임시] 서버개발 프레임 워크</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cordova"><span class="toc-text">Cordova</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%98%95%EC%83%81%EA%B4%80%EB%A6%AC-%ED%98%91%EC%97%85"><span class="toc-text">형상관리 &#x2F; 협업</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Git"><span class="toc-text">Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B3%B5%EC%9C%A0%EC%A0%80%EC%9E%A5%EC%86%8C-%EC%9B%90%EA%B2%A9%EC%A0%80%EC%9E%A5%EC%86%8C"><span class="toc-text">공유저장소(원격저장소)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%9B%B9-%EC%A0%81%EC%9A%A9-%EC%98%88%EC%8B%9C"><span class="toc-text">웹 적용 예시</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9C%84%EC%B9%98-%EA%B8%B0%EB%B0%98-%EC%84%9C%EB%B9%84%EC%8A%A4"><span class="toc-text">위치 기반 서비스</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%87%BC%ED%95%91%EB%AA%B0"><span class="toc-text">쇼핑몰</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B5%90%ED%86%B5-%EC%95%8C%EB%A6%BC"><span class="toc-text">교통 알림</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A3%BC%EB%AC%B8-%EC%A0%95%EB%B3%B4-%EA%B4%80%EB%A6%AC"><span class="toc-text">주문 정보 관리</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EB%B6%84%EB%A5%98-%EC%95%88%ED%95%9C-%EA%B2%83"><span class="toc-text">분류 안한 것</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%9E%A1%EC%A7%80%EC%8B%9D"><span class="toc-text">잡지식</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CMS-%EC%9B%8C%EB%93%9C%ED%94%84%EB%A0%88%EC%8A%A4"><span class="toc-text">CMS - 워드프레스</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%94%94%EC%9E%90%EC%9D%B8"><span class="toc-text">디자인</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%95%B1%EC%9A%A9%EC%96%B4-%EC%A0%95%EB%A6%AC"><span class="toc-text">앱용어 정리</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%99%B8%EC%A3%BC-%EC%82%AC%EC%9D%B4%ED%8A%B8"><span class="toc-text">외주 사이트</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><p><code>w/W</code> : <strong>글 목차 확인</strong> 또는 글 목록 보기</p>
+<p><code>s/S</code> : <strong>디렉토리 숨기기</strong> 또는 열기</p>
+<hr>
+<h1 id="기초-지식"><a href="#기초-지식" class="headerlink" title="기초 지식"></a>기초 지식</h1><h2 id="서버와-클라이언트"><a href="#서버와-클라이언트" class="headerlink" title="서버와 클라이언트"></a>서버와 클라이언트</h2><p>서버(Server) : 서비스를 제공하는 쪽</p>
+<p>클라이언트(Client) : 서비스를 제공받는 쪽</p>
+<p>예시 : 페이스북 접속</p>
+<ol>
+<li>브라우저를 킨다<ul>
+<li>브라우저는 웹 클라이언트 (웹 페이지를 제공받으려는 쪽)</li>
+</ul>
+</li>
+<li>주소창에 <a target="_blank" rel="noopener" href="http://www.facebook.com/">www.facebook.com</a> 입력<ul>
+<li>웹 서버에 내용을 달라고 요청(Request)</li>
+</ul>
+</li>
+<li>사이트에 접속 (페이지가 뜬다)<ul>
+<li>웹 서버가 응답(Response)함</li>
+<li>HTML, CSS, JavaScript 등</li>
+</ul>
+</li>
+</ol>
+<h2 id="HTTP-HyperText-Transfer-Protocol"><a href="#HTTP-HyperText-Transfer-Protocol" class="headerlink" title="HTTP (HyperText Transfer Protocol)"></a>HTTP (HyperText Transfer Protocol)</h2><p><img src="/media/web_development_files/Express/http.png"><br>출처 : <a target="_blank" rel="noopener" href="https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html">https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html</a></p>
+<h3 id="HTTP-상태코드"><a href="#HTTP-상태코드" class="headerlink" title="HTTP 상태코드"></a>HTTP 상태코드</h3><table>
+<thead>
+<tr>
+<th>상태코드</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1xx</td>
+<td>조건부응답</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>응답성공</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>리다이렉션</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>요청오류(ex 404 Not Found) (​클라이언트 오류)</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>서버오류</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>참고 : 서버는 응답함 json 형식으로</p>
+</blockquote>
+<h3 id="5-가지-메서드"><a href="#5-가지-메서드" class="headerlink" title="5 가지 메서드"></a>5 가지 메서드</h3><table>
+<thead>
+<tr>
+<th>HTTP Verbs (protocol, method)</th>
+<th>의미</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GET</td>
+<td>서버에게 정보를 보내달라고 요청</br>브라우저에 google.com을 입력하면 google서버에 get 신호가 요청(request)되고 서버에서는 이에 응답(respond)하여 페이지를 클라이언트로 보내게 됨</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>클라이언트에서 서버에게 정보를 보내고 받아달라고 요청<br>(form 작성, 로그인에 사용)</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>클라이언트에서 서버에게 정보를 보내고 기존의 정보를 업데이트 해달라고 요청 (포스트 업데이트/수정)</td>
+</tr>
+<tr>
+<td>PATCH</td>
+<td>PUT과 차이 뭔지모르겠음</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>서버에 정보의 삭제를 요청 (포스트, 댓글을 삭제시 사용)</td>
+</tr>
+</tbody></table>
+<p><img src="/media/web_development_files/Basics/http_status_and_crud_1.png"><br><img src="/media/web_development_files/Basics/http_status_and_crud_2.png"><br><img src="/media/web_development_files/Basics/http_status_and_crud_ex.png"><br>출처 : [패스트캠퍼스]생존을 위한 it 필수지식 강의</p>
+<h3 id="HTTP-over-TCP-IP"><a href="#HTTP-over-TCP-IP" class="headerlink" title="HTTP over TCP/IP"></a>HTTP over TCP/IP</h3><p><img src="/media/web_development_files/Express/HTTP_OverTCPIP.png"><br>출처 :<br><a target="_blank" rel="noopener" href="https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html">https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html</a></p>
+<h2 id="API-SDK"><a href="#API-SDK" class="headerlink" title="API, SDK"></a>API, SDK</h2><dl><dt>API(Application Programming Interface, 응용 프로그램 프로그래밍 인터페이스)</dt><dd>응용 프로그램에서 사용할 수 있도록 운영 체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스</dd></dl><p><img src="/media/web_development_files/Basics/API.png">  </p>
+<ul>
+<li><p>Interface : 컴퓨팅에서 컴퓨터 시스템끼리 정보를 교환하는 공유 경계</p>
+<p>  <img src="/media/web_development_files/Basics/user_interface.png">  </p>
+</li>
+<li><p>API<br>  <img src="/media/web_development_files/Basics/what_is_API_1.png"><br>  <img src="/media/web_development_files/Basics/what_is_API_2.png"><br>  <img src="/media/web_development_files/Basics/what_is_API_3.png">  </p>
+<ul>
+<li>예시<br>  <img src="/media/web_development_files/Basics/API_ex1_1.png"><br>  <img src="/media/web_development_files/Basics/API_ex1_2.png">  </li>
+</ul>
+</li>
+<li><p>SDK<br>  <img src="/media/web_development_files/Basics/SDK_ex1_1.png"><br>  <img src="/media/web_development_files/Basics/SDK_ex1_2.png">  </p>
+</li>
+</ul>
+<p>출처 : [패스트캠퍼스]생존을 위한 it 필수지식 강의</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><ul>
+<li>사용 이유 : 형식 통합을 위함</li>
+<li>사용 예시<br>  <img src="/media/web_development_files/Basics/json_ex.png">  </li>
+</ul>
+<h2 id="웹사이트-주소-이해하기"><a href="#웹사이트-주소-이해하기" class="headerlink" title="웹사이트 주소 이해하기"></a>웹사이트 주소 이해하기</h2><p><a target="_blank" rel="noopener" href="https://www.ikea.com/catalog/news?sorting=price&amp;pageNumber=4">https://www.ikea.com/catalog/news?sorting=price&amp;pageNumber=4</a></p>
+<ul>
+<li><code>https</code> : 소통 방식 (http, https)</li>
+<li><code>www.ikea.com</code> : 도메인 이름</li>
+<li><code>/catalog/news</code> : 경로</li>
+<li><code>?sorting=price&amp;pageNumber=4</code> : 쿼리 스트링(파라미터)<ul>
+<li>가격순 정렬</li>
+<li>4 페이지  <blockquote>
+<p>&amp;(and) 사용시 여러개 파라미터 넘김</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Computer_programming#Debugging">https://en.wikipedia.org/wiki/Computer_programming#Debugging</a></p>
+<ul>
+<li><code>https</code> : 소통 방식 (http, https)</li>
+<li><code>en.wikipedia.org</code> : 도메인 이름</li>
+<li><code>/wiki/Computer_programming</code> : 경로</li>
+<li><code>#Debugging</code> : 해당 섹션(heading)으로 이동<ul>
+<li>페이지 내용 자체는 바뀌지 않으나, 페이지가 뜨는 시작위치가 달라짐</li>
+</ul>
+</li>
+</ul>
+<h3 id="Domain-Name"><a href="#Domain-Name" class="headerlink" title="Domain Name"></a>Domain Name</h3><p><img src="/media/web_development_files/Basics/domain_name.png"></p>
+<h2 id="네이티브-앱-vs-웹-앱-vs-하이브리드-앱"><a href="#네이티브-앱-vs-웹-앱-vs-하이브리드-앱" class="headerlink" title="네이티브 앱 vs 웹 앱 vs 하이브리드 앱"></a>네이티브 앱 vs 웹 앱 vs 하이브리드 앱</h2><ul>
+<li><p>native app : 어플리케이션을 만들 때, OS에서 제공하는 기능을 사용</p>
+<ul>
+<li>원래 쓰던 방법, OS 바로 위에서 돌아가는 브라우저 </li>
+<li>특징 : Android, ios 처럼 버전이 따로 있음 (개발 두번 필요)</li>
+<li>장점 : 스마트폰의 자원을 잘 활용 가능</li>
+<li>단점 : 급한 수정사항이나 업데이트 시 불편    </li>
+</ul>
+</li>
+<li><p>웹 앱 : 특정 주소로 들어가지는 웹인 앱</p>
+<ul>
+<li>장점 : 그때 그때 변경하기 좋음</li>
+<li>단점 : 게임이나 영상편집 등 고성능의 앱은 못 만듦</li>
+</ul>
+</li>
+<li><p>Hybrid app : 특정 부분에 웹을 올림(브라우저 사용)</p>
+<ul>
+<li><p>Web 부분 변경 : Sever에 있는 원본을, 웹 클라이언트 개발자가 변경 (서버 개발자가 바꾸는거 아님)</p>
+<ul>
+<li>웹 클라이언트 개발자들이 서버까지 올림 (보통 그정도 함)</li>
+</ul>
+</li>
+<li><p>App 부분 변경 : 어플리케이션 개발자가 변경하고, 업데이트 시켜야 함</p>
+<p><img src="/media/web_development_files/Basics/Hybrid_application.png">  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/media/web_development_files/Basics/type_of_application.png"></p>
+<h2 id="적응형-웹-vs-반응형-웹"><a href="#적응형-웹-vs-반응형-웹" class="headerlink" title="적응형 웹 vs 반응형 웹"></a>적응형 웹 vs 반응형 웹</h2><ul>
+<li>적응형(adoptive) 웹 : 페이지 크기(디바이스)에 따라 페이지 <strong>주소가 우회</strong>됨 (모바일용 사이트 주소 따로 있음)<ul>
+<li>사용 : 사진 크기 조절 등 레이아웃에 있어 뚜렷한 변화가 있을 때 차라리 따로 만드는게 좋음</li>
+</ul>
+</li>
+<li>반응형(responsive) 웹 : <strong>창 크기, 확대/축소</strong> 등에 맞춰 반응하여 <strong>레이아웃이 바뀌는 웹</strong> (주소이동은 없음)<ul>
+<li>사용 : 간단한 정보들, 데이터 배치가 바뀌어도 상관없을 때 (홈페이지 하나로 모든걸 커버하는거라 편함)</li>
+</ul>
+</li>
+</ul>
+<h2 id="쿠키-vs-세션-vs-캐시"><a href="#쿠키-vs-세션-vs-캐시" class="headerlink" title="쿠키 vs 세션 vs 캐시"></a>쿠키 vs 세션 vs 캐시</h2><ul>
+<li>쿠키 : 사이트를 만든 개발자가 특정정보를 사용자의 브라우저(컴퓨터)에 저장되도록 프로그래밍 해놓은 것 <ul>
+<li>브라우저에 저장 </li>
+<li>조작되거나 공개되어도 크게 상관 없는 정보 - 최근 검색 기록, 로그인 안했을 때 장바구니 정보 등 (보안, 결제는 절대 안됨)</li>
+</ul>
+</li>
+<li>세션 : 사용자가 사용했을 때, 서버 컴퓨터에 필요한 내용을 저장<ul>
+<li>서버에 저장</li>
+<li>서버의 자원을 사용하기 때문에 정말 중요한 것만 저장함 (보안, 결제 등)</li>
+</ul>
+</li>
+<li>캐시 : 페이지가 변경 될 때 마다 다시 로그인할 수 없으니까, 캐시를 사용 <ul>
+<li><p>세션 키라 불림</p>
+</li>
+<li><p>서버에게 이 세션의 주인임을 알려줌</p>
+</li>
+<li><p>이미지나 용량이 큰 파일들을 사이트에 한번 접속해서 다운받은 다음 재접속시 다시 받아올 필요가 없도록 데이터가 저장되는 것</p>
+</li>
+<li><p>저장위치는 캐시의 종류에 따라 다름</p>
+<p><img src="/media/web_development_files/Basics/%EC%BF%A0%ED%82%A4.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>쿠키, 세션 : 특정 정보 기록</p>
+</blockquote>
+<blockquote>
+<p>캐시 : 시간과 통신데이터를 절약하기위해 한번 로드한 데이터를 뒀다가 재사용 하는 것</p>
+</blockquote>
+<h3 id="이벤트-정보-수집"><a href="#이벤트-정보-수집" class="headerlink" title="이벤트/정보 수집"></a>이벤트/정보 수집</h3><blockquote>
+<p>고객 client 에서 event 발생 - API 에 의해 수집되어 DB에 저장</p>
+</blockquote>
+<p>이벤트/정보 수집은 client 단에서 일어남</p>
+<!-- 큰 서비스의 경우, 클릭 같은 모든 움직임을 저장
+
+버튼에서 일어나는 동작 -> API 구현, DB로 저장 -->
+
+
+<h4 id="GA-firebase"><a href="#GA-firebase" class="headerlink" title="GA, firebase"></a>GA, firebase</h4><p>보통 웹에서는 GA(google analytics)에 맡기고, 앱은 firebse를 많이 사용한다</p>
+<h2 id="DB"><a href="#DB" class="headerlink" title="DB"></a>DB</h2><p>특징을 알아보자.</p>
+<p>예시: 0.00001 퍼센트의 확률로 고객의 돈이 날아가는 은행이 있다 $\rightarrow$ 아무도 안씀</p>
+<blockquote>
+<p><strong>데이터의 무결성</strong></p>
+</blockquote>
+<p>예시: 1번부터 10000번까지의 데이터를 조사해서 수정하는 시간이 1초라면, 1억개의 데이터가 있다면 데이터 하나 수정하는데 몇시간이 걸림 $\rightarrow$ 장바구니 넣는데 5초 걸린다면 아무도 안씀</p>
+<blockquote>
+<p><strong>빨라야 함</strong></p>
+</blockquote>
+<hr>
+<p>잡담 : <small>실무에서, 데이터베이스 구조는 잘 안바꾸려함<br>데이터베이스 수정시 오래걸리고(테스트 많이해야함), 신중해야함<br>데이터베이스는 빈번하게 바꿀 순 없음 (문제가 생기면 큰일 이니까)  </small></p>
+<h3 id="관계형-데이터-베이스-RDB"><a href="#관계형-데이터-베이스-RDB" class="headerlink" title="관계형 데이터 베이스(RDB)"></a>관계형 데이터 베이스(RDB)</h3><p>Relational database : DB 특징을 만족하기 위해 개발된, 현재의 가장 많이 사용되는 방법론</p>
+<p>관계형 데이터 베이스의 철학을 바탕으로 만든 문서 작업 툴이 바로 엑셀임  </p>
+<h3 id="DBMS"><a href="#DBMS" class="headerlink" title="DBMS"></a>DBMS</h3><ul>
+<li>RDBMS(Relational database management system) : MS SQL Server, Oracle Database, MySQL, MariaDB</li>
+</ul>
+<hr>
+<p>OS(Ubuntu) - 서버 프로그램 - 한 두개의 DBMS</p>
+<p>SQL(Structured Query Language) : DBMS 에 요청하는 명령어  </p>
+<h3 id="Sever-Client"><a href="#Sever-Client" class="headerlink" title="Sever, Client"></a>Sever, Client</h3><ul>
+<li><p>DBMS 는 메모리(RAM)위에서 돌아가서 (CPU가 컨트롤) 하드디스크로 데이터를 저장시킴<br>  <img src="/media/web_development_files/Basics/DBMS_and_client.png"></p>
+</li>
+<li><p>즉, CPU, 메모리, 보조기억장치만 있으면 DBMS 사용가능<br>  <img src="/media/web_development_files/Basics/DBMS_and_client_2.png"></p>
+<ul>
+<li>예시 : 핸드폰 알람은 비행기 모드에서도 울림</li>
+</ul>
+</li>
+</ul>
+<p>서버에 있는 데이터는 서버 개발자가, 클라이언트에 있는 개발자가 다룸</p>
+<blockquote>
+<p>클라이언트 데이터 : 로컬, 내부DB, 네이티브, 클리/클라이언트, 프론트/프론트앤드 </p>
+</blockquote>
+<blockquote>
+<p>서버 데이터 : 서버, API 요청, DB, 백/백앤드<br>(GET 으로 가져온거)</p>
+</blockquote>
+<h3 id="이미지데이터"><a href="#이미지데이터" class="headerlink" title="이미지데이터"></a>이미지데이터</h3><p>이미지는 주소를 가지고 있고, 클라/서버/다른 곳 어디 있는지에 따라 나뉨</p>
+<p><img src="/media/web_development_files/Basics/image_address.png"></p>
+<h2 id="직무분류"><a href="#직무분류" class="headerlink" title="직무분류"></a>직무분류</h2><p><img src="/media/web_development_files/Basics/%EA%B0%9C%EB%B0%9C%EC%A7%81%EB%AC%B4_0.png"><br><img src="/media/web_development_files/Basics/%EA%B0%9C%EB%B0%9C%EC%A7%81%EB%AC%B4_1.png">  </p>
+<ul>
+<li><p>웹</p>
+<ol>
+<li>웹페이지 접속<ul>
+<li><strong>웹 클라이언트, 웹 프론트앤드</strong> : 특정 주소로 접근했을 때, 전달되는 HTML, CSS, JS 파일 만듦 (+ 그걸 전달해주는 서버프로그램 설치)</li>
+</ul>
+</li>
+<li>검색 등 기능 사용 (서버로 <strong>API</strong> 요청, 응답 받아서 웹페이지를 띄움)<ul>
+<li><strong>서버/백앤드</strong> : 서버 위에 서브 프로그램을 코딩해서 올려놔야함. DBMS 연결.<ul>
+<li>예시 : 스프링으로 API 모듈 만들기 (트래픽 몰릴 때 처리하는 코드)     </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>앱</p>
+<ol>
+<li>앱 다운로드<ul>
+<li><strong>모바일 클라이언트 혹은 모바일 프론트앤드</strong> : 앱 만들어서 스토어에 올려놔야함</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>관리자 필드 (back office) : 보통 웹으로 많이 만들음 (서버 또 필요)</p>
+<ul>
+<li><p><strong>웹 클라이언트, 웹 프론트앤드</strong> : 관리자가 접속하면 서버에 내용을 웹으로 띄어줌 (그 웹 페이지를 만들고, 서버프로그램 설치 등)</p>
+</li>
+<li><p><strong>관리자</strong> : 전달받은 웹으로 서버 컴퓨터로 접속해서 관리 (재고 관리 등)</p>
+<p><img src="/media/web_development_files/Basics/admin_page.png">  </p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>서버가 여러개인 나누는 이유 : 컴퓨터 고장시 대비</p>
+</blockquote>
+<h2 id="문서-정리"><a href="#문서-정리" class="headerlink" title="문서 정리"></a>문서 정리</h2><p>필요한 것들이 필요한 만큼만!</p>
+<p>문서의 종류</p>
+<ul>
+<li>새로운 아이디어 토론을 위한 문서</li>
+<li>___에게 새로운 기획안을 이해시키기위한 문서</li>
+<li>회의에서 바뀐 내용을 정리하기 위한 문서(다시 보기용)</li>
+</ul>
+<hr>
+<p>스토리보드 양식 : App 스토리보드, 개정이력, Flow Diagram, Sample …</p>
+<h1 id="웹"><a href="#웹" class="headerlink" title="웹"></a>웹</h1><ul>
+<li>웹의 기본 : HTML, CSS, Javascript</li>
+<li><strong>웹 클라이언트</strong> 라고 부르는 이유 : 서버의 원본 파일을 다운 받아서 표현하기 때문</li>
+<li>브라우저</li>
+</ul>
+<h2 id="웹의-기본"><a href="#웹의-기본" class="headerlink" title="웹의 기본"></a>웹의 기본</h2><ul>
+<li>HTML (HyperText Markup Language) : 서로 다른 시스템과 편집툴을 거쳐도 공용적으로 사용할 수 있도록 문서타입을 만든 것 (즉, 지식을 공유하기 위한 문서작업이 발단이 됨)</li>
+<li>CSS : HTML에 디자인 개념을 넣은 것<ul>
+<li>HTML + CSS =&gt; 퍼블리싱(퍼블리셔)</li>
+</ul>
+</li>
+<li>Javascript : 기능 구현<ul>
+<li>웹으로 API 요청 + 서버의 기능 사용 … 데이터베이스 사용… 등 다이나믹한 모습을 원하게 됨</li>
+</ul>
+</li>
+</ul>
+<h3 id="크롬-개발자-도구-웹-이해하기"><a href="#크롬-개발자-도구-웹-이해하기" class="headerlink" title="크롬 개발자 도구 웹 이해하기"></a>크롬 개발자 도구 웹 이해하기</h3><p>검색을 했을 때 이루어지는 요청과 응답 과정을 확인해 보자!</p>
+<p><img src="/media/web_development_files/Basics/chrom_dev_slow_1.png"><br><img src="/media/web_development_files/Basics/chrom_dev_slow_2.png"><br><img src="/media/web_development_files/Basics/chrom_dev_slow_3.png"><br><img src="/media/web_development_files/Basics/chrom_dev_slow_4.png">  </p>
+<ol>
+<li><p>a 검색 (=&gt; request)</p>
+</li>
+<li><p>respond 한 걸 (json형식), Javascript 가 가져옴</p>
+<ul>
+<li><p>크롬 개발자 도구의 Network 탭에서 HTTP 상태코드 확인 가능</p>
+<ul>
+<li><p><code>200</code> =&gt; 응답성공 (= 웹 페이지가 뜸/표시됨)</p>
+<p>  <img src="/media/web_development_files/Basics/chrom_dev_network.png"></p>
+</li>
+<li><p>Network &gt; Response 탭에서 <strong>json 형식</strong> 응답이 옴</p>
+<p>  <img src="/media/web_development_files/Basics/chrom_dev_network_response.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>우리가 아는 예쁜 화면을 표시, Javascript 처리함</p>
+<ul>
+<li>html(문서), css(디자인)만으로 불가. 즉, javascript가 처리해줘야함</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>이 모든건 서버의 원본 파일을(HTML, CSS, Javascript 원본), 클라이언트에서 받아온 것  </p>
+</blockquote>
+<p><img src="/media/web_development_files/Basics/client_sever_files.png"></p>
+<h3 id="웹과-앱의-차이"><a href="#웹과-앱의-차이" class="headerlink" title="웹과 앱의 차이"></a>웹과 앱의 차이</h3><p>앱과 웹의 차이</p>
+<p><strong>설치 유무</strong>  </p>
+<ul>
+<li>앱 - 설치하여, 실행파일로 계속 실행  <ul>
+<li>[단점] 수정을 위해서는, 설치파일을 업데이트 한 후, 사용자의 업데이트가 필요</li>
+<li>[장점] 네트워크의 영향을 덜 받음</li>
+</ul>
+</li>
+<li>웹 - 그때그때 필요한 파일을 서버로 부터 받아옴<ul>
+<li>[장점] 수정시 원본을 바꾸면 바뀜 (새로고침을 하면 바뀜!)</li>
+<li>[단점] 네트워크에 따라 달라짐<ul>
+<li>극복하기 위한 시도 (PWA) 등이 존재</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>버전의 파편화</p>
+</blockquote>
+<p>앱스토어, 플레이스토어 - 앱 심사</p>
+<h2 id="브라우저"><a href="#브라우저" class="headerlink" title="브라우저"></a>브라우저</h2><p>브라우저는 웹을 띄우는 어플리케이션</p>
+<p><img src="/media/web_development_files/Basics/browser.png">  </p>
+<h3 id="버전-deprecated"><a href="#버전-deprecated" class="headerlink" title="버전, deprecated"></a>버전, deprecated</h3><p><img src="/media/web_development_files/Basics/browser_version.png">  </p>
+<p><a href="caniuse.com/#feat=css-grid">버전 호환 확인 사이트, caniuse</a></p>
+<p>브라우저 점유율에 따라 어떤 버전까지 만들지 정함 (마케팅/기획/개발자 같이 얘기해서 정함)</p>
+<h1 id="프로그래밍-기초-지식"><a href="#프로그래밍-기초-지식" class="headerlink" title="프로그래밍 기초 지식"></a>프로그래밍 기초 지식</h1><h2 id="개발-환경"><a href="#개발-환경" class="headerlink" title="개발 환경"></a>개발 환경</h2><p>프로그램을 작성하고, 실행 시키는 환경 (코딩 환경이라고 부름)</p>
+<h3 id="개발-환경의-결정"><a href="#개발-환경의-결정" class="headerlink" title="개발 환경의 결정"></a>개발 환경의 결정</h3><ol>
+<li><p>운영체제</p>
+<ul>
+<li>Windows / Linux / Mac OS</li>
+</ul>
+</li>
+<li><p> 프로그래밍 언어</p>
+</li>
+<li><p>코드 편집기 (Editor)<br> : 한글, 워드 처럼 코드를 입력할 문서 편집기가 필요함</p>
+<ul>
+<li><p>text 타입의 문서를 저장하는 모든 편집기 사용가능</p>
+<p>  |종류| 설명| Download|<br>  |메모장| 윈도우의 기본 문서 편집도구|시작 =&gt; 메모장 (Windonws)|<br>  |VI editor| 리눅스의 기본 문서 편집도구|<a target="_blank" rel="noopener" href="http://www.vim.org/|">http://www.vim.org/|</a><br>  |Sublime Text<br>Atom<br>VS Code| 프로그래밍에 특화된 문서 편집도구|<a target="_blank" rel="noopener" href="http://www.sublimetext.com/">http://www.sublimetext.com/</a><br><a target="_blank" rel="noopener" href="https://atom.io/">https://atom.io/</a><br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/|">https://code.visualstudio.com/|</a><br>  |PyCharm| 다양한 기능을 갖춘 파이썬 전용 개발 도구|<a target="_blank" rel="noopener" href="https://www.jetbrains.com/pycharm/|">https://www.jetbrains.com/pycharm/|</a></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="python"><a href="#python" class="headerlink" title="python"></a>python</h4><ul>
+<li><p>Python Interpreter</p>
+<ul>
+<li><p>2.7과 3.X 버전이 존재 : 현재 3.X 기준으로 모든 시스템이 작동 됨 (2020년 부터 Tensorflow에서 2.X 지원 안함)</p>
+</li>
+<li><p>기존 라이브러리 사용 여부에 따라 버전을 선택</p>
+</li>
+<li><p>종류</p>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>설명</th>
+<th>Download</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python</td>
+<td>일반적인 파이썬, 기본적인 모듈을 포함</td>
+<td><a target="_blank" rel="noopener" href="https://www.python.org/">https://www.python.org/</a></td>
+</tr>
+<tr>
+<td>Ananconda</td>
+<td>다양한 과학 계산용 모듈들을 묶어서 패키지</td>
+<td><a target="_blank" rel="noopener" href="https://www.anaconda.com/">https://www.anaconda.com/</a></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>python 코드 편집기의 두 가지 타입</p>
+<ol>
+<li> 설치된 어플리케이션 - VS Code …</li>
+<li> 웹 기반 인터랙티브 편집기 - jupyter notebook, colab …</li>
+</ol>
+</li>
+<li><p>코드 편집기 사용 타입</p>
+<ul>
+<li>Type 1 - Python<br>  : Anaconda + VS Code<ul>
+<li>Anaconda : 간편한 파이썬 패키지 관리도구 (ML의 사실상 표준)</li>
+<li>VS Code : MS에서 제공하는 코드 편집 도구 (최근 가장 빨리 발전중)</li>
+</ul>
+</li>
+<li>Type 2 – Data analysis + Deep learning<br>  : Jupyter 또는 Colab<ul>
+<li>Jupyter : 웹 기반 인터랙티브 코드 편집기의 표준</li>
+<li>Colab : 구글에서 제공하는 클라우드 기반 인터랙티브 코드편집기</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="툴"><a href="#툴" class="headerlink" title="툴"></a>툴</h1><p>API, Framwork, Library</p>
+<ul>
+<li><p>API</p>
+<ul>
+<li><p>API : 공공 또는 특정그룹에게 공개되서 정보를 읽거나 넣거나 변경할 수 있는 자판기 같은 것</p>
+</li>
+<li><p>공공 API : 공공 데이터, 네이버 오픈 API 등</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Framework : 목적에 따라 정해놓은 프로세스가 있음 $\rightarrow$ 한 프로젝트에 하나만 있어야 함</p>
+<ul>
+<li>특정종류의 소프트웨어를 만들기 위한, 키트같은것</li>
+<li>spring, django, RAILS</li>
+</ul>
+</li>
+<li><p>Library : 도구 같은 느낌 (망치, 가위, 풀, …)</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>애플 </p>
+<ul>
+<li>프로그래밍 언어 : objective-c, swift</li>
+<li>툴 : UIKit, AppKit, SwiftUI, …</li>
+</ul>
+</li>
+<li><p>구글 </p>
+<ul>
+<li>프로그래밍 언어 : java, kotlin</li>
+<li>툴 : Android Framework</li>
+</ul>
+</li>
+<li><p>웹 (공용 - 사람들이 알아서 툴을 만듦)</p>
+<ul>
+<li><p>스크립트 언어 : JavaScript</p>
+</li>
+<li><p>툴 : ANGULAR JS(구글주도), Vue.js(중국), React.js(facebook), …</p>
+<p><img src="/media/web_development_files/Basics/app_web_lang_framework.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>서버 (미들웨어 - 서버 프로그램)<br>  : 미들웨어 위에 서버 프로그램이 돌아감  |미들웨어|프로그래밍 언어|프레임워크, 라이브러리|<br>  |Ruby|Ruby|RAILS|<br>  |JVM|Java|spring|<br>  |node.js|JavaScript|Express|<br>  |python|python|django|  <img src="/media/web_development_files/Basics/sever_lang_framework.png"></li>
+</ul>
+<hr>
+<p>실제 서비스 개발 React.js, 서버 Express.js(Node.js)</p>
+<h2 id="라이브러리"><a href="#라이브러리" class="headerlink" title="라이브러리"></a>라이브러리</h2><p>자바스크립트 라이브러리 : React, Vue.js, jQuery, …</p>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><p>: 자바스크립트 라이브러리, 가상 돔을 채용하여 대중화<br>React.js 또는 ReactJS 라고도 함</p>
+<ul>
+<li>메모리에 가상 돔을 구성하여 실제 돔과의 차이점을 비교하고 변경된 부분을 실제 돔에 적용</li>
+</ul>
+<h3 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h3><p>: 오픈소스 기반의 자바스크립트 라이브러리  </p>
+<ul>
+<li>(웹사이트에 자바스크립트를 쉽게 활용할 수 있도록 도와줌)<ul>
+<li>jQuery.ajax() 메서드 유명함</li>
+</ul>
+</li>
+<li>사용 하락세<ul>
+<li>웹 표준 API의 확장(ex : Fetch API)</li>
+<li>Bootstrap의 제이쿼리 의존성 제거 등</li>
+<li>웹브라우저 환경 변화 (인터넷 익스플로러가 점유하던 시절갔고, 크롬 등 브라우저 사용됨(윈도우, 맥(Mac), 리눅스(Linux) 등 여러 OS 지원하기 때문) = 우수한 성능의 렌더링 엔진 탑재 + 웹표준의 신속한 반영)</li>
+<li>Virtual DOM 사용하는 라이브러리 (리엑트, 뷰) 등장 </li>
+</ul>
+</li>
+</ul>
+<p>추천 게시글 : <a target="_blank" rel="noopener" href="https://www.samsungsds.com/kr/insights/jQuery.html">제이쿼리(jQuery)를 아직도 사용하나요? - 제이쿼리의 현재와 미래, 2020-10-16</a></p>
+<h2 id="프레임워크"><a href="#프레임워크" class="headerlink" title="프레임워크"></a>프레임워크</h2><p>: 프레임워크 – 뼈대 골조, 클래스나 인터페이스 등을 모아둔 집합체</p>
+<p>프론트앤드 : Bootstrap</p>
+<p>백앤드 : Codeigniter</p>
+<p><small> 미분류<br>Flutter : 구글 개발, 오픈소스 모바일 애플리케이션 개발 프레임워크. 안드로이드/iOS 용 애플리케이션 개발을 위함</small></p>
+<h3 id="Bootstrap"><a href="#Bootstrap" class="headerlink" title="Bootstrap"></a>Bootstrap</h3><p>: 오픈소스 프론트앤드 프레임워크</p>
+<h3 id="Codeigniter"><a href="#Codeigniter" class="headerlink" title="Codeigniter"></a>Codeigniter</h3><p>: PHP framework, 웹 백앤드, …</p>
+<h3 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h3><p>: 웹 애플리케이션의 사용자 인터페이스를 만들기 위해 사용하는 오픈 소스 프로그레시브 자바스크립트 프레임워크, 자바스크립트 라이브러리</p>
+<ul>
+<li>작성 언어 : 타입스크립트</li>
+<li>가상 돔을 적극 채용</li>
+</ul>
+<h2 id="배포"><a href="#배포" class="headerlink" title="배포"></a>배포</h2><h3 id="정리안한-임시-서버개발-프레임-워크"><a href="#정리안한-임시-서버개발-프레임-워크" class="headerlink" title="[정리안한 임시] 서버개발 프레임 워크"></a>[정리안한 임시] 서버개발 프레임 워크</h3><p>Node.js JavaScript 기반, 서버 측에서 실행되는 특징 (대부분의 웹 브라우저에서 실행됨)<br>spring Java 기반, 전자정부 표준 프레임워크의 기반 기술<br>Django Python 기반<br>Codeigniter PHP 기반, 간편한 인터페이스 – 서버 자원 적게 이용<br>Ruby On Rails Ruby 기반, 테스트 웹서버 지원</p>
+<h3 id="Cordova"><a href="#Cordova" class="headerlink" title="Cordova"></a>Cordova</h3><h2 id="형상관리-협업"><a href="#형상관리-협업" class="headerlink" title="형상관리 / 협업"></a>형상관리 / 협업</h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>: 형상관리</p>
+<ol>
+<li>commit : 업데이트</li>
+<li>branch : 나누기</li>
+<li>merge : 기능 합치기</li>
+</ol>
+<hr>
+<h3 id="공유저장소-원격저장소"><a href="#공유저장소-원격저장소" class="headerlink" title="공유저장소(원격저장소)"></a>공유저장소(원격저장소)</h3><p>: github / bitbucket 협업할 때 사용</p>
+<p>완성된 결과물을 관리함</p>
+<p>웹상에서 누가 어떤 코드를 변경했는지 보여줌</p>
+<ol>
+<li>pull : 받아 옴</li>
+<li>push : 올림</li>
+</ol>
+<h1 id="웹-적용-예시"><a href="#웹-적용-예시" class="headerlink" title="웹 적용 예시"></a>웹 적용 예시</h1><h2 id="위치-기반-서비스"><a href="#위치-기반-서비스" class="headerlink" title="위치 기반 서비스"></a>위치 기반 서비스</h2><ul>
+<li>교회 가는 길 : 웹앱 하이브리드, Cordova 배포 (Android, iOS), Node.js</li>
+</ul>
+<h2 id="쇼핑몰"><a href="#쇼핑몰" class="headerlink" title="쇼핑몰"></a>쇼핑몰</h2><ul>
+<li>앳플레이스(핸드메이드 오픈 마켓) : 백앤드-, Codeigniter(PHP framework), 프론트-jQuery, 하이브리드 앱 소스로 배포</li>
+</ul>
+<h2 id="교통-알림"><a href="#교통-알림" class="headerlink" title="교통 알림"></a>교통 알림</h2><ul>
+<li>강릉 시외 및 고속버스터미널 버스정보 디스플레이 시스템 소프트웨어 : 프론트 - React.js, 관리자 페이지 - Node.js, 웹으로 키오스크모드 (상단 메뉴 밀어버림)</li>
+</ul>
+<h2 id="주문-정보-관리"><a href="#주문-정보-관리" class="headerlink" title="주문 정보 관리"></a>주문 정보 관리</h2><p>Node.js : 정보 입력 + 결제</p>
+<h1 id="분류-안한-것"><a href="#분류-안한-것" class="headerlink" title="분류 안한 것"></a>분류 안한 것</h1><p>Interface :</p>
+<p>Build : (컴파일 포함) 개발자의 컴퓨터에서 코드를 작성하여 만든 프로그램을 사람들의 PC나 스마트폰에 설치하거나 서버에 올라가서 실행될 수 있는 형태, 가볍고 군더더기없고 필요에 따라서는 분석하기 어렵게 최종 포장되어 나오는 것</p>
+<p>빌드중이다 = 제품이 발표되기 전에 마지막 단계를 거치는 작업이 진행중이다</p>
+<h1 id="잡지식"><a href="#잡지식" class="headerlink" title="잡지식"></a>잡지식</h1><h2 id="CMS-워드프레스"><a href="#CMS-워드프레스" class="headerlink" title="CMS - 워드프레스"></a>CMS - 워드프레스</h2><p>CMS(Contents Management System) : Contents를 관리하는 시스템</p>
+<p><img src="/media/web_development_files/Basics/wordpress.png"></p>
+<p>단점</p>
+<ul>
+<li>커스터마이징이 안됨</li>
+<li>DB 호환이 안됨 (변경 어려움)</li>
+<li>속도가 느림</li>
+</ul>
+<h2 id="디자인"><a href="#디자인" class="headerlink" title="디자인"></a>디자인</h2><ul>
+<li>제플린 : 스케치 프로그램 - 간격, 크기, 소스코드 추천, 필요한 기능 추천 등에<ul>
+<li>디자이너와 개발자 연결</li>
+</ul>
+</li>
+<li>auto layout, scaling 기능 있지만, 밑에서 몇 떨어지고,,, 등 작업해야함</li>
+</ul>
+<h3 id="앱용어-정리"><a href="#앱용어-정리" class="headerlink" title="앱용어 정리"></a>앱용어 정리</h3><p><img src="/media/web_development_files/Basics/alters_dialogs.png"><br><img src="/media/web_development_files/Basics/sheet.png"><br><img src="/media/web_development_files/Basics/collection_imglist.png"><br><img src="/media/web_development_files/Basics/navigation_bar.png">  </p>
+<p><a target="_blank" rel="noopener" href="https://story.pxd.co.kr/616">UI디테일 용어</a><br><a target="_blank" rel="noopener" href="https://klutzy.github.io/android-design-ko/building-blocks/tabs.html">android developers 페이지 깃허브 블로그에 번역함</a><br><a target="_blank" rel="noopener" href="https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/">https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/</a></p>
+<p><a target="_blank" rel="noopener" href="https://material.io/design/components/dialogs.html">https://material.io/design/components/dialogs.html</a></p>
+<h2 id="외주-사이트"><a href="#외주-사이트" class="headerlink" title="외주 사이트"></a>외주 사이트</h2><p>freemoa</p>
+<p>wishket </p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> Thanks for reading my post. </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">Title:</span>웹개발 기초 지식</p>
+    
+    <p><span class="copy-title">Author:</span><a  title="Chaejin Kim">Chaejin Kim</a></p>
+    <p><span class="copy-title">Created At:</span>2021-05-19, 22:30:35</p>
+    <p><span class="copy-title">Updated At:</span>2021-05-31, 18:53:35</p>
+    <span class="copy-title">Url:</span><a class="post-url" href="/2021/05/19/WebDevelopment/Web_Development_basics/" title="웹개발 기초 지식">https://chaejin-jen.github.io/2021/05/19/WebDevelopment/Web_Development_basics/</a>
+    <p>
+        <span class="copy-title">Copyright:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#39;Attribution-non-commercial-shared in the same way 4.0&#39;</a> Reprint please keep the original link and author.
+    </p>
+</div>
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021 Chaejin Kim
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="전체 화면 전환 단축키 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 572px;
+    }
+    .nav.fullscreen {
+        margin-right: -572px;
+    }
+    .nav-left {
+        width: 150px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-right: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-right: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #3390FF;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    #post .pjax article .article-entry>ol, #post .pjax article .article-entry>ul, #post .pjax article>ol, #post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    #post .pjax article .article-entry li>ol, #post .pjax article .article-entry li>ul,#post .pjax article li>ol, #post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #post .pjax article .article-entry>ol>li, #post .pjax article .article-entry>ul>li,#post .pjax article>ol>li, #post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    #post .pjax article .article-entry li>ol>li, #post .pjax article .article-entry li>ul>li,#post .pjax article li>ol>li, #post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
